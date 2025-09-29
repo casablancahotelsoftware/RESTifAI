@@ -1,0 +1,69 @@
+{
+    "info": {
+        "name": "unsupportedSpeciesHugoSymbol_FU",
+        "description": "Change the `hugoSymbol` path parameter to a Hugo symbol that is valid but belongs to a different species or domain not supported by the endpoint, e.g., 'BRCA1_MOUSE', to test domain-specific symbol validation.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/hgnc/:hugoSymbol",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "hgnc",
+                        ":hugoSymbol"
+                    ],
+                    "variable": [
+                        {
+                            "key": "hugoSymbol",
+                            "value": "BRCA1_MOUSE"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.request.path_params.hugoSymbol', 'BRCA1_MOUSE');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

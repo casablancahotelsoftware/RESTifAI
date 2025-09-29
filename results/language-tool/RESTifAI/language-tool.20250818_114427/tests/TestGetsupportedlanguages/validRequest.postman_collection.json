@@ -1,0 +1,76 @@
+{
+    "info": {
+        "name": "validRequest",
+        "description": "This test case tests the endpoint for valid data and expects a successful response from the service",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "getSupportedLanguages",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/languages",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "languages"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getSupportedLanguages.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getSupportedLanguages.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getSupportedLanguages.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": []
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9001/v2');"
+                ]
+            }
+        }
+    ]
+}

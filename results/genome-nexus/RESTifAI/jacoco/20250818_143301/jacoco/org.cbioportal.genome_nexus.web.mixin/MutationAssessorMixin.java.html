@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MutationAssessorMixin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.mixin</a> &gt; <span class="el_source">MutationAssessorMixin.java</span></div><h1>MutationAssessorMixin.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.mixin;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import io.swagger.annotations.ApiModelProperty;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L8">public class MutationAssessorMixin</span>
+{
+    @ApiModelProperty(value = &quot;User-input variants&quot;, required = true)
+    private String input;
+
+    @ApiModelProperty(value = &quot;Hugo gene symbol&quot;, required = false)
+    private String hugoSymbol;
+
+    @ApiModelProperty(value = &quot;Reference genome variant&quot;, required = false)
+    private String referenceGenomeVariant;
+
+    @ApiModelProperty(value = &quot;Reference genome variant type&quot;, required = false)
+    private String referenceGenomeVariantType;
+
+    @ApiModelProperty(value = &quot;Functional impact&quot;, required = false)
+    private String functionalImpact;
+
+    @ApiModelProperty(value = &quot;Functional impact score&quot;, required = false)
+    private double functionalImpactScore;
+
+    @ApiModelProperty(value = &quot;Link to multiple sequence alignment&quot;, required = false)
+    private String msaLink;
+
+    @ApiModelProperty(value = &quot;Link to 3d structure browser&quot;, required = false)
+    private String pdbLink;
+
+    @ApiModelProperty(value = &quot;Variant conservation score&quot;, required = false)
+    private double variantConservationScore;
+
+    @ApiModelProperty(value = &quot;Variant specificity score&quot;, required = false)
+    private double variantSpecificityScore;
+
+    @ApiModelProperty(value = &quot;Mapping issue info&quot;, required = false)
+    private String mappingIssue;
+
+    @ApiModelProperty(value = &quot;Amino acid substitution&quot;, required = false)
+    private String variant;
+
+    @ApiModelProperty(value = &quot;Uniprot protein accession ID&quot;, required = false)
+    private String uniprotId;
+
+    @ApiModelProperty(value = &quot;Refseq protein ID&quot;, required = false)
+    private String refseqId;
+
+    @ApiModelProperty(value = &quot;Portion of gaps in variant position in multiple sequence alignment&quot;, required = false)
+    private double msaGaps;
+
+    @ApiModelProperty(value = &quot;Number of diverse sequences in multiple sequence alignment (identical or highly similar sequences filtered out)&quot;, required = false)
+    private int msaHeight;
+
+    @ApiModelProperty(value = &quot;Codon start position&quot;, required = false)
+    private String codonStartPosition;
+
+    @ApiModelProperty(value = &quot;Variant position in Uniprot protein, can be different from the one in Refseq&quot;, required = false)
+    private int uniprotPosition;
+
+    @ApiModelProperty(value = &quot;Reference residue in Uniprot protein, can be different from the one in Refseq&quot;, required = false)
+    private String uniprotResidue;
+
+    @ApiModelProperty(value = &quot;Variant position in Refseq protein, can be different from the one in Uniprot&quot;, required = false)
+    private int refseqPosition;
+
+    @ApiModelProperty(value = &quot;Reference residue in Refseq protein, can be different from the one in Uniprot&quot;, required = false)
+    private String refseqResidue;
+
+    @ApiModelProperty(value = &quot;Number of mutations in COSMIC for this protein&quot;, required = false)
+    private int cosmicCount;
+
+    @ApiModelProperty(value = &quot;Number of SNPs in dbSNP for this protein&quot;, required = false)
+    private int snpCount;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,67 @@
+{
+    "info": {
+        "name": "fieldsUnauthorizedFieldAccess_FU",
+        "description": "Set the `fields` query parameter to request a field that requires user authentication or specific permissions which are not provided, e.g., fields=\"id,name,confidentialInfo\" without authentication context.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v2All",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/all?fields=id,name,confidentialInfo",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "all"
+                    ],
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": "id,name,confidentialInfo"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v2All.request.query_params.fields', 'id,name,confidentialInfo');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

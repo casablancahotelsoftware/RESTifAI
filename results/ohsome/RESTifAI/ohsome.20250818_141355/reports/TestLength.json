@@ -1,0 +1,1381 @@
+{
+    "test_name": "TestLength",
+    "test_results": [
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "7ade5d14-bb25-4168-97f7-8a0c95087448",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:27:17.686649233\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=xml&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterExpression_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "89c4e3ce-21bb-4d8e-a56e-b2f6de76719e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20type%3Dnode"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:23 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 5265,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20type%3Dnode&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "33f3e50c-439d-4390-87eb-c218bd54848c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "20240601"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:28 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 3720,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=20240601&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedFilterTagValue_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "91509247-e2d0-43ca-a900-da681ec5c71c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dnonexistenthighwaytype"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2831,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dnonexistenthighwaytype&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBpolysFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "76f4f72a-0119-4af3-bce2-cf382acc24be",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "invalidPolygonData"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:27:32.614966086\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bpolys=invalidPolygonData\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroAreaBoundingBox_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "e93bbf21-b6f5-41a1-a98a-f9f10e744687",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4924,41.8902"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:33 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 99,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4924,41.8902&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeParameterInFuture_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "bfcd4c33-272f-491e-a139-0a64740e48d8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2100-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:33 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:27:34.316949281\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2100-01-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "negativeTimeoutValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "79e482d8-f24e-4ccc-93c7-12eeee09f2a5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "-10"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:35 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:27:35.092+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/elements/length\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "zeroTimeoutValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "9ac54cf4-15b4-4b11-a1e2-5052599a5439",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:27:35 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:27:35.870645059\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFilterValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "9b08c8ab-e573-4e5c-bf62-e8fdcb183a2c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:28:03 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 27033,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 276.74\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "incompleteBboxesCoordinates_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "c7cea2e2-09a9-4c27-b224-0e76eded22e1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:28:03 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:28:04.400332322\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "0bc9a1ed-a911-44f5-b881-f3724bbeb500",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "yes"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:28:08 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 3027,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=yes&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "disjointBoundingBoxes_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "0b0cab54-5026-4330-8ed5-1f32a537e2d0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|50.0000,10.0000,50.0002,10.0002"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:32:46 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 277800,\n    \"description\" : \"Total length of items in meters.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|50.0000,10.0000,50.0002,10.0002&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"result\" : [ {\n    \"timestamp\" : \"2024-06-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeRangeOrder_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "e8229ba9-2b84-4455-a7f6-c06fa98e2ccd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-02T00:00:00Z/2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:33:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:33:17.629108884\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-02T00:00:00Z/2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "selfIntersectingPolygon_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "1c96c53c-830f-4f2e-bf90-58295faca938",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "12.4924,41.8902,12.4926,41.8904,12.4924,41.8904,12.4926,41.8902,12.4924,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:33:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:33:18.441867187\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bpolys=12.4924,41.8902,12.4926,41.8904,12.4924,41.8904,12.4926,41.8902,12.4924,41.8902\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length",
+                    "id": "a1592ec8-a1c7-4c67-8ff2-c54fee136b1b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dresidential"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 2xx",
+                                "message": "expected 413 to be within 200..299",
+                                "stack": "AssertionError: expected 413 to be within 200..299\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:33:49 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:33:49.298644069\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T16:33:49.414783",
+    "statistics": {
+        "total_test_cases": 16,
+        "passed_test_cases": 7,
+        "failed_test_cases": 9,
+        "test_cases_with_server_errors": 1,
+        "total_requests": 16,
+        "success_rate": 43.75,
+        "avg_requests_per_case": 1.0
+    }
+}

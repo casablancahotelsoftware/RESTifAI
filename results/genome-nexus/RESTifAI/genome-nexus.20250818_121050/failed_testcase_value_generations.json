@@ -1,0 +1,10 @@
+[
+    {
+        "description": "Change the `hugoSymbol` path parameter to a valid Hugo symbol 'TP53' but simulate a logical mismatch where the gene ID returned by fetchCanonicalEnsemblGeneIdByHugoSymbolGET does not match the gene ID associated with the transcript returned by fetchCanonicalEnsemblTranscriptByHugoSymbolGET, e.g., transcript belongs to ENSG000002 but gene symbol is TP53 (ENSG00000141510).",
+        "test_name": "geneIdTranscriptMismatch_FU"
+    },
+    {
+        "description": "Provide a `hugoSymbol` query parameter that is valid but corresponds to a gene with no transcripts in the database, e.g., 'EMPTYGENE', to test fetching transcripts for a gene symbol with no data.",
+        "test_name": "hugoSymbolWithNoTranscripts_FU"
+    }
+]

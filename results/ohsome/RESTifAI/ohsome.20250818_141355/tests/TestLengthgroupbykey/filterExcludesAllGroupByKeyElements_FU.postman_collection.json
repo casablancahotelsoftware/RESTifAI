@@ -1,0 +1,369 @@
+{
+    "info": {
+        "name": "filterExcludesAllGroupByKeyElements_FU",
+        "description": "Set the `filter` parameter to a filter that excludes all possible elements with the specified `groupByKeys`, e.g., filter='type:node and building=*' when grouping by 'building', resulting in no valid elements to group by.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'result[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[0].value', x4);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('area.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('area.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('area.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthGroupByKey",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/groupBy/key?bboxes=8.67,49.39,8.71,49.42&groupByKeys=building&filter=type%3Anode%20and%20building%3D%2A&format=json&showMetadata=false&time=2025-07-01T12:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "groupBy",
+                        "key"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "groupByKeys",
+                            "value": "building"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Anode%20and%20building%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2025-07-01T12:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'groupByResult[0].groupByObject');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.groupByResult[0].groupByObject', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'groupByResult[0].result[0].timestamp');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.groupByResult[0].result[0].timestamp', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'groupByResult[0].result[0].value');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.groupByResult[0].result[0].value', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'groupByResult[1].groupByObject');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.groupByResult[1].groupByObject', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'groupByResult[1].result[0].timestamp');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.groupByResult[1].result[0].timestamp', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'groupByResult[1].result[0].value');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.body.groupByResult[1].result[0].value', x8);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('lengthGroupByKey.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('lengthGroupByKey.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.groupByKeys', 'building');",
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.filter', 'type%3Anode%20and%20building%3D%2A');",
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.time', '2025-07-01T12:00:00Z');",
+                            "pm.collectionVariables.set('lengthGroupByKey.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

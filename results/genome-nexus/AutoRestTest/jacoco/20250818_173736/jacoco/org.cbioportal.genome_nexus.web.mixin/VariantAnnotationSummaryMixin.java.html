@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariantAnnotationSummaryMixin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.mixin</a> &gt; <span class="el_source">VariantAnnotationSummaryMixin.java</span></div><h1>VariantAnnotationSummaryMixin.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.mixin;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+import org.cbioportal.genome_nexus.model.GenomicLocation;
+import org.cbioportal.genome_nexus.model.TranscriptConsequenceSummary;
+
+import java.util.List;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L12">public class VariantAnnotationSummaryMixin</span>
+{
+    @JsonProperty(required = true)
+    @ApiModelProperty(value = &quot;Variant key&quot;, required = true)
+    private String variant;
+
+    @ApiModelProperty(value = &quot;Genomic location&quot;)
+    private GenomicLocation genomicLocation;
+
+    @ApiModelProperty(value = &quot;Strand (- or +)&quot;)
+    private String strandSign;
+
+    @ApiModelProperty(value = &quot;Variant type&quot;)
+    private String variantType;
+
+    @ApiModelProperty(value = &quot;Assembly name&quot;)
+    private String assemblyName;
+
+    @ApiModelProperty(value = &quot;Canonical transcript id&quot;)
+    private String canonicalTranscriptId;
+
+    @ApiModelProperty(value = &quot;Most impactful transcript consequence of canonical transcript or if non-existent any transcript&quot;, required = true)
+    private TranscriptConsequenceSummary transcriptConsequenceSummary;
+
+    @ApiModelProperty(value = &quot;All transcript consequence summaries&quot;, required = true)
+    private List&lt;TranscriptConsequenceSummary&gt; transcriptConsequenceSummaries;
+
+    @ApiModelProperty(value = &quot;(Deprecated) Transcript consequence summaries (list of one when using annotation/, multiple when using annotation/summary/&quot;, required = true)
+    private List&lt;TranscriptConsequenceSummary&gt; transcriptConsequences;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

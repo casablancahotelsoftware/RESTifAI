@@ -1,0 +1,67 @@
+{
+    "info": {
+        "name": "invalidRegionParameter_FU",
+        "description": "Invoke the v1All GET request with an added query parameter `region=Atlantis` which is a non-existent region, violating business logic that only known regions are valid.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v1All",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v1/all?region=Atlantis",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v1",
+                        "all"
+                    ],
+                    "query": [
+                        {
+                            "key": "region",
+                            "value": "Atlantis"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v1All.request.query_params.region', 'Atlantis');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+{
+    "info": {
+        "name": "emptyHugoSymbol_ST",
+        "description": "Set the `hugoSymbol` query parameter to an empty string, violating the non-empty string constraint, e.g., hugoSymbol=''",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/hgnc/",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "hgnc",
+                        ""
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.request.path_params.hugoSymbol', '');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchEnsemblTranscriptsGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/transcript?geneId={{fetchEnsemblTranscriptsGET.request.query_params.geneId}}&proteinId=ENSP00000439985&hugoSymbol=TP53",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "transcript"
+                    ],
+                    "query": [
+                        {
+                            "key": "geneId",
+                            "value": "{{fetchEnsemblTranscriptsGET.request.query_params.geneId}}"
+                        },
+                        {
+                            "key": "proteinId",
+                            "value": "ENSP00000439985"
+                        },
+                        {
+                            "key": "hugoSymbol",
+                            "value": "TP53"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchEnsemblTranscriptsGET.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchEnsemblTranscriptsGET.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchEnsemblTranscriptsGET.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsGET.request.query_params.geneId', pm.collectionVariables.get('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.geneId'));",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsGET.request.query_params.proteinId', 'ENSP00000439985');",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsGET.request.query_params.hugoSymbol', 'TP53');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

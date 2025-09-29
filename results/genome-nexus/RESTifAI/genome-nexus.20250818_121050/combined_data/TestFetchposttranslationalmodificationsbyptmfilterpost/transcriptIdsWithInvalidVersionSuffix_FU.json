@@ -1,0 +1,318 @@
+{
+  "test_name": "transcriptIdsWithInvalidVersionSuffix_FU",
+  "description": "Set the `transcriptIds` parameter to include a transcript ID with an invalid version suffix that does not exist, e.g., ['ENST00000269305.999'], violating the business rule that transcript versions must be valid and recognized.",
+  "test_suite": "TestFetchposttranslationalmodificationsbyptmfilterpost",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+    "fetchPostTranslationalModificationsByPtmFilterPOST"
+  ],
+  "values_to_create_a_successful_request": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET.request.path_params.hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.geneId: ENSG00000141510\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[0]: p53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[1]: LFS1\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.entrezGeneId: 7157\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Date: Mon, 18 Aug 2025 12:23:20 GMT\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.status_code: 200\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.query_params.isoformOverrideSource: uniprot\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.headers.Content-Type: application/json\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.body.[0]: TP53\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].transcriptId: ENST00000269305\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].geneId: ENSG00000141510\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].refseqMrnaId: NM_000546\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].ccdsId: CCDS11118\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].hugoSymbols[0]: TP53\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].proteinId: ENSP00000269305\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].proteinLength: 393\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[0].pfamDomainId: PF07710\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[0].pfamDomainStart: 318\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[0].pfamDomainEnd: 358\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[1].pfamDomainId: PF08563\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[1].pfamDomainStart: 6\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[1].pfamDomainEnd: 29\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[2].pfamDomainId: PF00870\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[2].pfamDomainStart: 95\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[2].pfamDomainEnd: 288\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].exonId: ENSE00003605891\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].exonStart: 7571720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].exonEnd: 7573008\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].rank: 11\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].exonId: ENSE00003545950\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].exonStart: 7573927\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].exonEnd: 7574033\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].rank: 10\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].exonId: ENSE00003636029\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].exonStart: 7576853\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].exonEnd: 7576926\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].rank: 9\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].exonId: ENSE00003586720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].exonStart: 7577019\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].exonEnd: 7577155\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].rank: 8\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].exonId: ENSE00003504863\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].exonStart: 7577499\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].exonEnd: 7577608\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].rank: 7\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].exonId: ENSE00003462942\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].exonStart: 7578177\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].exonEnd: 7578289\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].rank: 6\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].exonId: ENSE00003518480\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].exonStart: 7578371\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].exonEnd: 7578554\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].rank: 5\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].exonId: ENSE00003625790\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].exonStart: 7579312\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].exonEnd: 7579590\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].rank: 4\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].exonId: ENSE00002419584\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].exonStart: 7579700\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].exonEnd: 7579721\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].rank: 3\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].exonId: ENSE00002667911\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].exonStart: 7579839\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].exonEnd: 7579940\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].rank: 2\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].exonId: ENSE00001146308\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].exonStart: 7590695\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].exonEnd: 7590856\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].rank: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].version: 3\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].type: three_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].start: 7571720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].end: 7572926\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].start: 7579913\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].end: 7579940\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].start: 7590695\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].end: 7590856\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].uniprotId: P04637\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Date: Mon, 18 Aug 2025 12:23:21 GMT\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.status_code: 200\nfetchPostTranslationalModificationsByPtmFilterPOST.request.headers.Content-Type: application/json\nfetchPostTranslationalModificationsByPtmFilterPOST.request.body.transcriptIds[0]: ENST00000269305\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].position: 124\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].type: S-nitrosylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].pubmedIds[0]: 7791795\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].pubmedIds[1]: 23796488\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].pubmedIds[2]: 15998249\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[0].sequence: LHSGTAKSVTCTYSPALNKMF\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].position: 141\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].type: S-nitrosylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].pubmedIds[0]: 7791795\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].pubmedIds[1]: 23796488\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].pubmedIds[2]: 15998249\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[1].sequence: NKMFCQLAKTCPVQLWVDSTP\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].position: 182\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].type: S-nitrosylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].pubmedIds[0]: 7791795\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].pubmedIds[1]: 23796488\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].pubmedIds[2]: 15998249\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[2].sequence: VVRRCPHHERCSDSDGLAPPQ\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].position: 386\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].type: Sumoylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].pubmedIds[0]: 22214662\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].pubmedIds[1]: 11124955\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[3].sequence: STSRHKKLMFKTEGPDSD---\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].position: 120\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].type: Acetylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].pubmedIds[0]: 23431171\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[4].sequence: RLGFLHSGTAKSVTCTYSPAL\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].position: 164\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].type: Acetylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].pubmedIds[0]: 18485870\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[5].sequence: GTRVRAMAIYKQSQHMTEVVR\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].position: 173\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].type: Acetylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].pubmedIds[0]: 12724314\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].pubmedIds[1]: 19608861\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[6].sequence: PHHELPPGSTKRALPNNTSSS\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].position: 187\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].type: Acetylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].pubmedIds[0]: 17110336\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[7].sequence: PNNTSSSPQPKKKPLDGEYFT\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].position: 188\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].type: Acetylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].pubmedIds[0]: 9891054\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].pubmedIds[1]: 9744860\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].pubmedIds[2]: 17110336\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[8].sequence: NNTSSSPQPKKKPLDGEYFTL\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].uniprotEntry: P53_HUMAN\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].uniprotAccession: P04637\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[0]: ENST00000269305.8\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[1]: ENST00000619485.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[2]: ENST00000504290.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[3]: ENST00000617185.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[4]: ENST00000504937.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[5]: ENST00000510385.5\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[6]: ENST00000620739.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[7]: ENST00000420246.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[8]: ENST00000622645.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[9]: ENST00000455263.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[10]: ENST00000610292.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[11]: ENST00000445888.6\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].ensemblTranscriptIds[12]: ENST00000610538.4\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].position: 160\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].type: Acetylation\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].pubmedIds[0]: 12724314\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].pubmedIds[1]: 19608861\nfetchPostTranslationalModificationsByPtmFilterPOST.response.body[9].sequence: RRTEEENLRKKGEPHHELPPG\nfetchPostTranslationalModificationsByPtmFilterPOST.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchPostTranslationalModificationsByPtmFilterPOST.response.headers.Content-Encoding: gzip\nfetchPostTranslationalModificationsByPtmFilterPOST.response.headers.Content-Type: application/json\nfetchPostTranslationalModificationsByPtmFilterPOST.response.headers.Transfer-Encoding: chunked\nfetchPostTranslationalModificationsByPtmFilterPOST.response.headers.Date: Mon, 18 Aug 2025 12:23:23 GMT\nfetchPostTranslationalModificationsByPtmFilterPOST.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchCanonicalEnsemblGeneIdByHugoSymbolGET\n- Method: GET\n- Path: /ensembl/canonical-gene/hgnc/{hugoSymbol}\n- Parameters:\n  - name: hugoSymbol\n  - in: path\n  - required: True\n  - description: A Hugo Symbol. For example TP53\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'required': ['geneId', 'hugoSymbol'], 'type': 'object', 'properties': {'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'hugoSymbol': {'type': 'string', 'description': 'Approved Hugo symbol'}, 'synonyms': {'type': 'array', 'description': 'Hugo symbol synonyms', 'items': {'type': 'string'}}, 'previousSymbols': {'type': 'array', 'description': 'Previous Hugo symbols', 'items': {'type': 'string'}}, 'entrezGeneId': {'type': 'string', 'description': 'Entrez Gene Id'}}}}}}}\n",
+    "#### fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST\n- Method: POST\n- Path: /ensembl/canonical-transcript/hgnc\n- Parameters:\n  - name: isoformOverrideSource\n  - in: query\n  - required: False\n  - description: Isoform override source. For example uniprot\n  - type: string\n  - default: uniprot\n- Request Body Schema:\n{'application/json': {'schema': {'type': 'array', 'items': {'type': 'string'}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'required': ['geneId', 'proteinId', 'transcriptId'], 'type': 'object', 'properties': {'uniprotId': {'type': 'string'}, 'transcriptId': {'type': 'string', 'description': 'Ensembl transcript id'}, 'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'proteinId': {'type': 'string', 'description': 'Ensembl protein id'}, 'proteinLength': {'type': 'integer', 'description': 'Length of protein', 'format': 'int32'}, 'pfamDomains': {'type': 'array', 'description': 'Pfam domains', 'items': {'required': ['pfamDomainEnd', 'pfamDomainId', 'pfamDomainStart'], 'type': 'object', 'properties': {'pfamDomainId': {'type': 'string', 'description': 'Pfam domain id'}, 'pfamDomainStart': {'type': 'integer', 'description': 'Pfam domain start amino acid', 'format': 'int32'}, 'pfamDomainEnd': {'type': 'integer', 'description': 'Pfam domain end amino acid', 'format': 'int32'}}}}, 'hugoSymbols': {'type': 'array', 'description': 'Hugo symbols', 'items': {'type': 'string'}}, 'refseqMrnaId': {'type': 'string', 'description': 'RefSeq mRNA ID'}, 'ccdsId': {'type': 'string', 'description': 'Consensus CDS (CCDS) ID'}, 'exons': {'type': 'array', 'description': 'Exon information', 'items': {'required': ['exonEnd', 'exonId', 'exonStart', 'rank', 'strand', 'version'], 'type': 'object', 'properties': {'exonId': {'type': 'string', 'description': 'Exon id'}, 'exonStart': {'type': 'integer', 'description': 'Start position of exon', 'format': 'int32'}, 'exonEnd': {'type': 'integer', 'description': 'End position of exon', 'format': 'int32'}, 'rank': {'type': 'integer', 'description': 'Number of exon in transcript', 'format': 'int32'}, 'strand': {'type': 'integer', 'description': 'Strand exon is on, -1 for - and 1 for +', 'format': 'int32'}, 'version': {'type': 'integer', 'description': 'Exon version', 'format': 'int32'}}}}, 'utrs': {'type': 'array', 'description': 'UTR information', 'items': {'required': ['end', 'start', 'strand', 'type'], 'type': 'object', 'properties': {'type': {'type': 'string', 'description': 'UTR Type'}, 'start': {'type': 'integer', 'description': 'Start position of UTR', 'format': 'int32'}, 'end': {'type': 'integer', 'description': 'End position of UTR', 'format': 'int32'}, 'strand': {'type': 'integer', 'description': 'Strand UTR is on, -1 for - and 1 for +', 'format': 'int32'}}}}}}}}}}}\n",
+    "#### fetchPostTranslationalModificationsByPtmFilterPOST\n- Method: POST\n- Path: /ptm/experimental\n- Parameters:\nNone\n- Request Body Schema:\n{'application/json': {'schema': {'type': 'object', 'properties': {'transcriptIds': {'type': 'array', 'description': 'List of Ensembl transcript IDs. For example [\"ENST00000361390\",\\n\"ENST00000361453\", \"ENST00000361624\"]', 'items': {'type': 'string'}}}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'type': 'object', 'properties': {'ensemblTranscriptIds': {'type': 'array', 'items': {'type': 'string'}}, 'position': {'type': 'integer', 'format': 'int32'}, 'pubmedIds': {'type': 'array', 'items': {'type': 'string'}}, 'sequence': {'type': 'string'}, 'type': {'type': 'string'}, 'uniprotAccession': {'type': 'string'}, 'uniprotEntry': {'type': 'string'}}}}}}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+      "request_id": "cbad1b7c-e340-4899-9d63-2a0deb1bddd6",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-gene",
+            "hgnc",
+            ":hugoSymbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "hugoSymbol",
+              "value": "TP53",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:28:54 GMT"
+        },
+        "body": {
+          "geneId": "ENSG00000141510",
+          "hugoSymbol": "TP53",
+          "synonyms": [
+            "p53",
+            "LFS1"
+          ],
+          "entrezGeneId": "7157"
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    },
+    {
+      "request_name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+      "request_id": "c39ad2e0-9b31-4f32-8cc0-6413f6be09aa",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-transcript",
+            "hgnc"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "isoformOverrideSource",
+              "value": "uniprot"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": [
+          "TP53"
+        ]
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:28:54 GMT"
+        },
+        "body": [
+          {
+            "transcriptId": "ENST00000269305",
+            "geneId": "ENSG00000141510",
+            "refseqMrnaId": "NM_000546",
+            "ccdsId": "CCDS11118",
+            "hugoSymbols": [
+              "TP53"
+            ],
+            "proteinId": "ENSP00000269305",
+            "proteinLength": 393,
+            "pfamDomains": [
+              {
+                "pfamDomainId": "PF07710",
+                "pfamDomainStart": 318,
+                "pfamDomainEnd": 358
+              },
+              {
+                "pfamDomainId": "PF08563",
+                "pfamDomainStart": 6,
+                "pfamDomainEnd": 29
+              },
+              {
+                "pfamDomainId": "PF00870",
+                "pfamDomainStart": 95,
+                "pfamDomainEnd": 288
+              }
+            ],
+            "exons": [
+              {
+                "exonId": "ENSE00003605891",
+                "exonStart": 7571720,
+                "exonEnd": 7573008,
+                "rank": 11,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003545950",
+                "exonStart": 7573927,
+                "exonEnd": 7574033,
+                "rank": 10,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003636029",
+                "exonStart": 7576853,
+                "exonEnd": 7576926,
+                "rank": 9,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003586720",
+                "exonStart": 7577019,
+                "exonEnd": 7577155,
+                "rank": 8,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003504863",
+                "exonStart": 7577499,
+                "exonEnd": 7577608,
+                "rank": 7,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003462942",
+                "exonStart": 7578177,
+                "exonEnd": 7578289,
+                "rank": 6,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003518480",
+                "exonStart": 7578371,
+                "exonEnd": 7578554,
+                "rank": 5,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003625790",
+                "exonStart": 7579312,
+                "exonEnd": 7579590,
+                "rank": 4,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00002419584",
+                "exonStart": 7579700,
+                "exonEnd": 7579721,
+                "rank": 3,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00002667911",
+                "exonStart": 7579839,
+                "exonEnd": 7579940,
+                "rank": 2,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00001146308",
+                "exonStart": 7590695,
+                "exonEnd": 7590856,
+                "rank": 1,
+                "strand": -1,
+                "version": 3
+              }
+            ],
+            "utrs": [
+              {
+                "type": "three_prime_UTR",
+                "start": 7571720,
+                "end": 7572926,
+                "strand": -1
+              },
+              {
+                "type": "five_prime_UTR",
+                "start": 7579913,
+                "end": 7579940,
+                "strand": -1
+              },
+              {
+                "type": "five_prime_UTR",
+                "start": 7590695,
+                "end": 7590856,
+                "strand": -1
+              }
+            ],
+            "uniprotId": "P04637"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    },
+    {
+      "request_name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+      "request_id": "92232ad0-bdcc-46d9-87f3-e0df08e9eba8",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "ptm",
+            "experimental"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "transcriptIds": [
+            "ENST00000269305.999"
+          ]
+        }
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:28:54 GMT"
+        },
+        "body": []
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+          }
+        }
+      ]
+    }
+  ]
+}

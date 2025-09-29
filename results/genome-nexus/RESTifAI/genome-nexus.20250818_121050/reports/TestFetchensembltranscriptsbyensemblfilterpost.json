@@ -1,0 +1,2322 @@
+{
+    "test_name": "TestFetchensembltranscriptsbyensemblfilterpost",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "d539342a-04fa-4c57-86b2-31862ddda950",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:15 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "b248514e-63f4-4ca1-90c2-ff2409195fcb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:15 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "geneIdsNotArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "c1fe6bf2-a20c-4046-861c-ed36d1141b3b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:17 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "c339767e-5f23-49b0-96c1-d9d8fd067cd2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ],\n  \"geneIds\": \"ENSG00000141510\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:24:17 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "conflictingTranscriptIdsAndGeneIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "94eaee40-2eb4-4570-8331-31416be3c139",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:18 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "44db6b1c-5a64-4d72-b45e-743d38707f84",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"ENSG00000141510\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000369497\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:18 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyAsEmptyArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "4491b63b-4921-420f-b24a-663b5780e4c3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:24:19 GMT"
+                    },
+                    "response_body": ""
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "252e64e5-540d-4338-9d4d-0bb72434681b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:19 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "proteinIdsArrayWithBoolean_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "5ddcca3f-893b-41bd-b8cd-75c615c69a37",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:20 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "0cd49a9f-8c8b-4936-8aab-206a6dcfbb09",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    true,\n    false\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:20 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "mismatchedArrayLengthsGeneIdsAndHugoSymbols_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "ef41dc6d-e6b3-4895-bca1-c55a2abb19db",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:21 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "4ed1ae87-3422-40cc-ba8f-cc2c06f37a5b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ],\n  \"geneIds\": [\n    \"ENSG00000141510\"\n  ],\n  \"hugoSymbols\": [\n    \"BRCA1\",\n    \"TP53\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:21 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "partiallyInvalidHugoSymbols_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "3a7be02b-328a-4033-9c1a-33a41503fc57",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:23 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "6a2a6198-2d88-4615-bf74-7fa0aefa0f2f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:23 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "proteinIdsNotMatchingGeneIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "7cffe872-bb68-4cab-bf08-b49de14161c3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:24 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "cbb32375-4dab-4462-8118-68326079df88",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000000000\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:24 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentProteinIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "5de8fc63-dc90-4bda-a56c-fe750f311668",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:25 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "4e39c4d7-440e-4ec7-a410-e5a3ba862d8c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000000001\",\n    \"ENSP00000000002\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:25 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyAsString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "d2752491-95e7-434e-b459-1e7129d7f0a2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"invalidBody\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:24:25 GMT"
+                    },
+                    "response_body": ""
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "32c89812-b368-4b70-8ffe-5799ad6a5fe9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:25 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsNotMatchingGeneIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "2bdda1fc-24ba-47bf-857a-050ccb4ee2e6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:25 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "20985871-b7d5-4176-9877-59bf92982262",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000000000\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:25 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "proteinIdsAsObject_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "8a694191-4209-4ef8-80d6-436ebd7e400a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:27 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "1c1bc6ad-ffce-4b10-8273-17ee1208cb4d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ],\n  \"proteinIds\": {}\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:24:27 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "mismatchedHugoSymbolsAndGeneIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "68abf45e-518d-4728-96d2-be65ae3202f3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:28 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "1d3c3bc8-d21b-423a-83dc-16837d259ffc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"ENSG00000141510\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"NONEXISTENT\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:28 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "allFiltersEmptyArrays_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "a26db8e5-7315-4bf7-b516-98a836821f7c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:30 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "6b1cdffd-4318-4935-a2cf-45de5ceb3294",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [],\n  \"hugoSymbols\": [],\n  \"proteinIds\": [],\n  \"transcriptIds\": []\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:30 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsArrayWithNumber_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "ca60dd95-f1d2-4a03-9c35-fa162ea82773",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:31 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "df067ef3-2c56-4a51-bb57-33ba0f6c417a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    123\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:31 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsArrayWithNull_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "84abc8ca-e801-44e9-a4d7-9b323bfc8cad",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:32 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "70cc5654-4153-4403-89ce-34d1e8555482",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    null\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:32 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "geneIdsArrayWithObject_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "ce0522e8-5cfb-4b8d-bfef-5eb75c26b703",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:33 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "81ae3c32-5848-4e64-8475-fc97f7bef907",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ],\n  \"geneIds\": [\n    {}\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:24:33 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentGeneIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "9fe54a18-2a5e-4dbb-8de1-eea5e406b28b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:34 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "9867d55f-06ea-4c68-ae29-4e883daca4fc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"ENSG00000000000\",\n    \"ENSG99999999999\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:34 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentTranscriptIds_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "42ff46f6-66c1-48bb-919e-41c14fa22477",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:36 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "89d86e2b-f733-4e75-b4f9-87095bd93ee2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000000001\",\n    \"ENST00000000002\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:36 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "hugoSymbolsAsNull_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "c55b6d4a-861c-4ffe-95f6-27264ecd6ed8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:37 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "454609cf-5782-4674-8d3f-bec09cf22b58",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ],\n  \"hugoSymbols\": null\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:37 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "hugoSymbolsArrayWithInteger_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+                    "id": "02e8e22a-9a7a-40d0-984a-bd48c28d004f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:38 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"}]"
+                },
+                {
+                    "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+                    "id": "a78408a1-b426-44a7-bba5-34b9de831532",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "transcript"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000369497\"\n  ],\n  \"hugoSymbols\": [\n    12345\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:24:38 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:24:38.911016",
+    "statistics": {
+        "total_test_cases": 21,
+        "passed_test_cases": 7,
+        "failed_test_cases": 14,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 42,
+        "success_rate": 33.33333333333333,
+        "avg_requests_per_case": 2.0
+    }
+}

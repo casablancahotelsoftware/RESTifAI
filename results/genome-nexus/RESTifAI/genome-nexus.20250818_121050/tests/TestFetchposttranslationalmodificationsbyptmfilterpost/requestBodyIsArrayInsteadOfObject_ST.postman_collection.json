@@ -1,0 +1,301 @@
+{
+    "info": {
+        "name": "requestBodyIsArrayInsteadOfObject_ST",
+        "description": "Set the request body to a JSON array instead of an object, e.g., [\"ENST00000269305\"]",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/hgnc/:hugoSymbol",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "hgnc",
+                        ":hugoSymbol"
+                    ],
+                    "variable": [
+                        {
+                            "key": "hugoSymbol",
+                            "value": "TP53"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'geneId');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.geneId', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'hugoSymbol');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.hugoSymbol', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'synonyms[0]');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[0]', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'synonyms[1]');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[1]', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'entrezGeneId');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.entrezGeneId', x4);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolGET.request.path_params.hugoSymbol', 'TP53');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "\"[\\\"ENST00000269305\\\"]\"",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-transcript/hgnc?isoformOverrideSource=uniprot",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-transcript",
+                        "hgnc"
+                    ],
+                    "query": [
+                        {
+                            "key": "isoformOverrideSource",
+                            "value": "uniprot"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.query_params.isoformOverrideSource', 'uniprot');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.body', '[\"ENST00000269305\"]');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"transcriptIds\": [\n    \"{{fetchPostTranslationalModificationsByPtmFilterPOST.request.body.transcriptIds[0]}}\"\n  ]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ptm/experimental",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ptm",
+                        "experimental"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchPostTranslationalModificationsByPtmFilterPOST.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchPostTranslationalModificationsByPtmFilterPOST.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchPostTranslationalModificationsByPtmFilterPOST.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchPostTranslationalModificationsByPtmFilterPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchPostTranslationalModificationsByPtmFilterPOST.request.body.transcriptIds[0]', pm.collectionVariables.get('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].transcriptId'));"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

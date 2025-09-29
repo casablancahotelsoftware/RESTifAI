@@ -1,0 +1,14 @@
+services:
+  restifai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    container_name: restifai
+    volumes:
+      - ./output:/app/output
+    environment:
+      - PYTHONPATH=/app:/app/src
+      - UV_PROJECT_ENVIRONMENT=/app/.venv
+    tty: true
+    stdin_open: true

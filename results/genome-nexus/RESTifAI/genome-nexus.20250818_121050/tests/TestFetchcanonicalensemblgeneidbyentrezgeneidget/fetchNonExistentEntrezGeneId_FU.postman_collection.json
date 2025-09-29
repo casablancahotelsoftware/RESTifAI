@@ -1,0 +1,69 @@
+{
+    "info": {
+        "name": "fetchNonExistentEntrezGeneId_FU",
+        "description": "Change the `entrezGeneId` path parameter to a valid numeric string that does not exist in the database, e.g., '99999999', to test fetching a gene ID for a non-existent Entrez Gene ID.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/entrez/:entrezGeneId",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "entrez",
+                        ":entrezGeneId"
+                    ],
+                    "variable": [
+                        {
+                            "key": "entrezGeneId",
+                            "value": "99999999"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.request.path_params.entrezGeneId', '99999999');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

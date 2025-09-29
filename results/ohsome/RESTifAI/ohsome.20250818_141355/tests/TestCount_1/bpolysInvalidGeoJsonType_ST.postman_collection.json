@@ -1,0 +1,106 @@
+{
+    "info": {
+        "name": "bpolysInvalidGeoJsonType_ST",
+        "description": "Set the `bpolys` parameter to an invalid GeoJSON string that is not a FeatureCollection or polygon, e.g., '{\"type\":\"Point\",\"coordinates\":[8.67,49.39]}'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=water",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01",
+                            "type": "text"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "{\"type\":\"Point\",\"coordinates\":[8.67,49.39]}",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('count_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_1.request.body.filter', 'type:way and natural=water');",
+                            "pm.collectionVariables.set('count_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('count_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count_1.request.body.time', '2014-01-01/2017-01-01');",
+                            "pm.collectionVariables.set('count_1.request.body.bpolys', '{\"type\":\"Point\",\"coordinates\":[8.67,49.39]}');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

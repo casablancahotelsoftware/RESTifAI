@@ -1,0 +1,176 @@
+{
+    "info": {
+        "name": "incompatibleContributionTypeAndFilter_FU",
+        "description": "Set the `contributionType` parameter to a valid type but logically incompatible with the `filter` parameter, e.g., contributionType='deletion' with filter='type:node and highway=*' where deletions of nodes with highway tags are not tracked, causing a logical error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "contributionsCount",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count?bboxes=8.67,49.39,8.71,49.42&contributionType=deletion&filter=type%3Anode%20and%20highway%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "deletion"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Anode%20and%20highway%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.contributionType', 'deletion');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.filter', 'type%3Anode%20and%20highway%3D%2A');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "contributionsCountGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&contributionType=deletion&filter=type%3Anode%20and%20highway%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "deletion"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Anode%20and%20highway%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.contributionType', 'deletion');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.filter', 'type%3Anode%20and%20highway%3D%2A');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

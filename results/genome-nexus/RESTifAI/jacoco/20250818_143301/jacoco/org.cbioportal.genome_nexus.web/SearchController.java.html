@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SearchController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">SearchController.java</span></div><h1>SearchController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
+import org.cbioportal.genome_nexus.model.IndexSearch;
+import org.cbioportal.genome_nexus.service.IndexSearchService;
+import org.cbioportal.genome_nexus.web.config.InternalApi;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@InternalApi
+@RestController
+@CrossOrigin(origins=&quot;*&quot;)
+@RequestMapping(value= &quot;/&quot;)
+@Api(tags = &quot;search-controller&quot;, description = &quot;Search Controller&quot;)
+public class SearchController {
+    private final IndexSearchService indexSearchService;
+
+    @Autowired
+    public SearchController(IndexSearchService indexSearchService)
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">        this.indexSearchService = indexSearchService;</span>
+<span class="fc" id="L27">    }</span>
+
+    @ApiOperation(value = &quot;Performs index search.&quot;)
+    @RequestMapping(value = &quot;/search&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public List&lt;IndexSearch&gt; searchAnnotationByKeywordGET(
+        @ApiParam(
+            value=&quot;keyword. For example 13:g.32890665G&gt;A, TP53 p.R273C, BRAF c.1799T&gt;A&quot;,
+            required = true)
+        @RequestParam String keyword,
+        @ApiParam(value=&quot;Max number of matching results to return&quot;)
+        @RequestParam(required = false) Integer limit
+    ) {
+<span class="nc" id="L41">        return this.indexSearchService.search(keyword, limit);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.error</a> &gt; <span class="el_source">GlobalExceptionHandler.java</span></div><h1>GlobalExceptionHandler.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.error;
+
+import org.cbioportal.genome_nexus.service.exception.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice(&quot;org.cbioportal.genome_nexus.web&quot;)
+<span class="fc" id="L10">public class GlobalExceptionHandler</span>
+{
+    @ExceptionHandler(PdbHeaderNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleStudyNotFound(PdbHeaderNotFoundException ex)
+    {
+<span class="nc" id="L15">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);</span>
+    }
+
+    @ExceptionHandler(PdbHeaderWebServiceException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleCancerHotspotsWebServiceException(PdbHeaderWebServiceException ex)
+    {
+<span class="fc" id="L21">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), ex.getStatusCode());</span>
+    }
+
+    @ExceptionHandler(PfamDomainNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handlePfamDomainNotFound(PfamDomainNotFoundException ex)
+    {
+<span class="fc" id="L27">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);</span>
+    }
+
+    @ExceptionHandler(VariantAnnotationNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleVariantAnnotationNotFound(VariantAnnotationNotFoundException ex)
+    {
+<span class="nc" id="L33">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);</span>
+    }
+
+    @ExceptionHandler(VariantAnnotationWebServiceException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleCancerHotspotsWebServiceException(VariantAnnotationWebServiceException ex)
+    {
+<span class="nc" id="L39">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), ex.getStatusCode());</span>
+    }
+
+    @ExceptionHandler(EnsemblTranscriptNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handlePfamDomainNotFound(EnsemblTranscriptNotFoundException ex)
+    {
+<span class="fc" id="L45">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);</span>
+    }
+
+    @ExceptionHandler(CancerHotspotsWebServiceException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleCancerHotspotsWebServiceException(CancerHotspotsWebServiceException ex)
+    {
+<span class="nc" id="L51">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getResponseBody()), ex.getStatusCode());</span>
+    }
+
+    @ExceptionHandler(MutationAssessorNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleMutationAssessorNotFound(MutationAssessorNotFoundException ex)
+    {
+<span class="nc" id="L57">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);</span>
+    }
+    
+    @ExceptionHandler(EnsemblWebServiceException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleEnsemblWebServiceException(EnsemblWebServiceException ex)
+    {
+<span class="fc" id="L63">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getResponseBody()), ex.getStatusCode());</span>
+    }
+
+    @ExceptionHandler(CuriousCasesNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleCuriousCasesNotFound(CuriousCasesNotFoundException ex)
+    {
+<span class="nc" id="L69">        return new ResponseEntity&lt;&gt;(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

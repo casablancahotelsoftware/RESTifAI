@@ -1,0 +1,75 @@
+{
+    "info": {
+        "name": "emptyFieldsParameter_ST",
+        "description": "Set the `fields` query parameter to an empty string, violating the non-empty string constraint, e.g., ''",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v2Regionalbloc",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/regionalbloc/:regionalbloc?fields=",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "regionalbloc",
+                        ":regionalbloc"
+                    ],
+                    "variable": [
+                        {
+                            "key": "regionalbloc",
+                            "value": "EU"
+                        }
+                    ],
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v2Regionalbloc.request.path_params.regionalbloc', 'EU');",
+                            "pm.collectionVariables.set('v2Regionalbloc.request.query_params.fields', '');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

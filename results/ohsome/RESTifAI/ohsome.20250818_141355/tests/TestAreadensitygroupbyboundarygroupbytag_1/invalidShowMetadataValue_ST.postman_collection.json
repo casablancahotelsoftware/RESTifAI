@@ -1,0 +1,123 @@
+{
+    "info": {
+        "name": "invalidShowMetadataValue_ST",
+        "description": "Set the `showMetadata` parameter to a string other than 'true' or 'false', e.g., 'yes'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "areaDensityGroupByBoundaryGroupByTag_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "groupByKey",
+                            "value": "building",
+                            "type": "text"
+                        },
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42|8.72,49.40,8.75,49.43",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=tree",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "residential,commercial",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "yes",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2015-01-01/2016-01-01/P1M",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density/groupBy/boundary/groupBy/tag",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.groupByKey', 'building');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.bboxes', '8.67,49.39,8.71,49.42|8.72,49.40,8.75,49.43');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.filter', 'type:way and natural=tree');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.groupByValues', 'residential,commercial');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.showMetadata', 'yes');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.time', '2015-01-01/2016-01-01/P1M');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

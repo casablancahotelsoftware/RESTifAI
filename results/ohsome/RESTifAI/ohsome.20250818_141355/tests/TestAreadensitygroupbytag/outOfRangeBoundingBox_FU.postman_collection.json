@@ -1,0 +1,250 @@
+{
+    "info": {
+        "name": "outOfRangeBoundingBox_FU",
+        "description": "Set the `bboxes` parameter to a valid bounding box that is outside the supported or logical geographic area, e.g., bboxes='180,90,181,91' (coordinates outside valid longitude/latitude ranges), to test geographic domain validation.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=180,90,181,91&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "180,90,181,91"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '180,90,181,91');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaDensity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density?bboxes=180,90,181,91&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "180,90,181,91"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensity.request.query_params.bboxes', '180,90,181,91');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaDensityGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density/groupBy/tag?bboxes=180,90,181,91&filter=type%3Away%20and%20natural%3D%2A&format=json&groupByKey=building&groupByValues=residential,commercial&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "180,90,181,91"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "building"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "residential,commercial"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.bboxes', '180,90,181,91');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.groupByKey', 'building');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.groupByValues', 'residential,commercial');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

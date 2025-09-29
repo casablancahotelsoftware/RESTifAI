@@ -1,0 +1,307 @@
+{
+    "info": {
+        "name": "emptyFilterParameter_ST",
+        "description": "Set the `filter` parameter to an empty string which is invalid as filter must be a non-empty string if provided",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count?bboxes=12.4923,41.8902,12.4964,41.8922&filter=&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2024-01-01T00:00:00Z",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": ""
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2024-01-01T00:00:00Z"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('count.request.query_params.filter', '');",
+                            "pm.collectionVariables.set('count.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count.request.query_params.time', '2023-01-01T00:00:00Z/2024-01-01T00:00:00Z');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeter",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter?bboxes=12.4923,41.8902,12.4964,41.8922&filter=&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2024-01-01T00:00:00Z",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": ""
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2024-01-01T00:00:00Z"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeter.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.filter', '');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.time', '2023-01-01T00:00:00Z/2024-01-01T00:00:00Z');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeterRatio",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/ratio?bboxes=12.4923,41.8902,12.4964,41.8922&filter=&filter2=type%3Away%20and%20building%3Dhouse&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2024-01-01T00:00:00Z",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "ratio"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": ""
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type%3Away%20and%20building%3Dhouse"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2024-01-01T00:00:00Z"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterRatio.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('perimeterRatio.request.query_params.filter', '');",
+                            "pm.collectionVariables.set('perimeterRatio.request.query_params.filter2', 'type%3Away%20and%20building%3Dhouse');",
+                            "pm.collectionVariables.set('perimeterRatio.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('perimeterRatio.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterRatio.request.query_params.time', '2023-01-01T00:00:00Z/2024-01-01T00:00:00Z');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeterRatioGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/ratio/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922&filter=&filter2=type%3Away%20and%20building%3Dhouse&format=geojson&showMetadata=false&time=2023-01-01T00:00:00Z/2024-01-01T00:00:00Z&timeout=60",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "ratio",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": ""
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type%3Away%20and%20building%3Dhouse"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2024-01-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "60"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.filter', '');",
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.filter2', 'type%3Away%20and%20building%3Dhouse');",
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.time', '2023-01-01T00:00:00Z/2024-01-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterRatioGroupByBoundary.request.query_params.timeout', '60');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

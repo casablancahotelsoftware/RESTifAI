@@ -1,0 +1,289 @@
+{
+    "info": {
+        "name": "validRequest",
+        "description": "This test case tests the endpoint for valid data and expects a successful response from the service",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchPdbHeaderPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"1a37\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/pdb/header",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "pdb",
+                        "header"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderPOST.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderPOST.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchPdbHeaderPOST.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchPdbHeaderPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchPdbHeaderPOST.request.body.[0]', '1a37');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchPdbHeaderGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/pdb/header/:pdbId",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "pdb",
+                        "header",
+                        ":pdbId"
+                    ],
+                    "variable": [
+                        {
+                            "key": "pdbId",
+                            "value": "1a37"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'pdbId');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.pdbId', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'title');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.title', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'compound.1.other_details');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.1.other_details', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'compound.1.chain[0]');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.1.chain[0]', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'compound.1.chain[1]');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.1.chain[1]', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'compound.1.engineered');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.1.engineered', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'compound.1.molecule');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.1.molecule', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'compound.1.mol_id');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.1.mol_id', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'compound.2.chain[0]');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.2.chain[0]', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'compound.2.chain[1]');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.2.chain[1]', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'compound.2.molecule');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.2.molecule', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'compound.2.mol_id');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.compound.2.mol_id', x11);",
+                            "    }",
+                            "    const x12 = getValueByPath(responseJson, 'source.1.organism_scientific');",
+                            "    if (x12 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.source.1.organism_scientific', x12);",
+                            "    }",
+                            "    const x13 = getValueByPath(responseJson, 'source.1.organism_common');",
+                            "    if (x13 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.source.1.organism_common', x13);",
+                            "    }",
+                            "    const x14 = getValueByPath(responseJson, 'source.1.organism_taxid');",
+                            "    if (x14 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.source.1.organism_taxid', x14);",
+                            "    }",
+                            "    const x15 = getValueByPath(responseJson, 'source.1.expression_system_taxid');",
+                            "    if (x15 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.source.1.expression_system_taxid', x15);",
+                            "    }",
+                            "    const x16 = getValueByPath(responseJson, 'source.1.expression_system');",
+                            "    if (x16 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.source.1.expression_system', x16);",
+                            "    }",
+                            "    const x17 = getValueByPath(responseJson, 'source.1.mol_id');",
+                            "    if (x17 !== undefined) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.body.source.1.mol_id', x17);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderGET.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchPdbHeaderGET.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchPdbHeaderGET.request.path_params.pdbId', '1a37');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

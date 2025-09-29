@@ -1,0 +1,115 @@
+{
+    "info": {
+        "name": "bboxesOutsideKnownBoundaries_FU",
+        "description": "Set the `bboxes` parameter to two bounding boxes that do not overlap or are disjoint from any known boundaries, e.g., coordinates in the middle of the ocean, causing no data to be found and a logical error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "areaRatioGroupByBoundary_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "-160.00,-80.00,-159.90,-79.90|150.00,-70.00,150.10,-69.90",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "geometry:polygon and building=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "geometry:polygon and building=house",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/ratio/groupBy/boundary",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "ratio",
+                        "groupBy",
+                        "boundary"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.bboxes', '-160.00,-80.00,-159.90,-79.90|150.00,-70.00,150.10,-69.90');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.filter', 'geometry:polygon and building=*');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.filter2', 'geometry:polygon and building=house');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.showMetadata', 'true');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

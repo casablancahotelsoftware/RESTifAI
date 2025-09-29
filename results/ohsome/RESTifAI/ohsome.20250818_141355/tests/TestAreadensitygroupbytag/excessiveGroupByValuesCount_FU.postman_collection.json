@@ -1,0 +1,458 @@
+{
+    "info": {
+        "name": "excessiveGroupByValuesCount_FU",
+        "description": "Set the `groupByValues` parameter to a very large number of values exceeding business limits, e.g., groupByValues with 1000+ comma-separated values, to test enforcement of maximum allowed grouping values.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'result[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[0].value', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'result[1].timestamp');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[1].timestamp', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'result[1].value');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[1].value', x6);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('area.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('area.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('area.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaDensity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'result[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.result[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.result[0].value', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'result[1].timestamp');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.result[1].timestamp', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'result[1].value');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('areaDensity.response.body.result[1].value', x6);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('areaDensity.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('areaDensity.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('areaDensity.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensity.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaDensityGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density/groupBy/tag?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&groupByKey=building&groupByValues=val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26,val27,val28,val29,val30,val31,val32,val33,val34,val35,val36,val37,val38,val39,val40,val41,val42,val43,val44,val45,val46,val47,val48,val49,val50,val51,val52,val53,val54,val55,val56,val57,val58,val59,val60,val61,val62,val63,val64,val65,val66,val67,val68,val69,val70,val71,val72,val73,val74,val75,val76,val77,val78,val79,val80,val81,val82,val83,val84,val85,val86,val87,val88,val89,val90,val91,val92,val93,val94,val95,val96,val97,val98,val99,val100,val101,val102,val103,val104,val105,val106,val107,val108,val109,val110,val111,val112,val113,val114,val115,val116,val117,val118,val119,val120,val121,val122,val123,val124,val125,val126,val127,val128,val129,val130,val131,val132,val133,val134,val135,val136,val137,val138,val139,val140,val141,val142,val143,val144,val145,val146,val147,val148,val149,val150,val151,val152,val153,val154,val155,val156,val157,val158,val159,val160,val161,val162,val163,val164,val165,val166,val167,val168,val169,val170,val171,val172,val173,val174,val175,val176,val177,val178,val179,val180,val181,val182,val183,val184,val185,val186,val187,val188,val189,val190,val191,val192,val193,val194,val195,val196,val197,val198,val199,val200,val201,val202,val203,val204,val205,val206,val207,val208,val209,val210,val211,val212,val213,val214,val215,val216,val217,val218,val219,val220,val221,val222,val223,val224,val225,val226,val227,val228,val229,val230,val231,val232,val233,val234,val235,val236,val237,val238,val239,val240,val241,val242,val243,val244,val245,val246,val247,val248,val249,val250,val251,val252,val253,val254,val255,val256,val257,val258,val259,val260,val261,val262,val263,val264,val265,val266,val267,val268,val269,val270,val271,val272,val273,val274,val275,val276,val277,val278,val279,val280,val281,val282,val283,val284,val285,val286,val287,val288,val289,val290,val291,val292,val293,val294,val295,val296,val297,val298,val299,val300,val301,val302,val303,val304,val305,val306,val307,val308,val309,val310,val311,val312,val313,val314,val315,val316,val317,val318,val319,val320,val321,val322,val323,val324,val325,val326,val327,val328,val329,val330,val331,val332,val333,val334,val335,val336,val337,val338,val339,val340,val341,val342,val343,val344,val345,val346,val347,val348,val349,val350,val351,val352,val353,val354,val355,val356,val357,val358,val359,val360,val361,val362,val363,val364,val365,val366,val367,val368,val369,val370,val371,val372,val373,val374,val375,val376,val377,val378,val379,val380,val381,val382,val383,val384,val385,val386,val387,val388,val389,val390,val391,val392,val393,val394,val395,val396,val397,val398,val399,val400,val401,val402,val403,val404,val405,val406,val407,val408,val409,val410,val411,val412,val413,val414,val415,val416,val417,val418,val419,val420,val421,val422,val423,val424,val425,val426,val427,val428,val429,val430,val431,val432,val433,val434,val435,val436,val437,val438,val439,val440,val441,val442,val443,val444,val445,val446,val447,val448,val449,val450,val451,val452,val453,val454,val455,val456,val457,val458,val459,val460,val461,val462,val463,val464,val465,val466,val467,val468,val469,val470,val471,val472,val473,val474,val475,val476,val477,val478,val479,val480,val481,val482,val483,val484,val485,val486,val487,val488,val489,val490,val491,val492,val493,val494,val495,val496,val497,val498,val499,val500,val501,val502,val503,val504,val505,val506,val507,val508,val509,val510,val511,val512,val513,val514,val515,val516,val517,val518,val519,val520,val521,val522,val523,val524,val525,val526,val527,val528,val529,val530,val531,val532,val533,val534,val535,val536,val537,val538,val539,val540,val541,val542,val543,val544,val545,val546,val547,val548,val549,val550,val551,val552,val553,val554,val555,val556,val557,val558,val559,val560,val561,val562,val563,val564,val565,val566,val567,val568,val569,val570,val571,val572,val573,val574,val575,val576,val577,val578,val579,val580,val581,val582,val583,val584,val585,val586,val587,val588,val589,val590,val591,val592,val593,val594,val595,val596,val597,val598,val599,val600,val601,val602,val603,val604,val605,val606,val607,val608,val609,val610,val611,val612,val613,val614,val615,val616,val617,val618,val619,val620,val621,val622,val623,val624,val625,val626,val627,val628,val629,val630,val631,val632,val633,val634,val635,val636,val637,val638,val639,val640,val641,val642,val643,val644,val645,val646,val647,val648,val649,val650,val651,val652,val653,val654,val655,val656,val657,val658,val659,val660,val661,val662,val663,val664,val665,val666,val667,val668,val669,val670,val671,val672,val673,val674,val675,val676,val677,val678,val679,val680,val681,val682,val683,val684,val685,val686,val687,val688,val689,val690,val691,val692,val693,val694,val695,val696,val697,val698,val699,val700,val701,val702,val703,val704,val705,val706,val707,val708,val709,val710,val711,val712,val713,val714,val715,val716,val717,val718,val719,val720,val721,val722,val723,val724,val725,val726,val727,val728,val729,val730,val731,val732,val733,val734,val735,val736,val737,val738,val739,val740,val741,val742,val743,val744,val745,val746,val747,val748,val749,val750,val751,val752,val753,val754,val755,val756,val757,val758,val759,val760,val761,val762,val763,val764,val765,val766,val767,val768,val769,val770,val771,val772,val773,val774,val775,val776,val777,val778,val779,val780,val781,val782,val783,val784,val785,val786,val787,val788,val789,val790,val791,val792,val793,val794,val795,val796,val797,val798,val799,val800,val801,val802,val803,val804,val805,val806,val807,val808,val809,val810,val811,val812,val813,val814,val815,val816,val817,val818,val819,val820,val821,val822,val823,val824,val825,val826,val827,val828,val829,val830,val831,val832,val833,val834,val835,val836,val837,val838,val839,val840,val841,val842,val843,val844,val845,val846,val847,val848,val849,val850,val851,val852,val853,val854,val855,val856,val857,val858,val859,val860,val861,val862,val863,val864,val865,val866,val867,val868,val869,val870,val871,val872,val873,val874,val875,val876,val877,val878,val879,val880,val881,val882,val883,val884,val885,val886,val887,val888,val889,val890,val891,val892,val893,val894,val895,val896,val897,val898,val899,val900,val901,val902,val903,val904,val905,val906,val907,val908,val909,val910,val911,val912,val913,val914,val915,val916,val917,val918,val919,val920,val921,val922,val923,val924,val925,val926,val927,val928,val929,val930,val931,val932,val933,val934,val935,val936,val937,val938,val939,val940,val941,val942,val943,val944,val945,val946,val947,val948,val949,val950,val951,val952,val953,val954,val955,val956,val957,val958,val959,val960,val961,val962,val963,val964,val965,val966,val967,val968,val969,val970,val971,val972,val973,val974,val975,val976,val977,val978,val979,val980,val981,val982,val983,val984,val985,val986,val987,val988,val989,val990,val991,val992,val993,val994,val995,val996,val997,val998,val999,val1000&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "building"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26,val27,val28,val29,val30,val31,val32,val33,val34,val35,val36,val37,val38,val39,val40,val41,val42,val43,val44,val45,val46,val47,val48,val49,val50,val51,val52,val53,val54,val55,val56,val57,val58,val59,val60,val61,val62,val63,val64,val65,val66,val67,val68,val69,val70,val71,val72,val73,val74,val75,val76,val77,val78,val79,val80,val81,val82,val83,val84,val85,val86,val87,val88,val89,val90,val91,val92,val93,val94,val95,val96,val97,val98,val99,val100,val101,val102,val103,val104,val105,val106,val107,val108,val109,val110,val111,val112,val113,val114,val115,val116,val117,val118,val119,val120,val121,val122,val123,val124,val125,val126,val127,val128,val129,val130,val131,val132,val133,val134,val135,val136,val137,val138,val139,val140,val141,val142,val143,val144,val145,val146,val147,val148,val149,val150,val151,val152,val153,val154,val155,val156,val157,val158,val159,val160,val161,val162,val163,val164,val165,val166,val167,val168,val169,val170,val171,val172,val173,val174,val175,val176,val177,val178,val179,val180,val181,val182,val183,val184,val185,val186,val187,val188,val189,val190,val191,val192,val193,val194,val195,val196,val197,val198,val199,val200,val201,val202,val203,val204,val205,val206,val207,val208,val209,val210,val211,val212,val213,val214,val215,val216,val217,val218,val219,val220,val221,val222,val223,val224,val225,val226,val227,val228,val229,val230,val231,val232,val233,val234,val235,val236,val237,val238,val239,val240,val241,val242,val243,val244,val245,val246,val247,val248,val249,val250,val251,val252,val253,val254,val255,val256,val257,val258,val259,val260,val261,val262,val263,val264,val265,val266,val267,val268,val269,val270,val271,val272,val273,val274,val275,val276,val277,val278,val279,val280,val281,val282,val283,val284,val285,val286,val287,val288,val289,val290,val291,val292,val293,val294,val295,val296,val297,val298,val299,val300,val301,val302,val303,val304,val305,val306,val307,val308,val309,val310,val311,val312,val313,val314,val315,val316,val317,val318,val319,val320,val321,val322,val323,val324,val325,val326,val327,val328,val329,val330,val331,val332,val333,val334,val335,val336,val337,val338,val339,val340,val341,val342,val343,val344,val345,val346,val347,val348,val349,val350,val351,val352,val353,val354,val355,val356,val357,val358,val359,val360,val361,val362,val363,val364,val365,val366,val367,val368,val369,val370,val371,val372,val373,val374,val375,val376,val377,val378,val379,val380,val381,val382,val383,val384,val385,val386,val387,val388,val389,val390,val391,val392,val393,val394,val395,val396,val397,val398,val399,val400,val401,val402,val403,val404,val405,val406,val407,val408,val409,val410,val411,val412,val413,val414,val415,val416,val417,val418,val419,val420,val421,val422,val423,val424,val425,val426,val427,val428,val429,val430,val431,val432,val433,val434,val435,val436,val437,val438,val439,val440,val441,val442,val443,val444,val445,val446,val447,val448,val449,val450,val451,val452,val453,val454,val455,val456,val457,val458,val459,val460,val461,val462,val463,val464,val465,val466,val467,val468,val469,val470,val471,val472,val473,val474,val475,val476,val477,val478,val479,val480,val481,val482,val483,val484,val485,val486,val487,val488,val489,val490,val491,val492,val493,val494,val495,val496,val497,val498,val499,val500,val501,val502,val503,val504,val505,val506,val507,val508,val509,val510,val511,val512,val513,val514,val515,val516,val517,val518,val519,val520,val521,val522,val523,val524,val525,val526,val527,val528,val529,val530,val531,val532,val533,val534,val535,val536,val537,val538,val539,val540,val541,val542,val543,val544,val545,val546,val547,val548,val549,val550,val551,val552,val553,val554,val555,val556,val557,val558,val559,val560,val561,val562,val563,val564,val565,val566,val567,val568,val569,val570,val571,val572,val573,val574,val575,val576,val577,val578,val579,val580,val581,val582,val583,val584,val585,val586,val587,val588,val589,val590,val591,val592,val593,val594,val595,val596,val597,val598,val599,val600,val601,val602,val603,val604,val605,val606,val607,val608,val609,val610,val611,val612,val613,val614,val615,val616,val617,val618,val619,val620,val621,val622,val623,val624,val625,val626,val627,val628,val629,val630,val631,val632,val633,val634,val635,val636,val637,val638,val639,val640,val641,val642,val643,val644,val645,val646,val647,val648,val649,val650,val651,val652,val653,val654,val655,val656,val657,val658,val659,val660,val661,val662,val663,val664,val665,val666,val667,val668,val669,val670,val671,val672,val673,val674,val675,val676,val677,val678,val679,val680,val681,val682,val683,val684,val685,val686,val687,val688,val689,val690,val691,val692,val693,val694,val695,val696,val697,val698,val699,val700,val701,val702,val703,val704,val705,val706,val707,val708,val709,val710,val711,val712,val713,val714,val715,val716,val717,val718,val719,val720,val721,val722,val723,val724,val725,val726,val727,val728,val729,val730,val731,val732,val733,val734,val735,val736,val737,val738,val739,val740,val741,val742,val743,val744,val745,val746,val747,val748,val749,val750,val751,val752,val753,val754,val755,val756,val757,val758,val759,val760,val761,val762,val763,val764,val765,val766,val767,val768,val769,val770,val771,val772,val773,val774,val775,val776,val777,val778,val779,val780,val781,val782,val783,val784,val785,val786,val787,val788,val789,val790,val791,val792,val793,val794,val795,val796,val797,val798,val799,val800,val801,val802,val803,val804,val805,val806,val807,val808,val809,val810,val811,val812,val813,val814,val815,val816,val817,val818,val819,val820,val821,val822,val823,val824,val825,val826,val827,val828,val829,val830,val831,val832,val833,val834,val835,val836,val837,val838,val839,val840,val841,val842,val843,val844,val845,val846,val847,val848,val849,val850,val851,val852,val853,val854,val855,val856,val857,val858,val859,val860,val861,val862,val863,val864,val865,val866,val867,val868,val869,val870,val871,val872,val873,val874,val875,val876,val877,val878,val879,val880,val881,val882,val883,val884,val885,val886,val887,val888,val889,val890,val891,val892,val893,val894,val895,val896,val897,val898,val899,val900,val901,val902,val903,val904,val905,val906,val907,val908,val909,val910,val911,val912,val913,val914,val915,val916,val917,val918,val919,val920,val921,val922,val923,val924,val925,val926,val927,val928,val929,val930,val931,val932,val933,val934,val935,val936,val937,val938,val939,val940,val941,val942,val943,val944,val945,val946,val947,val948,val949,val950,val951,val952,val953,val954,val955,val956,val957,val958,val959,val960,val961,val962,val963,val964,val965,val966,val967,val968,val969,val970,val971,val972,val973,val974,val975,val976,val977,val978,val979,val980,val981,val982,val983,val984,val985,val986,val987,val988,val989,val990,val991,val992,val993,val994,val995,val996,val997,val998,val999,val1000"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.groupByKey', 'building');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.groupByValues', 'val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26,val27,val28,val29,val30,val31,val32,val33,val34,val35,val36,val37,val38,val39,val40,val41,val42,val43,val44,val45,val46,val47,val48,val49,val50,val51,val52,val53,val54,val55,val56,val57,val58,val59,val60,val61,val62,val63,val64,val65,val66,val67,val68,val69,val70,val71,val72,val73,val74,val75,val76,val77,val78,val79,val80,val81,val82,val83,val84,val85,val86,val87,val88,val89,val90,val91,val92,val93,val94,val95,val96,val97,val98,val99,val100,val101,val102,val103,val104,val105,val106,val107,val108,val109,val110,val111,val112,val113,val114,val115,val116,val117,val118,val119,val120,val121,val122,val123,val124,val125,val126,val127,val128,val129,val130,val131,val132,val133,val134,val135,val136,val137,val138,val139,val140,val141,val142,val143,val144,val145,val146,val147,val148,val149,val150,val151,val152,val153,val154,val155,val156,val157,val158,val159,val160,val161,val162,val163,val164,val165,val166,val167,val168,val169,val170,val171,val172,val173,val174,val175,val176,val177,val178,val179,val180,val181,val182,val183,val184,val185,val186,val187,val188,val189,val190,val191,val192,val193,val194,val195,val196,val197,val198,val199,val200,val201,val202,val203,val204,val205,val206,val207,val208,val209,val210,val211,val212,val213,val214,val215,val216,val217,val218,val219,val220,val221,val222,val223,val224,val225,val226,val227,val228,val229,val230,val231,val232,val233,val234,val235,val236,val237,val238,val239,val240,val241,val242,val243,val244,val245,val246,val247,val248,val249,val250,val251,val252,val253,val254,val255,val256,val257,val258,val259,val260,val261,val262,val263,val264,val265,val266,val267,val268,val269,val270,val271,val272,val273,val274,val275,val276,val277,val278,val279,val280,val281,val282,val283,val284,val285,val286,val287,val288,val289,val290,val291,val292,val293,val294,val295,val296,val297,val298,val299,val300,val301,val302,val303,val304,val305,val306,val307,val308,val309,val310,val311,val312,val313,val314,val315,val316,val317,val318,val319,val320,val321,val322,val323,val324,val325,val326,val327,val328,val329,val330,val331,val332,val333,val334,val335,val336,val337,val338,val339,val340,val341,val342,val343,val344,val345,val346,val347,val348,val349,val350,val351,val352,val353,val354,val355,val356,val357,val358,val359,val360,val361,val362,val363,val364,val365,val366,val367,val368,val369,val370,val371,val372,val373,val374,val375,val376,val377,val378,val379,val380,val381,val382,val383,val384,val385,val386,val387,val388,val389,val390,val391,val392,val393,val394,val395,val396,val397,val398,val399,val400,val401,val402,val403,val404,val405,val406,val407,val408,val409,val410,val411,val412,val413,val414,val415,val416,val417,val418,val419,val420,val421,val422,val423,val424,val425,val426,val427,val428,val429,val430,val431,val432,val433,val434,val435,val436,val437,val438,val439,val440,val441,val442,val443,val444,val445,val446,val447,val448,val449,val450,val451,val452,val453,val454,val455,val456,val457,val458,val459,val460,val461,val462,val463,val464,val465,val466,val467,val468,val469,val470,val471,val472,val473,val474,val475,val476,val477,val478,val479,val480,val481,val482,val483,val484,val485,val486,val487,val488,val489,val490,val491,val492,val493,val494,val495,val496,val497,val498,val499,val500,val501,val502,val503,val504,val505,val506,val507,val508,val509,val510,val511,val512,val513,val514,val515,val516,val517,val518,val519,val520,val521,val522,val523,val524,val525,val526,val527,val528,val529,val530,val531,val532,val533,val534,val535,val536,val537,val538,val539,val540,val541,val542,val543,val544,val545,val546,val547,val548,val549,val550,val551,val552,val553,val554,val555,val556,val557,val558,val559,val560,val561,val562,val563,val564,val565,val566,val567,val568,val569,val570,val571,val572,val573,val574,val575,val576,val577,val578,val579,val580,val581,val582,val583,val584,val585,val586,val587,val588,val589,val590,val591,val592,val593,val594,val595,val596,val597,val598,val599,val600,val601,val602,val603,val604,val605,val606,val607,val608,val609,val610,val611,val612,val613,val614,val615,val616,val617,val618,val619,val620,val621,val622,val623,val624,val625,val626,val627,val628,val629,val630,val631,val632,val633,val634,val635,val636,val637,val638,val639,val640,val641,val642,val643,val644,val645,val646,val647,val648,val649,val650,val651,val652,val653,val654,val655,val656,val657,val658,val659,val660,val661,val662,val663,val664,val665,val666,val667,val668,val669,val670,val671,val672,val673,val674,val675,val676,val677,val678,val679,val680,val681,val682,val683,val684,val685,val686,val687,val688,val689,val690,val691,val692,val693,val694,val695,val696,val697,val698,val699,val700,val701,val702,val703,val704,val705,val706,val707,val708,val709,val710,val711,val712,val713,val714,val715,val716,val717,val718,val719,val720,val721,val722,val723,val724,val725,val726,val727,val728,val729,val730,val731,val732,val733,val734,val735,val736,val737,val738,val739,val740,val741,val742,val743,val744,val745,val746,val747,val748,val749,val750,val751,val752,val753,val754,val755,val756,val757,val758,val759,val760,val761,val762,val763,val764,val765,val766,val767,val768,val769,val770,val771,val772,val773,val774,val775,val776,val777,val778,val779,val780,val781,val782,val783,val784,val785,val786,val787,val788,val789,val790,val791,val792,val793,val794,val795,val796,val797,val798,val799,val800,val801,val802,val803,val804,val805,val806,val807,val808,val809,val810,val811,val812,val813,val814,val815,val816,val817,val818,val819,val820,val821,val822,val823,val824,val825,val826,val827,val828,val829,val830,val831,val832,val833,val834,val835,val836,val837,val838,val839,val840,val841,val842,val843,val844,val845,val846,val847,val848,val849,val850,val851,val852,val853,val854,val855,val856,val857,val858,val859,val860,val861,val862,val863,val864,val865,val866,val867,val868,val869,val870,val871,val872,val873,val874,val875,val876,val877,val878,val879,val880,val881,val882,val883,val884,val885,val886,val887,val888,val889,val890,val891,val892,val893,val894,val895,val896,val897,val898,val899,val900,val901,val902,val903,val904,val905,val906,val907,val908,val909,val910,val911,val912,val913,val914,val915,val916,val917,val918,val919,val920,val921,val922,val923,val924,val925,val926,val927,val928,val929,val930,val931,val932,val933,val934,val935,val936,val937,val938,val939,val940,val941,val942,val943,val944,val945,val946,val947,val948,val949,val950,val951,val952,val953,val954,val955,val956,val957,val958,val959,val960,val961,val962,val963,val964,val965,val966,val967,val968,val969,val970,val971,val972,val973,val974,val975,val976,val977,val978,val979,val980,val981,val982,val983,val984,val985,val986,val987,val988,val989,val990,val991,val992,val993,val994,val995,val996,val997,val998,val999,val1000');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('areaDensityGroupByTag.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

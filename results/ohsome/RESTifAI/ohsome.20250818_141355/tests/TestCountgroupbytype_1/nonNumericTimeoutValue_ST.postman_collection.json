@@ -1,0 +1,108 @@
+{
+    "info": {
+        "name": "nonNumericTimeoutValue_ST",
+        "description": "Set the `timeout` parameter to a non-numeric string, e.g., 'thirty', violating the expected numeric string format",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByType_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "geometry:polygon and building=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "thirty",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/groupBy/type",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "groupBy",
+                        "type"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByType_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('countGroupByType_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('countGroupByType_1.request.body.filter', 'geometry:polygon and building=*');",
+                            "pm.collectionVariables.set('countGroupByType_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByType_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('countGroupByType_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('countGroupByType_1.request.body.timeout', 'thirty');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

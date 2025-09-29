@@ -1,0 +1,102 @@
+{
+    "info": {
+        "name": "missingGroupByKey_ST",
+        "description": "Omit the required `groupByKey` query parameter entirely, e.g., no groupByKey provided",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "areaDensityGroupByBoundaryGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density/groupBy/boundary/groupBy/tag?bboxes=12.4923,41.8902,12.4964,41.8922|13.3614,38.1157,13.3650,38.1180&filter=type%3Dway%20and%20highway%3Dprimary&format=json&groupByValues=primary,residential&showMetadata=true&time=2023-12-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922|13.3614,38.1157,13.3650,38.1180"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dway%20and%20highway%3Dprimary"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "primary,residential"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-12-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922|13.3614,38.1157,13.3650,38.1180');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.filter', 'type%3Dway%20and%20highway%3Dprimary');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.groupByValues', 'primary,residential');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.time', '2023-12-01T00:00:00Z');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundaryGroupByTag.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

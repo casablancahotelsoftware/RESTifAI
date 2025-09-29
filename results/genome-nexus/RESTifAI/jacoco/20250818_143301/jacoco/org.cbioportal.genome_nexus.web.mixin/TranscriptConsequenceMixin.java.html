@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TranscriptConsequenceMixin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.mixin</a> &gt; <span class="el_source">TranscriptConsequenceMixin.java</span></div><h1>TranscriptConsequenceMixin.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.mixin;
+
+import com.fasterxml.jackson.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.List;
+import java.util.Map;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L10">public class TranscriptConsequenceMixin</span>
+{
+    @JsonProperty(value=&quot;transcript_id&quot;, required = true)
+    @ApiModelProperty(value = &quot;Ensembl transcript id&quot;, required = true)
+    private String transcriptId;
+
+    @JsonProperty(value=&quot;hgvsp&quot;, required = true)
+    @ApiModelProperty(value = &quot;HGVSp&quot;, required = false)
+    private String hgvsp;
+
+    @JsonProperty(value=&quot;hgvsc&quot;, required = true)
+    @ApiModelProperty(value = &quot;HGVSc&quot;, required = false)
+    private String hgvsc;
+
+    @JsonProperty(value=&quot;hgvsg&quot;, required = true)
+    @ApiModelProperty(value = &quot;HGVSg&quot;, required = false)
+    private String hgvsg;
+
+    @JsonProperty(value=&quot;variant_allele&quot;, required = true)
+    @ApiModelProperty(value = &quot;Variant allele&quot;, required = false)
+    private String variantAllele;
+
+    @JsonProperty(value=&quot;codons&quot;, required = true)
+    @ApiModelProperty(value = &quot;Codons&quot;, required = false)
+    private String codons;
+
+    @JsonProperty(value=&quot;protein_id&quot;, required = true)
+    @ApiModelProperty(value = &quot;Ensembl protein id&quot;, required = false)
+    private String proteinId;
+
+    @JsonProperty(value=&quot;protein_start&quot;, required = true)
+    @ApiModelProperty(value = &quot;Protein start position&quot;, required = false)
+    private Integer proteinStart;
+
+    @JsonProperty(value=&quot;protein_end&quot;, required = true)
+    @ApiModelProperty(value = &quot;Protein end position&quot;, required = false)
+    private Integer proteinEnd;
+
+    @JsonProperty(value=&quot;gene_symbol&quot;, required = true)
+    @ApiModelProperty(value = &quot;Hugo gene symbol&quot;, required = false)
+    private String geneSymbol;
+
+    @JsonProperty(value=&quot;gene_id&quot;, required = true)
+    @ApiModelProperty(value = &quot;Ensembl gene id&quot;, required = false)
+    private String geneId;
+
+    @JsonProperty(value=&quot;amino_acids&quot;, required = true)
+    @ApiModelProperty(value = &quot;Amino acids&quot;, required = false)
+    private String aminoAcids;
+
+    @JsonProperty(value=&quot;hgnc_id&quot;, required = true)
+    @ApiModelProperty(value = &quot;HGNC id&quot;, required = false)
+    private String hgncId;
+
+    @JsonProperty(value=&quot;canonical&quot;, required = true)
+    @ApiModelProperty(value = &quot;Canonical transcript indicator&quot;, required = false)
+    private String canonical;
+
+    @JsonProperty(value=&quot;polyphen_score&quot;, required = true)
+    @ApiModelProperty(value = &quot;Polyphen Score&quot;, required = false)
+    private Double polyphenScore;
+
+    @JsonProperty(value=&quot;polyphen_prediction&quot;, required = true)
+    @ApiModelProperty(value = &quot;Polyphen Prediction&quot;, required = false)
+    private String polyphenPrediction;
+
+    @JsonProperty(value=&quot;sift_score&quot;, required = true)
+    @ApiModelProperty(value = &quot;Sift Score&quot;, required = false)
+    private Double siftScore;
+
+    @JsonProperty(value=&quot;sift_prediction&quot;, required = true)
+    @ApiModelProperty(value = &quot;Sift Prediction&quot;, required = false)
+    private String siftPrediction;
+
+    @JsonProperty(value=&quot;refseq_transcript_ids&quot;, required = true)
+    @ApiModelProperty(value = &quot;List of RefSeq transcript ids&quot;, required = false)
+    private List&lt;String&gt; refseqTranscriptIds;
+
+    @JsonProperty(value=&quot;consequence_terms&quot;, required = true)
+    @ApiModelProperty(value = &quot;List of consequence terms&quot;, required = false)
+    private List&lt;String&gt; consequenceTerms;
+
+    @JsonIgnore
+    private Map&lt;String, Object&gt; dynamicProps;
+
+    @JsonAnySetter
+    public void setDynamicProp(String key, Object value) {
+
+<span class="nc" id="L98">    }</span>
+
+    @JsonAnyGetter
+    public Map&lt;String, Object&gt; getDynamicProps() {
+<span class="nc" id="L102">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

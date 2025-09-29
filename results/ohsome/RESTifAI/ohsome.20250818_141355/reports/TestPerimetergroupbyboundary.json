@@ -1,0 +1,2259 @@
+{
+    "test_name": "TestPerimetergroupbyboundary",
+    "test_results": [
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "1254792f-cf65-4d08-9b20-9b3dd1a26624",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:36 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:34:36.755248281\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=xml&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "21f3c4fc-f228-4de2-9e6d-da1a545ce574",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:36 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBboxesFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "e225c31b-0a33-419f-ab8d-90dff19d0d89",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:38 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:34:38.151010828\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "e9c9b8f1-2793-43ac-9ffe-05c1c7144703",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:38 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBcirclesFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "991c9e18-048c-46d7-b97f-3ac49ee98277",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bcircles",
+                                    "value": "12.4923,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:39 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:34:40.033610876\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bcircles=12.4923,41.8902\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "14650f96-b218-40ae-952a-dde1de9c7fb4",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bcircles",
+                                    "value": "12.4923,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:39 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:34:40.144355116\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bcircles=12.4923,41.8902\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "b1809141-8a4f-4f5c-b63c-228b4fddfbbf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-13-01"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:41 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:34:41.201119614\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-13-01&timeout=30\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "8a25b244-e929-404c-bd74-4b4b3e1beb53",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-13-01"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:34:41 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:34:41.320831655\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-13-01&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFilterString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "b94a24e8-edb4-4a5c-a97d-2a1429438834",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:12 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:12.536878051\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "373e41c2-75f4-48bb-8b9b-b311b7931a69",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:42 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:42.681526769\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907&filter=&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "malformedBpolysGeoJson_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "6cf1b98d-0935-4231-9b08-4749a565b958",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%20%22FeatureCollection%22%2C%20%22features%22%3A%20%5B%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:43 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:43.579300146\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=%7B%22type%22%3A%20%22FeatureCollection%22%2C%20%22features%22%3A%20%5B%7D\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "62c806eb-f062-4bed-8006-ace27fb8b3ff",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:43 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedOsmTagInFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "a7448668-dbaf-4b07-aec4-ffdeafbfd3c9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:46 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2023-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2023-12-31T23:59:59Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "eaa505ec-c3c5-4012-9c24-04998e1c2961",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dunicorn"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:46 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "d9d829e5-2cc1-4eb7-a4d9-0ae41d321316",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:47 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:47.548250284\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "5920c20e-cedb-47ed-b6c6-ac9fbf640dff",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:47 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:47.644027413\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxCoordinatesOutOfRange_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "5f18527d-80b5-4ffd-9cfb-a1b43d0f55e6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2023-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2023-12-31T23:59:59Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "2698e145-12dd-41ee-bda5-db17d2a1948a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "200,95,201,96"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:49.142528565\",\n  \"status\" : 404,\n  \"message\" : \"The provided boundary parameter does not lie completely within the underlying data-extract polygon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=200,95,201,96&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeRangeNoData_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "7598827c-a84c-4ddf-ab72-1595b71479d9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:50 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2023-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2023-12-31T23:59:59Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "03fc8537-24a4-4302-aa93-27f85e8e5842",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2050-01-01T00:00:00Z/2050-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:50 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:50.742887976\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=false&time=2050-01-01T00:00:00Z/2050-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "2f68f76c-a040-40c4-b036-0b28ef3db6ee",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "maybe"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:51 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:51.562212164\",\n  \"status\" : 400,\n  \"message\" : \"The given parameter showMetadata can only contain the values 'true', 'yes', 'false', or 'no'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=maybe&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "b529f4ae-341d-4ddc-87c6-6354db30cbbc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "maybe"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:51 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:51.661502151\",\n  \"status\" : 400,\n  \"message\" : \"The given parameter showMetadata can only contain the values 'true', 'yes', 'false', or 'no'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=maybe&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterValues_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "087b984a-2864-4aef-8aa9-0d5fb55b68ab",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2023-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2023-12-31T23:59:59Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "8d90f18e-5bd7-4516-a950-54a71b5dd44c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20type%3Away"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeRangeStartAfterEnd_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "56add959-1553-4e4a-8915-fed253d6ba11",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2023-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2023-12-31T23:59:59Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "1bda2a53-241b-4275-ad3b-5bb8ded9123f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-31T23:59:59Z/2023-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:56 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "area",
+                    "id": "7863ec3a-c7a0-4f91-9447-96eed8a26d7c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:57 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2023-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2023-12-31T23:59:59Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "perimeterGroupByBoundary",
+                    "id": "4362ff36-2f3a-4c19-87e0-5fd7e6f33356",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3Dwater"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:57 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"boundary1\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T17:35:58.588949",
+    "statistics": {
+        "total_test_cases": 14,
+        "passed_test_cases": 11,
+        "failed_test_cases": 3,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 28,
+        "success_rate": 78.57142857142857,
+        "avg_requests_per_case": 2.0
+    }
+}

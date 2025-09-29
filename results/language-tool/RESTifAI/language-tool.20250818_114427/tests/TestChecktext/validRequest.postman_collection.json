@@ -1,0 +1,293 @@
+{
+    "info": {
+        "name": "validRequest",
+        "description": "This test case tests the endpoint for valid data and expects a successful response from the service",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "getSupportedLanguages",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/languages",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "languages"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getSupportedLanguages.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getSupportedLanguages.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getSupportedLanguages.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "checkText",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "language",
+                            "value": "en-US",
+                            "type": "text"
+                        },
+                        {
+                            "key": "text",
+                            "value": "This is a sample text to check for spelling and grammar errors.",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/check",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "check"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'software.name');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.name', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'software.version');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.version', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'software.buildDate');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.buildDate', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'software.apiVersion');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.apiVersion', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'software.premium');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.premium', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'software.premiumHint');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.premiumHint', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'software.status');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.software.status', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'warnings.incompleteResults');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.warnings.incompleteResults', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'language.name');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.language.name', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'language.code');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.language.code', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'language.detectedLanguage.name');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.language.detectedLanguage.name', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'language.detectedLanguage.code');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.language.detectedLanguage.code', x11);",
+                            "    }",
+                            "    const x12 = getValueByPath(responseJson, 'language.detectedLanguage.confidence');",
+                            "    if (x12 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.language.detectedLanguage.confidence', x12);",
+                            "    }",
+                            "    const x13 = getValueByPath(responseJson, 'language.detectedLanguage.source');",
+                            "    if (x13 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.language.detectedLanguage.source', x13);",
+                            "    }",
+                            "    const x14 = getValueByPath(responseJson, 'sentenceRanges[0][0]');",
+                            "    if (x14 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.sentenceRanges[0][0]', x14);",
+                            "    }",
+                            "    const x15 = getValueByPath(responseJson, 'sentenceRanges[0][1]');",
+                            "    if (x15 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.sentenceRanges[0][1]', x15);",
+                            "    }",
+                            "    const x16 = getValueByPath(responseJson, 'extendedSentenceRanges[0].from');",
+                            "    if (x16 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.extendedSentenceRanges[0].from', x16);",
+                            "    }",
+                            "    const x17 = getValueByPath(responseJson, 'extendedSentenceRanges[0].to');",
+                            "    if (x17 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.extendedSentenceRanges[0].to', x17);",
+                            "    }",
+                            "    const x18 = getValueByPath(responseJson, 'extendedSentenceRanges[0].detectedLanguages[0].language');",
+                            "    if (x18 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.extendedSentenceRanges[0].detectedLanguages[0].language', x18);",
+                            "    }",
+                            "    const x19 = getValueByPath(responseJson, 'extendedSentenceRanges[0].detectedLanguages[0].rate');",
+                            "    if (x19 !== undefined) {",
+                            "        pm.collectionVariables.set('checkText.response.body.extendedSentenceRanges[0].detectedLanguages[0].rate', x19);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('checkText.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('checkText.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('checkText.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('checkText.request.headers.Content-Type', 'multipart/form-data');",
+                            "pm.collectionVariables.set('checkText.request.body.language', 'en-US');",
+                            "pm.collectionVariables.set('checkText.request.body.text', 'This is a sample text to check for spelling and grammar errors.');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9001/v2');"
+                ]
+            }
+        }
+    ]
+}

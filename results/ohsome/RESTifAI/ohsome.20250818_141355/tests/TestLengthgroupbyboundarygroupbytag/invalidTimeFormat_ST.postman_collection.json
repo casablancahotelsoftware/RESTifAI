@@ -1,0 +1,175 @@
+{
+    "info": {
+        "name": "invalidTimeFormat_ST",
+        "description": "Set the `time` query parameter to an invalid ISO-8601 format, e.g., '2014-01-01_to_2017-01-01' instead of '2014-01-01/2017-01-01/P1Y'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "lengthGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2014-01-01_to_2017-01-01",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01_to_2017-01-01"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.time', '2014-01-01_to_2017-01-01');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthGroupByBoundaryGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/groupBy/boundary/groupBy/tag?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&groupByKey=building&groupByValues=residential,commercial&showMetadata=false&time=2014-01-01_to_2017-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "building"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "residential,commercial"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01_to_2017-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.groupByKey', 'building');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.groupByValues', 'residential,commercial');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.time', '2014-01-01_to_2017-01-01');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

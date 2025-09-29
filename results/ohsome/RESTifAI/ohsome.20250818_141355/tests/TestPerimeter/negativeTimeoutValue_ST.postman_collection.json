@@ -1,0 +1,92 @@
+{
+    "info": {
+        "name": "negativeTimeoutValue_ST",
+        "description": "Set the `timeout` query parameter to a negative number '-10' which violates the expected positive integer format, e.g., timeout=-10",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeter",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter?bboxes=12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159&filter=type%3Dway%20and%20highway%3Dprimary&format=json&showMetadata=true&time=2024-06-01T12:00:00Z&timeout=-10",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dway%20and%20highway%3Dprimary"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T12:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "-10"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeter.request.query_params.bboxes', '12.4924,41.8902,12.4926,41.8904|13.3615,38.1157,13.3617,38.1159');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.filter', 'type%3Dway%20and%20highway%3Dprimary');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.time', '2024-06-01T12:00:00Z');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.timeout', '-10');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

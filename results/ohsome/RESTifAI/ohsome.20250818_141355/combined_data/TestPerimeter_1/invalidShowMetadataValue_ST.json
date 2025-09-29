@@ -1,0 +1,192 @@
+{
+  "test_name": "invalidShowMetadataValue_ST",
+  "description": "Set the `showMetadata` parameter to a string other than 'true' or 'false', e.g., 'yes'",
+  "test_suite": "TestPerimeter_1",
+  "base_url": "https://api.ohsome.org/v1",
+  "operations": [
+    "count_1",
+    "perimeter_1"
+  ],
+  "values_to_create_a_successful_request": "count_1.request.headers.Content-Type: application/x-www-form-urlencoded\ncount_1.request.body.bboxes: 8.67,49.39,8.71,49.42\ncount_1.request.body.filter: type:way and natural=*\ncount_1.request.body.format: json\ncount_1.request.body.showMetadata: false\ncount_1.request.body.time: 2014-01-01/2017-01-01/P1Y\ncount_1.request.body.timeout: 30\ncount_1.response.body.attribution.url: https://ohsome.org/copyrights\ncount_1.response.body.attribution.text: \u00a9 OpenStreetMap contributors\ncount_1.response.body.apiVersion: 1.10.4\ncount_1.response.body.result[0].timestamp: 2014-01-01T00:00:00Z\ncount_1.response.body.result[0].value: 42.0\ncount_1.response.body.result[1].timestamp: 2015-01-01T00:00:00Z\ncount_1.response.body.result[1].value: 42.0\ncount_1.response.body.result[2].timestamp: 2016-01-01T00:00:00Z\ncount_1.response.body.result[2].value: 43.0\ncount_1.response.body.result[3].timestamp: 2017-01-01T00:00:00Z\ncount_1.response.body.result[3].value: 43.0\ncount_1.response.headers.Date: Mon, 18 Aug 2025 15:50:43 GMT\ncount_1.response.headers.Server: Apache/2.4.58 (Ubuntu)\ncount_1.response.headers.Strict-Transport-Security: max-age=63072000; includeSubdomains;\ncount_1.response.headers.Access-Control-Allow-Origin: *\ncount_1.response.headers.Access-Control-Allow-Methods: POST, GET\ncount_1.response.headers.Access-Control-Max-Age: 3600\ncount_1.response.headers.Access-Control-Allow-Credentials: true\ncount_1.response.headers.Access-Control-Allow-Headers: Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization\ncount_1.response.headers.Cache-Control: no-transform, public, max-age=31556926\ncount_1.response.headers.vary: accept-encoding\ncount_1.response.headers.Content-Encoding: gzip\ncount_1.response.headers.Content-Type: application/json\ncount_1.response.headers.Keep-Alive: timeout=5, max=100\ncount_1.response.headers.Connection: Keep-Alive\ncount_1.response.headers.Transfer-Encoding: chunked\ncount_1.response.status_code: 200\nperimeter_1.request.headers.Content-Type: application/x-www-form-urlencoded\nperimeter_1.request.body.bboxes: 8.67,49.39,8.71,49.42\nperimeter_1.request.body.filter: type:way and natural=*\nperimeter_1.request.body.format: json\nperimeter_1.request.body.showMetadata: false\nperimeter_1.request.body.time: 2014-01-01/2017-01-01/P1Y\nperimeter_1.request.body.timeout: 30\nperimeter_1.response.body.attribution.url: https://ohsome.org/copyrights\nperimeter_1.response.body.attribution.text: \u00a9 OpenStreetMap contributors\nperimeter_1.response.body.apiVersion: 1.10.4\nperimeter_1.response.body.result[0].timestamp: 2014-01-01T00:00:00Z\nperimeter_1.response.body.result[0].value: 8723.64\nperimeter_1.response.body.result[1].timestamp: 2015-01-01T00:00:00Z\nperimeter_1.response.body.result[1].value: 8559.64\nperimeter_1.response.body.result[2].timestamp: 2016-01-01T00:00:00Z\nperimeter_1.response.body.result[2].value: 8697.61\nperimeter_1.response.body.result[3].timestamp: 2017-01-01T00:00:00Z\nperimeter_1.response.body.result[3].value: 8694.75\nperimeter_1.response.headers.Date: Mon, 18 Aug 2025 15:50:45 GMT\nperimeter_1.response.headers.Server: Apache/2.4.58 (Ubuntu)\nperimeter_1.response.headers.Strict-Transport-Security: max-age=63072000; includeSubdomains;\nperimeter_1.response.headers.Access-Control-Allow-Origin: *\nperimeter_1.response.headers.Access-Control-Allow-Methods: POST, GET\nperimeter_1.response.headers.Access-Control-Max-Age: 3600\nperimeter_1.response.headers.Access-Control-Allow-Credentials: true\nperimeter_1.response.headers.Access-Control-Allow-Headers: Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization\nperimeter_1.response.headers.Cache-Control: no-transform, public, max-age=31556926\nperimeter_1.response.headers.vary: accept-encoding\nperimeter_1.response.headers.Content-Encoding: gzip\nperimeter_1.response.headers.Content-Type: application/json\nperimeter_1.response.headers.Keep-Alive: timeout=5, max=100\nperimeter_1.response.headers.Connection: Keep-Alive\nperimeter_1.response.headers.Transfer-Encoding: chunked\nperimeter_1.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### count_1\n- Method: POST\n- Path: /elements/count\n- Parameters:\nNone\n- Request Body Schema:\n{'application/x-www-form-urlencoded': {'schema': {'type': 'object', 'properties': {'bboxes': {'type': 'string', 'description': 'WGS84 coordinates in the following format: id1:lon1,lat1,lon2,lat2|id2:lon1,lat1,lon2,lat2|... OR lon1,lat1,lon2,lat2|lon1,lat1,lon2,lat2|...; no default value (one boundary parameter must be defined)', 'default': '8.67,49.39,8.71,49.42'}, 'bcircles': {'type': 'string', 'description': 'WGS84 coordinates + radius in meter in the following format: id1:lon,lat,r|id2:lon,lat,r|... OR lon,lat,r|lon,lat,r|...; no default value (one boundary parameter must be defined)'}, 'bpolys': {'type': 'string', 'description': 'WGS84 coordinates given as a list of coordinate pairs (as for bboxes) or GeoJSON FeatureCollection. The first point has to be the same as the last point and MultiPolygons are only supported in GeoJSON; no default value (one boundary parameter must be defined)'}, 'filter': {'type': 'string', 'description': 'Combines several attributive filters, e.g. OSM type, the geometry (simple feature) type, as well as the OSM tag; no default value', 'default': 'type:way and natural=*'}, 'format': {'type': 'string', 'description': 'Output format geojson (for /groupBy/boundary resources only), csv, or json; default: json', 'default': 'json'}, 'showMetadata': {'type': 'string', 'description': \"Boolean operator 'true' or 'false'; default: 'false'\"}, 'time': {'type': 'string', 'description': 'ISO-8601 conform timestring(s); default: latest timestamp within dataset', 'default': '2014-01-01/2017-01-01/P1Y'}, 'timeout': {'type': 'string', 'description': 'Custom timeout in seconds; no default value'}}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'title': 'DefaultAggregationResponse', 'required': ['apiVersion', 'attribution', 'features', 'result', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'result': {'type': 'array', 'description': 'ElementsResult holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}, 'text/csv': {'schema': {'title': 'DefaultAggregationResponse', 'required': ['apiVersion', 'attribution', 'features', 'result', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'result': {'type': 'array', 'description': 'ElementsResult holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}}}, '400': {'description': 'Bad request', 'content': {}}, '401': {'description': 'Unauthorized', 'content': {}}, '404': {'description': 'Not found', 'content': {}}, '405': {'description': 'Method not allowed', 'content': {}}, '413': {'description': 'Payload too large', 'content': {}}, '500': {'description': 'Internal server error', 'content': {}}, '501': {'description': 'Not implemented', 'content': {}}, '503': {'description': 'Service Unavailable', 'content': {}}}\n",
+    "#### perimeter_1\n- Method: POST\n- Path: /elements/perimeter\n- Parameters:\nNone\n- Request Body Schema:\n{'application/x-www-form-urlencoded': {'schema': {'type': 'object', 'properties': {'bboxes': {'type': 'string', 'description': 'WGS84 coordinates in the following format: id1:lon1,lat1,lon2,lat2|id2:lon1,lat1,lon2,lat2|... OR lon1,lat1,lon2,lat2|lon1,lat1,lon2,lat2|...; no default value (one boundary parameter must be defined)', 'default': '8.67,49.39,8.71,49.42'}, 'bcircles': {'type': 'string', 'description': 'WGS84 coordinates + radius in meter in the following format: id1:lon,lat,r|id2:lon,lat,r|... OR lon,lat,r|lon,lat,r|...; no default value (one boundary parameter must be defined)'}, 'bpolys': {'type': 'string', 'description': 'WGS84 coordinates given as a list of coordinate pairs (as for bboxes) or GeoJSON FeatureCollection. The first point has to be the same as the last point and MultiPolygons are only supported in GeoJSON; no default value (one boundary parameter must be defined)'}, 'filter': {'type': 'string', 'description': 'Combines several attributive filters, e.g. OSM type, the geometry (simple feature) type, as well as the OSM tag; no default value', 'default': 'type:way and natural=*'}, 'format': {'type': 'string', 'description': 'Output format geojson (for /groupBy/boundary resources only), csv, or json; default: json', 'default': 'json'}, 'showMetadata': {'type': 'string', 'description': \"Boolean operator 'true' or 'false'; default: 'false'\"}, 'time': {'type': 'string', 'description': 'ISO-8601 conform timestring(s); default: latest timestamp within dataset', 'default': '2014-01-01/2017-01-01/P1Y'}, 'timeout': {'type': 'string', 'description': 'Custom timeout in seconds; no default value'}}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'title': 'DefaultAggregationResponse', 'required': ['apiVersion', 'attribution', 'features', 'result', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'result': {'type': 'array', 'description': 'ElementsResult holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}, 'text/csv': {'schema': {'title': 'DefaultAggregationResponse', 'required': ['apiVersion', 'attribution', 'features', 'result', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'result': {'type': 'array', 'description': 'ElementsResult holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}}}, '400': {'description': 'Bad request', 'content': {}}, '401': {'description': 'Unauthorized', 'content': {}}, '404': {'description': 'Not found', 'content': {}}, '405': {'description': 'Method not allowed', 'content': {}}, '413': {'description': 'Payload too large', 'content': {}}, '500': {'description': 'Internal server error', 'content': {}}, '501': {'description': 'Not implemented', 'content': {}}, '503': {'description': 'Service Unavailable', 'content': {}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "count_1",
+      "request_id": "3fc2a4d4-77c8-4e17-838c-7529be1cc420",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "elements",
+            "count"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Date": "Mon, 18 Aug 2025 17:22:19 GMT",
+          "Server": "Apache/2.4.58 (Ubuntu)",
+          "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET",
+          "Access-Control-Max-Age": "3600",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+          "Cache-Control": "no-transform, public, max-age=31556926",
+          "vary": "accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Keep-Alive": "timeout=5, max=100",
+          "Connection": "Keep-Alive",
+          "Transfer-Encoding": "chunked"
+        },
+        "body": {
+          "attribution": {
+            "url": "https://ohsome.org/copyrights",
+            "text": " OpenStreetMap contributors"
+          },
+          "apiVersion": "1.10.4",
+          "metadata": {
+            "executionTime": 340,
+            "description": "Total count of items in absolute values."
+          },
+          "result": [
+            {
+              "timestamp": "2014-01-01T00:00:00Z",
+              "value": 42.0
+            },
+            {
+              "timestamp": "2015-01-01T00:00:00Z",
+              "value": 42.0
+            },
+            {
+              "timestamp": "2016-01-01T00:00:00Z",
+              "value": 43.0
+            },
+            {
+              "timestamp": "2017-01-01T00:00:00Z",
+              "value": 43.0
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+          }
+        }
+      ]
+    },
+    {
+      "request_name": "perimeter_1",
+      "request_id": "1cf74f0a-14b9-420d-88cb-ea1375303e97",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "elements",
+            "perimeter"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Date": "Mon, 18 Aug 2025 17:22:19 GMT",
+          "Server": "Apache/2.4.58 (Ubuntu)",
+          "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET",
+          "Access-Control-Max-Age": "3600",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+          "Cache-Control": "no-transform, public, max-age=31556926",
+          "vary": "accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Keep-Alive": "timeout=5, max=99",
+          "Connection": "Keep-Alive",
+          "Transfer-Encoding": "chunked"
+        },
+        "body": {
+          "attribution": {
+            "url": "https://ohsome.org/copyrights",
+            "text": " OpenStreetMap contributors"
+          },
+          "apiVersion": "1.10.4",
+          "metadata": {
+            "executionTime": 330,
+            "description": "Total perimeter of items in meters."
+          },
+          "result": [
+            {
+              "timestamp": "2014-01-01T00:00:00Z",
+              "value": 8723.64
+            },
+            {
+              "timestamp": "2015-01-01T00:00:00Z",
+              "value": 8559.64
+            },
+            {
+              "timestamp": "2016-01-01T00:00:00Z",
+              "value": 8697.61
+            },
+            {
+              "timestamp": "2017-01-01T00:00:00Z",
+              "value": 8694.75
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+          }
+        }
+      ]
+    }
+  ]
+}

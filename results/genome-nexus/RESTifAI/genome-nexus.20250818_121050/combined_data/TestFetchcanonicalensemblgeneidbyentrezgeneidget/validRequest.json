@@ -1,0 +1,71 @@
+{
+  "test_name": "validRequest",
+  "description": "This test case tests the endpoint for valid data and expects a successful response from the service",
+  "test_suite": "TestFetchcanonicalensemblgeneidbyentrezgeneidget",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET"
+  ],
+  "values_to_create_a_successful_request": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.request.path_params.entrezGeneId: 23140\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.body.geneId: ENSG00000074755\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.body.hugoSymbol: ZZEF1\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.body.synonyms[0]: KIAA0399\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.body.synonyms[1]: ZZZ4\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.body.synonyms[2]: FLJ10821\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.body.entrezGeneId: 23140\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.headers.Date: Mon, 18 Aug 2025 12:16:20 GMT\nfetchCanonicalEnsemblGeneIdByEntrezGeneIdGET.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET\n- Method: GET\n- Path: /ensembl/canonical-gene/entrez/{entrezGeneId}\n- Parameters:\n  - name: entrezGeneId\n  - in: path\n  - required: True\n  - description: An Entrez Gene Id. For example 23140\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'required': ['geneId', 'hugoSymbol'], 'type': 'object', 'properties': {'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'hugoSymbol': {'type': 'string', 'description': 'Approved Hugo symbol'}, 'synonyms': {'type': 'array', 'description': 'Hugo symbol synonyms', 'items': {'type': 'string'}}, 'previousSymbols': {'type': 'array', 'description': 'Previous Hugo symbols', 'items': {'type': 'string'}}, 'entrezGeneId': {'type': 'string', 'description': 'Entrez Gene Id'}}}}}}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET",
+      "request_id": "4a21554f-bb2a-43bb-8991-e6eb535a9032",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-gene",
+            "entrez",
+            ":entrezGeneId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "entrezGeneId",
+              "value": "23140",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:32:13 GMT"
+        },
+        "body": {
+          "geneId": "ENSG00000074755",
+          "hugoSymbol": "ZZEF1",
+          "synonyms": [
+            "KIAA0399",
+            "ZZZ4",
+            "FLJ10821"
+          ],
+          "entrezGeneId": "23140"
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

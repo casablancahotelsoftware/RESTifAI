@@ -1,0 +1,61 @@
+{
+  "test_name": "arrayContainsArray_ST",
+  "description": "Send a request body as an array containing an empty array, e.g., [[]] instead of [\"PF00069\"]",
+  "test_suite": "TestFetchpfamdomainsbypfamaccessionpost",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchPfamDomainsByPfamAccessionPOST"
+  ],
+  "values_to_create_a_successful_request": "fetchPfamDomainsByPfamAccessionPOST.request.headers.Content-Type: application/json\nfetchPfamDomainsByPfamAccessionPOST.request.body.[0]: PF02827\nfetchPfamDomainsByPfamAccessionPOST.request.body.[1]: PF00069\nfetchPfamDomainsByPfamAccessionPOST.request.body.[2]: PF00533\nfetchPfamDomainsByPfamAccessionPOST.request.body.[3]: PF07714\nfetchPfamDomainsByPfamAccessionPOST.response.body[0].pfamAccession: PF00069\nfetchPfamDomainsByPfamAccessionPOST.response.body[0].name: Pkinase\nfetchPfamDomainsByPfamAccessionPOST.response.body[0].description: Protein kinase domain\nfetchPfamDomainsByPfamAccessionPOST.response.body[1].pfamAccession: PF00533\nfetchPfamDomainsByPfamAccessionPOST.response.body[1].name: BRCT\nfetchPfamDomainsByPfamAccessionPOST.response.body[1].description: BRCA1 C Terminus (BRCT) domain\nfetchPfamDomainsByPfamAccessionPOST.response.body[2].pfamAccession: PF02827\nfetchPfamDomainsByPfamAccessionPOST.response.body[2].name: PKI\nfetchPfamDomainsByPfamAccessionPOST.response.body[2].description: cAMP-dependent protein kinase inhibitor\nfetchPfamDomainsByPfamAccessionPOST.response.body[3].pfamAccession: PF07714\nfetchPfamDomainsByPfamAccessionPOST.response.body[3].name: Pkinase_Tyr\nfetchPfamDomainsByPfamAccessionPOST.response.body[3].description: Protein tyrosine kinase\nfetchPfamDomainsByPfamAccessionPOST.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchPfamDomainsByPfamAccessionPOST.response.headers.Content-Encoding: gzip\nfetchPfamDomainsByPfamAccessionPOST.response.headers.Content-Type: application/json\nfetchPfamDomainsByPfamAccessionPOST.response.headers.Transfer-Encoding: chunked\nfetchPfamDomainsByPfamAccessionPOST.response.headers.Date: Mon, 18 Aug 2025 12:22:13 GMT\nfetchPfamDomainsByPfamAccessionPOST.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchPfamDomainsByPfamAccessionPOST\n- Method: POST\n- Path: /pfam/domain\n- Parameters:\nNone\n- Request Body Schema:\n{'application/json': {'schema': {'type': 'array', 'items': {'type': 'string'}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'required': ['name', 'pfamAccession'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'PFAM domain description'}, 'name': {'type': 'string', 'description': 'PFAM domain name'}, 'pfamAccession': {'type': 'string', 'description': 'PFAM domain accession'}}}}}}}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "fetchPfamDomainsByPfamAccessionPOST",
+      "request_id": "d270aea8-f787-45c7-bdcd-d204c027b44a",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "pfam",
+            "domain"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": [
+          []
+        ]
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "Access-Control-Request-Headers",
+          "Allow": "GET, HEAD",
+          "Content-Language": "en",
+          "Content-Length": "0",
+          "Date": "Mon, 18 Aug 2025 12:28:41 GMT"
+        },
+        "body": ""
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

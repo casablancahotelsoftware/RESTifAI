@@ -1,0 +1,100 @@
+{
+    "info": {
+        "name": "missingStartProperty_ST",
+        "description": "Omit the required `start` property in one of the request body objects, e.g., remove `start` field entirely",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchVariantAnnotationByGenomicLocationPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  {\n    \"chromosome\": \"7\",\n    \"end\": 140453136,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  },\n  {\n    \"chromosome\": \"12\",\n    \"start\": 25398285,\n    \"end\": 25398285,\n    \"referenceAllele\": \"G\",\n    \"variantAllele\": \"A\"\n  }\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/annotation/genomic?isoformOverrideSource=uniprot&token=%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D&fields=hotspots",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "annotation",
+                        "genomic"
+                    ],
+                    "query": [
+                        {
+                            "key": "isoformOverrideSource",
+                            "value": "uniprot"
+                        },
+                        {
+                            "key": "token",
+                            "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "hotspots"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.query_params.isoformOverrideSource', 'uniprot');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.query_params.token', '%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.query_params.fields', 'hotspots');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[0].chromosome', '7');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[0].end', 140453136);",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[0].referenceAllele', 'C');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[0].variantAllele', 'T');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[1].chromosome', '12');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[1].start', 25398285);",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[1].end', 25398285);",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[1].referenceAllele', 'G');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByGenomicLocationPOST.request.body.[1].variantAllele', 'A');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

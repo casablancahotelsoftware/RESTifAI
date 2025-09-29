@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MyVariantInfoMixin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.mixin.my_variant_info_mixin</a> &gt; <span class="el_source">MyVariantInfoMixin.java</span></div><h1>MyVariantInfoMixin.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.mixin.my_variant_info_mixin;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import org.cbioportal.genome_nexus.model.my_variant_info_model.MyVariantInfoClinVar;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.Cosmic;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.Dbsnp;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.Gnomad;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.Snpeff;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.Vcf;
+
+import io.swagger.annotations.ApiModelProperty;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L15">public class MyVariantInfoMixin</span>
+{
+    @ApiModelProperty(value = &quot;variant&quot;, required = false)
+    private String variant;
+
+    @ApiModelProperty(value = &quot;hgvs&quot;, required = false)
+    private String hgvs;
+
+    @ApiModelProperty(value = &quot;version&quot;, required = false)
+    private Integer version;
+
+    @ApiModelProperty(value = &quot;snpeff&quot;, required = false)
+    private Snpeff snpeff;
+
+    @ApiModelProperty(value = &quot;vcf&quot;, required = false)
+    private Vcf vcf;
+
+    @ApiModelProperty(value = &quot;dbsnp&quot;, required = false)
+    private Dbsnp dbsnp;
+
+    @ApiModelProperty(value = &quot;cosmic&quot;, required = false)
+    private Cosmic cosmic;
+
+    @ApiModelProperty(value = &quot;clinvar&quot;, required = false)
+    private MyVariantInfoClinVar clinVar;
+
+    @ApiModelProperty(value = &quot;gnomad_exome&quot;, required = false)
+    private Gnomad gnomadExome;
+
+    @ApiModelProperty(value = &quot;gnomad_genome&quot;, required = false)
+    private Gnomad gnomadGenome;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

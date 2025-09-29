@@ -1,0 +1,79 @@
+{
+    "info": {
+        "name": "arrayContainsBooleanItem_ST",
+        "description": "Request body is an array containing a boolean value, e.g., [\"7157\", true, \"1956\"]",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"7157\",\n  true,\n  \"1956\",\n  \"1029\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/entrez",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "entrez"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST.request.body.[0]', '7157');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST.request.body.[1]', true);",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST.request.body.[2]', '1956');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST.request.body.[3]', '1029');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

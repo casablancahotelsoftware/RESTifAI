@@ -1,0 +1,87 @@
+{
+    "info": {
+        "name": "emptyBboxesValue_ST",
+        "description": "Provide an empty string for the `bboxes` query parameter which requires a non-empty coordinate string",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count?bboxes=&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": ""
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count.request.query_params.bboxes', '');",
+                            "pm.collectionVariables.set('count.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('count.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count.request.query_params.time', '2014-01-01/2017-01');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

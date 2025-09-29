@@ -1,0 +1,322 @@
+{
+    "info": {
+        "name": "nonNumericTimeout_ST",
+        "description": "Set the `timeout` query parameter to a non-numeric string, e.g., timeout='thirty'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=12.4924,41.8902,12.4960,41.8920&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4924,41.8902,12.4960,41.8920"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "thirty"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '12.4924,41.8902,12.4960,41.8920');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', 'thirty');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "length",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length?bboxes=12.4924,41.8902,12.4960,41.8920&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4924,41.8902,12.4960,41.8920"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "thirty"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('length.request.query_params.bboxes', '12.4924,41.8902,12.4960,41.8920');",
+                            "pm.collectionVariables.set('length.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('length.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('length.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('length.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('length.request.query_params.timeout', 'thirty');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthDensity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/density?bboxes=12.4924,41.8902,12.4960,41.8920&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "density"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4924,41.8902,12.4960,41.8920"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "thirty"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.bboxes', '12.4924,41.8902,12.4960,41.8920');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.timeout', 'thirty');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthDensityGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/density/groupBy/tag?bboxes=12.4924,41.8902,12.4942,41.8911&filter=type%3Away%20and%20natural%3D%2A&format=json&groupByKey=highway&groupByValues=primary,residential&showMetadata=false&time=2023-01-01T00:00:00Z/2023-06-30T23:59:59Z&timeout=thirty",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "density",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4924,41.8902,12.4942,41.8911"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "highway"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "primary,residential"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-06-30T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "thirty"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.bboxes', '12.4924,41.8902,12.4942,41.8911');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.groupByKey', 'highway');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.groupByValues', 'primary,residential');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.time', '2023-01-01T00:00:00Z/2023-06-30T23:59:59Z');",
+                            "pm.collectionVariables.set('lengthDensityGroupByTag.request.query_params.timeout', 'thirty');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

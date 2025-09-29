@@ -1,0 +1,185 @@
+{
+    "info": {
+        "name": "fetchVariantIdWithUnsupportedVariantType_FU",
+        "description": "Change the fetchVariantAnnotationByIdPOST request body to include a variant ID that is logically inconsistent with the database state, e.g., a variant ID that implies a structural variant but the database only supports SNVs and indels, to test unsupported variant type rejection.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchVariantAnnotationPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"17:g.41242962_41242963insGA\",\n  \"7:g.140453136A>T\",\n  \"X:g.1000000del\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/annotation?isoformOverrideSource=uniprot&token=%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D&fields=hotspots",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "annotation"
+                    ],
+                    "query": [
+                        {
+                            "key": "isoformOverrideSource",
+                            "value": "uniprot"
+                        },
+                        {
+                            "key": "token",
+                            "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "hotspots"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchVariantAnnotationPOST.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchVariantAnnotationPOST.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchVariantAnnotationPOST.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.query_params.isoformOverrideSource', 'uniprot');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.query_params.token', '%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.query_params.fields', 'hotspots');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.body.[0]', '17:g.41242962_41242963insGA');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.body.[1]', '7:g.140453136A>T');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.body.[2]', 'X:g.1000000del');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchVariantAnnotationByIdPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"17:g.41242962_41242963inv\",\n  \"7:g.140453136A>T\",\n  \"X:g.1000000del\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/annotation/dbsnp?isoformOverrideSource=uniprot&token=%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D&fields=annotation_summary",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "annotation",
+                        "dbsnp"
+                    ],
+                    "query": [
+                        {
+                            "key": "isoformOverrideSource",
+                            "value": "uniprot"
+                        },
+                        {
+                            "key": "token",
+                            "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "annotation_summary"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.query_params.isoformOverrideSource', 'uniprot');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.query_params.token', '%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.query_params.fields', 'annotation_summary');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.body.[0]', '17:g.41242962_41242963inv');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.body.[1]', '7:g.140453136A>T');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationByIdPOST.request.body.[2]', 'X:g.1000000del');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "info": {
+        "name": "deprecatedLanguageCode_FU",
+        "description": "Change the `lang` path parameter in the v2Lang request to a valid ISO 639-1 code of a language that is deprecated or obsolete and not supported by the system, e.g., 'tl' (Tagalog replaced by Filipino), to test request for deprecated language code.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v2All",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/all",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "all"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('v2All.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('v2All.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('v2All.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "v2Lang",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/lang/:lang?fields=null",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "lang",
+                        ":lang"
+                    ],
+                    "variable": [
+                        {
+                            "key": "lang",
+                            "value": "tl"
+                        }
+                    ],
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": "null"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v2Lang.request.path_params.lang', 'tl');",
+                            "pm.collectionVariables.set('v2Lang.request.query_params.fields', null);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

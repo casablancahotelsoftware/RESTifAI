@@ -1,0 +1,98 @@
+{
+    "info": {
+        "name": "contributionTypeInvalidValue_ST",
+        "description": "Set the `contributionType` parameter to an invalid value not in the enum, e.g., 'invalidType'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "contributionsCountDensity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count/density?bboxes=13.388860,52.517037,13.397634,52.523219&contributionType=invalidType&filter=osmType%3Dnode%20and%20geometryType%3DPoint%20and%20tag%3Dhighway&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count",
+                        "density"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.388860,52.517037,13.397634,52.523219"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "invalidType"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "osmType%3Dnode%20and%20geometryType%3DPoint%20and%20tag%3Dhighway"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.bboxes', '13.388860,52.517037,13.397634,52.523219');",
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.contributionType', 'invalidType');",
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.filter', 'osmType%3Dnode%20and%20geometryType%3DPoint%20and%20tag%3Dhighway');",
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('contributionsCountDensity.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

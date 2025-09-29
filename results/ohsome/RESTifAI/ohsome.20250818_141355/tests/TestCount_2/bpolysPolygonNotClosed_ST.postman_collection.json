@@ -1,0 +1,102 @@
+{
+    "info": {
+        "name": "bpolysPolygonNotClosed_ST",
+        "description": "Provide `bpolys` with a GeoJSON FeatureCollection missing the required closing coordinate to form a polygon, e.g., bpolys=\"{\\\"type\\\":\\\"FeatureCollection\\\",\\\"features\\\":[{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Polygon\\\",\\\"coordinates\\\":[[[8.67,49.39],[8.71,49.39],[8.71,49.42]]]}}]}\" missing last point equal to first",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count?bboxes=8.67,49.39,8.71,49.42&contributionType=creation,deletion&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B8.67%2C49.39%5D%2C%5B8.71%2C49.39%5D%2C%5B8.71%2C49.42%5D%5D%5D%7D%7D%5D%7D",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B8.67%2C49.39%5D%2C%5B8.71%2C49.39%5D%2C%5B8.71%2C49.42%5D%5D%5D%7D%7D%5D%7D"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_2.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_2.request.query_params.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('count_2.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('count_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('count_2.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('count_2.request.query_params.timeout', '30');",
+                            "pm.collectionVariables.set('count_2.request.query_params.bpolys', '%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B8.67%2C49.39%5D%2C%5B8.71%2C49.39%5D%2C%5B8.71%2C49.42%5D%5D%5D%7D%7D%5D%7D');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

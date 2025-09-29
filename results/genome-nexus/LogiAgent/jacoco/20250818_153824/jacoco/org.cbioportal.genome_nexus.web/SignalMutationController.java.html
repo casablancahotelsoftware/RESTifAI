@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SignalMutationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">SignalMutationController.java</span></div><h1>SignalMutationController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.cbioportal.genome_nexus.model.SignalMutation;
+import org.cbioportal.genome_nexus.service.SignalMutationService;
+import org.cbioportal.genome_nexus.web.config.InternalApi;
+import org.cbioportal.genome_nexus.web.param.SignalMutationFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@InternalApi
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+@Api(tags = &quot;signal-mutation-controller&quot;, description = &quot;Signal Mutation Controller&quot;)
+public class SignalMutationController
+{
+    private final SignalMutationService signalMutationService;
+
+    @Autowired
+    public SignalMutationController(SignalMutationService signalMutationService)
+<span class="fc" id="L26">    {</span>
+<span class="fc" id="L27">        this.signalMutationService = signalMutationService;</span>
+<span class="fc" id="L28">    }</span>
+
+    @ApiOperation(value = &quot;Retrieves SignalDB mutations by Mutation Filter&quot;)
+    @RequestMapping(value = &quot;/signal/mutation&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;SignalMutation&gt; fetchSignalMutationsByMutationFilterPOST(
+        @ApiParam(
+            value = &quot;List of Hugo Gene Symbols. For example [\&quot;TP53\&quot;, \&quot;PIK3CA\&quot;, \&quot;BRCA1\&quot;]&quot;,
+            required = true)
+        @RequestBody SignalMutationFilter mutationFilter)
+    {
+<span class="nc" id="L40">        return this.signalMutationService.getSignalMutations(mutationFilter.getHugoSymbols());</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves SignalDB mutations by Hugo Gene Symbol&quot;)
+    @RequestMapping(value = &quot;/signal/mutation&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public List&lt;SignalMutation&gt; fetchSignalMutationsByHugoSymbolGET(
+        @ApiParam(
+            value=&quot;Hugo Symbol. For example BRCA1&quot;,
+            required = false)
+        @RequestParam(required = false) String hugoGeneSymbol)
+    {
+<span class="nc" id="L53">        return this.signalMutationService.getSignalMutations(hugoGeneSymbol);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves SignalDB mutations by hgvgs variant&quot;)
+    @RequestMapping(value = &quot;/signal/mutation/hgvs/{variant:.+}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public List&lt;SignalMutation&gt; fetchSignalMutationsByHgvsgGET(
+        @ApiParam(
+            value=&quot;A variant. For example 13:g.32890665G&gt;A&quot;,
+            required = true)
+        @PathVariable String variant
+    )
+    {
+<span class="nc" id="L67">        return this.signalMutationService.getSignalMutationsByHgvsg(variant);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,161 @@
+{
+    "info": {
+        "name": "invalidFormatValue_ST",
+        "description": "Set the `format` query parameter to an unsupported value, e.g., 'xml' instead of allowed 'json', 'csv', or 'geojson'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3D%2A&format=xml&showMetadata=false",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "xml"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'xml');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaGroupByKey",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907&filter=type%3Away%20and%20natural%3D%2A&format=xml&groupByKeys=natural&showMetadata=false&time=2025-07-01T12:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "groupBy",
+                        "key"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "xml"
+                        },
+                        {
+                            "key": "groupByKeys",
+                            "value": "natural"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2025-07-01T12:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907');",
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.format', 'xml');",
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.groupByKeys', 'natural');",
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.time', '2025-07-01T12:00:00Z');",
+                            "pm.collectionVariables.set('areaGroupByKey.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,363 @@
+{
+  "test_name": "unsupportedLanguageStatusFilter_FU",
+  "description": "Add a query parameter `languageStatus` with value 'deprecated' to request only deprecated languages, which is not supported by the endpoint and violates business logic.",
+  "test_suite": "TestGetsupportedlanguages",
+  "base_url": "http://localhost:9001/v2",
+  "operations": [
+    "getSupportedLanguages"
+  ],
+  "values_to_create_a_successful_request": "getSupportedLanguages.response.body[0].name: Arabic\ngetSupportedLanguages.response.body[0].code: ar\ngetSupportedLanguages.response.body[0].longCode: ar\ngetSupportedLanguages.response.body[1].name: Asturian\ngetSupportedLanguages.response.body[1].code: ast\ngetSupportedLanguages.response.body[1].longCode: ast-ES\ngetSupportedLanguages.response.body[2].name: Belarusian\ngetSupportedLanguages.response.body[2].code: be\ngetSupportedLanguages.response.body[2].longCode: be-BY\ngetSupportedLanguages.response.body[3].name: Breton\ngetSupportedLanguages.response.body[3].code: br\ngetSupportedLanguages.response.body[3].longCode: br-FR\ngetSupportedLanguages.response.body[4].name: Catalan\ngetSupportedLanguages.response.body[4].code: ca\ngetSupportedLanguages.response.body[4].longCode: ca-ES\ngetSupportedLanguages.response.body[5].name: Catalan (Valencian)\ngetSupportedLanguages.response.body[5].code: ca\ngetSupportedLanguages.response.body[5].longCode: ca-ES-valencia\ngetSupportedLanguages.response.body[6].name: Catalan (Balearic)\ngetSupportedLanguages.response.body[6].code: ca\ngetSupportedLanguages.response.body[6].longCode: ca-ES-balear\ngetSupportedLanguages.response.body[7].name: Danish\ngetSupportedLanguages.response.body[7].code: da\ngetSupportedLanguages.response.body[7].longCode: da-DK\ngetSupportedLanguages.response.body[8].name: German\ngetSupportedLanguages.response.body[8].code: de\ngetSupportedLanguages.response.body[8].longCode: de\ngetSupportedLanguages.response.body[9].name: German (Germany)\ngetSupportedLanguages.response.body[9].code: de\ngetSupportedLanguages.response.body[9].longCode: de-DE\ngetSupportedLanguages.response.headers.Date: Mon, 18 Aug 2025 11:45:17 GMT\ngetSupportedLanguages.response.headers.Content-type: application/json\ngetSupportedLanguages.response.headers.Content-length: 3307\ngetSupportedLanguages.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### getSupportedLanguages\n- Method: GET\n- Path: /languages\n- Parameters:\nNone\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'An array of language objects.', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'required': ['code', 'longCode', 'name'], 'type': 'object', 'properties': {'name': {'type': 'string', 'description': \"a language name like 'French' or 'English (Australia)'\"}, 'code': {'type': 'string', 'description': \"a language code like 'en'\"}, 'longCode': {'type': 'string', 'description': \"a language code like 'en-US' or 'ca-ES-valencia'\"}}}}}}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "getSupportedLanguages",
+      "request_id": "d1fec625-31e9-42bd-aedf-7a3f947c36bd",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "languages"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "languageStatus",
+              "value": "deprecated"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Date": "Mon, 18 Aug 2025 11:45:39 GMT",
+          "Content-type": "application/json",
+          "Content-length": "3307"
+        },
+        "body": [
+          {
+            "name": "Arabic",
+            "code": "ar",
+            "longCode": "ar"
+          },
+          {
+            "name": "Asturian",
+            "code": "ast",
+            "longCode": "ast-ES"
+          },
+          {
+            "name": "Belarusian",
+            "code": "be",
+            "longCode": "be-BY"
+          },
+          {
+            "name": "Breton",
+            "code": "br",
+            "longCode": "br-FR"
+          },
+          {
+            "name": "Catalan",
+            "code": "ca",
+            "longCode": "ca-ES"
+          },
+          {
+            "name": "Catalan (Valencian)",
+            "code": "ca",
+            "longCode": "ca-ES-valencia"
+          },
+          {
+            "name": "Catalan (Balearic)",
+            "code": "ca",
+            "longCode": "ca-ES-balear"
+          },
+          {
+            "name": "Danish",
+            "code": "da",
+            "longCode": "da-DK"
+          },
+          {
+            "name": "German",
+            "code": "de",
+            "longCode": "de"
+          },
+          {
+            "name": "German (Germany)",
+            "code": "de",
+            "longCode": "de-DE"
+          },
+          {
+            "name": "German (Austria)",
+            "code": "de",
+            "longCode": "de-AT"
+          },
+          {
+            "name": "German (Swiss)",
+            "code": "de",
+            "longCode": "de-CH"
+          },
+          {
+            "name": "Simple German",
+            "code": "de-DE-x-simple-language",
+            "longCode": "de-DE-x-simple-language"
+          },
+          {
+            "name": "Greek",
+            "code": "el",
+            "longCode": "el-GR"
+          },
+          {
+            "name": "English",
+            "code": "en",
+            "longCode": "en"
+          },
+          {
+            "name": "English (US)",
+            "code": "en",
+            "longCode": "en-US"
+          },
+          {
+            "name": "English (GB)",
+            "code": "en",
+            "longCode": "en-GB"
+          },
+          {
+            "name": "English (Australian)",
+            "code": "en",
+            "longCode": "en-AU"
+          },
+          {
+            "name": "English (Canadian)",
+            "code": "en",
+            "longCode": "en-CA"
+          },
+          {
+            "name": "English (New Zealand)",
+            "code": "en",
+            "longCode": "en-NZ"
+          },
+          {
+            "name": "English (South African)",
+            "code": "en",
+            "longCode": "en-ZA"
+          },
+          {
+            "name": "Esperanto",
+            "code": "eo",
+            "longCode": "eo"
+          },
+          {
+            "name": "Spanish",
+            "code": "es",
+            "longCode": "es"
+          },
+          {
+            "name": "Spanish (voseo)",
+            "code": "es",
+            "longCode": "es-AR"
+          },
+          {
+            "name": "Persian",
+            "code": "fa",
+            "longCode": "fa"
+          },
+          {
+            "name": "French",
+            "code": "fr",
+            "longCode": "fr"
+          },
+          {
+            "name": "French (Canada)",
+            "code": "fr",
+            "longCode": "fr-CA"
+          },
+          {
+            "name": "French (Switzerland)",
+            "code": "fr",
+            "longCode": "fr-CH"
+          },
+          {
+            "name": "French (Belgium)",
+            "code": "fr",
+            "longCode": "fr-BE"
+          },
+          {
+            "name": "Irish",
+            "code": "ga",
+            "longCode": "ga-IE"
+          },
+          {
+            "name": "Galician",
+            "code": "gl",
+            "longCode": "gl-ES"
+          },
+          {
+            "name": "Italian",
+            "code": "it",
+            "longCode": "it"
+          },
+          {
+            "name": "Japanese",
+            "code": "ja",
+            "longCode": "ja-JP"
+          },
+          {
+            "name": "Khmer",
+            "code": "km",
+            "longCode": "km-KH"
+          },
+          {
+            "name": "Dutch",
+            "code": "nl",
+            "longCode": "nl"
+          },
+          {
+            "name": "Dutch (Belgium)",
+            "code": "nl",
+            "longCode": "nl-BE"
+          },
+          {
+            "name": "Polish",
+            "code": "pl",
+            "longCode": "pl-PL"
+          },
+          {
+            "name": "Portuguese",
+            "code": "pt",
+            "longCode": "pt"
+          },
+          {
+            "name": "Portuguese (Portugal)",
+            "code": "pt",
+            "longCode": "pt-PT"
+          },
+          {
+            "name": "Portuguese (Brazil)",
+            "code": "pt",
+            "longCode": "pt-BR"
+          },
+          {
+            "name": "Portuguese (Angola preAO)",
+            "code": "pt",
+            "longCode": "pt-AO"
+          },
+          {
+            "name": "Portuguese (Moambique preAO)",
+            "code": "pt",
+            "longCode": "pt-MZ"
+          },
+          {
+            "name": "Romanian",
+            "code": "ro",
+            "longCode": "ro-RO"
+          },
+          {
+            "name": "Russian",
+            "code": "ru",
+            "longCode": "ru-RU"
+          },
+          {
+            "name": "Slovak",
+            "code": "sk",
+            "longCode": "sk-SK"
+          },
+          {
+            "name": "Slovenian",
+            "code": "sl",
+            "longCode": "sl-SI"
+          },
+          {
+            "name": "Swedish",
+            "code": "sv",
+            "longCode": "sv"
+          },
+          {
+            "name": "Tamil",
+            "code": "ta",
+            "longCode": "ta-IN"
+          },
+          {
+            "name": "Tagalog",
+            "code": "tl",
+            "longCode": "tl-PH"
+          },
+          {
+            "name": "Ukrainian",
+            "code": "uk",
+            "longCode": "uk-UA"
+          },
+          {
+            "name": "Chinese",
+            "code": "zh",
+            "longCode": "zh-CN"
+          },
+          {
+            "name": "Crimean Tatar",
+            "code": "crh",
+            "longCode": "crh-UA"
+          },
+          {
+            "name": "Dutch",
+            "code": "nl",
+            "longCode": "nl-NL"
+          },
+          {
+            "name": "Simple German",
+            "code": "de-DE-x-simple-language",
+            "longCode": "de-DE-x-simple-language-DE"
+          },
+          {
+            "name": "Spanish",
+            "code": "es",
+            "longCode": "es-ES"
+          },
+          {
+            "name": "Italian",
+            "code": "it",
+            "longCode": "it-IT"
+          },
+          {
+            "name": "Persian",
+            "code": "fa",
+            "longCode": "fa-IR"
+          },
+          {
+            "name": "Swedish",
+            "code": "sv",
+            "longCode": "sv-SE"
+          },
+          {
+            "name": "German",
+            "code": "de",
+            "longCode": "de-LU"
+          },
+          {
+            "name": "French",
+            "code": "fr",
+            "longCode": "fr-FR"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+    "info": {
+        "name": "unsupportedFieldForRegionalBloc_FU",
+        "description": "Set the `regionalbloc` path parameter to a valid regional bloc code but with a query parameter `fields` requesting a field that is logically irrelevant or nonsensical for the regional bloc, e.g., 'gdpPerCapita', assuming this data is not supported for regional blocs, to test invalid business logic in field selection.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v2Regionalbloc",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/regionalbloc/:regionalbloc?fields=gdpPerCapita",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "regionalbloc",
+                        ":regionalbloc"
+                    ],
+                    "variable": [
+                        {
+                            "key": "regionalbloc",
+                            "value": "EU"
+                        }
+                    ],
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": "gdpPerCapita"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v2Regionalbloc.request.path_params.regionalbloc', 'EU');",
+                            "pm.collectionVariables.set('v2Regionalbloc.request.query_params.fields', 'gdpPerCapita');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

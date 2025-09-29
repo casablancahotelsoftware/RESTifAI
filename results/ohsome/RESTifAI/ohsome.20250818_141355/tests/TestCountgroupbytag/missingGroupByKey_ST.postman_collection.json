@@ -1,0 +1,99 @@
+{
+    "info": {
+        "name": "missingGroupByKey_ST",
+        "description": "Omit the required `groupByKey` query parameter entirely to test missing required parameter error",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008|13.405,52.515,13.410,52.518&groupByValues=primary,residential&filter=type%3Dway%20and%20highway%20in%20%28primary%2Cresidential%29&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.388860,52.517037,13.397634,52.520008|13.405,52.515,13.410,52.518"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "primary,residential"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dway%20and%20highway%20in%20%28primary%2Cresidential%29"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.bboxes', '13.388860,52.517037,13.397634,52.520008|13.405,52.515,13.410,52.518');",
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.groupByValues', 'primary,residential');",
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.filter', 'type%3Dway%20and%20highway%20in%20%28primary%2Cresidential%29');",
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('countGroupByTag.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

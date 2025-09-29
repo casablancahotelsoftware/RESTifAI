@@ -1,0 +1,1841 @@
+{
+    "test_name": "TestCountdensitygroupbyboundary",
+    "test_results": [
+        {
+            "test_case_name": "selfIntersectingPolygonInBpolys_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "430e91c3-dcdf-447a-80ee-9115509d907e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B12.4923%2C41.8902%5D%2C%5B12.4964%2C41.8922%5D%2C%5B12.4923%2C41.8922%5D%2C%5B12.4964%2C41.8902%5D%2C%5B12.4923%2C41.8902%5D%5D%5D%7D%7D%5D%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:36 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:36.982194948\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bpolys=%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B12.4923%2C41.8902%5D%2C%5B12.4964%2C41.8922%5D%2C%5B12.4923%2C41.8922%5D%2C%5B12.4964%2C41.8902%5D%2C%5B12.4923%2C41.8902%5D%5D%5D%7D%7D%5D%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "1634e651-3f87-4a63-99ab-ebcc0fbf3e14",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:37 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:37.967241199\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=xml&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonClosedPolygonInBpolys_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "0deb515e-c5ab-4eb1-85b3-5c016e83a047",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "12.4923,41.8902,12.4964,41.8902,12.4964,41.8922,12.4923,41.8922"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:37 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:38.851126294\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bpolys=12.4923,41.8902,12.4964,41.8902,12.4964,41.8922,12.4923,41.8922\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "b7d2a91b-5618-4a31-9096-9adbd4768988",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "not-a-date"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:39 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:39.792782388\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=not-a-date&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedAmenityFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "e26b5e74-8f15-448e-9d0c-c2ed5853ff4f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dnonexistentamenity"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:43 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2549,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dnonexistentamenity&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.3615, 38.1157 ], [ 13.365499999999999, 38.1157 ], [ 13.365499999999999, 38.1177 ], [ 13.3615, 38.1177 ], [ 13.3615, 38.1157 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bpolysIncompleteCoordinates_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "26950809-58d7-4e2c-98c8-09c49958b2e2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "12.4923,41.8902,12.4964"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:44 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:44.809188022\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bpolys=12.4923,41.8902,12.4964\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "negativeTimeoutValue_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "18b4ad6e-84df-49de-b1e1-443eea2b6613",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "-10"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:45 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:45.979+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/elements/count/density/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "contradictoryFilterParameters_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "a07c974a-57c6-421f-a7a1-06d9dce4531a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20type%3Dway"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:52 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 5352,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20type%3Dway&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.3615, 38.1157 ], [ 13.365499999999999, 38.1157 ], [ 13.365499999999999, 38.1177 ], [ 13.3615, 38.1177 ], [ 13.3615, 38.1157 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bcirclesMissingRadius_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "f25cc4d6-ae08-4755-8d71-91968c3591ea",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bcircles",
+                                    "value": "12.4923,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:52 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:53.292137145\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bcircles=12.4923,41.8902\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingAllBoundaryParameters_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "baa4efba-c33f-4afb-9355-9d1d6b5efc24",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:54.266583738\",\n  \"status\" : 400,\n  \"message\" : \"You need to define one of the boundary parameters (bboxes, bcircles, bpolys).\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invertedBoundingBoxCoordinates_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "1a19827c-fd4f-482b-bf63-ddb9c3a4513f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.5,41.8,12.4,41.9|13.3,38.1,13.4,38.2"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:57 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2252,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.5,41.8,12.4,41.9|13.3,38.1,13.4,38.2&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.5, 41.8 ], [ 12.399999999999999, 41.8 ], [ 12.399999999999999, 41.9 ], [ 12.5, 41.9 ], [ 12.5, 41.8 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.299999999999999, 38.1 ], [ 13.399999999999999, 38.1 ], [ 13.399999999999999, 38.199999999999996 ], [ 13.299999999999999, 38.199999999999996 ], [ 13.299999999999999, 38.1 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyBboxesString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "5fa6445f-edab-4a55-96fe-6d43456274cc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:58.4493728\",\n  \"status\" : 400,\n  \"message\" : \"You need to define one of the boundary parameters (bboxes, bcircles, bpolys).\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroTimeoutValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "71233e96-4986-4bda-b453-8f7a0a7a5a8b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:59 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:04:59.493627695\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesMissingCoordinates_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "c4494be5-6c7c-4902-aed4-ce0f9f9611d5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:04:59 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:05:00.453166208\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "89d973c2-ca2c-4842-ab16-ab1b1ee203fd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:01 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:05:01.416490731\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=thirty\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "duplicateOverlappingBoundingBoxes_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "eae13b6f-a69e-46b8-b926-956bc221f5aa",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|12.4923,41.8902,12.4964,41.8922"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:07 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 4885,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|12.4923,41.8902,12.4964,41.8922&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeParameter_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "21915467-1b02-4fc9-9cc8-9cd0338867c8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2099-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:09 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:05:09.261102168\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2099-01-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "a943858b-9dc6-4c4c-8404-ebad3e88c5aa",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "yes"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 5102,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=yes&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.3615, 38.1157 ], [ 13.365499999999999, 38.1157 ], [ 13.365499999999999, 38.1177 ], [ 13.3615, 38.1177 ], [ 13.3615, 38.1157 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesWithInvalidCharacters_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "fedbbcb5-fd06-4946-b2e8-a499b2245584",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,abc,41.8922"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:16 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T19:05:16.65429214\",\n  \"status\" : 400,\n  \"message\" : \"Apart from the custom ids, the bboxeses array must contain double-parseable values in the following order: minLon, minLat, maxLon, maxLat.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,abc,41.8922&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeRangeOrder_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "7d949cf1-5669-43cc-8eab-ba27f33fab56",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-02T00:00:00Z/2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 4621,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-02T00:00:00Z/2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-02T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-02T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.3615, 38.1157 ], [ 13.365499999999999, 38.1157 ], [ 13.365499999999999, 38.1177 ], [ 13.3615, 38.1177 ], [ 13.3615, 38.1157 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-02T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.3615, 38.1157 ], [ 13.365499999999999, 38.1157 ], [ 13.365499999999999, 38.1177 ], [ 13.3615, 38.1177 ], [ 13.3615, 38.1157 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-02T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByBoundary",
+                    "id": "43ec329c-c5db-4d4e-8ae2-33096a04c1c9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dnode%20and%20amenity%3Dparking"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 19:05:27 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 3955,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers).\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 12.4923, 41.8902 ], [ 12.4964, 41.8902 ], [ 12.4964, 41.892199999999995 ], [ 12.4923, 41.892199999999995 ], [ 12.4923, 41.8902 ] ] ]\n    },\n    \"id\" : \"boundary1@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.3615, 38.1157 ], [ 13.365499999999999, 38.1157 ], [ 13.365499999999999, 38.1177 ], [ 13.3615, 38.1177 ], [ 13.3615, 38.1157 ] ] ]\n    },\n    \"id\" : \"boundary2@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T19:05:27.545104",
+    "statistics": {
+        "total_test_cases": 21,
+        "passed_test_cases": 14,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 1,
+        "total_requests": 21,
+        "success_rate": 66.66666666666666,
+        "avg_requests_per_case": 1.0
+    }
+}

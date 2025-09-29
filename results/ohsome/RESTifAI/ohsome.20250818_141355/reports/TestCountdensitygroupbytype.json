@@ -1,0 +1,1417 @@
+{
+    "test_name": "TestCountdensitygroupbytype",
+    "test_results": [
+        {
+            "test_case_name": "selfIntersectingPolygonInBpolys_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "60a65dd1-e247-4604-8ee7-aeaa0841665d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "12.4923,41.8902,12.4925,41.8904,12.4923,41.8904,12.4925,41.8902,12.4923,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:58:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:58:17.417162481\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=12.4923,41.8902,12.4925,41.8904,12.4923,41.8904,12.4925,41.8902,12.4923,41.8902\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "a3ce7c7c-113b-4c01-a897-4f5030adf31f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:58:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:58:18.252042578\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=xml&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterExpression_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "4e1f8046-c028-470c-aea5-8c97fd5fea63",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20type%3Droad"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:58:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 4175,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20type%3Droad&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "55d94286-9e7d-424e-814a-16c057576820",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-13-01"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:58:24 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:58:24.822640977\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-13-01&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeRange_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "516cd940-51eb-427b-b828-e831c033ce8a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2050-01-01T00:00:00Z/2050-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:58:24 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:58:25.685580194\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2050-01-01T00:00:00Z/2050-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "negativeTimeoutValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "d43a3a17-c33e-4439-b317-1fb71ecb7f18",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "-10"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:58:26 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:58:26.640+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/elements/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "nonOverlappingBboxesNoData_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "0526d025-6a24-4a5f-a8b6-1166b572994e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "0.0,0.0,0.1,0.1|150.0,-80.0,150.1,-79.9"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:09 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 221476,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=0.0,0.0,0.1,0.1|150.0,-80.0,150.1,-79.9&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroTimeoutValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "8f0cfe5e-dd43-4bbd-8bbd-88ce3e2f972c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:09 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:02:10.00717776\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFilterValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "778beb95-7844-45fc-9670-e4a3c4d961bf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:38 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 27568,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 1427.44\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 1427.44\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 8564.65\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 8564.65\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 7494.07\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 7494.07\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBpolysGeoJson_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "cefeea14-46bc-4c9a-85b6-05233710c58b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%22FeatureCollection%22%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:38 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:02:39.46726807\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=%7B%22type%22%3A%22FeatureCollection%22%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "6307b762-7b61-47ab-a02a-620514f4f2bc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "maybe"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:40 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:02:40.339335475\",\n  \"status\" : 400,\n  \"message\" : \"The given parameter showMetadata can only contain the values 'true', 'yes', 'false', or 'no'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=maybe&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "conflictingTagFilters_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "764d6035-0aa9-4d66-8e36-f2ff26843751",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "tags%3Aamenity%3Dschool%20and%20tags%3Aamenity%3Dhospital"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:43 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2816,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=tags%3Aamenity%3Dschool%20and%20tags%3Aamenity%3Dhospital&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedGeometryTypeInFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "d8ef9018-a43b-49b6-be97-805155785124",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DCircle%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:47 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2941,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DCircle%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "malformedBboxesCoordinates_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "9ec79101-1c6d-409e-bdf8-886aff578ce8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:47 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:02:48.667378301\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeRangeStartAfterEnd_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "eaf598d1-64f1-4594-9a93-f66d54d36bca",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-31T23:59:59Z/2023-12-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:52 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 3268,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-31T23:59:59Z/2023-12-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType",
+                    "id": "4a2dff3a-0f2c-484f-b610-5fd03a3b1396",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:02:56 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2717,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tags%3Aamenity%3Dschool&format=json&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2023-12-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T17:02:56.775255",
+    "statistics": {
+        "total_test_cases": 16,
+        "passed_test_cases": 9,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 1,
+        "total_requests": 16,
+        "success_rate": 56.25,
+        "avg_requests_per_case": 1.0
+    }
+}

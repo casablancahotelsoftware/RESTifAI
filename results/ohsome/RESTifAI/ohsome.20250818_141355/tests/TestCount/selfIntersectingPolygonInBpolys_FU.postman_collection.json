@@ -1,0 +1,92 @@
+{
+    "info": {
+        "name": "selfIntersectingPolygonInBpolys_FU",
+        "description": "Set the `bpolys` parameter to a polygon with self-intersecting edges (complex polygon), e.g., coordinates forming a bowtie shape, which is logically invalid for polygon boundaries.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01&bpolys=8.67%2C49.39%208.71%2C49.42%208.67%2C49.42%208.71%2C49.39%208.67%2C49.39",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "8.67%2C49.39%208.71%2C49.42%208.67%2C49.42%208.71%2C49.39%208.67%2C49.39"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('count.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('count.request.query_params.bpolys', '8.67%2C49.39%208.71%2C49.42%208.67%2C49.42%208.71%2C49.39%208.67%2C49.39');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

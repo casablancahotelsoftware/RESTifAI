@@ -1,0 +1,114 @@
+{
+    "info": {
+        "name": "bboxesOutOfRangeCoordinates_FU",
+        "description": "Set the `bboxes` parameter to coordinates that define an area outside valid longitude/latitude ranges, e.g., '200,95,201,96', which is logically invalid as geographic coordinates must be within valid bounds.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "contributionsLatestCountDensity_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "200,95,201,96",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/latest/count/density",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "latest",
+                        "count",
+                        "density"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.bboxes', '200,95,201,96');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.showMetadata', 'true');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('contributionsLatestCountDensity_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

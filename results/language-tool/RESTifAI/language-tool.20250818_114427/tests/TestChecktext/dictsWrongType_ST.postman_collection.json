@@ -1,0 +1,143 @@
+{
+    "info": {
+        "name": "dictsWrongType_ST",
+        "description": "Set the `dicts` property to an object instead of string, e.g., { 'dict1': 'value' }",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "getSupportedLanguages",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/languages",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "languages"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getSupportedLanguages.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getSupportedLanguages.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getSupportedLanguages.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "checkText",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "language",
+                            "value": "en-US",
+                            "type": "text"
+                        },
+                        {
+                            "key": "text",
+                            "value": "This is a sample text to check for spelling and grammar errors.",
+                            "type": "text"
+                        },
+                        {
+                            "key": "dicts",
+                            "value": "{'dict1': 'value'}",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/check",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "check"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('checkText.request.headers.Content-Type', 'multipart/form-data');",
+                            "pm.collectionVariables.set('checkText.request.body.language', 'en-US');",
+                            "pm.collectionVariables.set('checkText.request.body.text', 'This is a sample text to check for spelling and grammar errors.');",
+                            "pm.collectionVariables.set('checkText.request.body.dicts', {\"dict1\": \"value\"});"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9001/v2');"
+                ]
+            }
+        }
+    ]
+}

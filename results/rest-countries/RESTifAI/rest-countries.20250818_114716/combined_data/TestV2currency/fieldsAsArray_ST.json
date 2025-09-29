@@ -1,0 +1,121 @@
+{
+  "test_name": "fieldsAsArray_ST",
+  "description": "Add an invalid query parameter `fields` as an array instead of a string, e.g., fields=[\"currencies\"]",
+  "test_suite": "TestV2currency",
+  "base_url": "http://localhost:9002/rest",
+  "operations": [
+    "v2All",
+    "v2Currency"
+  ],
+  "values_to_create_a_successful_request": "v2All.request.query_params.fields: currencies\nv2All.response.body[0].currencies[0].code: AFN\nv2All.response.body[0].currencies[0].name: Afghan afghani\nv2All.response.body[0].currencies[0].symbol: \u060b\nv2All.response.body[1].currencies[0].code: EUR\nv2All.response.body[1].currencies[0].name: Euro\nv2All.response.body[1].currencies[0].symbol: \u20ac\nv2All.response.body[2].currencies[0].code: ALL\nv2All.response.body[2].currencies[0].name: Albanian lek\nv2All.response.body[2].currencies[0].symbol: L\nv2All.response.body[3].currencies[0].code: DZD\nv2All.response.body[3].currencies[0].name: Algerian dinar\nv2All.response.body[3].currencies[0].symbol: \u062f.\u062c\nv2All.response.body[4].currencies[0].code: USD\nv2All.response.body[4].currencies[0].name: United State Dollar\nv2All.response.body[4].currencies[0].symbol: $\nv2All.response.body[5].currencies[0].code: EUR\nv2All.response.body[5].currencies[0].name: Euro\nv2All.response.body[5].currencies[0].symbol: \u20ac\nv2All.response.body[6].currencies[0].code: AOA\nv2All.response.body[6].currencies[0].name: Angolan kwanza\nv2All.response.body[6].currencies[0].symbol: Kz\nv2All.response.body[7].currencies[0].code: XCD\nv2All.response.body[7].currencies[0].name: East Caribbean dollar\nv2All.response.body[7].currencies[0].symbol: $\nv2All.response.body[8].currencies[0].code: AUD\nv2All.response.body[8].currencies[0].name: Australian dollar\nv2All.response.body[8].currencies[0].symbol: $\nv2All.response.body[8].currencies[1].code: GBP\nv2All.response.body[8].currencies[1].name: British pound\nv2All.response.body[8].currencies[1].symbol: \u00a3\nv2All.response.body[9].currencies[0].code: XCD\nv2All.response.body[9].currencies[0].name: East Caribbean dollar\nv2All.response.body[9].currencies[0].symbol: $\nv2All.response.headers.Content-Type: application/json;charset=utf-8\nv2All.response.headers.Transfer-Encoding: chunked\nv2All.response.headers.Date: Mon, 18 Aug 2025 11:50:26 GMT\nv2All.response.headers.Keep-Alive: timeout=60\nv2All.response.headers.Connection: keep-alive\nv2All.response.status_code: 200\nv2Currency.request.path_params.currency: AFN\nv2Currency.request.query_params.fields: currencies\nv2Currency.response.body[0].currencies[0].code: AFN\nv2Currency.response.body[0].currencies[0].name: Afghan afghani\nv2Currency.response.body[0].currencies[0].symbol: \u060b\nv2Currency.response.headers.Content-Type: application/json;charset=utf-8\nv2Currency.response.headers.Content-Length: 71\nv2Currency.response.headers.Date: Mon, 18 Aug 2025 11:50:28 GMT\nv2Currency.response.headers.Keep-Alive: timeout=60\nv2Currency.response.headers.Connection: keep-alive\nv2Currency.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### v2All\n- Method: GET\n- Path: /v2/all\n- Parameters:\n  - name: fields\n  - in: query\n  - required: False\n  - description: None\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'Successful response'}, 'default': {'description': 'Other responses'}}\n",
+    "#### v2Currency\n- Method: GET\n- Path: /v2/currency/{currency}\n- Parameters:\n  - name: fields\n  - in: query\n  - required: False\n  - description: None\n  - type: string\n  - name: currency\n  - in: path\n  - required: True\n  - description: None\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'Successful response'}, 'default': {'description': 'Other responses'}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "v2All",
+      "request_id": "7a091893-d2f1-45d1-9da9-08d09d844ca8",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "v2",
+            "all"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "['currencies']"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Content-Type": "text/html;charset=utf-8",
+          "Content-Language": "en",
+          "Content-Length": "435",
+          "Date": "Mon, 18 Aug 2025 11:55:22 GMT",
+          "Connection": "close"
+        },
+        "body": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 400  Bad Request</title><style type=\"text/css\">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400  Bad Request</h1></body></html>"
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": null
+        }
+      ]
+    },
+    {
+      "request_name": "v2Currency",
+      "request_id": "7125c688-2e04-4a00-8927-70c116a23a59",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "v2",
+            "currency",
+            ":currency"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "currencies"
+            }
+          ],
+          "variable": [
+            {
+              "key": "currency",
+              "value": "AFN",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Content-Type": "application/json;charset=utf-8",
+          "Content-Length": "71",
+          "Date": "Mon, 18 Aug 2025 11:55:22 GMT",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive"
+        },
+        "body": [
+          {
+            "currencies": [
+              {
+                "code": "AFN",
+                "name": "Afghan afghani",
+                "symbol": ""
+              }
+            ]
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1145 @@
+{
+    "test_name": "TestFetchpfamdomainsbyaccessionget",
+    "test_results": [
+        {
+            "test_case_name": "emptyPfamAccessionPathParam_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "fcd718ab-2519-4d77-9c5d-6f3fe1b7737f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:30 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "7946f135-6a0b-4a2d-a922-3b465cfcd02d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Allow": "POST",
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:30 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "86579804-02f6-4c5f-9259-33cd6abc090e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:31 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "554fd646-8b08-4802-9216-115437d7a13f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchPfamDomainsByAccessionGET.request.path_params.pfamAccession}}",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:31 GMT"
+                    },
+                    "response_body": "{\"pfamAccession\":\"PF07710\",\"name\":\"P53_tetramer\",\"description\":\"P53 tetramerisation motif\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "pfamAccessionFromUnsupportedSpecies_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "fb687347-4344-4bbb-9b95-fe82973a03af",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:33 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "84f4ad36-c642-4f9d-90df-42b3c16d3937",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "PF12345",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:33 GMT"
+                    },
+                    "response_body": "{\"pfamAccession\":\"PF12345\",\"name\":\"DUF3641\",\"description\":\"Protein of unknown function (DUF3641) \"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unexpectedQueryParameter_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "305928b1-87ee-4a42-8362-3e6b16730b21",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:34 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "30b03044-8b77-4bf6-8df7-4a4f8f623dff",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "pfamAccession",
+                                    "value": "PF00000"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "PF07710",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:34 GMT"
+                    },
+                    "response_body": "{\"pfamAccession\":\"PF07710\",\"name\":\"P53_tetramer\",\"description\":\"P53 tetramerisation motif\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "pfamAccessionNotMatchingCanonicalTranscript_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "54a01ec0-d6e2-4d56-a9aa-247fa950d221",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:35 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "04885130-717f-4163-be69-bc03fcf4bbf5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "PF08563",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:35 GMT"
+                    },
+                    "response_body": "{\"pfamAccession\":\"PF08563\",\"name\":\"P53_TAD\",\"description\":\"P53 transactivation motif\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentPfamAccession_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "6356f8d3-fc4b-4786-bee7-0c8c991cfd0a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:37 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "7a63972f-46b3-457c-8b96-a27bcc070101",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "PF99999",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:37 GMT"
+                    },
+                    "response_body": "{\"message\":\"PFAM domain not found: PF99999\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "deprecatedPfamAccession_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "6bd7008e-4775-406c-b34d-23494a2e3c2a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:38 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "dc5eed0a-ce09-4be3-b515-83cc628f87dd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "PF00001",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:38 GMT"
+                    },
+                    "response_body": "{\"pfamAccession\":\"PF00001\",\"name\":\"7tm_1\",\"description\":\"7 transmembrane receptor (rhodopsin family)\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyNotAllowed_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "e8b51b84-3592-483c-9d48-0976dc402f4e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"{\\\"pfamAccession\\\": \\\"PF07710\\\"}\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:39 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "40ea9ffe-cb04-4957-93d3-6bed32b03715",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchPfamDomainsByAccessionGET.request.path_params.pfamAccession}}",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 2xx",
+                                "message": "expected 404 to be within 200..299",
+                                "stack": "AssertionError: expected 404 to be within 200..299\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:39 GMT"
+                    },
+                    "response_body": "{\"message\":\"PFAM domain not found: null\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "pfamAccessionWithNoAssociatedData_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "a7f77adb-2a44-4ffa-878c-9df2435dd6b1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:41 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "10a9552b-398e-4379-9fd2-76441775f262",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ":pfamAccession"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "PF00002",
+                                    "key": "pfamAccession"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:41 GMT"
+                    },
+                    "response_body": "{\"pfamAccession\":\"PF00002\",\"name\":\"7tm_2\",\"description\":\"7 transmembrane receptor (Secretin family)\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingPfamAccessionPathParam_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "4cfd02f8-4593-4ab0-9833-e1269ff0cbb4",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:42 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                },
+                {
+                    "name": "fetchPfamDomainsByAccessionGET",
+                    "id": "7fce7391-6f0b-4235-8019-c3f3a75663d2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pfam",
+                                "domain",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Allow": "POST",
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:42 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:25:42.718943",
+    "statistics": {
+        "total_test_cases": 10,
+        "passed_test_cases": 2,
+        "failed_test_cases": 8,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 20,
+        "success_rate": 20.0,
+        "avg_requests_per_case": 2.0
+    }
+}

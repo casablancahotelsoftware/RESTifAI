@@ -1,0 +1,209 @@
+{
+    "info": {
+        "name": "timeIntervalInFuture_FU",
+        "description": "Set the `time` parameter to a future interval where no data can exist, e.g., time=\"2100-01-01T00:00:00Z/2100-12-31T23:59:59Z\", to test querying a time range with guaranteed no contributions.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count?bboxes=8.67,49.39,8.71,49.42&contributionType=creation,deletion&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=true&time=2100-01-01T00:00:00Z/2100-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2100-01-01T00:00:00Z/2100-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'metadata.executionTime');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.metadata.executionTime', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'metadata.description');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.metadata.description', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'metadata.requestUrl');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.metadata.requestUrl', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'result[0].fromTimestamp');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.result[0].fromTimestamp', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'result[0].toTimestamp');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.result[0].toTimestamp', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('count_2.response.body.result[0].value', x8);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('count_2.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('count_2.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('count_2.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_2.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_2.request.query_params.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('count_2.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('count_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('count_2.request.query_params.time', '2100-01-01T00:00:00Z/2100-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('count_2.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+  "test_name": "invalidContentTypeHeader_ST",
+  "description": "Add a header `Content-Type` with value `application/json` to the fetchPdbHeaderGET request, which does not accept a request body and thus should not have this header",
+  "test_suite": "TestFetchpdbheaderget",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchPdbHeaderPOST",
+    "fetchPdbHeaderGET"
+  ],
+  "values_to_create_a_successful_request": "fetchPdbHeaderPOST.request.headers.Content-Type: application/json\nfetchPdbHeaderPOST.request.body.[0]: 1a37\nfetchPdbHeaderPOST.response.body[0].pdbId: 1a37\nfetchPdbHeaderPOST.response.body[0].title: 14-3-3 protein zeta bound to ps-raf259 peptide\nfetchPdbHeaderPOST.response.body[0].compound.1.other_details: complexed with phosphoserine-containing peptide derived from raf\nfetchPdbHeaderPOST.response.body[0].compound.1.chain[0]: a\nfetchPdbHeaderPOST.response.body[0].compound.1.chain[1]: b\nfetchPdbHeaderPOST.response.body[0].compound.1.engineered: yes\nfetchPdbHeaderPOST.response.body[0].compound.1.molecule: 14-3-3 protein zeta\nfetchPdbHeaderPOST.response.body[0].compound.1.mol_id: 1\nfetchPdbHeaderPOST.response.body[0].compound.2.chain[0]: p\nfetchPdbHeaderPOST.response.body[0].compound.2.chain[1]: q\nfetchPdbHeaderPOST.response.body[0].compound.2.molecule: ps-raf259 peptide lsqrqrst(sep)tpnvhm\nfetchPdbHeaderPOST.response.body[0].compound.2.mol_id: 2\nfetchPdbHeaderPOST.response.body[0].source.1.organism_scientific: bos taurus\nfetchPdbHeaderPOST.response.body[0].source.1.organism_common: cattle\nfetchPdbHeaderPOST.response.body[0].source.1.organism_taxid: 9913\nfetchPdbHeaderPOST.response.body[0].source.1.expression_system_taxid: 562\nfetchPdbHeaderPOST.response.body[0].source.1.expression_system: escherichia coli\nfetchPdbHeaderPOST.response.body[0].source.1.mol_id: 1\nfetchPdbHeaderPOST.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchPdbHeaderPOST.response.headers.Content-Encoding: gzip\nfetchPdbHeaderPOST.response.headers.Content-Type: application/json\nfetchPdbHeaderPOST.response.headers.Transfer-Encoding: chunked\nfetchPdbHeaderPOST.response.headers.Date: Mon, 18 Aug 2025 12:21:55 GMT\nfetchPdbHeaderPOST.response.status_code: 200\nfetchPdbHeaderGET.request.path_params.pdbId: 1a37\nfetchPdbHeaderGET.response.body.pdbId: 1a37\nfetchPdbHeaderGET.response.body.title: 14-3-3 protein zeta bound to ps-raf259 peptide\nfetchPdbHeaderGET.response.body.compound.1.other_details: complexed with phosphoserine-containing peptide derived from raf\nfetchPdbHeaderGET.response.body.compound.1.chain[0]: a\nfetchPdbHeaderGET.response.body.compound.1.chain[1]: b\nfetchPdbHeaderGET.response.body.compound.1.engineered: yes\nfetchPdbHeaderGET.response.body.compound.1.molecule: 14-3-3 protein zeta\nfetchPdbHeaderGET.response.body.compound.1.mol_id: 1\nfetchPdbHeaderGET.response.body.compound.2.chain[0]: p\nfetchPdbHeaderGET.response.body.compound.2.chain[1]: q\nfetchPdbHeaderGET.response.body.compound.2.molecule: ps-raf259 peptide lsqrqrst(sep)tpnvhm\nfetchPdbHeaderGET.response.body.compound.2.mol_id: 2\nfetchPdbHeaderGET.response.body.source.1.organism_scientific: bos taurus\nfetchPdbHeaderGET.response.body.source.1.organism_common: cattle\nfetchPdbHeaderGET.response.body.source.1.organism_taxid: 9913\nfetchPdbHeaderGET.response.body.source.1.expression_system_taxid: 562\nfetchPdbHeaderGET.response.body.source.1.expression_system: escherichia coli\nfetchPdbHeaderGET.response.body.source.1.mol_id: 1\nfetchPdbHeaderGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchPdbHeaderGET.response.headers.Content-Encoding: gzip\nfetchPdbHeaderGET.response.headers.Content-Type: application/json\nfetchPdbHeaderGET.response.headers.Transfer-Encoding: chunked\nfetchPdbHeaderGET.response.headers.Date: Mon, 18 Aug 2025 12:21:55 GMT\nfetchPdbHeaderGET.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchPdbHeaderPOST\n- Method: POST\n- Path: /pdb/header\n- Parameters:\nNone\n- Request Body Schema:\n{'application/json': {'schema': {'type': 'array', 'items': {'type': 'string'}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'required': ['pdbId', 'title'], 'type': 'object', 'properties': {'compound': {'type': 'object', 'properties': {}}, 'pdbId': {'type': 'string', 'description': 'PDB id'}, 'source': {'type': 'object', 'properties': {}}, 'title': {'type': 'string', 'description': 'PDB description'}}}}}}}}\n",
+    "#### fetchPdbHeaderGET\n- Method: GET\n- Path: /pdb/header/{pdbId}\n- Parameters:\n  - name: pdbId\n  - in: path\n  - required: True\n  - description: PDB id, for example 1a37\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'required': ['pdbId', 'title'], 'type': 'object', 'properties': {'compound': {'type': 'object', 'properties': {}}, 'pdbId': {'type': 'string', 'description': 'PDB id'}, 'source': {'type': 'object', 'properties': {}}, 'title': {'type': 'string', 'description': 'PDB description'}}}}}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "fetchPdbHeaderPOST",
+      "request_id": "e2e34380-05d6-4f2a-8709-a4df1eb9bf7d",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "pdb",
+            "header"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": [
+          "1a37"
+        ]
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:31:20 GMT"
+        },
+        "body": [
+          {
+            "pdbId": "1a37",
+            "title": "14-3-3 protein zeta bound to ps-raf259 peptide",
+            "compound": {
+              "1": {
+                "other_details": "complexed with phosphoserine-containing peptide derived from raf",
+                "chain": [
+                  "a",
+                  "b"
+                ],
+                "engineered": "yes",
+                "molecule": "14-3-3 protein zeta",
+                "mol_id": "1"
+              },
+              "2": {
+                "chain": [
+                  "p",
+                  "q"
+                ],
+                "molecule": "ps-raf259 peptide lsqrqrst(sep)tpnvhm",
+                "mol_id": "2"
+              }
+            },
+            "source": {
+              "1": {
+                "organism_scientific": "bos taurus",
+                "organism_common": "cattle",
+                "organism_taxid": "9913",
+                "expression_system_taxid": "562",
+                "expression_system": "escherichia coli",
+                "mol_id": "1"
+              }
+            }
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    },
+    {
+      "request_name": "fetchPdbHeaderGET",
+      "request_id": "58c4d865-1197-4eeb-867e-10aaf5462e31",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "pdb",
+            "header",
+            ":pdbId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "pdbId",
+              "value": "1a37",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:31:20 GMT"
+        },
+        "body": {
+          "pdbId": "1a37",
+          "title": "14-3-3 protein zeta bound to ps-raf259 peptide",
+          "compound": {
+            "1": {
+              "other_details": "complexed with phosphoserine-containing peptide derived from raf",
+              "chain": [
+                "a",
+                "b"
+              ],
+              "engineered": "yes",
+              "molecule": "14-3-3 protein zeta",
+              "mol_id": "1"
+            },
+            "2": {
+              "chain": [
+                "p",
+                "q"
+              ],
+              "molecule": "ps-raf259 peptide lsqrqrst(sep)tpnvhm",
+              "mol_id": "2"
+            }
+          },
+          "source": {
+            "1": {
+              "organism_scientific": "bos taurus",
+              "organism_common": "cattle",
+              "organism_taxid": "9913",
+              "expression_system_taxid": "562",
+              "expression_system": "escherichia coli",
+              "mol_id": "1"
+            }
+          }
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+          }
+        }
+      ]
+    }
+  ]
+}

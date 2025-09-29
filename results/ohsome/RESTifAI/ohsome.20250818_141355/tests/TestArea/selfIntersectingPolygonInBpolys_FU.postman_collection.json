@@ -1,0 +1,97 @@
+{
+    "info": {
+        "name": "selfIntersectingPolygonInBpolys_FU",
+        "description": "Set the `bpolys` parameter to a polygon with self-intersecting edges (complex polygon), which is logically invalid for area calculation and should produce a 4xx error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3Dwater&format=json&showMetadata=true&time=2014-01-01/2017-01&timeout=30&bpolys=8.67,49.39,8.71,49.42,8.68,49.41,8.67,49.42,8.71,49.39,8.67,49.39",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3Dwater"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "8.67,49.39,8.71,49.42,8.68,49.41,8.67,49.42,8.71,49.39,8.67,49.39"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3Dwater');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', 30);",
+                            "pm.collectionVariables.set('area.request.query_params.bpolys', '8.67,49.39,8.71,49.42,8.68,49.41,8.67,49.42,8.71,49.39,8.67,49.39');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

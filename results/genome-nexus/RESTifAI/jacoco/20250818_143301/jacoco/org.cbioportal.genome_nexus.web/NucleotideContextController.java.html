@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NucleotideContextController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">NucleotideContextController.java</span></div><h1>NucleotideContextController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.cbioportal.genome_nexus.model.NucleotideContext;
+import org.cbioportal.genome_nexus.service.NucleotideContextService;
+import org.cbioportal.genome_nexus.service.exception.NucleotideContextNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.NucleotideContextWebServiceException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationWebServiceException;
+import org.cbioportal.genome_nexus.web.config.InternalApi;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@InternalApi
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+@Api(tags = &quot;nucleotide-context-controller&quot;, description = &quot;Nucleotide Context Controller&quot;)
+public class NucleotideContextController
+{
+    private final NucleotideContextService nucleotideContextService;
+
+    @Autowired
+    public NucleotideContextController(NucleotideContextService nucleotideContextService)
+<span class="fc" id="L29">    {</span>
+<span class="fc" id="L30">        this.nucleotideContextService = nucleotideContextService;</span>
+<span class="fc" id="L31">    }</span>
+
+    @ApiOperation(value = &quot;Retrieves nucleotide context information for the provided list of variants&quot;,
+        nickname = &quot;fetchNucleotideContextAnnotationGET&quot;)
+    @RequestMapping(value = &quot;/nucleotide_context/{variant:.+}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public NucleotideContext fetchNucleotideContextAnnotationGET(
+        @ApiParam(value=&quot;A variant. For example 7:g.140453136A&gt;T&quot;,
+            required = true,
+            allowMultiple = true)
+        @PathVariable String variant)
+        throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException,
+        NucleotideContextWebServiceException, NucleotideContextNotFoundException
+    {
+<span class="nc" id="L46">        return this.nucleotideContextService.getNucleotideContext(variant);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves nucleotide context information for the provided list of variants&quot;,
+        nickname = &quot;postNucleotideContextAnnotation&quot;)
+    @RequestMapping(value = &quot;/nucleotide_context&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;NucleotideContext&gt; fetchNucleotideContextAnnotationPOST(
+        @ApiParam(value=&quot;List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;]&quot;,
+            required = true,
+            allowMultiple = true)
+        @RequestBody List&lt;String&gt; variants)
+    {
+<span class="nc" id="L60">        return this.nucleotideContextService.getNucleotideContext(variants);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,244 @@
+{
+    "info": {
+        "name": "invalidTimeFormat_ST",
+        "description": "Set the `time` query parameter to an invalid ISO-8601 string 'not-a-date' which does not conform to the expected format",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=bbox1:13.375,52.515,13.405,52.525&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=not-a-date&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:13.375,52.515,13.405,52.525"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "not-a-date"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', 'bbox1:13.375,52.515,13.405,52.525');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', 'not-a-date');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "length",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length?bboxes=bbox1:13.375,52.515,13.405,52.525&filter=type%3Away%20and%20highway%3D%2A&format=json&showMetadata=false&time=not-a-date&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:13.375,52.515,13.405,52.525"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20highway%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "not-a-date"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('length.request.query_params.bboxes', 'bbox1:13.375,52.515,13.405,52.525');",
+                            "pm.collectionVariables.set('length.request.query_params.filter', 'type%3Away%20and%20highway%3D%2A');",
+                            "pm.collectionVariables.set('length.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('length.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('length.request.query_params.time', 'not-a-date');",
+                            "pm.collectionVariables.set('length.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthRatioGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/ratio/groupBy/boundary?bboxes=bbox1:13.375,52.515,13.405,52.525&filter=type%3Away%20and%20highway%3D%2A&filter2=type%3Away%20and%20highway%3Dresidential&format=json&showMetadata=false&time=not-a-date&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "ratio",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:13.375,52.515,13.405,52.525"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20highway%3D%2A"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type%3Away%20and%20highway%3Dresidential"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "not-a-date"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.bboxes', 'bbox1:13.375,52.515,13.405,52.525');",
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20highway%3D%2A');",
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.filter2', 'type%3Away%20and%20highway%3Dresidential');",
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.time', 'not-a-date');",
+                            "pm.collectionVariables.set('lengthRatioGroupByBoundary.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

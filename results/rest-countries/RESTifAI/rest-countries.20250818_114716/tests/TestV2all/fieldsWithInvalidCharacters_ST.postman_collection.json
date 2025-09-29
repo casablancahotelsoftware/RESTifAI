@@ -1,0 +1,67 @@
+{
+    "info": {
+        "name": "fieldsWithInvalidCharacters_ST",
+        "description": "Set the `fields` query parameter to a string containing invalid characters not allowed by the schema, e.g., fields=\"id,name,description,createdAt,updatedAt,status,$invalid\"",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v2All",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/all?fields=id,name,description,createdAt,updatedAt,status,$invalid",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "all"
+                    ],
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": "id,name,description,createdAt,updatedAt,status,$invalid"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v2All.request.query_params.fields', 'id,name,description,createdAt,updatedAt,status,$invalid');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

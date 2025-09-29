@@ -1,0 +1,266 @@
+{
+    "info": {
+        "name": "timeRangeStartAfterEnd_FU",
+        "description": "Set the `time` parameter to a reversed time range where the start date is after the end date, e.g., '2017-01-01/2014-01-01', to test invalid temporal logic in time range.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=13.375,52.515,13.405,52.525&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.375,52.515,13.405,52.525"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '13.375,52.515,13.405,52.525');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/groupBy/boundary?bboxes=13.375,52.515,13.405,52.525&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2017-01-01/2014-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.375,52.515,13.405,52.525"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.bboxes', '13.375,52.515,13.405,52.525');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaGroupByTag_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.375,52.515,13.405,52.525",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "building",
+                            "type": "text"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/groupBy/tag",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "groupBy",
+                        "tag"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.bboxes', '13.375,52.515,13.405,52.525');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.groupByKey', 'building');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.groupByValues', '');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('areaGroupByTag_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

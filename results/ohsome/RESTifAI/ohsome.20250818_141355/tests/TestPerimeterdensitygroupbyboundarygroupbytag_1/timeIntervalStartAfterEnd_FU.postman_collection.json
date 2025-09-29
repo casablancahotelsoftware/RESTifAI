@@ -1,0 +1,563 @@
+{
+    "info": {
+        "name": "timeIntervalStartAfterEnd_FU",
+        "description": "Set the `time` parameter to a valid ISO-8601 interval where the start date is after the end date, e.g., `time` = '2017-01-01/2014-01-01/P1Y', to test invalid temporal range logic.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('area_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('area_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('area_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('area_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('area_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "contributionsCount_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion,tagChange,geometryChange",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCount_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.timeout', '30');",
+                            "pm.collectionVariables.set('contributionsCount_1.request.body.contributionType', 'creation,deletion,tagChange,geometryChange');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeter_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeter_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeterDensity_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensity_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('perimeterDensity_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('perimeterDensity_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('perimeterDensity_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('perimeterDensity_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterDensity_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeterDensity_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeterDensityGroupByBoundary_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/boundary",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeterDensityGroupByBoundaryGroupByTag_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "building",
+                            "type": "text"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "residential,commercial",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/boundary/groupBy/tag",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.groupByKey', 'building');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.groupByValues', 'residential,commercial');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundaryGroupByTag_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

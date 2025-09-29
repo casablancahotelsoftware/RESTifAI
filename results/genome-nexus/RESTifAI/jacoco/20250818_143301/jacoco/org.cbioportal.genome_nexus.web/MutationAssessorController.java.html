@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MutationAssessorController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">MutationAssessorController.java</span></div><h1>MutationAssessorController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.cbioportal.genome_nexus.model.MutationAssessor;
+import org.cbioportal.genome_nexus.service.MutationAssessorService;
+import org.cbioportal.genome_nexus.service.exception.MutationAssessorNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationWebServiceException;
+import org.cbioportal.genome_nexus.web.config.InternalApi;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@InternalApi
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+@Api(tags = &quot;mutation-assessor-controller&quot;, description = &quot;Mutation Assessor Controller&quot;)
+public class MutationAssessorController
+{
+    private final MutationAssessorService mutationAssessorService;
+
+    @Autowired
+    public MutationAssessorController(MutationAssessorService mutationAssessorService)
+<span class="fc" id="L28">    {</span>
+<span class="fc" id="L29">        this.mutationAssessorService = mutationAssessorService;</span>
+<span class="fc" id="L30">    }</span>
+
+    @ApiOperation(value = &quot;Retrieves mutation assessor information for the provided list of variants&quot;,
+        nickname = &quot;fetchMutationAssessorGET&quot;)
+    @RequestMapping(value = &quot;/mutation_assessor/{variant:.+}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public MutationAssessor fetchMutationAssessorGET(
+        @ApiParam(value=&quot;A variant. For example 7:g.140453136A&gt;T&quot;,
+            required = true,
+            allowMultiple = true)
+        @PathVariable String variant)
+        throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException,
+        MutationAssessorNotFoundException
+    {
+<span class="nc" id="L45">        return this.mutationAssessorService.getMutationAssessor(variant);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves mutation assessor information for the provided list of variants&quot;,
+        nickname = &quot;postMutationAssessor&quot;)
+    @RequestMapping(value = &quot;/mutation_assessor&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;MutationAssessor&gt; fetchMutationAssessorPOST(
+        @ApiParam(value=&quot;List of variants. For example [\&quot;7:g.140453136A&gt;T\&quot;,\&quot;12:g.25398285C&gt;A\&quot;]&quot;,
+            required = true,
+            allowMultiple = true)
+        @RequestBody List&lt;String&gt; variants)
+    {
+<span class="nc" id="L59">        return this.mutationAssessorService.getMutationAssessor(variants);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

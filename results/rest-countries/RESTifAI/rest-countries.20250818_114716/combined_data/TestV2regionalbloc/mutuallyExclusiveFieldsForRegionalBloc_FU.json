@@ -1,0 +1,600 @@
+{
+  "test_name": "mutuallyExclusiveFieldsForRegionalBloc_FU",
+  "description": "Set the `regionalbloc` path parameter to a valid regional bloc code but with a query parameter `fields` requesting mutually exclusive or logically incompatible fields, e.g., 'name;capital;population;area;currency;languages' where some fields are not applicable to regional blocs, to test logical inconsistency in requested data.",
+  "test_suite": "TestV2regionalbloc",
+  "base_url": "http://localhost:9002/rest",
+  "operations": [
+    "v2Regionalbloc"
+  ],
+  "values_to_create_a_successful_request": "v2Regionalbloc.request.path_params.regionalbloc: EU\nv2Regionalbloc.request.query_params.fields: name;capital;population;area\nv2Regionalbloc.response.body[0].name: \u00c5land Islands\nv2Regionalbloc.response.body[0].capital: Mariehamn\nv2Regionalbloc.response.body[0].population: 28875\nv2Regionalbloc.response.body[0].area: 1580.0\nv2Regionalbloc.response.body[1].name: Austria\nv2Regionalbloc.response.body[1].capital: Vienna\nv2Regionalbloc.response.body[1].population: 8725931\nv2Regionalbloc.response.body[1].area: 83871.0\nv2Regionalbloc.response.body[2].name: Belgium\nv2Regionalbloc.response.body[2].capital: Brussels\nv2Regionalbloc.response.body[2].population: 11319511\nv2Regionalbloc.response.body[2].area: 30528.0\nv2Regionalbloc.response.body[3].name: Bulgaria\nv2Regionalbloc.response.body[3].capital: Sofia\nv2Regionalbloc.response.body[3].population: 7153784\nv2Regionalbloc.response.body[3].area: 110879.0\nv2Regionalbloc.response.body[4].name: Croatia\nv2Regionalbloc.response.body[4].capital: Zagreb\nv2Regionalbloc.response.body[4].population: 4190669\nv2Regionalbloc.response.body[4].area: 56594.0\nv2Regionalbloc.response.body[5].name: Cyprus\nv2Regionalbloc.response.body[5].capital: Nicosia\nv2Regionalbloc.response.body[5].population: 847000\nv2Regionalbloc.response.body[5].area: 9251.0\nv2Regionalbloc.response.body[6].name: Czech Republic\nv2Regionalbloc.response.body[6].capital: Prague\nv2Regionalbloc.response.body[6].population: 10558524\nv2Regionalbloc.response.body[6].area: 78865.0\nv2Regionalbloc.response.body[7].name: Denmark\nv2Regionalbloc.response.body[7].capital: Copenhagen\nv2Regionalbloc.response.body[7].population: 5717014\nv2Regionalbloc.response.body[7].area: 43094.0\nv2Regionalbloc.response.body[8].name: Estonia\nv2Regionalbloc.response.body[8].capital: Tallinn\nv2Regionalbloc.response.body[8].population: 1315944\nv2Regionalbloc.response.body[8].area: 45227.0\nv2Regionalbloc.response.body[9].name: Faroe Islands\nv2Regionalbloc.response.body[9].capital: T\u00f3rshavn\nv2Regionalbloc.response.body[9].population: 49376\nv2Regionalbloc.response.body[9].area: 1393.0\nv2Regionalbloc.response.headers.Content-Type: application/json;charset=utf-8\nv2Regionalbloc.response.headers.Content-Length: 2545\nv2Regionalbloc.response.headers.Date: Mon, 18 Aug 2025 11:53:02 GMT\nv2Regionalbloc.response.headers.Keep-Alive: timeout=60\nv2Regionalbloc.response.headers.Connection: keep-alive\nv2Regionalbloc.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### v2Regionalbloc\n- Method: GET\n- Path: /v2/regionalbloc/{regionalbloc}\n- Parameters:\n  - name: fields\n  - in: query\n  - required: False\n  - description: None\n  - type: string\n  - name: regionalbloc\n  - in: path\n  - required: True\n  - description: None\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'Successful response'}, 'default': {'description': 'Other responses'}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "v2Regionalbloc",
+      "request_id": "c1b0b75c-9cf5-43c8-8f7a-bb034ab4693f",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "v2",
+            "regionalbloc",
+            ":regionalbloc"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "name;capital;population;area;currency;languages"
+            }
+          ],
+          "variable": [
+            {
+              "key": "regionalbloc",
+              "value": "EU",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Content-Type": "application/json;charset=utf-8",
+          "Content-Length": "6431",
+          "Date": "Mon, 18 Aug 2025 11:54:29 GMT",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive"
+        },
+        "body": [
+          {
+            "languages": [
+              {
+                "iso639_1": "sv",
+                "iso639_2": "swe",
+                "name": "Swedish",
+                "nativeName": "svenska"
+              }
+            ],
+            "name": "land Islands",
+            "capital": "Mariehamn",
+            "population": 28875,
+            "area": 1580.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "de",
+                "iso639_2": "deu",
+                "name": "German",
+                "nativeName": "Deutsch"
+              }
+            ],
+            "name": "Austria",
+            "capital": "Vienna",
+            "population": 8725931,
+            "area": 83871.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "nl",
+                "iso639_2": "nld",
+                "name": "Dutch",
+                "nativeName": "Nederlands"
+              },
+              {
+                "iso639_1": "fr",
+                "iso639_2": "fra",
+                "name": "French",
+                "nativeName": "franais"
+              },
+              {
+                "iso639_1": "de",
+                "iso639_2": "deu",
+                "name": "German",
+                "nativeName": "Deutsch"
+              }
+            ],
+            "name": "Belgium",
+            "capital": "Brussels",
+            "population": 11319511,
+            "area": 30528.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "bg",
+                "iso639_2": "bul",
+                "name": "Bulgarian",
+                "nativeName": " "
+              }
+            ],
+            "name": "Bulgaria",
+            "capital": "Sofia",
+            "population": 7153784,
+            "area": 110879.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "hr",
+                "iso639_2": "hrv",
+                "name": "Croatian",
+                "nativeName": "hrvatski jezik"
+              }
+            ],
+            "name": "Croatia",
+            "capital": "Zagreb",
+            "population": 4190669,
+            "area": 56594.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "el",
+                "iso639_2": "ell",
+                "name": "Greek (modern)",
+                "nativeName": ""
+              },
+              {
+                "iso639_1": "tr",
+                "iso639_2": "tur",
+                "name": "Turkish",
+                "nativeName": "Trke"
+              },
+              {
+                "iso639_1": "hy",
+                "iso639_2": "hye",
+                "name": "Armenian",
+                "nativeName": ""
+              }
+            ],
+            "name": "Cyprus",
+            "capital": "Nicosia",
+            "population": 847000,
+            "area": 9251.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "cs",
+                "iso639_2": "ces",
+                "name": "Czech",
+                "nativeName": "etina"
+              },
+              {
+                "iso639_1": "sk",
+                "iso639_2": "slk",
+                "name": "Slovak",
+                "nativeName": "slovenina"
+              }
+            ],
+            "name": "Czech Republic",
+            "capital": "Prague",
+            "population": 10558524,
+            "area": 78865.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "da",
+                "iso639_2": "dan",
+                "name": "Danish",
+                "nativeName": "dansk"
+              }
+            ],
+            "name": "Denmark",
+            "capital": "Copenhagen",
+            "population": 5717014,
+            "area": 43094.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "et",
+                "iso639_2": "est",
+                "name": "Estonian",
+                "nativeName": "eesti"
+              }
+            ],
+            "name": "Estonia",
+            "capital": "Tallinn",
+            "population": 1315944,
+            "area": 45227.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "fo",
+                "iso639_2": "fao",
+                "name": "Faroese",
+                "nativeName": "froyskt"
+              }
+            ],
+            "name": "Faroe Islands",
+            "capital": "Trshavn",
+            "population": 49376,
+            "area": 1393.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "fi",
+                "iso639_2": "fin",
+                "name": "Finnish",
+                "nativeName": "suomi"
+              },
+              {
+                "iso639_1": "sv",
+                "iso639_2": "swe",
+                "name": "Swedish",
+                "nativeName": "svenska"
+              }
+            ],
+            "name": "Finland",
+            "capital": "Helsinki",
+            "population": 5491817,
+            "area": 338424.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "fr",
+                "iso639_2": "fra",
+                "name": "French",
+                "nativeName": "franais"
+              }
+            ],
+            "name": "France",
+            "capital": "Paris",
+            "population": 66710000,
+            "area": 640679.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "fr",
+                "iso639_2": "fra",
+                "name": "French",
+                "nativeName": "franais"
+              }
+            ],
+            "name": "French Guiana",
+            "capital": "Cayenne",
+            "population": 254541
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "de",
+                "iso639_2": "deu",
+                "name": "German",
+                "nativeName": "Deutsch"
+              }
+            ],
+            "name": "Germany",
+            "capital": "Berlin",
+            "population": 81770900,
+            "area": 357114.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+              }
+            ],
+            "name": "Gibraltar",
+            "capital": "Gibraltar",
+            "population": 33140,
+            "area": 6.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "el",
+                "iso639_2": "ell",
+                "name": "Greek (modern)",
+                "nativeName": ""
+              }
+            ],
+            "name": "Greece",
+            "capital": "Athens",
+            "population": 10858018,
+            "area": 131990.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "hu",
+                "iso639_2": "hun",
+                "name": "Hungarian",
+                "nativeName": "magyar"
+              }
+            ],
+            "name": "Hungary",
+            "capital": "Budapest",
+            "population": 9823000,
+            "area": 93028.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "ga",
+                "iso639_2": "gle",
+                "name": "Irish",
+                "nativeName": "Gaeilge"
+              },
+              {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+              }
+            ],
+            "name": "Ireland",
+            "capital": "Dublin",
+            "population": 6378000,
+            "area": 70273.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+              },
+              {
+                "iso639_1": "gv",
+                "iso639_2": "glv",
+                "name": "Manx",
+                "nativeName": "Gaelg"
+              }
+            ],
+            "name": "Isle of Man",
+            "capital": "Douglas",
+            "population": 84497,
+            "area": 572.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "it",
+                "iso639_2": "ita",
+                "name": "Italian",
+                "nativeName": "Italiano"
+              }
+            ],
+            "name": "Italy",
+            "capital": "Rome",
+            "population": 60665551,
+            "area": 301336.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "lv",
+                "iso639_2": "lav",
+                "name": "Latvian",
+                "nativeName": "latvieu valoda"
+              }
+            ],
+            "name": "Latvia",
+            "capital": "Riga",
+            "population": 1961600,
+            "area": 64559.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "lt",
+                "iso639_2": "lit",
+                "name": "Lithuanian",
+                "nativeName": "lietuvi kalba"
+              }
+            ],
+            "name": "Lithuania",
+            "capital": "Vilnius",
+            "population": 2872294,
+            "area": 65300.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "fr",
+                "iso639_2": "fra",
+                "name": "French",
+                "nativeName": "franais"
+              },
+              {
+                "iso639_1": "de",
+                "iso639_2": "deu",
+                "name": "German",
+                "nativeName": "Deutsch"
+              },
+              {
+                "iso639_1": "lb",
+                "iso639_2": "ltz",
+                "name": "Luxembourgish",
+                "nativeName": "Ltzebuergesch"
+              }
+            ],
+            "name": "Luxembourg",
+            "capital": "Luxembourg",
+            "population": 576200,
+            "area": 2586.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "mt",
+                "iso639_2": "mlt",
+                "name": "Maltese",
+                "nativeName": "Malti"
+              },
+              {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+              }
+            ],
+            "name": "Malta",
+            "capital": "Valletta",
+            "population": 425384,
+            "area": 316.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "nl",
+                "iso639_2": "nld",
+                "name": "Dutch",
+                "nativeName": "Nederlands"
+              }
+            ],
+            "name": "Netherlands",
+            "capital": "Amsterdam",
+            "population": 17019800,
+            "area": 41850.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "pl",
+                "iso639_2": "pol",
+                "name": "Polish",
+                "nativeName": "jzyk polski"
+              }
+            ],
+            "name": "Poland",
+            "capital": "Warsaw",
+            "population": 38437239,
+            "area": 312679.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "pt",
+                "iso639_2": "por",
+                "name": "Portuguese",
+                "nativeName": "Portugus"
+              }
+            ],
+            "name": "Portugal",
+            "capital": "Lisbon",
+            "population": 10374822,
+            "area": 92090.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "ro",
+                "iso639_2": "ron",
+                "name": "Romanian",
+                "nativeName": "Romn"
+              }
+            ],
+            "name": "Romania",
+            "capital": "Bucharest",
+            "population": 19861408,
+            "area": 238391.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "sk",
+                "iso639_2": "slk",
+                "name": "Slovak",
+                "nativeName": "slovenina"
+              }
+            ],
+            "name": "Slovakia",
+            "capital": "Bratislava",
+            "population": 5426252,
+            "area": 49037.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "sl",
+                "iso639_2": "slv",
+                "name": "Slovene",
+                "nativeName": "slovenski jezik"
+              }
+            ],
+            "name": "Slovenia",
+            "capital": "Ljubljana",
+            "population": 2064188,
+            "area": 20273.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "es",
+                "iso639_2": "spa",
+                "name": "Spanish",
+                "nativeName": "Espaol"
+              }
+            ],
+            "name": "Spain",
+            "capital": "Madrid",
+            "population": 46438422,
+            "area": 505992.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "sv",
+                "iso639_2": "swe",
+                "name": "Swedish",
+                "nativeName": "svenska"
+              }
+            ],
+            "name": "Sweden",
+            "capital": "Stockholm",
+            "population": 9894888,
+            "area": 450295.0
+          },
+          {
+            "languages": [
+              {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+              }
+            ],
+            "name": "United Kingdom of Great Britain and Northern Ireland",
+            "capital": "London",
+            "population": 65110000,
+            "area": 242900.0
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+          }
+        }
+      ]
+    }
+  ]
+}

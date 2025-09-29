@@ -1,0 +1,294 @@
+{
+    "info": {
+        "name": "missingRequiredGroupByKey_ST",
+        "description": "Omit the required `groupByKey` query parameter entirely, e.g., no groupByKey provided",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "lengthGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01-01/P1Y",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'groupByResult[0].groupByObject');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].groupByObject', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'groupByResult[0].result[0].timestamp');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[0].timestamp', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'groupByResult[0].result[0].value');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[0].value', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'groupByResult[0].result[1].timestamp');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[1].timestamp', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'groupByResult[0].result[1].value');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[1].value', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'groupByResult[0].result[2].timestamp');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[2].timestamp', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'groupByResult[0].result[2].value');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[2].value', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'groupByResult[0].result[3].timestamp');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[3].timestamp', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'groupByResult[0].result[3].value');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.body.groupByResult[0].result[3].value', x11);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('lengthGroupByBoundary.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('lengthGroupByBoundary.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthGroupByBoundary.request.query_params.time', '2014-01-01/2017-01-01/P1Y');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthGroupByBoundaryGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/groupBy/boundary/groupBy/tag?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&groupByValues=residential,commercial&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "residential,commercial"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.groupByValues', 'residential,commercial');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('lengthGroupByBoundaryGroupByTag.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,390 @@
+{
+  "test_name": "fetchTranscriptsForUnknownGeneSymbol_FU",
+  "description": "Change the fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST request body to include a Hugo symbol that was never approved or recognized, e.g., ['INVALIDHUGO'], to test rejection of unknown gene symbols.",
+  "test_suite": "TestFetchcanonicalensembltranscriptsbyhugosymbolspost",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST"
+  ],
+  "values_to_create_a_successful_request": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.headers.Content-Type: application/json\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[0]: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[1]: BRCA1\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[0].geneId: ENSG00000141510\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[0].hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[0].synonyms[0]: p53\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[0].synonyms[1]: LFS1\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[0].entrezGeneId: 7157\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].geneId: ENSG00000012048\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].hugoSymbol: BRCA1\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].synonyms[0]: RNF53\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].synonyms[1]: BRCC1\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].synonyms[2]: PPP1R53\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].synonyms[3]: FANCS\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].entrezGeneId: 672\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.Date: Mon, 18 Aug 2025 12:17:24 GMT\nfetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.status_code: 200\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.query_params.isoformOverrideSource: uniprot\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.headers.Content-Type: application/json\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.body.[0]: TP53\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.body.[1]: BRCA1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].transcriptId: ENST00000269305\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].geneId: ENSG00000141510\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].refseqMrnaId: NM_000546\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].ccdsId: CCDS11118\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].hugoSymbols[0]: TP53\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].proteinId: ENSP00000269305\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].proteinLength: 393\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[0].pfamDomainId: PF07710\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[0].pfamDomainStart: 318\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[0].pfamDomainEnd: 358\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[1].pfamDomainId: PF08563\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[1].pfamDomainStart: 6\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[1].pfamDomainEnd: 29\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[2].pfamDomainId: PF00870\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[2].pfamDomainStart: 95\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].pfamDomains[2].pfamDomainEnd: 288\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].exonId: ENSE00003605891\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].exonStart: 7571720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].exonEnd: 7573008\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].rank: 11\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[0].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].exonId: ENSE00003545950\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].exonStart: 7573927\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].exonEnd: 7574033\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].rank: 10\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[1].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].exonId: ENSE00003636029\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].exonStart: 7576853\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].exonEnd: 7576926\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].rank: 9\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[2].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].exonId: ENSE00003586720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].exonStart: 7577019\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].exonEnd: 7577155\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].rank: 8\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[3].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].exonId: ENSE00003504863\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].exonStart: 7577499\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].exonEnd: 7577608\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].rank: 7\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[4].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].exonId: ENSE00003462942\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].exonStart: 7578177\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].exonEnd: 7578289\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].rank: 6\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[5].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].exonId: ENSE00003518480\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].exonStart: 7578371\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].exonEnd: 7578554\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].rank: 5\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[6].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].exonId: ENSE00003625790\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].exonStart: 7579312\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].exonEnd: 7579590\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].rank: 4\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[7].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].exonId: ENSE00002419584\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].exonStart: 7579700\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].exonEnd: 7579721\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].rank: 3\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[8].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].exonId: ENSE00002667911\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].exonStart: 7579839\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].exonEnd: 7579940\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].rank: 2\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[9].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].exonId: ENSE00001146308\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].exonStart: 7590695\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].exonEnd: 7590856\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].rank: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].exons[10].version: 3\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].type: three_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].start: 7571720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].end: 7572926\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[0].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].start: 7579913\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].end: 7579940\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[1].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].start: 7590695\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].end: 7590856\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].utrs[2].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[0].uniprotId: P04637\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].transcriptId: ENST00000357654\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].geneId: ENSG00000012048\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].refseqMrnaId: NM_007294\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].ccdsId: CCDS11453\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].hugoSymbols[0]: BRCA1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].proteinId: ENSP00000350283\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].proteinLength: 1863\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[0].pfamDomainId: PF04873\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[0].pfamDomainStart: 648\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[0].pfamDomainEnd: 978\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[1].pfamDomainId: PF00533\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[1].pfamDomainStart: 1757\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[1].pfamDomainEnd: 1842\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[2].pfamDomainId: PF00533\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[2].pfamDomainStart: 1662\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[2].pfamDomainEnd: 1723\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[3].pfamDomainId: PF12820\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[3].pfamDomainStart: 344\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[3].pfamDomainEnd: 507\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[4].pfamDomainId: PF00097\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[4].pfamDomainStart: 24\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].pfamDomains[4].pfamDomainEnd: 64\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[0].exonId: ENSE00001814242\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[0].exonStart: 41196312\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[0].exonEnd: 41197819\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[0].rank: 23\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[0].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[0].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[1].exonId: ENSE00003687053\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[1].exonStart: 41199660\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[1].exonEnd: 41199720\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[1].rank: 22\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[1].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[1].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[2].exonId: ENSE00003628864\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[2].exonStart: 41201138\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[2].exonEnd: 41201211\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[2].rank: 21\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[2].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[2].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[3].exonId: ENSE00003477922\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[3].exonStart: 41203080\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[3].exonEnd: 41203134\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[3].rank: 20\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[3].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[3].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[4].exonId: ENSE00003458468\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[4].exonStart: 41209069\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[4].exonEnd: 41209152\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[4].rank: 19\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[4].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[4].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[5].exonId: ENSE00003672792\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[5].exonStart: 41215350\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[5].exonEnd: 41215390\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[5].rank: 18\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[5].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[5].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[6].exonId: ENSE00003591784\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[6].exonStart: 41215891\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[6].exonEnd: 41215968\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[6].rank: 17\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[6].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[6].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[7].exonId: ENSE00003492626\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[7].exonStart: 41219625\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[7].exonEnd: 41219712\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[7].rank: 16\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[7].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[7].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[8].exonId: ENSE00003497952\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[8].exonStart: 41222945\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[8].exonEnd: 41223255\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[8].rank: 15\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[8].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[8].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[9].exonId: ENSE00003537850\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[9].exonStart: 41226348\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[9].exonEnd: 41226538\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[9].rank: 14\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[9].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[9].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[10].exonId: ENSE00003484886\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[10].exonStart: 41228505\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[10].exonEnd: 41228631\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[10].rank: 13\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[10].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[10].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[11].exonId: ENSE00003527960\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[11].exonStart: 41234421\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[11].exonEnd: 41234592\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[11].rank: 12\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[11].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[11].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[12].exonId: ENSE00003547126\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[12].exonStart: 41242961\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[12].exonEnd: 41243049\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[12].rank: 11\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[12].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[12].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[13].exonId: ENSE00003522602\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[13].exonStart: 41243452\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[13].exonEnd: 41246877\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[13].rank: 10\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[13].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[13].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[14].exonId: ENSE00003463944\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[14].exonStart: 41247863\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[14].exonEnd: 41247939\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[14].rank: 9\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[14].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[14].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[15].exonId: ENSE00003587679\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[15].exonStart: 41249261\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[15].exonEnd: 41249306\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[15].rank: 8\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[15].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[15].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[16].exonId: ENSE00003642045\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[16].exonStart: 41251792\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[16].exonEnd: 41251897\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[16].rank: 7\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[16].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[16].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[17].exonId: ENSE00003513709\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[17].exonStart: 41256139\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[17].exonEnd: 41256278\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[17].rank: 6\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[17].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[17].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[18].exonId: ENSE00003531836\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[18].exonStart: 41256885\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[18].exonEnd: 41256973\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[18].rank: 5\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[18].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[18].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[19].exonId: ENSE00003541068\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[19].exonStart: 41258473\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[19].exonEnd: 41258550\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[19].rank: 4\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[19].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[19].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[20].exonId: ENSE00003510592\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[20].exonStart: 41267743\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[20].exonEnd: 41267796\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[20].rank: 3\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[20].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[20].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[21].exonId: ENSE00003559512\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[21].exonStart: 41276034\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[21].exonEnd: 41276132\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[21].rank: 2\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[21].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[21].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[22].exonId: ENSE00001871077\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[22].exonStart: 41277288\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[22].exonEnd: 41277387\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[22].rank: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[22].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].exons[22].version: 1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[0].type: three_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[0].start: 41196312\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[0].end: 41197694\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[0].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[1].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[1].start: 41276114\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[1].end: 41276132\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[1].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[2].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[2].start: 41277288\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[2].end: 41277387\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].utrs[2].strand: -1\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.body[1].uniprotId: P38398\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.headers.Date: Mon, 18 Aug 2025 12:17:25 GMT\nfetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST\n- Method: POST\n- Path: /ensembl/canonical-gene/hgnc\n- Parameters:\nNone\n- Request Body Schema:\n{'application/json': {'schema': {'type': 'array', 'items': {'type': 'string'}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'required': ['geneId', 'hugoSymbol'], 'type': 'object', 'properties': {'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'hugoSymbol': {'type': 'string', 'description': 'Approved Hugo symbol'}, 'synonyms': {'type': 'array', 'description': 'Hugo symbol synonyms', 'items': {'type': 'string'}}, 'previousSymbols': {'type': 'array', 'description': 'Previous Hugo symbols', 'items': {'type': 'string'}}, 'entrezGeneId': {'type': 'string', 'description': 'Entrez Gene Id'}}}}}}}}\n",
+    "#### fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST\n- Method: POST\n- Path: /ensembl/canonical-transcript/hgnc\n- Parameters:\n  - name: isoformOverrideSource\n  - in: query\n  - required: False\n  - description: Isoform override source. For example uniprot\n  - type: string\n  - default: uniprot\n- Request Body Schema:\n{'application/json': {'schema': {'type': 'array', 'items': {'type': 'string'}}}}\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'array', 'items': {'required': ['geneId', 'proteinId', 'transcriptId'], 'type': 'object', 'properties': {'uniprotId': {'type': 'string'}, 'transcriptId': {'type': 'string', 'description': 'Ensembl transcript id'}, 'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'proteinId': {'type': 'string', 'description': 'Ensembl protein id'}, 'proteinLength': {'type': 'integer', 'description': 'Length of protein', 'format': 'int32'}, 'pfamDomains': {'type': 'array', 'description': 'Pfam domains', 'items': {'required': ['pfamDomainEnd', 'pfamDomainId', 'pfamDomainStart'], 'type': 'object', 'properties': {'pfamDomainId': {'type': 'string', 'description': 'Pfam domain id'}, 'pfamDomainStart': {'type': 'integer', 'description': 'Pfam domain start amino acid', 'format': 'int32'}, 'pfamDomainEnd': {'type': 'integer', 'description': 'Pfam domain end amino acid', 'format': 'int32'}}}}, 'hugoSymbols': {'type': 'array', 'description': 'Hugo symbols', 'items': {'type': 'string'}}, 'refseqMrnaId': {'type': 'string', 'description': 'RefSeq mRNA ID'}, 'ccdsId': {'type': 'string', 'description': 'Consensus CDS (CCDS) ID'}, 'exons': {'type': 'array', 'description': 'Exon information', 'items': {'required': ['exonEnd', 'exonId', 'exonStart', 'rank', 'strand', 'version'], 'type': 'object', 'properties': {'exonId': {'type': 'string', 'description': 'Exon id'}, 'exonStart': {'type': 'integer', 'description': 'Start position of exon', 'format': 'int32'}, 'exonEnd': {'type': 'integer', 'description': 'End position of exon', 'format': 'int32'}, 'rank': {'type': 'integer', 'description': 'Number of exon in transcript', 'format': 'int32'}, 'strand': {'type': 'integer', 'description': 'Strand exon is on, -1 for - and 1 for +', 'format': 'int32'}, 'version': {'type': 'integer', 'description': 'Exon version', 'format': 'int32'}}}}, 'utrs': {'type': 'array', 'description': 'UTR information', 'items': {'required': ['end', 'start', 'strand', 'type'], 'type': 'object', 'properties': {'type': {'type': 'string', 'description': 'UTR Type'}, 'start': {'type': 'integer', 'description': 'Start position of UTR', 'format': 'int32'}, 'end': {'type': 'integer', 'description': 'End position of UTR', 'format': 'int32'}, 'strand': {'type': 'integer', 'description': 'Strand UTR is on, -1 for - and 1 for +', 'format': 'int32'}}}}}}}}}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+      "request_id": "7ba13a1f-130a-4c57-8615-07ce48d95565",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-gene",
+            "hgnc"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": [
+          "TP53",
+          "BRCA1"
+        ]
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:24:57 GMT"
+        },
+        "body": [
+          {
+            "geneId": "ENSG00000141510",
+            "hugoSymbol": "TP53",
+            "synonyms": [
+              "p53",
+              "LFS1"
+            ],
+            "entrezGeneId": "7157"
+          },
+          {
+            "geneId": "ENSG00000012048",
+            "hugoSymbol": "BRCA1",
+            "synonyms": [
+              "RNF53",
+              "BRCC1",
+              "PPP1R53",
+              "FANCS"
+            ],
+            "entrezGeneId": "672"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    },
+    {
+      "request_name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+      "request_id": "99317b1a-b8e0-4663-bda5-a3847fe748ef",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "POST",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-transcript",
+            "hgnc"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "isoformOverrideSource",
+              "value": "uniprot"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": [
+          "INVALIDHUGO",
+          "BRCA1"
+        ]
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:24:57 GMT"
+        },
+        "body": [
+          {
+            "transcriptId": "ENST00000357654",
+            "geneId": "ENSG00000012048",
+            "refseqMrnaId": "NM_007294",
+            "ccdsId": "CCDS11453",
+            "hugoSymbols": [
+              "BRCA1"
+            ],
+            "proteinId": "ENSP00000350283",
+            "proteinLength": 1863,
+            "pfamDomains": [
+              {
+                "pfamDomainId": "PF04873",
+                "pfamDomainStart": 648,
+                "pfamDomainEnd": 978
+              },
+              {
+                "pfamDomainId": "PF00533",
+                "pfamDomainStart": 1757,
+                "pfamDomainEnd": 1842
+              },
+              {
+                "pfamDomainId": "PF00533",
+                "pfamDomainStart": 1662,
+                "pfamDomainEnd": 1723
+              },
+              {
+                "pfamDomainId": "PF12820",
+                "pfamDomainStart": 344,
+                "pfamDomainEnd": 507
+              },
+              {
+                "pfamDomainId": "PF00097",
+                "pfamDomainStart": 24,
+                "pfamDomainEnd": 64
+              }
+            ],
+            "exons": [
+              {
+                "exonId": "ENSE00001814242",
+                "exonStart": 41196312,
+                "exonEnd": 41197819,
+                "rank": 23,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003687053",
+                "exonStart": 41199660,
+                "exonEnd": 41199720,
+                "rank": 22,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003628864",
+                "exonStart": 41201138,
+                "exonEnd": 41201211,
+                "rank": 21,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003477922",
+                "exonStart": 41203080,
+                "exonEnd": 41203134,
+                "rank": 20,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003458468",
+                "exonStart": 41209069,
+                "exonEnd": 41209152,
+                "rank": 19,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003672792",
+                "exonStart": 41215350,
+                "exonEnd": 41215390,
+                "rank": 18,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003591784",
+                "exonStart": 41215891,
+                "exonEnd": 41215968,
+                "rank": 17,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003492626",
+                "exonStart": 41219625,
+                "exonEnd": 41219712,
+                "rank": 16,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003497952",
+                "exonStart": 41222945,
+                "exonEnd": 41223255,
+                "rank": 15,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003537850",
+                "exonStart": 41226348,
+                "exonEnd": 41226538,
+                "rank": 14,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003484886",
+                "exonStart": 41228505,
+                "exonEnd": 41228631,
+                "rank": 13,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003527960",
+                "exonStart": 41234421,
+                "exonEnd": 41234592,
+                "rank": 12,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003547126",
+                "exonStart": 41242961,
+                "exonEnd": 41243049,
+                "rank": 11,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003522602",
+                "exonStart": 41243452,
+                "exonEnd": 41246877,
+                "rank": 10,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003463944",
+                "exonStart": 41247863,
+                "exonEnd": 41247939,
+                "rank": 9,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003587679",
+                "exonStart": 41249261,
+                "exonEnd": 41249306,
+                "rank": 8,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003642045",
+                "exonStart": 41251792,
+                "exonEnd": 41251897,
+                "rank": 7,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003513709",
+                "exonStart": 41256139,
+                "exonEnd": 41256278,
+                "rank": 6,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003531836",
+                "exonStart": 41256885,
+                "exonEnd": 41256973,
+                "rank": 5,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003541068",
+                "exonStart": 41258473,
+                "exonEnd": 41258550,
+                "rank": 4,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003510592",
+                "exonStart": 41267743,
+                "exonEnd": 41267796,
+                "rank": 3,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00003559512",
+                "exonStart": 41276034,
+                "exonEnd": 41276132,
+                "rank": 2,
+                "strand": -1,
+                "version": 1
+              },
+              {
+                "exonId": "ENSE00001871077",
+                "exonStart": 41277288,
+                "exonEnd": 41277387,
+                "rank": 1,
+                "strand": -1,
+                "version": 1
+              }
+            ],
+            "utrs": [
+              {
+                "type": "three_prime_UTR",
+                "start": 41196312,
+                "end": 41197694,
+                "strand": -1
+              },
+              {
+                "type": "five_prime_UTR",
+                "start": 41276114,
+                "end": 41276132,
+                "strand": -1
+              },
+              {
+                "type": "five_prime_UTR",
+                "start": 41277288,
+                "end": 41277387,
+                "strand": -1
+              }
+            ],
+            "uniprotId": "P38398"
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+          }
+        }
+      ]
+    }
+  ]
+}

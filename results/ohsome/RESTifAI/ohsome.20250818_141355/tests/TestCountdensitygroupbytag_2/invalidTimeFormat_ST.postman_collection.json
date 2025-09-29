@@ -1,0 +1,110 @@
+{
+    "info": {
+        "name": "invalidTimeFormat_ST",
+        "description": "Provide `time` query parameter with an invalid ISO-8601 interval format, e.g., '2023-12-01/2023-12-31-23:59:59' (missing 'T' and 'Z')",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByTag_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/density/groupBy/tag?bboxes=12.4923,41.8902,12.4928,41.8907&contributionType=creation,tagChange&filter=osm_type%20%3D%20way%20and%20geometry_type%20%3D%20Polygon%20and%20building%20%3D%20yes&format=json&groupByKey=building&groupByValues=residential,commercial&showMetadata=true&time=2023-12-01/2023-12-31-23:59:59&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,tagChange"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "osm_type%20%3D%20way%20and%20geometry_type%20%3D%20Polygon%20and%20building%20%3D%20yes"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "building"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "residential,commercial"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-12-01/2023-12-31-23:59:59"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.contributionType', 'creation,tagChange');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.filter', 'osm_type%20%3D%20way%20and%20geometry_type%20%3D%20Polygon%20and%20building%20%3D%20yes');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.groupByKey', 'building');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.groupByValues', 'residential,commercial');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.time', '2023-12-01/2023-12-31-23:59:59');",
+                            "pm.collectionVariables.set('countDensityGroupByTag_2.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

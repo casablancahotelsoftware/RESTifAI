@@ -1,0 +1,104 @@
+{
+    "info": {
+        "name": "contradictoryFilterConditions_FU",
+        "description": "Set `filter` parameter to a logically contradictory filter, e.g., filter=type:node and type:way, which cannot be true simultaneously.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "lengthGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/groupBy/tag?bboxes=8.67,49.39,8.71,49.42&groupByKey=highway&filter=type%3Anode%20and%20type%3Away&groupByValues=primary,residential&time=2014-01-01/2017-01-01/P1Y&format=json&showMetadata=false&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "highway"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Anode%20and%20type%3Away"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "primary,residential"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.groupByKey', 'highway');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.filter', 'type%3Anode%20and%20type%3Away');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.groupByValues', 'primary,residential');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthGroupByTag.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

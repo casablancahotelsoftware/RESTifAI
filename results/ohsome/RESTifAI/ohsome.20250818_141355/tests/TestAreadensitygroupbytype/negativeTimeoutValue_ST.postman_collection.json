@@ -1,0 +1,240 @@
+{
+    "info": {
+        "name": "negativeTimeoutValue_ST",
+        "description": "Set the `timeout` query parameter to a negative number '-10' which violates the expected positive integer as string",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530&filter=type%3Away%20and%20natural%3D%2A&format=json&time=2014-01-01/2017-01&showMetadata=false&timeout=-10",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "-10"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '-10');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaDensity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density?bboxes=13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530&filter=type%3Away%20and%20natural%3D%2A&format=json&time=2014-01-01/2017-01&showMetadata=false&timeout=-10",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "-10"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensity.request.query_params.bboxes', '13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaDensity.request.query_params.timeout', '-10');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaDensityGroupByType",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density/groupBy/type?bboxes=13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530&filter=geometry%3Apolygon%20and%20building%3D%2A&format=json&time=2014-01-01/2017-01&showMetadata=false&timeout=-10",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "geometry%3Apolygon%20and%20building%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "-10"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensityGroupByType.request.query_params.bboxes', '13.375,52.515,13.405,52.525|13.410,52.520,13.430,52.530');",
+                            "pm.collectionVariables.set('areaDensityGroupByType.request.query_params.filter', 'geometry%3Apolygon%20and%20building%3D%2A');",
+                            "pm.collectionVariables.set('areaDensityGroupByType.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaDensityGroupByType.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('areaDensityGroupByType.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaDensityGroupByType.request.query_params.timeout', '-10');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

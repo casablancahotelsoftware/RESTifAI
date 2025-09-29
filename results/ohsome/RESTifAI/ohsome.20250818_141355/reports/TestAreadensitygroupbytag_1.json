@@ -1,0 +1,1433 @@
+{
+    "test_name": "TestAreadensitygroupbytag_1",
+    "test_results": [
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "cb1255ab-e621-48b6-a4cf-1b9c00f0d77b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:35:58.844319618\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterExpression_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "5d669c9f-486d-4d53-b2ba-f43bbc87c6aa",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:35:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 60,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"building=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBcirclesRadius_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "1e7dfd19-35e0-4658-bf6c-78947f998182",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:00 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:00.841670565\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBboxesFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "ec3e5a5c-33ba-49d2-a86a-eaf964edb1c9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:01 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:01.87573624\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "adf3056e-0702-4249-bebf-1d073c9d7ee7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:01 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:02.71882681\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonAggregatableGroupByKey_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "ff8e2092-e2d9-4565-8b82-1e7aaa227abe",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 425,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"node=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"node=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "conflictingGroupByValuesAndFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "a96c6cf0-0240-4d10-a308-90bb9fe00d50",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:05 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 472,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=building=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyGroupByValues_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "2ce3f7e8-03b5-44f8-a0be-ef3f5c139ebb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:06 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 612,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBpolysFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "e47a1da1-0482-42fe-81e8-fe065b47cdc9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:06 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:07.782697611\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroAreaBoundingBox_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "0b550fa3-18f0-4071-891f-0429201e0461",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:08 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:08.751145481\",\n  \"status\" : 404,\n  \"message\" : \"The provided boundary parameter does not lie completely within the underlying data-extract polygon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyGroupByKey_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "cdc3b414-ae53-4e0a-99ce-a645501f9002",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 625,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingRequiredGroupByKey_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "95b54ada-10d2-4660-a172-a1b7457103a1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:11.18113738\",\n  \"status\" : 400,\n  \"message\" : \"You need to give one groupByKey parameter, if you want to use groupBy/tag.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeRange_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "267f74cf-aeb1-4e56-b737-3d3008c964f5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:12 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:12.077265369\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterWithNonExistentTag_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "88f20c89-7e1c-4045-b12b-5ef1d8e33e28",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:13 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 448,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"building=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentGroupByValues_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "70f02c54-0166-426c-8c2b-9465b5e70b12",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1248,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=moonbase\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"building=spaceship\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidSelfIntersectingPolygon_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "8372aab6-b254-4d83-adb2-5a8af0a110be",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:16 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:16.617731843\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "4ed4e4e2-a194-40ec-b77c-45b26b8321e9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:16 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:36:17.454055038\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/area/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "758b145c-6718-4c40-b414-9ed48facc98f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 523,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"building=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonPositiveTimeout_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "bf4ee335-6b85-49f9-9630-83aed84b360c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:20 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 694,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"building=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidGroupByValuesFormat_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "28ee73b1-b66a-431b-ae49-ad1fe9884578",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1422,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=residential;commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "areaDensityGroupByTag_1",
+                    "id": "a00ce549-bd0e-464a-8cbf-7435355b0d9f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "area",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:36:23 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 567,\n    \"description\" : \"Density of selected items (area of items in square meters divided by the area in square kilometers), aggregated on the tag.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3513.44\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3434.71\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5530.94\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 5532.36\n    } ]\n  }, {\n    \"groupByObject\" : \"building=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"building=commercial\",\n    \"result\" : [ {\n      \"timestamp\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"timestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T17:36:24.839486",
+    "statistics": {
+        "total_test_cases": 21,
+        "passed_test_cases": 11,
+        "failed_test_cases": 10,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 21,
+        "success_rate": 52.38095238095239,
+        "avg_requests_per_case": 1.0
+    }
+}

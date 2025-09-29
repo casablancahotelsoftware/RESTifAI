@@ -1,0 +1,122 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "restifai"
+version = "1.0.0"
+description = "API Testing Framework with LLM-powered test generation"
+authors = [
+    {name = "Leon Kogler", email = "leon.kogler@casablanca.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    # HTTP and API clients
+    "requests>=2.31.0",
+    # LLM and AI frameworks
+    "langchain-openai>=0.1.0",
+    "langchain-core>=0.1.0",
+    "langchain-community==0.3.27",
+    "openai>=1.86.0",
+    # MCP (Model Context Protocol) for GitHub Copilot integration
+    "fastmcp>=0.1.0",
+    "mcp>=1.0.0",
+    # Environment and configuration - downgraded for docker-compose compatibility
+    "python-dotenv>=0.13.0,<1.0.0",
+    # YAML processing - pin to working version that overrides langchain-core's dependency
+    "pyyaml>=6.0.0",
+    # Database connectivity (optional)
+    "mysql-connector-python>=8.0.0",
+    # JSON processing and schema handling
+    "jsonref>=1.1.0",
+    # Data validation and parsing
+    "pydantic>=2.0.0",
+    # Data analysis and evaluation (for TestCaseJudge)
+    "pandas>=1.5.0",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "openpyxl>=3.1.0"  # For Excel file operations
+]
+
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    
+    # Code formatting and linting
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    
+    # Development tools
+    "pre-commit>=3.0.0",
+]
+
+gui = [
+    # GUI development (tkinter is built-in, but these add functionality)
+    "pillow>=10.0.0",  # For image handling in GUI
+]
+
+database = [
+    # Additional database drivers
+    "psycopg2-binary>=2.9.0",  # PostgreSQL
+]
+
+containerized = [
+    # Docker-based development
+    "docker>=6.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+asyncio_mode = "auto"

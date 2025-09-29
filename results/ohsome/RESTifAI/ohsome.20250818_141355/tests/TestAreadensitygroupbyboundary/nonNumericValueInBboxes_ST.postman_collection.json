@@ -1,0 +1,95 @@
+{
+    "info": {
+        "name": "nonNumericValueInBboxes_ST",
+        "description": "Set the `bboxes` query parameter to a string with invalid characters '12.4923,41.8902,abc,41.8922' where 'abc' is not a number",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "areaDensityGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/density/groupBy/boundary?bboxes=12.4923,41.8902,abc,41.8922&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tag%3Dresidential&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,abc,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tag%3Dresidential"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaDensityGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,abc,41.8922');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundary.request.query_params.filter', 'type%3Dbuilding%20and%20geometry%3DPolygon%20and%20tag%3Dresidential');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundary.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundary.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('areaDensityGroupByBoundary.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,2011 @@
+{
+    "test_name": "TestFetchvariantannotationbyidget",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "b76df86e-8694-4243-a5f7-b5fdb49570a7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:43 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "b0273614-fc8e-4cd7-92b6-d9ac712757da",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:43 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchNonExistentVariantId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "64571d94-5eff-4f11-a530-c8c9deb0af20",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:45 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "7f72d9f5-434a-496d-8082-3e2a0bce9c83",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs999999999999",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:45 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs999999999999\",\"errorMessage\":\"No variant found with ID 'rs999999999999'\",\"originalVariantQuery\":\"rs999999999999\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsArrayWithInvalidEnumValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "5f35e675-40c4-4f0e-8270-58ca260e9f2d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:46 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "3ec31f06-d290-4dde-ac9a-965ff7204289",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "['invalidField']"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "text/html;charset=utf-8",
+                        "Content-Language": "en",
+                        "Content-Length": "800",
+                        "Date": "Mon, 18 Aug 2025 12:25:46 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 400  Bad Request</title><style type=\"text/css\">h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400  Bad Request</h1></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchSomaticVariantIdInGermlineContext_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "4db22030-b4c8-4732-95ea-c74e61271fbc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:47 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "f1e19ddb-725f-48e4-892f-ad9209b0a577",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs1234567890",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:47 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs1234567890\",\"colocatedVariants\":[{\"dbSnpId\":\"rs1234567890\"}],\"originalVariantQuery\":\"rs1234567890\",\"id\":\"rs1234567890\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"1\",\"start\":14680649,\"end\":14680649,\"allele_string\":\"T/C\",\"strand\":1,\"most_severe_consequence\":\"upstream_gene_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000447908\",\"variant_allele\":\"C\",\"gene_symbol\":\"RP4-704D23.1\",\"gene_id\":\"ENSG00000234593\",\"canonical\":\"1\",\"consequence_terms\":[\"upstream_gene_variant\"]}],\"successfully_annotated\":true,\"annotation_summary\":{\"variant\":\"rs1234567890\",\"genomicLocation\":{\"chromosome\":\"1\",\"start\":14680649,\"end\":14680649,\"referenceAllele\":\"T\",\"variantAllele\":\"C\"},\"strandSign\":\"+\",\"variantType\":\"SNP\",\"assemblyName\":\"GRCh37\",\"canonicalTranscriptId\":\"ENST00000447908\",\"transcriptConsequences\":[{\"transcriptId\":\"ENST00000447908\",\"consequenceTerms\":\"upstream_gene_variant\",\"hugoGeneSymbol\":\"RP4-704D23.1\",\"variantClassification\":\"5'Flank\"}],\"transcriptConsequenceSummaries\":[{\"transcriptId\":\"ENST00000447908\",\"consequenceTerms\":\"upstream_gene_variant\",\"hugoGeneSymbol\":\"RP4-704D23.1\",\"variantClassification\":\"5'Flank\"}],\"transcriptConsequenceSummary\":{\"transcriptId\":\"ENST00000447908\",\"consequenceTerms\":\"upstream_gene_variant\",\"hugoGeneSymbol\":\"RP4-704D23.1\",\"variantClassification\":\"5'Flank\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsAsStringInsteadOfArray_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "3c279de0-401b-452c-9dcb-4491d9afaabd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:49 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "b721e3eb-77c2-4246-b22d-12be9d170151",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:49 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "tokenJsonArrayInsteadOfObject_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "c86855b4-40c9-47ab-aa20-e3c2aad13b2a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:50 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "b0ff02f5-e8fa-4607-a761-3b49c0b28a92",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%5B%22source1%22%2C%20%22source2%22%5D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:50 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "tokenInvalidJsonString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "a417ec32-05db-4aab-8f5a-91bbfd3988c2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "not-a-json-object"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:51 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "c4b86253-8ba5-4623-b1fc-ac8065a6f603",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:51 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchVariantIdWithAssemblyMismatch_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "11695a2c-3956-48df-a74f-307af8abc140",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:52 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "c06140ee-8b60-444a-a63c-34142fdc228f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs1000000000",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:52 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs1000000000\",\"colocatedVariants\":[{\"dbSnpId\":\"rs1000000000\"}],\"originalVariantQuery\":\"rs1000000000\",\"id\":\"rs1000000000\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"22\",\"start\":19890898,\"end\":19890898,\"allele_string\":\"G/A\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000334363\",\"hgvsc\":\"ENST00000334363.9:c.663-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000334451\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"refseq_transcript_ids\":[\"NM_001282512.1\"],\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000400518\",\"hgvsc\":\"ENST00000400518.1:c.573-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000383362\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000400519\",\"hgvsc\":\"ENST00000400519.1:c.660-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000383363\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000400521\",\"hgvsc\":\"ENST00000400521.1:c.663-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000383365\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006440.3\"],\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000400525\",\"hgvsc\":\"ENST00000400525.1:c.594-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000383369\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\",\"NMD_transcript_variant\"]},{\"transcript_id\":\"ENST00000474308\",\"hgvsc\":\"ENST00000474308.1:n.610-4307C>T\",\"variant_allele\":\"A\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\",\"non_coding_transcript_variant\"]},{\"transcript_id\":\"ENST00000491939\",\"hgvsc\":\"ENST00000491939.1:n.653-4307C>T\",\"variant_allele\":\"A\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\",\"non_coding_transcript_variant\"]},{\"transcript_id\":\"ENST00000494454\",\"hgvsc\":\"ENST00000494454.1:n.737-4307C>T\",\"variant_allele\":\"A\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\",\"non_coding_transcript_variant\"]},{\"transcript_id\":\"ENST00000535882\",\"hgvsc\":\"ENST00000535882.1:c.660-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000439314\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000542719\",\"hgvsc\":\"ENST00000542719.1:c.573-4307C>T\",\"variant_allele\":\"A\",\"protein_id\":\"ENSP00000439570\",\"gene_symbol\":\"TXNRD2\",\"gene_id\":\"ENSG00000184470\",\"hgnc_id\":\"18155\",\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"annotation_summary\":{\"variant\":\"rs1000000000\",\"genomicLocation\":{\"chromosome\":\"22\",\"start\":19890898,\"end\":19890898,\"referenceAllele\":\"G\",\"variantAllele\":\"A\"},\"strandSign\":\"+\",\"variantType\":\"SNP\",\"assemblyName\":\"GRCh37\",\"canonicalTranscriptId\":\"ENST00000400521\",\"transcriptConsequences\":[{\"transcriptId\":\"ENST00000400521\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*221*\",\"hgvsc\":\"ENST00000400521.1:c.663-4307C>T\",\"refSeq\":\"NM_006440.3\",\"variantClassification\":\"Intron\",\"uniprotId\":\"Q9NNW7\"}],\"transcriptConsequenceSummaries\":[{\"transcriptId\":\"ENST00000334363\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*221*\",\"hgvsc\":\"ENST00000334363.9:c.663-4307C>T\",\"refSeq\":\"NM_001282512.1\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000400518\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*191*\",\"hgvsc\":\"ENST00000400518.1:c.573-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000400519\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*220*\",\"hgvsc\":\"ENST00000400519.1:c.660-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000400521\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*221*\",\"hgvsc\":\"ENST00000400521.1:c.663-4307C>T\",\"refSeq\":\"NM_006440.3\",\"variantClassification\":\"Intron\",\"uniprotId\":\"Q9NNW7\"},{\"transcriptId\":\"ENST00000400525\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant,NMD_transcript_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*198*\",\"hgvsc\":\"ENST00000400525.1:c.594-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000474308\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant,non_coding_transcript_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*204*\",\"hgvsc\":\"ENST00000474308.1:n.610-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000491939\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant,non_coding_transcript_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*218*\",\"hgvsc\":\"ENST00000491939.1:n.653-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000494454\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant,non_coding_transcript_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*246*\",\"hgvsc\":\"ENST00000494454.1:n.737-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000535882\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*220*\",\"hgvsc\":\"ENST00000535882.1:c.660-4307C>T\",\"variantClassification\":\"Intron\"},{\"transcriptId\":\"ENST00000542719\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*191*\",\"hgvsc\":\"ENST00000542719.1:c.573-4307C>T\",\"variantClassification\":\"Intron\"}],\"transcriptConsequenceSummary\":{\"transcriptId\":\"ENST00000400521\",\"entrezGeneId\":\"10587\",\"consequenceTerms\":\"intron_variant\",\"hugoGeneSymbol\":\"TXNRD2\",\"hgvspShort\":\"p.*221*\",\"hgvsc\":\"ENST00000400521.1:c.663-4307C>T\",\"refSeq\":\"NM_006440.3\",\"variantClassification\":\"Intron\",\"uniprotId\":\"Q9NNW7\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsArrayWithNonStringItem_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "d250fb6d-5eb6-44d6-8e44-9b05109c1c37",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "[123]"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "text/html;charset=utf-8",
+                        "Content-Language": "en",
+                        "Content-Length": "800",
+                        "Date": "Mon, 18 Aug 2025 12:25:54 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 400  Bad Request</title><style type=\"text/css\">h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400  Bad Request</h1></body></html>"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "b8565634-3052-4457-9091-20cfd78d634a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:54 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchVariantIdWithConflictingAnnotations_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "071cb958-a4a7-43d3-bde1-56f7a60db504",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:55 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "f542569d-cbd4-45bd-9abf-68dd637a65ae",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs121913529",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:55 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs121913529\",\"colocatedVariants\":[{\"dbSnpId\":\"COSV55497369\"},{\"dbSnpId\":\"COSV55497419\"},{\"dbSnpId\":\"COSV55497479\"},{\"dbSnpId\":\"rs121913529\"}],\"originalVariantQuery\":\"rs121913529\",\"id\":\"rs121913529\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"12\",\"start\":25398284,\"end\":25398284,\"allele_string\":\"C/A/G/T\",\"strand\":1,\"most_severe_consequence\":\"missense_variant\",\"transcript_consequences\":[{\"exon\":\"2/6\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000256078\",\"hgvsp\":\"ENSP00000256078.4:p.Gly12Val\",\"hgvsc\":\"ENST00000256078.4:c.35G>T\",\"variant_allele\":\"A\",\"codons\":\"gGt/gTt\",\"protein_id\":\"ENSP00000256078\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/V\",\"hgnc_id\":\"6407\",\"canonical\":\"1\",\"polyphen_score\":0.972,\"polyphen_prediction\":\"probably_damaging\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious\",\"refseq_transcript_ids\":[\"NM_033360.2\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/6\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000256078\",\"hgvsp\":\"ENSP00000256078.4:p.Gly12Ala\",\"hgvsc\":\"ENST00000256078.4:c.35G>C\",\"variant_allele\":\"G\",\"codons\":\"gGt/gCt\",\"protein_id\":\"ENSP00000256078\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/A\",\"hgnc_id\":\"6407\",\"canonical\":\"1\",\"polyphen_score\":0.723,\"polyphen_prediction\":\"possibly_damaging\",\"sift_score\":0.02,\"sift_prediction\":\"deleterious\",\"refseq_transcript_ids\":[\"NM_033360.2\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/6\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000256078\",\"hgvsp\":\"ENSP00000256078.4:p.Gly12Asp\",\"hgvsc\":\"ENST00000256078.4:c.35G>A\",\"variant_allele\":\"T\",\"codons\":\"gGt/gAt\",\"protein_id\":\"ENSP00000256078\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/D\",\"hgnc_id\":\"6407\",\"canonical\":\"1\",\"polyphen_score\":0.303,\"polyphen_prediction\":\"benign\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious\",\"refseq_transcript_ids\":[\"NM_033360.2\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/5\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000311936\",\"hgvsp\":\"ENSP00000308495.3:p.Gly12Val\",\"hgvsc\":\"ENST00000311936.3:c.35G>T\",\"variant_allele\":\"A\",\"codons\":\"gGt/gTt\",\"protein_id\":\"ENSP00000308495\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/V\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.96,\"polyphen_prediction\":\"probably_damaging\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious\",\"refseq_transcript_ids\":[\"NM_004985.3\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/5\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000311936\",\"hgvsp\":\"ENSP00000308495.3:p.Gly12Ala\",\"hgvsc\":\"ENST00000311936.3:c.35G>C\",\"variant_allele\":\"G\",\"codons\":\"gGt/gCt\",\"protein_id\":\"ENSP00000308495\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/A\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.597,\"polyphen_prediction\":\"possibly_damaging\",\"sift_score\":0.02,\"sift_prediction\":\"deleterious\",\"refseq_transcript_ids\":[\"NM_004985.3\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/5\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000311936\",\"hgvsp\":\"ENSP00000308495.3:p.Gly12Asp\",\"hgvsc\":\"ENST00000311936.3:c.35G>A\",\"variant_allele\":\"T\",\"codons\":\"gGt/gAt\",\"protein_id\":\"ENSP00000308495\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/D\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.21,\"polyphen_prediction\":\"benign\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious\",\"refseq_transcript_ids\":[\"NM_004985.3\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/3\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000556131\",\"hgvsp\":\"ENSP00000451856.1:p.Gly12Val\",\"hgvsc\":\"ENST00000556131.1:c.35G>T\",\"variant_allele\":\"A\",\"codons\":\"gGt/gTt\",\"protein_id\":\"ENSP00000451856\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/V\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.884,\"polyphen_prediction\":\"possibly_damaging\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/3\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000556131\",\"hgvsp\":\"ENSP00000451856.1:p.Gly12Ala\",\"hgvsc\":\"ENST00000556131.1:c.35G>C\",\"variant_allele\":\"G\",\"codons\":\"gGt/gCt\",\"protein_id\":\"ENSP00000451856\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/A\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.614,\"polyphen_prediction\":\"possibly_damaging\",\"sift_score\":0.04,\"sift_prediction\":\"deleterious\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/3\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000556131\",\"hgvsp\":\"ENSP00000451856.1:p.Gly12Asp\",\"hgvsc\":\"ENST00000556131.1:c.35G>A\",\"variant_allele\":\"T\",\"codons\":\"gGt/gAt\",\"protein_id\":\"ENSP00000451856\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/D\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.039,\"polyphen_prediction\":\"benign\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/3\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000557334\",\"hgvsp\":\"ENSP00000452512.1:p.Gly12Val\",\"hgvsc\":\"ENST00000557334.1:c.35G>T\",\"variant_allele\":\"A\",\"codons\":\"gGt/gTt\",\"protein_id\":\"ENSP00000452512\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/V\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.979,\"polyphen_prediction\":\"probably_damaging\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious_low_confidence\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/3\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000557334\",\"hgvsp\":\"ENSP00000452512.1:p.Gly12Ala\",\"hgvsc\":\"ENST00000557334.1:c.35G>C\",\"variant_allele\":\"G\",\"codons\":\"gGt/gCt\",\"protein_id\":\"ENSP00000452512\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/A\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.899,\"polyphen_prediction\":\"possibly_damaging\",\"sift_score\":0.13,\"sift_prediction\":\"tolerated_low_confidence\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"2/3\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"},\"transcript_id\":\"ENST00000557334\",\"hgvsp\":\"ENSP00000452512.1:p.Gly12Asp\",\"hgvsc\":\"ENST00000557334.1:c.35G>A\",\"variant_allele\":\"T\",\"codons\":\"gGt/gAt\",\"protein_id\":\"ENSP00000452512\",\"protein_start\":12,\"protein_end\":12,\"gene_symbol\":\"KRAS\",\"gene_id\":\"ENSG00000133703\",\"amino_acids\":\"G/D\",\"hgnc_id\":\"6407\",\"polyphen_score\":0.969,\"polyphen_prediction\":\"probably_damaging\",\"sift_score\":0.0,\"sift_prediction\":\"deleterious_low_confidence\",\"consequence_terms\":[\"missense_variant\"]}],\"successfully_annotated\":true,\"annotation_summary\":{\"variant\":\"rs121913529\",\"genomicLocation\":{\"chromosome\":\"12\",\"start\":25398284,\"end\":25398284,\"referenceAllele\":null,\"variantAllele\":null},\"strandSign\":\"+\",\"assemblyName\":\"GRCh37\",\"canonicalTranscriptId\":\"ENST00000256078\",\"transcriptConsequences\":[{\"transcriptId\":\"ENST00000256078\",\"codonChange\":\"gGt/gTt\",\"aminoAcids\":\"G/V\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"V\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12V\",\"hgvsp\":\"p.Gly12Val\",\"hgvsc\":\"ENST00000256078.4:c.35G>T\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_033360.2\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/6\",\"polyphenScore\":0.972,\"polyphenPrediction\":\"probably_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"}}],\"transcriptConsequenceSummaries\":[{\"transcriptId\":\"ENST00000256078\",\"codonChange\":\"gGt/gTt\",\"aminoAcids\":\"G/V\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"V\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12V\",\"hgvsp\":\"p.Gly12Val\",\"hgvsc\":\"ENST00000256078.4:c.35G>T\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_033360.2\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/6\",\"polyphenScore\":0.972,\"polyphenPrediction\":\"probably_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000256078\",\"codonChange\":\"gGt/gCt\",\"aminoAcids\":\"G/A\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"A\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12A\",\"hgvsp\":\"p.Gly12Ala\",\"hgvsc\":\"ENST00000256078.4:c.35G>C\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_033360.2\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/6\",\"polyphenScore\":0.723,\"polyphenPrediction\":\"possibly_damaging\",\"siftScore\":0.02,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000256078\",\"codonChange\":\"gGt/gAt\",\"aminoAcids\":\"G/D\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"D\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12D\",\"hgvsp\":\"p.Gly12Asp\",\"hgvsc\":\"ENST00000256078.4:c.35G>A\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_033360.2\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/6\",\"polyphenScore\":0.303,\"polyphenPrediction\":\"benign\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000311936\",\"codonChange\":\"gGt/gTt\",\"aminoAcids\":\"G/V\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"V\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12V\",\"hgvsp\":\"p.Gly12Val\",\"hgvsc\":\"ENST00000311936.3:c.35G>T\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_004985.3\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/5\",\"polyphenScore\":0.96,\"polyphenPrediction\":\"probably_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116-2\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000311936\",\"codonChange\":\"gGt/gCt\",\"aminoAcids\":\"G/A\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"A\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12A\",\"hgvsp\":\"p.Gly12Ala\",\"hgvsc\":\"ENST00000311936.3:c.35G>C\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_004985.3\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/5\",\"polyphenScore\":0.597,\"polyphenPrediction\":\"possibly_damaging\",\"siftScore\":0.02,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116-2\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000311936\",\"codonChange\":\"gGt/gAt\",\"aminoAcids\":\"G/D\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"D\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12D\",\"hgvsp\":\"p.Gly12Asp\",\"hgvsc\":\"ENST00000311936.3:c.35G>A\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_004985.3\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/5\",\"polyphenScore\":0.21,\"polyphenPrediction\":\"benign\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116-2\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000556131\",\"codonChange\":\"gGt/gTt\",\"aminoAcids\":\"G/V\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"V\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12V\",\"hgvsp\":\"p.Gly12Val\",\"hgvsc\":\"ENST00000556131.1:c.35G>T\",\"proteinPosition\":{\"start\":12,\"end\":12},\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/3\",\"polyphenScore\":0.884,\"polyphenPrediction\":\"possibly_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000556131\",\"codonChange\":\"gGt/gCt\",\"aminoAcids\":\"G/A\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"A\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12A\",\"hgvsp\":\"p.Gly12Ala\",\"hgvsc\":\"ENST00000556131.1:c.35G>C\",\"proteinPosition\":{\"start\":12,\"end\":12},\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/3\",\"polyphenScore\":0.614,\"polyphenPrediction\":\"possibly_damaging\",\"siftScore\":0.04,\"siftPrediction\":\"deleterious\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000556131\",\"codonChange\":\"gGt/gAt\",\"aminoAcids\":\"G/D\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"D\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12D\",\"hgvsp\":\"p.Gly12Asp\",\"hgvsc\":\"ENST00000556131.1:c.35G>A\",\"proteinPosition\":{\"start\":12,\"end\":12},\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/3\",\"polyphenScore\":0.039,\"polyphenPrediction\":\"benign\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000557334\",\"codonChange\":\"gGt/gTt\",\"aminoAcids\":\"G/V\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"V\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12V\",\"hgvsp\":\"p.Gly12Val\",\"hgvsc\":\"ENST00000557334.1:c.35G>T\",\"proteinPosition\":{\"start\":12,\"end\":12},\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/3\",\"polyphenScore\":0.979,\"polyphenPrediction\":\"probably_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious_low_confidence\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000557334\",\"codonChange\":\"gGt/gCt\",\"aminoAcids\":\"G/A\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"A\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12A\",\"hgvsp\":\"p.Gly12Ala\",\"hgvsc\":\"ENST00000557334.1:c.35G>C\",\"proteinPosition\":{\"start\":12,\"end\":12},\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/3\",\"polyphenScore\":0.899,\"polyphenPrediction\":\"possibly_damaging\",\"siftScore\":0.13,\"siftPrediction\":\"tolerated_low_confidence\",\"alphaMissense\":{\"score\":0.9575,\"pathogenicity\":\"pathogenic\"}},{\"transcriptId\":\"ENST00000557334\",\"codonChange\":\"gGt/gAt\",\"aminoAcids\":\"G/D\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"D\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12D\",\"hgvsp\":\"p.Gly12Asp\",\"hgvsc\":\"ENST00000557334.1:c.35G>A\",\"proteinPosition\":{\"start\":12,\"end\":12},\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/3\",\"polyphenScore\":0.969,\"polyphenPrediction\":\"probably_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious_low_confidence\",\"alphaMissense\":{\"score\":0.9984,\"pathogenicity\":\"pathogenic\"}}],\"transcriptConsequenceSummary\":{\"transcriptId\":\"ENST00000256078\",\"codonChange\":\"gGt/gTt\",\"aminoAcids\":\"G/V\",\"aminoAcidRef\":\"G\",\"aminoAcidAlt\":\"V\",\"entrezGeneId\":\"3845\",\"consequenceTerms\":\"missense_variant\",\"hugoGeneSymbol\":\"KRAS\",\"hgvspShort\":\"p.G12V\",\"hgvsp\":\"p.Gly12Val\",\"hgvsc\":\"ENST00000256078.4:c.35G>T\",\"proteinPosition\":{\"start\":12,\"end\":12},\"refSeq\":\"NM_033360.2\",\"variantClassification\":\"Targeted_Region\",\"exon\":\"2/6\",\"polyphenScore\":0.972,\"polyphenPrediction\":\"probably_damaging\",\"siftScore\":0.0,\"siftPrediction\":\"deleterious\",\"uniprotId\":\"P01116\",\"alphaMissense\":{\"score\":0.9949,\"pathogenicity\":\"pathogenic\"}}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchDeprecatedVariantId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "60ae2485-de00-4a52-8976-5ccfb3261bbd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:55 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "3aea3cc1-2f7e-4990-a57b-519259643da0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs1234567890",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:55 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs1234567890\",\"colocatedVariants\":[{\"dbSnpId\":\"rs1234567890\"}],\"originalVariantQuery\":\"rs1234567890\",\"id\":\"rs1234567890\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"1\",\"start\":14680649,\"end\":14680649,\"allele_string\":\"T/C\",\"strand\":1,\"most_severe_consequence\":\"upstream_gene_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000447908\",\"variant_allele\":\"C\",\"gene_symbol\":\"RP4-704D23.1\",\"gene_id\":\"ENSG00000234593\",\"canonical\":\"1\",\"consequence_terms\":[\"upstream_gene_variant\"]}],\"successfully_annotated\":true,\"annotation_summary\":{\"variant\":\"rs1234567890\",\"genomicLocation\":{\"chromosome\":\"1\",\"start\":14680649,\"end\":14680649,\"referenceAllele\":\"T\",\"variantAllele\":\"C\"},\"strandSign\":\"+\",\"variantType\":\"SNP\",\"assemblyName\":\"GRCh37\",\"canonicalTranscriptId\":\"ENST00000447908\",\"transcriptConsequences\":[{\"transcriptId\":\"ENST00000447908\",\"consequenceTerms\":\"upstream_gene_variant\",\"hugoGeneSymbol\":\"RP4-704D23.1\",\"variantClassification\":\"5'Flank\"}],\"transcriptConsequenceSummaries\":[{\"transcriptId\":\"ENST00000447908\",\"consequenceTerms\":\"upstream_gene_variant\",\"hugoGeneSymbol\":\"RP4-704D23.1\",\"variantClassification\":\"5'Flank\"}],\"transcriptConsequenceSummary\":{\"transcriptId\":\"ENST00000447908\",\"consequenceTerms\":\"upstream_gene_variant\",\"hugoGeneSymbol\":\"RP4-704D23.1\",\"variantClassification\":\"5'Flank\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsEmptyArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "9cb70d0f-93cb-4bfc-b6fd-059c20d18594",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "[]"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "text/html;charset=utf-8",
+                        "Content-Language": "en",
+                        "Content-Length": "800",
+                        "Date": "Mon, 18 Aug 2025 12:25:56 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 400  Bad Request</title><style type=\"text/css\">h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400  Bad Request</h1></body></html>"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "c1ed71bb-c320-4ecd-ae4e-7fd48eb66698",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:56 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchVariantIdWithUnauthorizedToken_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "fcd9ad89-5845-4e2b-ac7f-876ec3d76735",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:57 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "e06110a5-487e-498a-8caf-63c4f8c0fbc2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs9999999999",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:57 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs9999999999\",\"errorMessage\":\"No variant found with ID 'rs9999999999'\",\"originalVariantQuery\":\"rs9999999999\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchUnsupportedVariantType_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "697d2bb1-d564-4a28-8c38-d75cab747ac7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:59 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "03f5f52c-a301-4b57-830b-fe5274da8b81",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "rs1234567890_largeDel",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:59 GMT"
+                    },
+                    "response_body": "{\"variant\":\"rs1234567890_largeDel\",\"originalVariantQuery\":\"rs1234567890_largeDel\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "isoformOverrideSourceEmptyString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationByGenomicLocationPOST",
+                    "id": "b8353095-1fb7-47eb-afb2-e1a10510df76",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "genomic"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  {\n    \"chromosome\": \"17\",\n    \"start\": 43044295,\n    \"end\": 43044295,\n    \"referenceAllele\": \"C\",\n    \"variantAllele\": \"T\"\n  }\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:26:00 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"17:g.43044295C>T\",\"colocatedVariants\":[{\"dbSnpId\":\"rs2052660291\"}],\"originalVariantQuery\":\"17,43044295,43044295,C,T\",\"hgvsg\":\"17:g.43044295C>T\",\"id\":\"17:g.43044295C>T\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":43044295,\"end\":43044295,\"allele_string\":\"C/T\",\"strand\":1,\"most_severe_consequence\":\"intron_variant\",\"transcript_consequences\":[{\"transcript_id\":\"ENST00000253407\",\"hgvsc\":\"ENST00000253407.3:c.597+525G>A\",\"variant_allele\":\"T\",\"protein_id\":\"ENSP00000253407\",\"gene_symbol\":\"C1QL1\",\"gene_id\":\"ENSG00000131094\",\"hgnc_id\":\"24182\",\"canonical\":\"1\",\"refseq_transcript_ids\":[\"NM_006688.3\"],\"consequence_terms\":[\"intron_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[]]}}]"
+                },
+                {
+                    "name": "fetchVariantAnnotationByIdGET",
+                    "id": "2742ed2b-2721-4102-bab4-50cbd55ef2cb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation",
+                                "dbsnp",
+                                ":variantId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "annotation_summary"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "{{fetchVariantAnnotationByIdGET.request.path_params.variantId}}",
+                                    "key": "variantId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:26:00 GMT"
+                    },
+                    "response_body": "{\"variant\":\"null\",\"originalVariantQuery\":\"null\",\"successfully_annotated\":false}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:26:00.820984",
+    "statistics": {
+        "total_test_cases": 15,
+        "passed_test_cases": 5,
+        "failed_test_cases": 10,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 30,
+        "success_rate": 33.33333333333333,
+        "avg_requests_per_case": 2.0
+    }
+}

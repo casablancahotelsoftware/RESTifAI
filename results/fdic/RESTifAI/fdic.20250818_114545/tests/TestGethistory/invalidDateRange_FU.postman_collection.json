@@ -1,0 +1,1227 @@
+{
+    "info": {
+        "name": "invalidDateRange_FU",
+        "description": "Set the filter with a date range where the start date is after the end date (e.g., PROCDATE:[2025-01-01 TO 2024-01-01]) to test invalid date range logic.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "searchInstitutions",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/institutions?filters=PROCDATE%3A%5B2025-01-01%20TO%202024-01-01%5D&search=NAME%3A%20Bank&fields=CERT,UNINUM,NAME,STNAME,DEP&sort_by=DEP&sort_order=DESC&limit=10&offset=0&format=json",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "institutions"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "PROCDATE%3A%5B2025-01-01%20TO%202024-01-01%5D"
+                        },
+                        {
+                            "key": "search",
+                            "value": "NAME%3A%20Bank"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "CERT,UNINUM,NAME,STNAME,DEP"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "DEP"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "DESC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.filters', 'PROCDATE%3A%5B2025-01-01%20TO%202024-01-01%5D');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.search', 'NAME%3A%20Bank');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.fields', 'CERT,UNINUM,NAME,STNAME,DEP');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.sort_by', 'DEP');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.sort_order', 'DESC');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.limit', 10);",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.format', 'json');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "searchLocations",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/locations?filters=STNAME%3A%22California%22%20AND%20CERT%3A24735&fields=LOCID,NAME,ADDRESS,CITY,STNAME,ZIP,PHONE&sort_by=CITY&sort_order=ASC&limit=10&offset=0&format=json&download=false&filename=locations_california_24735",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "locations"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "STNAME%3A%22California%22%20AND%20CERT%3A24735"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "LOCID,NAME,ADDRESS,CITY,STNAME,ZIP,PHONE"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "CITY"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "ASC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "download",
+                            "value": "false"
+                        },
+                        {
+                            "key": "filename",
+                            "value": "locations_california_24735"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'meta.total');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.total', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'meta.parameters.filters');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.parameters.filters', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'meta.parameters.fields');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.parameters.fields', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'meta.parameters.limit');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.parameters.limit', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'meta.parameters.offset');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.parameters.offset', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'meta.index.name');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.index.name', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'meta.index.createTimestamp');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.meta.index.createTimestamp', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'totals.count');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('searchLocations.response.body.totals.count', x7);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('searchLocations.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('searchLocations.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('searchLocations.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('searchLocations.request.query_params.filters', 'STNAME%3A%22California%22%20AND%20CERT%3A24735');",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.fields', 'LOCID,NAME,ADDRESS,CITY,STNAME,ZIP,PHONE');",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.sort_by', 'CITY');",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.sort_order', 'ASC');",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.limit', 10);",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.download', 'false');",
+                            "pm.collectionVariables.set('searchLocations.request.query_params.filename', 'locations_california_24735');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "getFinancials",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/financials?filters=CERT:24735&fields=ASSET,LIAB,DEP,NETINC,ROA,ROE&sort_by=ASSET&sort_order=DESC&limit=10&offset=0&agg_by=YEAR&agg_term_fields=STNAME&agg_sum_fields=ASSET,DEP,NETINC&agg_limit=5&format=json&download=false&filename=financials_24735",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "financials"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "CERT:24735"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "ASSET,LIAB,DEP,NETINC,ROA,ROE"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "ASSET"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "DESC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "agg_by",
+                            "value": "YEAR"
+                        },
+                        {
+                            "key": "agg_term_fields",
+                            "value": "STNAME"
+                        },
+                        {
+                            "key": "agg_sum_fields",
+                            "value": "ASSET,DEP,NETINC"
+                        },
+                        {
+                            "key": "agg_limit",
+                            "value": "5"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "download",
+                            "value": "false"
+                        },
+                        {
+                            "key": "filename",
+                            "value": "financials_24735"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'meta.total');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.total', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'meta.parameters.filters');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.filters', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'meta.parameters.fields');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.fields', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'meta.parameters.limit');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.limit', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'meta.parameters.offset');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.offset', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.by');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.aggsMetaData.by', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[0]');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.aggsMetaData.sumFields[0]', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[1]');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.aggsMetaData.sumFields[1]', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[2]');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.aggsMetaData.sumFields[2]', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.termFields[0]');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.aggsMetaData.termFields[0]', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.limit');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.parameters.aggsMetaData.limit', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'meta.index.name');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.index.name', x11);",
+                            "    }",
+                            "    const x12 = getValueByPath(responseJson, 'meta.index.createTimestamp');",
+                            "    if (x12 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.meta.index.createTimestamp', x12);",
+                            "    }",
+                            "    const x13 = getValueByPath(responseJson, 'totals.count');",
+                            "    if (x13 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.totals.count', x13);",
+                            "    }",
+                            "    const x14 = getValueByPath(responseJson, 'totals.sum_ASSET');",
+                            "    if (x14 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.totals.sum_ASSET', x14);",
+                            "    }",
+                            "    const x15 = getValueByPath(responseJson, 'totals.sum_DEP');",
+                            "    if (x15 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.totals.sum_DEP', x15);",
+                            "    }",
+                            "    const x16 = getValueByPath(responseJson, 'totals.sum_NETINC');",
+                            "    if (x16 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.totals.sum_NETINC', x16);",
+                            "    }",
+                            "    const x17 = getValueByPath(responseJson, 'totals.count_STNAME_CALIFORNIA');",
+                            "    if (x17 !== undefined) {",
+                            "        pm.collectionVariables.set('getFinancials.response.body.totals.count_STNAME_CALIFORNIA', x17);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getFinancials.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getFinancials.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getFinancials.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('getFinancials.request.query_params.filters', 'CERT:24735');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.fields', 'ASSET,LIAB,DEP,NETINC,ROA,ROE');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.sort_by', 'ASSET');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.sort_order', 'DESC');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.limit', 10);",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.agg_by', 'YEAR');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.agg_term_fields', 'STNAME');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.agg_sum_fields', 'ASSET,DEP,NETINC');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.agg_limit', 5);",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.download', 'false');",
+                            "pm.collectionVariables.set('getFinancials.request.query_params.filename', 'financials_24735');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "getHistorical",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/summary?filters=CERT%3A24735%20AND%20STNAME%3A%22California%22%20AND%20YEAR%3A%5B2015%20TO%202024%5D&fields=ASSET,DEP,NETINC,ROA,ROE&sort_by=YEAR&sort_order=DESC&limit=10&offset=0&agg_by=YEAR,STNAME&agg_term_fields=STNAME&agg_sum_fields=ASSET,DEP,NETINC&agg_limit=5&format=json",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "summary"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "CERT%3A24735%20AND%20STNAME%3A%22California%22%20AND%20YEAR%3A%5B2015%20TO%202024%5D"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "ASSET,DEP,NETINC,ROA,ROE"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "YEAR"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "DESC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "agg_by",
+                            "value": "YEAR,STNAME"
+                        },
+                        {
+                            "key": "agg_term_fields",
+                            "value": "STNAME"
+                        },
+                        {
+                            "key": "agg_sum_fields",
+                            "value": "ASSET,DEP,NETINC"
+                        },
+                        {
+                            "key": "agg_limit",
+                            "value": "5"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'meta.total');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.total', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'meta.parameters.filters');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.filters', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'meta.parameters.fields');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.fields', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'meta.parameters.limit');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.limit', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'meta.parameters.offset');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.offset', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.by');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.aggsMetaData.by', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[0]');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.aggsMetaData.sumFields[0]', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[1]');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.aggsMetaData.sumFields[1]', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[2]');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.aggsMetaData.sumFields[2]', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.termFields[0]');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.aggsMetaData.termFields[0]', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.limit');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.parameters.aggsMetaData.limit', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'meta.index.name');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.index.name', x11);",
+                            "    }",
+                            "    const x12 = getValueByPath(responseJson, 'meta.index.createTimestamp');",
+                            "    if (x12 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.meta.index.createTimestamp', x12);",
+                            "    }",
+                            "    const x13 = getValueByPath(responseJson, 'totals.count');",
+                            "    if (x13 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistorical.response.body.totals.count', x13);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getHistorical.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getHistorical.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getHistorical.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('getHistorical.request.query_params.filters', 'CERT%3A24735%20AND%20STNAME%3A%22California%22%20AND%20YEAR%3A%5B2015%20TO%202024%5D');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.fields', 'ASSET,DEP,NETINC,ROA,ROE');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.sort_by', 'YEAR');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.sort_order', 'DESC');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.limit', 10);",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.agg_by', 'YEAR,STNAME');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.agg_term_fields', 'STNAME');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.agg_sum_fields', 'ASSET,DEP,NETINC');",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.agg_limit', 5);",
+                            "pm.collectionVariables.set('getHistorical.request.query_params.format', 'json');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "getFailures",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/failures?filters=CERT%3A24735%20AND%20STNAME%3A%22California%22&fields=CERT,NAME,FAILYR,FAILRSON,STNAME&sort_by=FAILYR&sort_order=DESC&limit=10&offset=0&total_fields=FAILAMT&subtotal_by=FAILRSON&agg_by=FAILYR,PSTALP&agg_term_fields=FAILRSON&agg_sum_fields=FAILAMT&agg_limit=5&format=json",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "failures"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "CERT%3A24735%20AND%20STNAME%3A%22California%22"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "CERT,NAME,FAILYR,FAILRSON,STNAME"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "FAILYR"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "DESC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "total_fields",
+                            "value": "FAILAMT"
+                        },
+                        {
+                            "key": "subtotal_by",
+                            "value": "FAILRSON"
+                        },
+                        {
+                            "key": "agg_by",
+                            "value": "FAILYR,PSTALP"
+                        },
+                        {
+                            "key": "agg_term_fields",
+                            "value": "FAILRSON"
+                        },
+                        {
+                            "key": "agg_sum_fields",
+                            "value": "FAILAMT"
+                        },
+                        {
+                            "key": "agg_limit",
+                            "value": "5"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'meta.total');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.total', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'meta.parameters.filters');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.filters', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'meta.parameters.fields');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.fields', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'meta.parameters.limit');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.limit', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'meta.parameters.offset');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.offset', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.by');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.aggsMetaData.by', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.sumFields[0]');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.aggsMetaData.sumFields[0]', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.termFields[0]');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.aggsMetaData.termFields[0]', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.limit');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.parameters.aggsMetaData.limit', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'meta.index.name');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.index.name', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'meta.index.createTimestamp');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.meta.index.createTimestamp', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'totals.count');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('getFailures.response.body.totals.count', x11);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getFailures.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getFailures.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getFailures.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('getFailures.request.query_params.filters', 'CERT%3A24735%20AND%20STNAME%3A%22California%22');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.fields', 'CERT,NAME,FAILYR,FAILRSON,STNAME');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.sort_by', 'FAILYR');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.sort_order', 'DESC');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.limit', 10);",
+                            "pm.collectionVariables.set('getFailures.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('getFailures.request.query_params.total_fields', 'FAILAMT');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.subtotal_by', 'FAILRSON');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.agg_by', 'FAILYR,PSTALP');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.agg_term_fields', 'FAILRSON');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.agg_sum_fields', 'FAILAMT');",
+                            "pm.collectionVariables.set('getFailures.request.query_params.agg_limit', 5);",
+                            "pm.collectionVariables.set('getFailures.request.query_params.format', 'json');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "getHistory",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/history?filters=CERT%3A24735%20AND%20STNAME%3A%22California%22&search=NAME%3A%20%22Silicon%20Valley%20Bank%22&fields=CERT,NAME,STNAME,PROCDATE,EVENTTYPE,DETAILS&sort_by=PROCDATE&sort_order=DESC&limit=10&offset=0&agg_by=EVENTTYPE&agg_term_fields=STNAME&agg_limit=5&format=json",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "history"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "CERT%3A24735%20AND%20STNAME%3A%22California%22"
+                        },
+                        {
+                            "key": "search",
+                            "value": "NAME%3A%20%22Silicon%20Valley%20Bank%22"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "CERT,NAME,STNAME,PROCDATE,EVENTTYPE,DETAILS"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "PROCDATE"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "DESC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "agg_by",
+                            "value": "EVENTTYPE"
+                        },
+                        {
+                            "key": "agg_term_fields",
+                            "value": "STNAME"
+                        },
+                        {
+                            "key": "agg_limit",
+                            "value": "5"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'meta.total');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.total', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'meta.parameters.filters');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.filters', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'meta.parameters.fields');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.fields', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'meta.parameters.limit');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.limit', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'meta.parameters.offset');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.offset', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'meta.parameters.search');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.search', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.by');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.aggsMetaData.by', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.termFields[0]');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.aggsMetaData.termFields[0]', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'meta.parameters.aggsMetaData.limit');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.parameters.aggsMetaData.limit', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'meta.index.name');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.index.name', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'meta.index.createTimestamp');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.meta.index.createTimestamp', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'totals.count');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('getHistory.response.body.totals.count', x11);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('getHistory.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('getHistory.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('getHistory.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('getHistory.request.query_params.filters', 'CERT%3A24735%20AND%20STNAME%3A%22California%22');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.search', 'NAME%3A%20%22Silicon%20Valley%20Bank%22');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.fields', 'CERT,NAME,STNAME,PROCDATE,EVENTTYPE,DETAILS');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.sort_by', 'PROCDATE');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.sort_order', 'DESC');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.limit', 10);",
+                            "pm.collectionVariables.set('getHistory.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('getHistory.request.query_params.agg_by', 'EVENTTYPE');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.agg_term_fields', 'STNAME');",
+                            "pm.collectionVariables.set('getHistory.request.query_params.agg_limit', 5);",
+                            "pm.collectionVariables.set('getHistory.request.query_params.format', 'json');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://banks.data.fdic.gov/api');"
+                ]
+            }
+        }
+    ]
+}

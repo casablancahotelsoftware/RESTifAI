@@ -1,0 +1,103 @@
+{
+  "test_name": "invalidTimeoutValue_ST",
+  "description": "Provide a non-numeric string for the `timeout` parameter, e.g., timeout=thirty",
+  "test_suite": "TestLengthgroupbytag",
+  "base_url": "https://api.ohsome.org/v1",
+  "operations": [
+    "lengthGroupByTag"
+  ],
+  "values_to_create_a_successful_request": "lengthGroupByTag.request.query_params.bboxes: 8.67,49.39,8.71,49.42\nlengthGroupByTag.request.query_params.groupByKey: highway\nlengthGroupByTag.request.query_params.filter: type:way and natural=*\nlengthGroupByTag.request.query_params.groupByValues: primary,residential\nlengthGroupByTag.request.query_params.time: 2014-01-01/2017-01-01/P1Y\nlengthGroupByTag.request.query_params.format: json\nlengthGroupByTag.request.query_params.showMetadata: false\nlengthGroupByTag.request.query_params.timeout: 30\nlengthGroupByTag.response.body.attribution.url: https://ohsome.org/copyrights\nlengthGroupByTag.response.body.attribution.text: \u00a9 OpenStreetMap contributors\nlengthGroupByTag.response.body.apiVersion: 1.10.4\nlengthGroupByTag.response.body.groupByResult[0].groupByObject: remainder\nlengthGroupByTag.response.body.groupByResult[0].result[0].timestamp: 2014-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[0].result[0].value: 190.09\nlengthGroupByTag.response.body.groupByResult[0].result[1].timestamp: 2015-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[0].result[1].value: 190.09\nlengthGroupByTag.response.body.groupByResult[0].result[2].timestamp: 2016-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[0].result[2].value: 190.09\nlengthGroupByTag.response.body.groupByResult[0].result[3].timestamp: 2017-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[0].result[3].value: 413.02\nlengthGroupByTag.response.body.groupByResult[1].groupByObject: highway=residential\nlengthGroupByTag.response.body.groupByResult[1].result[0].timestamp: 2014-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[1].result[0].value: 0.0\nlengthGroupByTag.response.body.groupByResult[1].result[1].timestamp: 2015-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[1].result[1].value: 0.0\nlengthGroupByTag.response.body.groupByResult[1].result[2].timestamp: 2016-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[1].result[2].value: 0.0\nlengthGroupByTag.response.body.groupByResult[1].result[3].timestamp: 2017-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[1].result[3].value: 0.0\nlengthGroupByTag.response.body.groupByResult[2].groupByObject: highway=primary\nlengthGroupByTag.response.body.groupByResult[2].result[0].timestamp: 2014-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[2].result[0].value: 0.0\nlengthGroupByTag.response.body.groupByResult[2].result[1].timestamp: 2015-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[2].result[1].value: 0.0\nlengthGroupByTag.response.body.groupByResult[2].result[2].timestamp: 2016-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[2].result[2].value: 0.0\nlengthGroupByTag.response.body.groupByResult[2].result[3].timestamp: 2017-01-01T00:00:00Z\nlengthGroupByTag.response.body.groupByResult[2].result[3].value: 0.0\nlengthGroupByTag.response.headers.Date: Mon, 18 Aug 2025 15:44:33 GMT\nlengthGroupByTag.response.headers.Server: Apache/2.4.58 (Ubuntu)\nlengthGroupByTag.response.headers.Strict-Transport-Security: max-age=63072000; includeSubdomains;\nlengthGroupByTag.response.headers.Access-Control-Allow-Origin: *\nlengthGroupByTag.response.headers.Access-Control-Allow-Methods: POST, GET\nlengthGroupByTag.response.headers.Access-Control-Max-Age: 3600\nlengthGroupByTag.response.headers.Access-Control-Allow-Credentials: true\nlengthGroupByTag.response.headers.Access-Control-Allow-Headers: Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization\nlengthGroupByTag.response.headers.Cache-Control: no-transform, public, max-age=31556926\nlengthGroupByTag.response.headers.vary: accept-encoding\nlengthGroupByTag.response.headers.Content-Encoding: gzip\nlengthGroupByTag.response.headers.Content-Type: application/json\nlengthGroupByTag.response.headers.Keep-Alive: timeout=5, max=100\nlengthGroupByTag.response.headers.Connection: Keep-Alive\nlengthGroupByTag.response.headers.Transfer-Encoding: chunked\nlengthGroupByTag.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### lengthGroupByTag\n- Method: GET\n- Path: /elements/length/groupBy/tag\n- Parameters:\n  - name: bboxes\n  - in: query\n  - required: False\n  - description: WGS84 coordinates in the following format: id1:lon1,lat1,lon2,lat2|id2:lon1,lat1,lon2,lat2|... OR lon1,lat1,lon2,lat2|lon1,lat1,lon2,lat2|...; no default value (one boundary parameter must be defined)\n  - type: string\n  - default: 8.67,49.39,8.71,49.42\n  - name: bcircles\n  - in: query\n  - required: False\n  - description: WGS84 coordinates + radius in meter in the following format: id1:lon,lat,r|id2:lon,lat,r|... OR lon,lat,r|lon,lat,r|...; no default value (one boundary parameter must be defined)\n  - type: string\n  - name: bpolys\n  - in: query\n  - required: False\n  - description: WGS84 coordinates given as a list of coordinate pairs (as for bboxes) or GeoJSON FeatureCollection. The first point has to be the same as the last point and MultiPolygons are only supported in GeoJSON; no default value (one boundary parameter must be defined)\n  - type: string\n  - name: filter\n  - in: query\n  - required: False\n  - description: Combines several attributive filters, e.g. OSM type, the geometry (simple feature) type, as well as the OSM tag; no default value\n  - type: string\n  - default: type:way and natural=*\n  - name: format\n  - in: query\n  - required: False\n  - description: Output format geojson (for /groupBy/boundary resources only), csv, or json; default: json\n  - type: string\n  - default: json\n  - name: groupByKey\n  - in: query\n  - required: True\n  - description: OSM key e.g.: 'highway', 'building'; no default value (one groupByKey parameter must be defined)\n  - type: string\n  - default: highway\n  - name: groupByValues\n  - in: query\n  - required: False\n  - description: OSM value(s) e.g.: 'primary', 'residential'; default: no value\n  - type: string\n  - name: showMetadata\n  - in: query\n  - required: False\n  - description: Boolean operator 'true' or 'false'; default: 'false'\n  - type: string\n  - name: time\n  - in: query\n  - required: False\n  - description: ISO-8601 conform timestring(s); default: latest timestamp within dataset\n  - type: string\n  - default: 2014-01-01/2017-01-01/P1Y\n  - name: timeout\n  - in: query\n  - required: False\n  - description: Custom timeout in seconds; no default value\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'title': 'GroupByResponse', 'required': ['apiVersion', 'attribution', 'features', 'groupByResult', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'groupByResult': {'type': 'array', 'description': 'GroupByResult array holding the respective objects with their timestamp-value pairs', 'items': {'title': 'GroupByResult', 'required': ['groupByObject', 'result'], 'type': 'object', 'properties': {'groupByObject': {'type': 'object', 'properties': {}, 'description': 'Object on which the results are grouped on'}, 'result': {'type': 'array', 'description': 'Result array holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}}}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}, 'text/csv': {'schema': {'title': 'GroupByResponse', 'required': ['apiVersion', 'attribution', 'features', 'groupByResult', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'groupByResult': {'type': 'array', 'description': 'GroupByResult array holding the respective objects with their timestamp-value pairs', 'items': {'title': 'GroupByResult', 'required': ['groupByObject', 'result'], 'type': 'object', 'properties': {'groupByObject': {'type': 'object', 'properties': {}, 'description': 'Object on which the results are grouped on'}, 'result': {'type': 'array', 'description': 'Result array holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}}}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}}}, '400': {'description': 'Bad request', 'content': {}}, '401': {'description': 'Unauthorized', 'content': {}}, '404': {'description': 'Not found', 'content': {}}, '405': {'description': 'Method not allowed', 'content': {}}, '413': {'description': 'Payload too large', 'content': {}}, '500': {'description': 'Internal server error', 'content': {}}, '501': {'description': 'Not implemented', 'content': {}}, '503': {'description': 'Service Unavailable', 'content': {}}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "lengthGroupByTag",
+      "request_id": "91718122-0b99-4503-bb2c-6ed202169374",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "elements",
+            "length",
+            "groupBy",
+            "tag"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "bboxes",
+              "value": "8.67,49.39,8.71,49.42"
+            },
+            {
+              "key": "groupByKey",
+              "value": "highway"
+            },
+            {
+              "key": "filter",
+              "value": "type%3Away%20and%20natural%3D%2A"
+            },
+            {
+              "key": "groupByValues",
+              "value": "primary,residential"
+            },
+            {
+              "key": "time",
+              "value": "2014-01-01/2017-01-01/P1Y"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            },
+            {
+              "key": "showMetadata",
+              "value": "false"
+            },
+            {
+              "key": "timeout",
+              "value": "thirty"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Date": "Tue, 19 Aug 2025 01:08:11 GMT",
+          "Server": "Apache/2.4.58 (Ubuntu)",
+          "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET",
+          "Access-Control-Max-Age": "3600",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "vary": "accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Connection": "close",
+          "Transfer-Encoding": "chunked"
+        },
+        "body": {
+          "timestamp": "2025-08-19T01:08:11.193266379",
+          "status": 400,
+          "message": "The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.",
+          "requestUrl": "https://api.ohsome.org/v1/elements/length/groupBy/tag?bboxes=8.67,49.39,8.71,49.42&groupByKey=highway&filter=type%3Away%20and%20natural%3D%2A&groupByValues=primary,residential&time=2014-01-01/2017-01-01/P1Y&format=json&showMetadata=false&timeout=thirty"
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

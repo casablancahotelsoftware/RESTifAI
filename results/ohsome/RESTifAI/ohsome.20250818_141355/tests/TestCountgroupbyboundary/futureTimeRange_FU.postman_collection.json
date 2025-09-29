@@ -1,0 +1,332 @@
+{
+    "info": {
+        "name": "futureTimeRange_FU",
+        "description": "Set the `time` parameter to a future date range beyond the current date, e.g., '2050-01-01/2050-12-31', which logically cannot have any data and should produce a 4xx error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2050-01-01/2050-12-31",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('count_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('count_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('count_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count_1.request.body.time', '2050-01-01/2050-12-31');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "count_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&contributionType=creation,deletion,tagChange,geometryChange&format=json&showMetadata=false&time=2050-01-01/2050-12-31",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion,tagChange,geometryChange"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2050-01-01/2050-12-31"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_2.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_2.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('count_2.request.query_params.contributionType', 'creation,deletion,tagChange,geometryChange');",
+                            "pm.collectionVariables.set('count_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count_2.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count_2.request.query_params.time', '2050-01-01/2050-12-31');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "count_3",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion,tagChange,geometryChange",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2050-01-01/2050-12-31",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_3.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('count_3.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_3.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('count_3.request.body.contributionType', 'creation,deletion,tagChange,geometryChange');",
+                            "pm.collectionVariables.set('count_3.request.body.time', '2050-01-01/2050-12-31');",
+                            "pm.collectionVariables.set('count_3.request.body.format', 'json');",
+                            "pm.collectionVariables.set('count_3.request.body.showMetadata', 'false');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "countGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2050-01-01/2050-12-31&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2050-01-01/2050-12-31"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByBoundary.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('countGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('countGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('countGroupByBoundary.request.query_params.time', '2050-01-01/2050-12-31');",
+                            "pm.collectionVariables.set('countGroupByBoundary.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

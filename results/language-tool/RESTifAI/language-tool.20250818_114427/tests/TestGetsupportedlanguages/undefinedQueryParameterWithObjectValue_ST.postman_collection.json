@@ -1,0 +1,66 @@
+{
+    "info": {
+        "name": "undefinedQueryParameterWithObjectValue_ST",
+        "description": "Add a query parameter `name` with a JSON object value, e.g., ?name={\"invalid\":\"object\"}, which is not defined and invalid",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "getSupportedLanguages",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/languages?name=%7B%22invalid%22%3A%22object%22%7D",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "languages"
+                    ],
+                    "query": [
+                        {
+                            "key": "name",
+                            "value": "%7B%22invalid%22%3A%22object%22%7D"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('getSupportedLanguages.request.query_params.name', '%7B%22invalid%22%3A%22object%22%7D');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9001/v2');"
+                ]
+            }
+        }
+    ]
+}

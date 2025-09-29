@@ -1,0 +1,318 @@
+{
+    "info": {
+        "name": "selfIntersectingPolygon_FU",
+        "description": "Set the `bpolys` parameter to a polygon with self-intersecting coordinates (invalid polygon topology), e.g., a bowtie shape polygon, which violates logical geometry rules and should cause a 4xx error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "8.67,49.39,8.71,49.42,8.67,49.42,8.71,49.39,8.67,49.39",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('count_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('count_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('count_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('count_1.request.body.timeout', '30');",
+                            "pm.collectionVariables.set('count_1.request.body.bpolys', '8.67,49.39,8.71,49.42,8.67,49.42,8.71,49.39,8.67,49.39');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeter_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'result[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[0].value', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'result[1].timestamp');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[1].timestamp', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'result[1].value');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[1].value', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'result[2].timestamp');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[2].timestamp', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'result[2].value');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[2].value', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'result[3].timestamp');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[3].timestamp', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'result[3].value');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.body.result[3].value', x10);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('perimeter_1.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('perimeter_1.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeter_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeter_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

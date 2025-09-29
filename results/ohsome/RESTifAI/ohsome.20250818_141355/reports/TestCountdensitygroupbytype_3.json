@@ -1,0 +1,1140 @@
+{
+    "test_name": "TestCountdensitygroupbytype_3",
+    "test_results": [
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "f55c7db8-0a67-42d8-9f1b-f71d3b94deef",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:09:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:09:53.849671626\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterExpression_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "f903730e-ccd7-49d1-8544-8ad315aaa37e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:09:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 60,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidContributionTypeValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "719dd48b-3923-4dc2-9658-b504b05ec9bc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:09:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:09:55.672036874\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "9ab8f63b-5ea2-48e7-b50f-201be3d17e3d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:09:56 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:09:56.555192329\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxCoordinatesInverted_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "dbc49266-9f5e-4485-b0a3-3eac5c330ec5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:09:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1234,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.23\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.18\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.14\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "malformedBpolysGeoJson_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "fcb898e2-66cd-4bc3-9a50-c6f595c1509b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:09:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:09:59.496877413\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bcirclesMissingRadius_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "343994c7-7e19-45b0-82b9-6c8b60b10b81",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:00 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:00.295571493\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyBboxes_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "cf508e00-434b-4d1d-9a13-fa40dea6b21b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:00 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:01.165907959\",\n  \"status\" : 400,\n  \"message\" : \"You need to define one of the boundary parameters (bboxes, bcircles, bpolys).\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyContributionType_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "6b9a3de3-2859-40dc-b4b3-f618cc1064cf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:02 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:02.036070468\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroDurationPeriodInTime_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "5a99d6da-dfee-4836-89ea-c51020ca2950",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:02 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:02.909058717\",\n  \"status\" : 400,\n  \"message\" : \"The interval (period) of the provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "dfee1f6a-7429-4f43-9790-f6b37478d520",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:03 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:03.811039531\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "236cc459-739f-4378-b57a-5e2f03b300a1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:06 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1475,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.23\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.18\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.14\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeoutZeroValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "c7e77b84-6cfd-4e8d-8ffd-d40a6db12a55",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:06 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:07.077333152\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "selfIntersectingBpolysPolygon_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "79b69eee-82fd-49ee-b3aa-e7848cd5bd67",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:07 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:10:07.885149306\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contributionTypeIncompatibleWithFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "99cdea93-901b-4834-8e16-8b848fa7f57d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1929,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.41\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.28\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.28\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeRangeStartAfterEnd_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "a8508eff-da47-4459-9881-3997f0a2ea25",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:12 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1371,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.23\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.18\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.14\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_3",
+                    "id": "fe89b33e-72f2-4378-b34b-6000625d634a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:10:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 1459,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.23\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.18\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.14\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    }, {\n      \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T17:10:15.652763",
+    "statistics": {
+        "total_test_cases": 17,
+        "passed_test_cases": 12,
+        "failed_test_cases": 5,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 17,
+        "success_rate": 70.58823529411765,
+        "avg_requests_per_case": 1.0
+    }
+}

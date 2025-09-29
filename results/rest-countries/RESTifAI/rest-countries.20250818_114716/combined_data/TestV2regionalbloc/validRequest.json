@@ -1,0 +1,264 @@
+{
+  "test_name": "validRequest",
+  "description": "This test case tests the endpoint for valid data and expects a successful response from the service",
+  "test_suite": "TestV2regionalbloc",
+  "base_url": "http://localhost:9002/rest",
+  "operations": [
+    "v2Regionalbloc"
+  ],
+  "values_to_create_a_successful_request": "v2Regionalbloc.request.path_params.regionalbloc: EU\nv2Regionalbloc.request.query_params.fields: name;capital;population;area\nv2Regionalbloc.response.body[0].name: \u00c5land Islands\nv2Regionalbloc.response.body[0].capital: Mariehamn\nv2Regionalbloc.response.body[0].population: 28875\nv2Regionalbloc.response.body[0].area: 1580.0\nv2Regionalbloc.response.body[1].name: Austria\nv2Regionalbloc.response.body[1].capital: Vienna\nv2Regionalbloc.response.body[1].population: 8725931\nv2Regionalbloc.response.body[1].area: 83871.0\nv2Regionalbloc.response.body[2].name: Belgium\nv2Regionalbloc.response.body[2].capital: Brussels\nv2Regionalbloc.response.body[2].population: 11319511\nv2Regionalbloc.response.body[2].area: 30528.0\nv2Regionalbloc.response.body[3].name: Bulgaria\nv2Regionalbloc.response.body[3].capital: Sofia\nv2Regionalbloc.response.body[3].population: 7153784\nv2Regionalbloc.response.body[3].area: 110879.0\nv2Regionalbloc.response.body[4].name: Croatia\nv2Regionalbloc.response.body[4].capital: Zagreb\nv2Regionalbloc.response.body[4].population: 4190669\nv2Regionalbloc.response.body[4].area: 56594.0\nv2Regionalbloc.response.body[5].name: Cyprus\nv2Regionalbloc.response.body[5].capital: Nicosia\nv2Regionalbloc.response.body[5].population: 847000\nv2Regionalbloc.response.body[5].area: 9251.0\nv2Regionalbloc.response.body[6].name: Czech Republic\nv2Regionalbloc.response.body[6].capital: Prague\nv2Regionalbloc.response.body[6].population: 10558524\nv2Regionalbloc.response.body[6].area: 78865.0\nv2Regionalbloc.response.body[7].name: Denmark\nv2Regionalbloc.response.body[7].capital: Copenhagen\nv2Regionalbloc.response.body[7].population: 5717014\nv2Regionalbloc.response.body[7].area: 43094.0\nv2Regionalbloc.response.body[8].name: Estonia\nv2Regionalbloc.response.body[8].capital: Tallinn\nv2Regionalbloc.response.body[8].population: 1315944\nv2Regionalbloc.response.body[8].area: 45227.0\nv2Regionalbloc.response.body[9].name: Faroe Islands\nv2Regionalbloc.response.body[9].capital: T\u00f3rshavn\nv2Regionalbloc.response.body[9].population: 49376\nv2Regionalbloc.response.body[9].area: 1393.0\nv2Regionalbloc.response.headers.Content-Type: application/json;charset=utf-8\nv2Regionalbloc.response.headers.Content-Length: 2545\nv2Regionalbloc.response.headers.Date: Mon, 18 Aug 2025 11:53:02 GMT\nv2Regionalbloc.response.headers.Keep-Alive: timeout=60\nv2Regionalbloc.response.headers.Connection: keep-alive\nv2Regionalbloc.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### v2Regionalbloc\n- Method: GET\n- Path: /v2/regionalbloc/{regionalbloc}\n- Parameters:\n  - name: fields\n  - in: query\n  - required: False\n  - description: None\n  - type: string\n  - name: regionalbloc\n  - in: path\n  - required: True\n  - description: None\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'Successful response'}, 'default': {'description': 'Other responses'}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "v2Regionalbloc",
+      "request_id": "06e6a173-cde9-4e3a-b522-86327955df10",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "v2",
+            "regionalbloc",
+            ":regionalbloc"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "name;capital;population;area"
+            }
+          ],
+          "variable": [
+            {
+              "key": "regionalbloc",
+              "value": "EU",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Content-Type": "application/json;charset=utf-8",
+          "Content-Length": "2545",
+          "Date": "Mon, 18 Aug 2025 11:54:24 GMT",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive"
+        },
+        "body": [
+          {
+            "name": "land Islands",
+            "capital": "Mariehamn",
+            "population": 28875,
+            "area": 1580.0
+          },
+          {
+            "name": "Austria",
+            "capital": "Vienna",
+            "population": 8725931,
+            "area": 83871.0
+          },
+          {
+            "name": "Belgium",
+            "capital": "Brussels",
+            "population": 11319511,
+            "area": 30528.0
+          },
+          {
+            "name": "Bulgaria",
+            "capital": "Sofia",
+            "population": 7153784,
+            "area": 110879.0
+          },
+          {
+            "name": "Croatia",
+            "capital": "Zagreb",
+            "population": 4190669,
+            "area": 56594.0
+          },
+          {
+            "name": "Cyprus",
+            "capital": "Nicosia",
+            "population": 847000,
+            "area": 9251.0
+          },
+          {
+            "name": "Czech Republic",
+            "capital": "Prague",
+            "population": 10558524,
+            "area": 78865.0
+          },
+          {
+            "name": "Denmark",
+            "capital": "Copenhagen",
+            "population": 5717014,
+            "area": 43094.0
+          },
+          {
+            "name": "Estonia",
+            "capital": "Tallinn",
+            "population": 1315944,
+            "area": 45227.0
+          },
+          {
+            "name": "Faroe Islands",
+            "capital": "Trshavn",
+            "population": 49376,
+            "area": 1393.0
+          },
+          {
+            "name": "Finland",
+            "capital": "Helsinki",
+            "population": 5491817,
+            "area": 338424.0
+          },
+          {
+            "name": "France",
+            "capital": "Paris",
+            "population": 66710000,
+            "area": 640679.0
+          },
+          {
+            "name": "French Guiana",
+            "capital": "Cayenne",
+            "population": 254541
+          },
+          {
+            "name": "Germany",
+            "capital": "Berlin",
+            "population": 81770900,
+            "area": 357114.0
+          },
+          {
+            "name": "Gibraltar",
+            "capital": "Gibraltar",
+            "population": 33140,
+            "area": 6.0
+          },
+          {
+            "name": "Greece",
+            "capital": "Athens",
+            "population": 10858018,
+            "area": 131990.0
+          },
+          {
+            "name": "Hungary",
+            "capital": "Budapest",
+            "population": 9823000,
+            "area": 93028.0
+          },
+          {
+            "name": "Ireland",
+            "capital": "Dublin",
+            "population": 6378000,
+            "area": 70273.0
+          },
+          {
+            "name": "Isle of Man",
+            "capital": "Douglas",
+            "population": 84497,
+            "area": 572.0
+          },
+          {
+            "name": "Italy",
+            "capital": "Rome",
+            "population": 60665551,
+            "area": 301336.0
+          },
+          {
+            "name": "Latvia",
+            "capital": "Riga",
+            "population": 1961600,
+            "area": 64559.0
+          },
+          {
+            "name": "Lithuania",
+            "capital": "Vilnius",
+            "population": 2872294,
+            "area": 65300.0
+          },
+          {
+            "name": "Luxembourg",
+            "capital": "Luxembourg",
+            "population": 576200,
+            "area": 2586.0
+          },
+          {
+            "name": "Malta",
+            "capital": "Valletta",
+            "population": 425384,
+            "area": 316.0
+          },
+          {
+            "name": "Netherlands",
+            "capital": "Amsterdam",
+            "population": 17019800,
+            "area": 41850.0
+          },
+          {
+            "name": "Poland",
+            "capital": "Warsaw",
+            "population": 38437239,
+            "area": 312679.0
+          },
+          {
+            "name": "Portugal",
+            "capital": "Lisbon",
+            "population": 10374822,
+            "area": 92090.0
+          },
+          {
+            "name": "Romania",
+            "capital": "Bucharest",
+            "population": 19861408,
+            "area": 238391.0
+          },
+          {
+            "name": "Slovakia",
+            "capital": "Bratislava",
+            "population": 5426252,
+            "area": 49037.0
+          },
+          {
+            "name": "Slovenia",
+            "capital": "Ljubljana",
+            "population": 2064188,
+            "area": 20273.0
+          },
+          {
+            "name": "Spain",
+            "capital": "Madrid",
+            "population": 46438422,
+            "area": 505992.0
+          },
+          {
+            "name": "Sweden",
+            "capital": "Stockholm",
+            "population": 9894888,
+            "area": 450295.0
+          },
+          {
+            "name": "United Kingdom of Great Britain and Northern Ireland",
+            "capital": "London",
+            "population": 65110000,
+            "area": 242900.0
+          }
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

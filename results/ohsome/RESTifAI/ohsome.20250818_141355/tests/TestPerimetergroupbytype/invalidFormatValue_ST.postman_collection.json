@@ -1,0 +1,238 @@
+{
+    "info": {
+        "name": "invalidFormatValue_ST",
+        "description": "Set the `format` query parameter to an unsupported value not in ['geojson', 'csv', 'json'], e.g., 'xml'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=xml&time=2014-01-01/2017-01-01/P1Y&showMetadata=false&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "xml"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'xml');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeter",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=xml&time=2014-01-01/2017-01-01/P1Y&showMetadata=false&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "xml"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeter.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.format', 'xml');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeter.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "perimeterGroupByType",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/groupBy/type?bboxes=12.4923,41.8902,12.4964,41.8922&filter=geometry%3Apolygon%20and%20building%3D%2A&format=xml&time=2014-01-01/2017-01-01/P1Y&showMetadata=false&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "groupBy",
+                        "type"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "geometry%3Apolygon%20and%20building%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "xml"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterGroupByType.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('perimeterGroupByType.request.query_params.filter', 'geometry%3Apolygon%20and%20building%3D%2A');",
+                            "pm.collectionVariables.set('perimeterGroupByType.request.query_params.format', 'xml');",
+                            "pm.collectionVariables.set('perimeterGroupByType.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeterGroupByType.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterGroupByType.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

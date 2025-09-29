@@ -1,0 +1,159 @@
+{
+    "info": {
+        "name": "fetchTranscriptsForDeprecatedGeneSymbol_FU",
+        "description": "Change the fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST request body to include a Hugo symbol that is deprecated and has been removed from the system with no replacement, e.g., ['OLDGENE'], to test handling of obsolete gene symbols.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/hgnc",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "hgnc"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[0]', 'TP53');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[1]', 'BRCA1');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"OLDGENE\",\n  \"BRCA1\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-transcript/hgnc?isoformOverrideSource=uniprot",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-transcript",
+                        "hgnc"
+                    ],
+                    "query": [
+                        {
+                            "key": "isoformOverrideSource",
+                            "value": "uniprot"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.query_params.isoformOverrideSource', 'uniprot');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.body.[0]', 'OLDGENE');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST.request.body.[1]', 'BRCA1');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

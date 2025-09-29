@@ -1,0 +1,1219 @@
+{
+    "test_name": "TestCountgroupbytype",
+    "test_results": [
+        {
+            "test_case_name": "bboxesIncompleteCoordinates_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "6d441e34-3e63-4ec2-bc05-28930c9a0d75",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:13 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:14.563762973\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "formatUnsupportedValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "7fce4b5d-8a1f-4336-83c0-6defe9877e40",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:15.517515059\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=xml&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeoutNegativeValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "b91a6a80-d472-4fc5-ae14-e915585e5a59",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "-10"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:16.473+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/elements/count/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "showMetadataInvalidBooleanString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "0de1f8a8-7295-48c2-8cce-6fe921387745",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "maybe"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:17.326006171\",\n  \"status\" : 400,\n  \"message\" : \"The given parameter showMetadata can only contain the values 'true', 'yes', 'false', or 'no'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=maybe&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterContradictoryAttributes_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "8bbdb575-1e76-4535-b150-ee04ac94635f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20type%3Dhighway"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:25 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 7045,\n    \"description\" : \"Total count of items in absolute values, aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20type%3Dhighway&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bcirclesMissingRadius_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "4848327f-79b2-4148-a067-ff41ce81bf3e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bcircles",
+                                    "value": "12.4923,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:25 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:26.12705109\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bcircles=12.4923,41.8902\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeInvalidFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "68366fe4-2799-4fcd-b971-89f60328eb1e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "yesterday"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:27 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:27.056425897\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=yesterday&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterEmptyString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "e1c9e6b7-067d-4e2a-a134-009c62eede7e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:47 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 19755,\n    \"description\" : \"Total count of items in absolute values, aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 4.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 21.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 23.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterIncompatibleGeometryType_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "24ee0057-3a2b-4c60-b466-b95c67679652",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DLineString"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:52 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 3700,\n    \"description\" : \"Total count of items in absolute values, aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DLineString&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bpolysNotClosedPolygon_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "6fb1941a-7463-46d1-aca1-c6089da457bb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "12.4923,41.8902,12.4925,41.8904,12.4923,41.8903"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:52 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:53.258472161\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bpolys=12.4923,41.8902,12.4925,41.8904,12.4923,41.8903\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesOutOfValidGeographicRange_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "0438359f-d58a-4191-8a11-204fe6491610",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|1000,1000,1001,1001"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:54.204+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/elements/count/groupBy/type\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "timeoutZeroValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "04935a24-35f1-404e-8d48-e3d0452b9c7c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:55.111163372\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeInFuture_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "2b0251a9-b833-42c0-ae0a-3d5dc9ac82a3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2100-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:56 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:44:56.093426868\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=2100-01-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByType",
+                    "id": "ca08dc65-596e-4f88-bfaa-394a430cb5f7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:44:59 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2112,\n    \"description\" : \"Total count of items in absolute values, aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3620,38.1160&filter=type%3Dbuilding%20and%20geometry%3DPolygon%20and%20historic%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T17:44:59.835184",
+    "statistics": {
+        "total_test_cases": 14,
+        "passed_test_cases": 9,
+        "failed_test_cases": 5,
+        "test_cases_with_server_errors": 2,
+        "total_requests": 14,
+        "success_rate": 64.28571428571429,
+        "avg_requests_per_case": 1.0
+    }
+}

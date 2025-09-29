@@ -1,0 +1,115 @@
+{
+    "info": {
+        "name": "contradictoryFilterExpression_FU",
+        "description": "Set the `filter` parameter to a logically contradictory filter, e.g., 'type:way and type:node', which cannot be true simultaneously and thus is a logical error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByType_3",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42|8.72,49.40,8.75,49.45",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and type:node",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/density/groupBy/type",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.bboxes', '8.67,49.39,8.71,49.42|8.72,49.40,8.75,49.45');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.filter', 'type:way and type:node');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.format', 'json');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('countDensityGroupByType_3.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

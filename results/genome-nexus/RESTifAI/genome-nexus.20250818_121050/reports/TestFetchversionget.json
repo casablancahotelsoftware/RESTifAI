@@ -1,0 +1,567 @@
+{
+    "test_name": "TestFetchversionget",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "43a9406e-b3ed-4ac9-8b04-844308af7101",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:20 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unexpectedQueryParameter_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "b16a4f58-c1ab-4e1e-a70c-80ecb4634ea7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "unexpectedParam",
+                                    "value": "value"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:22 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedAcceptHeaderMediaType_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "050cd217-9374-4921-bf53-52cfc47c8ee7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/xml"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:23 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unauthorizedAccessWithInvalidToken_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "9357aaa9-755c-47b5-a231-f9ce6e7abcdf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer invalid_or_expired_token_12345"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:24 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "disallowedRefererDomain_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "24d0e970-e706-48c6-aade-633c14d07e5b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Referer",
+                                "value": "http://disallowed-domain.com"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:25 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidIfModifiedSinceFutureDate_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "fc08c862-8642-46fd-9383-2bcb48f27781",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "If-Modified-Since",
+                                "value": "2999-12-31T23:59:59Z"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:25 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unexpectedHeaderParameter_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "0e562882-bf43-4ce3-a435-d6e6c1840de9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "X-Custom-Header",
+                                "value": "invalid"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:25 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyNotAllowed_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "d0115032-3113-4072-a217-b3441a77d426",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"version\": \"1.0\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:27 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "forbiddenAccessDueToInsufficientPermissions_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "e20fee66-51f6-4fa8-a989-22d66d4566e2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer invalid_token_with_insufficient_scopes"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:28 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedContentTypeHeader_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVersionGET",
+                    "id": "e15bc33f-4944-4a1a-940f-dc6fdaef3367",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "version"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "text/plain"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:29 GMT"
+                    },
+                    "response_body": "{\"genomeNexus\":{\"server\":{\"version\":\"1.0.2\",\"static\":true},\"database\":{\"version\":\"3.6.2\",\"static\":true}},\"vep\":{\"server\":{\"version\":\"NA\",\"static\":false},\"cache\":{\"version\":\"114\",\"static\":false},\"comment\":null},\"annotationSourcesInfo\":[{\"id\":\"hgnc\",\"name\":\"HGNC\",\"version\":\"22-10-01\",\"type\":\"mirrored\",\"description\":\"The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\",\"url\":\"http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\"},{\"id\":\"vep\",\"name\":\"VEP\",\"version\":\"grch37\",\"type\":\"mirrored\",\"description\":\"VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\",\"url\":\"https://grch37.ensembl.org/info/docs/tools/vep/index.html\"},{\"id\":\"cancer_hotspots\",\"name\":\"Cancer Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations in cancer \",\"url\":\"https://www.cancerhotspots.org\"},{\"id\":\"revue\",\"name\":\"reVUE\",\"version\":\"d8a7d01bac02671e74b4522bacfca6e82f360046\",\"type\":\"mirrored\",\"description\":\"A Repository for Variants with Unexpected Effects (VUE) in Cancer\",\"url\":\"https://www.cancerrevue.org/\"},{\"id\":\"3d_hotspots\",\"name\":\"3D Hotspots\",\"version\":\"v2\",\"type\":\"mirrored\",\"description\":\"A resource for statistically significant mutations clustering in 3d protein structures in cancer\",\"url\":\"https://www.3dhotspots.org/\"},{\"id\":\"mutation_assessor\",\"name\":\"Mutation Assessor\",\"version\":\"v3\",\"type\":\"mirrored\",\"description\":\"Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\",\"url\":\"http://mutationassessor.org/r3/\"},{\"id\":\"my_variant_info\",\"name\":\"My Variant Info\",\"version\":\"Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\",\"type\":\"external\",\"description\":\"MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\",\"url\":\"https://myvariant.info\"}]}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:25:29.439764",
+    "statistics": {
+        "total_test_cases": 10,
+        "passed_test_cases": 2,
+        "failed_test_cases": 8,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 10,
+        "success_rate": 20.0,
+        "avg_requests_per_case": 1.0
+    }
+}

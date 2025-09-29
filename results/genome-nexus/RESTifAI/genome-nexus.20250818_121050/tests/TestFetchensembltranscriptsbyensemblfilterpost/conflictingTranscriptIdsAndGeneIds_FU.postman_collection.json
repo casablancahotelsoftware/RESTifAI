@@ -1,0 +1,157 @@
+{
+    "info": {
+        "name": "conflictingTranscriptIdsAndGeneIds_FU",
+        "description": "Provide conflicting filters where `transcriptIds` belong to a different gene than the `geneIds` provided, e.g., geneIds: ['ENSG00000141510'], transcriptIds: ['ENST00000369497'] (belongs to different gene), to test logical conflict in filters.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"TP53\",\n  \"BRCA1\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/hgnc",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "hgnc"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[0]', 'TP53');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[1]', 'BRCA1');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchEnsemblTranscriptsByEnsemblFilterPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"geneIds\": [\n    \"ENSG00000141510\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]}}\"\n  ],\n  \"hugoSymbols\": [\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]}}\",\n    \"{{fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]}}\"\n  ],\n  \"proteinIds\": [\n    \"ENSP00000269305\",\n    \"ENSP00000369497\"\n  ],\n  \"transcriptIds\": [\n    \"ENST00000369497\",\n    \"ENST00000369497\"\n  ]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/transcript",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "transcript"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[0]', 'ENSG00000141510');",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.geneIds[1]', pm.collectionVariables.get('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].geneId'));",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[0]', pm.collectionVariables.get('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[0].hugoSymbol'));",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.hugoSymbols[1]', pm.collectionVariables.get('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.response.body[1].hugoSymbol'));",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.proteinIds[0]', 'ENSP00000269305');",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.proteinIds[1]', 'ENSP00000369497');",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.transcriptIds[0]', 'ENST00000369497');",
+                            "pm.collectionVariables.set('fetchEnsemblTranscriptsByEnsemblFilterPOST.request.body.transcriptIds[1]', 'ENST00000369497');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

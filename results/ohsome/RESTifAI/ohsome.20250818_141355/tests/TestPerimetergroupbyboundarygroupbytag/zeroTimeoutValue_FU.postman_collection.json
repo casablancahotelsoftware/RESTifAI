@@ -1,0 +1,106 @@
+{
+    "info": {
+        "name": "zeroTimeoutValue_FU",
+        "description": "Set the `timeout` parameter to zero, e.g., '0', which is logically invalid as timeout must be a positive integer to allow query execution time.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterGroupByBoundaryGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=0",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.388860,52.517037,13.397634,52.523219"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dway%20and%20highway%3Dprimary"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "highway"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "primary,residential"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.bboxes', '13.388860,52.517037,13.397634,52.523219');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.filter', 'type%3Dway%20and%20highway%3Dprimary');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.groupByKey', 'highway');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.groupByValues', 'primary,residential');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterGroupByBoundaryGroupByTag.request.query_params.timeout', '0');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

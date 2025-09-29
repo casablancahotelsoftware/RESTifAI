@@ -1,0 +1,95 @@
+{
+    "info": {
+        "name": "zeroAreaBoundingBox_FU",
+        "description": "Set the `bboxes` parameter to a bounding box with zero area (all coordinates identical), e.g., '12.4923,41.8902,12.4923,41.8902', which is logically invalid as it defines no spatial area for the query.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterDensityGroupByType",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/type?bboxes=12.4923,41.8902,12.4923,41.8902&filter=type%3Droad%20and%20geometryType%3DLineString%20and%20highway%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4923,41.8902"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Droad%20and%20geometryType%3DLineString%20and%20highway%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.bboxes', '12.4923,41.8902,12.4923,41.8902');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.filter', 'type%3Droad%20and%20geometryType%3DLineString%20and%20highway%3D%2A');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

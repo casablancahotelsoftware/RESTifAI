@@ -1,0 +1,1805 @@
+{
+    "test_name": "TestCountgroupbykey_2",
+    "test_results": [
+        {
+            "test_case_name": "timeIntervalInFuture_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "847c49b9-6f7b-4577-a620-01ecb0c91d7d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2100-01-01T00:00:00Z/2100-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 2xx",
+                                "message": "expected 404 to be within 200..299",
+                                "stack": "AssertionError: expected 404 to be within 200..299\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:19 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:56:19.911327509\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2100-01-01T00:00:00Z/2100-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyGroupByKeys_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "7db51f38-89c9-4949-8de6-09d090c52038",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2789,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invertedTimeInterval_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "f1228280-3d24-4b06-9c2b-7d8ca9c02771",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-31T23:59:59Z/2023-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:26 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2160,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-12-31T23:59:59Z/2023-01-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "c6387cdd-6a45-4be9-b690-86741b47ed3c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:26 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:56:27.803775464\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=xml&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "duplicateContributionTypes_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "fe97d08f-0993-42dd-830a-26bfe12fd37a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion,tagChange,geometryChange,tagChange"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:30 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2151,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion,tagChange,geometryChange,tagChange&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidContributionTypeValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "dd950e5d-1303-4fdf-b73f-74a81cbd0b6c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "update"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:56:31.9617449\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=update&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "aa4deb8a-fc28-4907-8fb7-ab6358887017",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01%20to%202023-12-31"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:56:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:56:32.848373381\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01%20to%202023-12-31&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "disjointEmptyBoundingBoxes_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "12063465-549c-4a69-a5c6-4decf4e4b929",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "0,0,0.0001,0.0001|179,89,179.0001,89.0001"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 164296,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=0,0,0.0001,0.0001|179,89,179.0001,89.0001&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBpolysPolygonClosure_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "14930d76-072a-41b8-ab8b-1c0bca092c4d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B12.0%2C41.0%5D%2C%5B12.1%2C41.0%5D%2C%5B12.1%2C41.1%5D%5D%5D%7D%7D%5D%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:59:18.993080143\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B12.0%2C41.0%5D%2C%5B12.1%2C41.0%5D%2C%5B12.1%2C41.1%5D%5D%5D%7D%7D%5D%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "groupByNonexistentKey_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "3fcfbb44-23dc-41fb-987c-e7957a74fb95",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,nonexistentkey"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 9744,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,nonexistentkey&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"nonexistentkey\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBboxesCoordinateCount_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "df1fd911-07cf-420b-b59e-9fc0eae0e6f4",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:59:30.608825178\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterConditions_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "fe3fb9e2-fcd9-4127-b3cb-66e0703c3215",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20osm_type%3Dway"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 17045,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20osm_type%3Dway&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingGroupByKeys_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "04730d53-4aba-4b0c-b9e1-97fa136c8ef0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:59:49.547435744\",\n  \"status\" : 400,\n  \"message\" : \"You need to give one groupByKeys parameter, if you want to use groupBy/key.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "negativeTimeoutValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "01112126-e854-4f30-af07-ef871f1b43e7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "-10"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:49 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:59:50.459+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/users/count/groupBy/key\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "groupByNonGroupableKey_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "8ed817d4-4c2e-489e-9b05-32b364598a87",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "timestamp"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 7283,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=timestamp&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"timestamp\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyContributionType_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "0095471e-d42b-43df-90c3-b137e4f7d8c7",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:59:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:59:59.594835881\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "7726c0fb-d4c9-4844-b9f2-5ae832055e91",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "maybe"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:00:00 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:00:00.711739483\",\n  \"status\" : 400,\n  \"message\" : \"The given parameter showMetadata can only contain the values 'true', 'yes', 'false', or 'no'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=maybe&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingRadiusInBcircles_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "5fc33565-cd8d-407f-a2be-5c11b14b2e0d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bcircles",
+                                    "value": "12.4923,41.8902"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:00:00 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:00:01.685514655\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bcircles=12.4923,41.8902\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countGroupByKey_2",
+                    "id": "4ef90f17-0408-45ab-a021-ef10fcdb606f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "groupBy",
+                                "key"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKeys",
+                                    "value": "highway,building"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:00:07 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 4158,\n    \"description\" : \"Number of distinct active users per time interval, aggregated on the key.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"building\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T18:04:52.303093",
+    "statistics": {
+        "total_test_cases": 19,
+        "passed_test_cases": 11,
+        "failed_test_cases": 8,
+        "test_cases_with_server_errors": 1,
+        "total_requests": 19,
+        "success_rate": 57.89473684210527,
+        "avg_requests_per_case": 1.0
+    }
+}

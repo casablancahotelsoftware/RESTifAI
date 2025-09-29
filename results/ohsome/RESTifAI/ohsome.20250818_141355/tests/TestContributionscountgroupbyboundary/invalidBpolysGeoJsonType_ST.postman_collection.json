@@ -1,0 +1,186 @@
+{
+    "info": {
+        "name": "invalidBpolysGeoJsonType_ST",
+        "description": "Set the `bpolys` query parameter to an invalid GeoJSON string that is not a FeatureCollection or list of coordinate pairs, e.g., '{\"type\":\"Point\",\"coordinates\":[8.67,49.39]}'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "contributionsCount",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count?bboxes=8.67,49.39,8.71,49.42&contributionType=creation&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01&timeout=30&bpolys=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.67%2C49.39%5D%7D",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.67%2C49.39%5D%7D"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.contributionType', 'creation');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.timeout', '30');",
+                            "pm.collectionVariables.set('contributionsCount.request.query_params.bpolys', '%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.67%2C49.39%5D%7D');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "contributionsCountGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&contributionType=creation&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2014-01-01/2017-01&timeout=30&bpolys=%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.67%2C49.39%5D%7D",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.67%2C49.39%5D%7D"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.contributionType', 'creation');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.timeout', 30);",
+                            "pm.collectionVariables.set('contributionsCountGroupByBoundary.request.query_params.bpolys', '%7B%22type%22%3A%22Point%22%2C%22coordinates%22%3A%5B8.67%2C49.39%5D%7D');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

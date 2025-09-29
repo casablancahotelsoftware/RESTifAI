@@ -1,0 +1,1093 @@
+{
+    "test_name": "TestFetchpdbheaderget",
+    "test_results": [
+        {
+            "test_case_name": "invalidContentTypeHeader_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "e2e34380-05d6-4f2a-8709-a4df1eb9bf7d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:20 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "58c4d865-1197-4eeb-867e-10aaf5462e31",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1a37",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:20 GMT"
+                    },
+                    "response_body": "{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "3fa4a562-fbd2-4e47-8ea9-e8294af10fd2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:22 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "d17ae2e7-9e73-400f-b8f5-31ae6a83af80",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1a37",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:22 GMT"
+                    },
+                    "response_body": "{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchPrivatePdbId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "d6944384-5c13-4444-b324-0a2c3326d3bd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:23 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "79a23e11-fbf6-4fcf-a52a-8d2b89b63168",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1a38",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:25 GMT"
+                    },
+                    "response_body": "{\"pdbId\":\"1a38\",\"title\":\"14-3-3 protein zeta bound to r18 peptide\",\"compound\":{\"1\":{\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"r18 peptide (phcvprdlswldleanmclp)\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nullQueryParameterPdbId_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "c620d960-5300-492e-8b50-e460d75ba89d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:26 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "991f9051-c365-4b68-9a3b-9d6e771125d6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Allow": "POST",
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:26 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyQueryParameterPdbId_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "81b2bc78-3742-48df-8051-27393057e4b2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:27 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "85d8e1d2-2c5e-4db1-bc90-77d65fe932fe",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Allow": "POST",
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:27 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchNonExistentPdbId_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "736c4fb4-7f06-49ee-9096-59e6f182dae1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:28 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "952bf57d-322d-4cdf-a38f-4682c766c32c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "9z99",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:30 GMT"
+                    },
+                    "response_body": "{\"message\":\"PDB web service error for id 9z99: <!doctype html><html lang=\\\"en\\\"><head><meta charset=\\\"utf-8\\\"/><link rel=\\\"icon\\\" href=\\\"/favicon.ico\\\"/><meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1\\\"/><title>PDB Archive over AWS</title><script defer=\\\"defer\\\" src=\\\"/static/js/main.d4d75e87.js\\\"></script><link href=\\\"/static/css/main.858212c0.css\\\" rel=\\\"stylesheet\\\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\\\"root\\\"></div></body></html>\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchUnauthorizedPdbId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "41c69861-b106-4e8c-bf36-e78f0bfa6b86",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:32 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "ce0c1f0c-60a9-447a-9073-39e8eefc88de",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1a37",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:32 GMT"
+                    },
+                    "response_body": "{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchReservedPdbId_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "d304bce5-c8ef-4925-aa90-cb541e6aab2d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:34 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "c2110977-a76d-4833-83f7-f0320c3cd076",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "test1",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:37 GMT"
+                    },
+                    "response_body": "{\"message\":\"PDB web service error for id test1: <!doctype html><html lang=\\\"en\\\"><head><meta charset=\\\"utf-8\\\"/><link rel=\\\"icon\\\" href=\\\"/favicon.ico\\\"/><meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1\\\"/><title>PDB Archive over AWS</title><script defer=\\\"defer\\\" src=\\\"/static/js/main.d4d75e87.js\\\"></script><link href=\\\"/static/css/main.858212c0.css\\\" rel=\\\"stylesheet\\\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\\\"root\\\"></div></body></html>\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unexpectedRequestBody_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "dae66ec8-4b27-47de-9705-3205a97cfb46",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:39 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "40f7c0e2-2ca7-4c35-9e9a-349adf25a885",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1a37",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"invalid\": \"data\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:39 GMT"
+                    },
+                    "response_body": "{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fetchDeprecatedPdbId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "bd8e75a0-1cd3-4834-bfaf-b29558798d69",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1a37\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:40 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1a37\",\"title\":\"14-3-3 protein zeta bound to ps-raf259 peptide\",\"compound\":{\"1\":{\"other_details\":\"complexed with phosphoserine-containing peptide derived from raf\",\"chain\":[\"a\",\"b\"],\"engineered\":\"yes\",\"molecule\":\"14-3-3 protein zeta\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"p\",\"q\"],\"molecule\":\"ps-raf259 peptide lsqrqrst(sep)tpnvhm\",\"mol_id\":\"2\"}},\"source\":{\"1\":{\"organism_scientific\":\"bos taurus\",\"organism_common\":\"cattle\",\"organism_taxid\":\"9913\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"1\"}}}]"
+                },
+                {
+                    "name": "fetchPdbHeaderGET",
+                    "id": "5ed2b379-a956-4cef-94a9-3ab5a8ffe125",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header",
+                                ":pdbId"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "1a39",
+                                    "key": "pdbId"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:31:41 GMT"
+                    },
+                    "response_body": "{\"pdbId\":\"1a39\",\"title\":\"humicola insolens endocellulase egi s37w, p39w double-mutant\",\"compound\":{\"1\":{\"mutation\":\"yes\",\"chain\":[\"a\"],\"synonym\":\"cellulase, family 7 endoglucanase\",\"engineered\":\"yes\",\"molecule\":\"endoglucanase i\",\"mol_id\":\"1\",\"ec\":\"3.2.1.4\"}},\"source\":{\"1\":{\"gene\":[\"potential\"],\"organism_scientific\":\"humicola insolens\",\"organism_taxid\":\"34413\",\"expression_system_taxid\":\"5062\",\"expression_system\":\"aspergillus oryzae\",\"mol_id\":\"1\"}}}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:31:42.110883",
+    "statistics": {
+        "total_test_cases": 10,
+        "passed_test_cases": 3,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 20,
+        "success_rate": 30.0,
+        "avg_requests_per_case": 2.0
+    }
+}

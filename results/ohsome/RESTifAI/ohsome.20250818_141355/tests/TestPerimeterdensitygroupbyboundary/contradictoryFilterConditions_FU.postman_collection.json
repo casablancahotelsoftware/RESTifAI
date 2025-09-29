@@ -1,0 +1,95 @@
+{
+    "info": {
+        "name": "contradictoryFilterConditions_FU",
+        "description": "Set the `filter` parameter to a logically contradictory filter, e.g., 'type=building and type=node', which cannot be true simultaneously and thus violates domain logic.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterDensityGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20type%3Dnode&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dbuilding%20and%20type%3Dnode"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.filter', 'type%3Dbuilding%20and%20type%3Dnode');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

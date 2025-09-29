@@ -1,0 +1,99 @@
+{
+    "info": {
+        "name": "contradictoryFilterType_FU",
+        "description": "Change the `filter` parameter to a logically contradictory filter, e.g., filter='type=way and type=node', which cannot be true simultaneously.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByKey",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/groupBy/key?bboxes=12.4923,41.8902,12.4925,41.8904&groupByKeys=highway&filter=type%3Dway%20and%20type%3Dnode&format=json&showMetadata=true&time=2023-12-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "groupBy",
+                        "key"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4925,41.8904"
+                        },
+                        {
+                            "key": "groupByKeys",
+                            "value": "highway"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dway%20and%20type%3Dnode"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-12-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.bboxes', '12.4923,41.8902,12.4925,41.8904');",
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.groupByKeys', 'highway');",
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.filter', 'type%3Dway%20and%20type%3Dnode');",
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.time', '2023-12-01T00:00:00Z');",
+                            "pm.collectionVariables.set('countGroupByKey.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

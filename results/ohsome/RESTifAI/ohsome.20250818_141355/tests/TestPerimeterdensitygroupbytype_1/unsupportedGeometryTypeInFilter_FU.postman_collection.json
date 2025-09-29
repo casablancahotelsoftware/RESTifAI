@@ -1,0 +1,109 @@
+{
+    "info": {
+        "name": "unsupportedGeometryTypeInFilter_FU",
+        "description": "Set the `filter` parameter to a geometry type that is incompatible with the operation, e.g., 'geometry:circle and building=*', assuming 'circle' is unsupported geometry type for this endpoint.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterDensityGroupByType_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "geometry:circle and building=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/type",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.body.bboxes', '8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.body.filter', 'geometry:circle and building=*');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

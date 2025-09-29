@@ -1,0 +1,105 @@
+{
+    "info": {
+        "name": "emptyFilter_ST",
+        "description": "Set the `filter` query parameter to an empty string, e.g., filter=",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "13.388860,52.517037,13.397634,52.520008"
+                        },
+                        {
+                            "key": "filter",
+                            "value": ""
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "highway"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "bus_stop,traffic_signals"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.bboxes', '13.388860,52.517037,13.397634,52.520008');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.filter', '');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.groupByKey', 'highway');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.groupByValues', 'bus_stop,traffic_signals');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('countDensityGroupByTag.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

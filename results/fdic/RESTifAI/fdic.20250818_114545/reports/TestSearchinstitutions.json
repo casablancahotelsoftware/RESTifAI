@@ -1,0 +1,2130 @@
+{
+    "test_name": "TestSearchinstitutions",
+    "test_results": [
+        {
+            "test_case_name": "offsetNonIntegerValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "b1aa138a-9106-4572-b305-0c8c5a1c07de",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0.1"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:12 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "204",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"cc-XGOHZosC9zq86cN3hgquLUi6M08\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk7uadfflmmndsf1pg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "a5ae479f-5c2e-4d69-49ac-7456403ae78b",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:numericality\",\"title\":\"Invalid field data\",\"detail\":\"Offset must be an integer\",\"source\":{\"parameter\":\"offset\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:12.321Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "downloadInvalidEnumValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "ef197c5c-bbc6-4834-83cf-7ff2ee114bbc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "yes"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:14 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "209",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"d1-Dl6BZ7xZ/tT1u7KgexH3DWgove0\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk7uu1mahht4fb2ttg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "e9687604-b367-4a82-6083-e414b028c372",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:inclusion\",\"title\":\"Invalid field data\",\"detail\":\"yes is not included in the list\",\"source\":{\"parameter\":\"download\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:14.833Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterByNonExistentState_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "84910825-30e8-49fe-b542-3422ed0e6ee2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Atlantis%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:17 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"125-ML7YcBxwBTkaRiPiLlMO2Bjzut4\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk7vhrrv0bmhh5smq0",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "868caf94-f5c3-4265-5bac-3ca94ed5c412",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Atlantis\\\" AND DEP:[50000 TO *]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureDateRangeFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "ea0506e1-2ad7-4dd2-b0b2-9e16e81f567f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "DATEUPDT%3A%5B%222030-01-01%22%20TO%20%222030-12-31%22%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:20 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"128-jbrbdihn/fDnYaVe83lMwl4b9DQ\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk8075u8lvjmismns0",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "eaaa4ee5-316e-46bb-4fa5-1a6f7fd4bc1c",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"DATEUPDT:[\\\"2030-01-01\\\" TO \\\"2030-12-31\\\"]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterByNonExistentField_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "252f8093-77ab-436d-93b7-b9b72bce0f76",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "UNKNOWNFIELD%3A%22value%22"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:22 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"113-V5lOfpdm6Kyknig0McVKYp7DZco\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk80so9t6ebftjlrag",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "85304538-2426-4b2e-6b27-3c2ee163c355",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"UNKNOWNFIELD:\\\"value\\\"\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "sortOrderInvalidEnumValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "c1492370-4094-46f3-b5a3-5334165ffeba",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "UP"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:25 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "413",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"19d-wzjgrcxeTlDFxvQ2whEWJT16HPA\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk81hfpo66ipgacfag",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "0f13768a-e2d4-44ff-76c8-8d2663ddd127",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"links\":{\"about\":{\"href\":\"https://pfabankapi.app.cloud.gov/docs\",\"meta\":{\"section\":\"Filter Syntax\"}}},\"title\":\"Invalid request input, please double check your search query syntax\",\"detail\":\"x_content_parse_exception: [x_content_parse_exception] Reason: [1:634] [field_sort] failed to parse field [order]\",\"source\":{\"parameter\":\"filters\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:25.527Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyNameSearch_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "acdc7bb2-44e9-4e53-a85d-ee7e226e7d4f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%22%22"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:28 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"122-LZydjevlceBcTUuU3MFwQvH2X20\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk825jq8f0j5e1hqc0",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "9a974c9a-22a1-4bda-4c19-3424dc46557f",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[50000 TO *]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME:\\\"\\\"\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsArrayContainsNonString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "26a297f3-6427-442b-83ac-193fba83aa40",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "['NAME', 123, 'DEP']"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:30 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"121-GLeIKOviKqsl7BA5m5//Hcxmk88\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk82ptoi082o7j9rvg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "a8a989f6-e453-45e2-6eec-dd1e8a7c5ff6",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[50000 TO *]\",\"fields\":\"['NAME', 123, 'DEP']\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "offsetNegativeValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "9811275e-2a27-4af8-9b25-e89329c691e9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "-5"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:33 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "220",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"dc-tues1JFANSOmZr4V4O5+YjW4r3s\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk83d0j5o3h25pjm20",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "2578d203-e579-4825-6cff-cd9ef475051e",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:numericality\",\"title\":\"Invalid field data\",\"detail\":\"Offset must be greater than or equal to 0\",\"source\":{\"parameter\":\"offset\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:33.133Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "mismatchedStateNameAndAbbreviation_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "0c3b8041-6552-4ea1-9631-a8a6c4394649",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20STALP%3A%22CA%22"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:35 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"121-b0Z9JF0AOdg1xRP7lntc9d21s6U\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk841hro6ajeiemj50",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "e0321d80-16df-4414-587c-b7399de6e57e",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND STALP:\\\"CA\\\"\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "limitExceedsMaximum_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "bf78c92a-eee1-4fe3-8775-63d38969842f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10001"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:38 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "219",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"db-ieuPh/XSp7y6juet/gryMxkoUJI\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk84m6sjlae0k8m970",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "a9326d98-6c4d-4397-5b4c-c6ac9465c0ba",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:numericality\",\"title\":\"Invalid field data\",\"detail\":\"Limit must be less than or equal to 10000\",\"source\":{\"parameter\":\"limit\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:38.406Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "limitNegativeValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "623b0a1e-66cf-48ea-84a2-d0fb35e78eb4",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "-1"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:40 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "218",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"da-bVYDkFBHy3blTIwnT2iage3tQik\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk8595tjtd5ma4artg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "24c4780e-ebde-4c6b-5cad-4788b0cb085f",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:numericality\",\"title\":\"Invalid field data\",\"detail\":\"Limit must be greater than or equal to 0\",\"source\":{\"parameter\":\"limit\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:40.834Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsNotArray_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "0bc9cd60-83c1-42c2-bb0c-60bdd56b3f34",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:43 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"11c-srvbq+1ghKO0M2UgOVs5CsS5lIw\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk85ru8da1plu4br70",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "e534bb77-0286-46fb-6cd1-c4cb2967899a",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[50000 TO *]\",\"fields\":\"NAME,STNAME,DEP\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "dateRangeStartAfterEnd_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "808e59ea-e74e-4d92-b66d-cad8cc321613",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "DATEUPDT%3A%5B%222025-12-31%22%20TO%20%222025-01-01%22%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:45 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"128-wg6iSbCFurKd9me/FQ0IKn6ZYW4\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk86fgh0p5kehqq6u0",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "f58970e5-3e21-4bc9-679d-cc8bc4294ac2",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"DATEUPDT:[\\\"2025-12-31\\\" TO \\\"2025-01-01\\\"]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "limitNonIntegerValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "ad72ba10-3c1b-41b0-991e-35f45a18cb8d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10.5"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:48 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "202",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"ca-HngRT1Nlxteyc8x9y/cvqbq5r2Q\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk872sfu6rhv47erkg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "c4a29e18-e56f-409d-5843-26f10bcfe627",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:numericality\",\"title\":\"Invalid field data\",\"detail\":\"Limit must be an integer\",\"source\":{\"parameter\":\"limit\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:48.223Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "depositRangeLowerBoundGreaterThanUpperBound_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "9fbf823d-6af0-482d-a6ed-258f9eb43c75",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "DEP%3A%5B100000%20TO%2050000%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:50 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"112-aA9R4V+VYVK3qlp/3NVsdQvjlHw\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk87mmkkkto5gk6nr0",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "3c8b76e2-c4a4-43bd-6ae4-82e614acaf04",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"DEP:[100000 TO 50000]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryDepositFilters_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "cfa3fac4-3d9b-4da8-95ac-b9933b293f91",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B0%20TO%201000%5D%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:53 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"139-CeB7AMqhV5S4cHWr71whj5dAPUA\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk88a5np4fp9ofu95g",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "7eec29a3-906c-4480-6cb2-63f56d17c6ab",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[0 TO 1000] AND DEP:[50000 TO *]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "sortByFieldNotInFieldsList_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "838bbb29-b6a9-41df-8760-ae2a03591af9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:55 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"118-Apl/zz8SW5UEG9hUzkru6vR4rKo\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk88tkna48i135asvg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "84fca9c3-57ff-4965-4316-8e4f424ecaa4",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[50000 TO *]\",\"fields\":\"NAME,STNAME\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "formatInvalidEnumValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "0b0f0324-050e-4888-928d-b15879d8d0ab",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:03:58 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Content-Length": "207",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Etag": "W/\"cf-9u0AE9ulL1tGMu4kHXaD957GBoc\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk89hsmecsja5hnmfg",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "7c43606f-637c-43e5-7605-ae0036f2b8af",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"errors\":[{\"status\":400,\"code\":\"validate:inclusion\",\"title\":\"Invalid field data\",\"detail\":\"xml is not included in the list\",\"source\":{\"parameter\":\"format\"},\"meta\":{\"timestamp\":\"2025-08-18T12:03:58.335Z\"}}]}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "negativeDepositValueInFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "3d19e19b-58ae-41b9-a06a-6a610ca71c00",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B-1000%20TO%205000%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:04:00 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"128-Be++gCIWS8ayPiGSfWUK7It5fNk\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk8a5jq6dkmjoirhm0",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "d3fdf600-bf93-4d14-7391-c8f1f5b727e7",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[-1000 TO 5000]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "searchInstitutions",
+                    "id": "10c8ec45-bc73-473b-aa8a-e18fe434e224",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "institutions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "filters",
+                                    "value": "STNAME%3A%22Virginia%22%20AND%20DEP%3A%5B50000%20TO%20%2A%5D"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "NAME%3A%20Island"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "NAME,STNAME,DEP,DATEUPDT"
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "DEP"
+                                },
+                                {
+                                    "key": "sort_order",
+                                    "value": "DESC"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "20"
+                                },
+                                {
+                                    "key": "offset",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "download",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "filename",
+                                    "value": "institutions_search_results"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 12:04:03 GMT",
+                        "Content-Type": "application/json; charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Connection": "keep-alive",
+                        "Access-Control-Allow-Origin": "*",
+                        "Age": "0",
+                        "Content-Encoding": "gzip",
+                        "Etag": "W/\"125-sVy7KHRoej0Fg7CiH823tPjHcFI\"",
+                        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+                        "Vary": "Accept-Encoding",
+                        "Via": "https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])",
+                        "X-Api-Umbrella-Request-Id": "conk8aq0lbbuoljvbh8g",
+                        "X-Cache": "MISS",
+                        "X-Content-Type-Options": "nosniff",
+                        "X-Vcap-Request-Id": "b6424b48-fc64-45a4-78db-b5e2cf74d0c9",
+                        "X-Frame-Options": "DENY"
+                    },
+                    "response_body": "{\"meta\":{\"total\":0,\"parameters\":{\"filters\":\"STNAME:\\\"Virginia\\\" AND DEP:[50000 TO *]\",\"fields\":\"NAME,STNAME,DEP,DATEUPDT\",\"limit\":\"20\",\"offset\":\"0\",\"search\":\"NAME: Island\"},\"index\":{\"name\":\"institutions_20250815090007\",\"createTimestamp\":\"2025-08-15T11:22:13Z\"}},\"data\":[],\"totals\":{\"count\":0}}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:04:04.327478",
+    "statistics": {
+        "total_test_cases": 21,
+        "passed_test_cases": 9,
+        "failed_test_cases": 12,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 21,
+        "success_rate": 42.857142857142854,
+        "avg_requests_per_case": 1.0
+    }
+}

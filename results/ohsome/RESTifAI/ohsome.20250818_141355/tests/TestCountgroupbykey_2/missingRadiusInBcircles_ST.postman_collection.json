@@ -1,0 +1,109 @@
+{
+    "info": {
+        "name": "missingRadiusInBcircles_ST",
+        "description": "Set `bcircles` query parameter with missing radius value, e.g., bcircles=12.4923,41.8902",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByKey_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bcircles=12.4923,41.8902",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "groupBy",
+                        "key"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKeys",
+                            "value": "highway,building"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bcircles",
+                            "value": "12.4923,41.8902"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.filter', 'osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.groupByKeys', 'highway,building');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.timeout', '30');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.bcircles', '12.4923,41.8902');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

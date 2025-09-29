@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EnsemblTranscriptMixin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.mixin</a> &gt; <span class="el_source">EnsemblTranscriptMixin.java</span></div><h1>EnsemblTranscriptMixin.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.mixin;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModelProperty;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L9">public class EnsemblTranscriptMixin {</span>
+    @ApiModelProperty(value = &quot;Ensembl transcript id&quot;, position=1, required = true)
+    private String transcriptId;
+
+    @ApiModelProperty(value = &quot;Ensembl gene id&quot;, position=2, required = true)
+    private String geneId;
+
+    @ApiModelProperty(value = &quot;Ensembl protein id&quot;, position=3, required = true)
+    private String proteinId;
+
+    @ApiModelProperty(value = &quot;Length of protein&quot;, position=4)
+    private Integer proteinLength;
+
+    @ApiModelProperty(value = &quot;Pfam domains&quot;, position=5, dataType=&quot;List&quot;)
+    private List&lt;PfamDomainRangeMixin&gt; pfamDomains;
+
+    @ApiModelProperty(value = &quot;Hugo symbols&quot;, position=6, dataType=&quot;List&quot;)
+    private List&lt;String&gt; hugoSymbols;
+
+    @ApiModelProperty(value = &quot;RefSeq mRNA ID&quot;, position=7)
+    private String refseqMrnaId;
+
+    @ApiModelProperty(value = &quot;Consensus CDS (CCDS) ID&quot;, position=8)
+    private String ccdsId;
+
+    @ApiModelProperty(value = &quot;Exon information&quot;, position=9, dataType=&quot;List&quot;)
+    private List&lt;ExonMixin&gt; exons;
+
+    @ApiModelProperty(value = &quot;UTR information&quot;, position=10, dataType=&quot;List&quot;)
+    private List&lt;UntranslatedRegionMixin&gt; utrs;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

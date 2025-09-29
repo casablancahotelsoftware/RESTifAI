@@ -1,0 +1,111 @@
+{
+    "info": {
+        "name": "futureDateRangeFilter_FU",
+        "description": "Set the `filters` parameter to filter by a date range with a future start date beyond the current date, e.g., DATEUPDT:[\"2030-01-01\" TO \"2030-12-31\"], which is logically invalid as data cannot exist for future dates.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "searchInstitutions",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/institutions?filters=DATEUPDT%3A%5B%222030-01-01%22%20TO%20%222030-12-31%22%5D&search=NAME%3A%20Island&fields=NAME,STNAME,DEP,DATEUPDT&sort_by=DEP&sort_order=DESC&limit=20&offset=0&format=json&download=false&filename=institutions_search_results",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "institutions"
+                    ],
+                    "query": [
+                        {
+                            "key": "filters",
+                            "value": "DATEUPDT%3A%5B%222030-01-01%22%20TO%20%222030-12-31%22%5D"
+                        },
+                        {
+                            "key": "search",
+                            "value": "NAME%3A%20Island"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "NAME,STNAME,DEP,DATEUPDT"
+                        },
+                        {
+                            "key": "sort_by",
+                            "value": "DEP"
+                        },
+                        {
+                            "key": "sort_order",
+                            "value": "DESC"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "20"
+                        },
+                        {
+                            "key": "offset",
+                            "value": "0"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "download",
+                            "value": "false"
+                        },
+                        {
+                            "key": "filename",
+                            "value": "institutions_search_results"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.filters', 'DATEUPDT%3A%5B%222030-01-01%22%20TO%20%222030-12-31%22%5D');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.search', 'NAME%3A%20Island');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.fields', 'NAME,STNAME,DEP,DATEUPDT');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.sort_by', 'DEP');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.sort_order', 'DESC');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.limit', 20);",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.offset', 0);",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.download', 'false');",
+                            "pm.collectionVariables.set('searchInstitutions.request.query_params.filename', 'institutions_search_results');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://banks.data.fdic.gov/api');"
+                ]
+            }
+        }
+    ]
+}

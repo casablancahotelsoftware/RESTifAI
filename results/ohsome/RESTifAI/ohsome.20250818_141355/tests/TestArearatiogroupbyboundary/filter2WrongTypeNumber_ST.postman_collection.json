@@ -1,0 +1,993 @@
+{
+    "info": {
+        "name": "filter2WrongTypeNumber_ST",
+        "description": "Set the `filter2` query parameter to a number 12345 instead of a string, violating the type constraint",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3Dwood&format=json&showMetadata=false&time=2014-01-01/2017-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3Dwood"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'result[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[0].value', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'result[1].timestamp');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[1].timestamp', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'result[1].value');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('area.response.body.result[1].value', x6);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('area.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('area.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('area.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3Dwood');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "area_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=wood",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'result[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.result[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'result[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.result[0].value', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'result[1].timestamp');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.result[1].timestamp', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'result[1].value');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('area_1.response.body.result[1].value', x6);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('area_1.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('area_1.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('area_1.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('area_1.request.body.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('area_1.request.body.filter', 'type:way and natural=wood');",
+                            "pm.collectionVariables.set('area_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('area_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area_1.request.body.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('area_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaRatio",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/ratio?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3Dwood&filter2=12345&format=json&showMetadata=false&time=2014-01-01/2017-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "ratio"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3Dwood"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "12345"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaRatio.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('areaRatio.request.query_params.filter', 'type%3Away%20and%20natural%3Dwood');",
+                            "pm.collectionVariables.set('areaRatio.request.query_params.filter2', 12345);",
+                            "pm.collectionVariables.set('areaRatio.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaRatio.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaRatio.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('areaRatio.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaRatio_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=wood",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type:way and building=house",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/ratio",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "ratio"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'ratioResult[0].timestamp');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[0].timestamp', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'ratioResult[0].value');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[0].value', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'ratioResult[0].value2');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[0].value2', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'ratioResult[0].ratio');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[0].ratio', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'ratioResult[1].timestamp');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[1].timestamp', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'ratioResult[1].value');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[1].value', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'ratioResult[1].value2');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[1].value2', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'ratioResult[1].ratio');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.body.ratioResult[1].ratio', x10);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('areaRatio_1.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('areaRatio_1.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaRatio_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.filter', 'type:way and natural=wood');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.filter2', 'type:way and building=house');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('areaRatio_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaRatioGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/ratio/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3Dwood&filter2=type%3Away%20and%20building%3Dhouse&format=geojson&showMetadata=false&time=2014-01-01/2017-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "ratio",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3Dwood"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type%3Away%20and%20building%3Dhouse"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'type');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.type', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'features[0].type');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].type', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'features[0].properties.groupByBoundaryId');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].properties.groupByBoundaryId', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'features[0].properties.value2');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].properties.value2', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'features[0].properties.value');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].properties.value', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'features[0].properties.timestamp');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].properties.timestamp', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'features[0].properties.ratio');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].properties.ratio', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'features[0].geometry.type');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.type', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][0][0]');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][0][0]', x11);",
+                            "    }",
+                            "    const x12 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][0][1]');",
+                            "    if (x12 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][0][1]', x12);",
+                            "    }",
+                            "    const x13 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][1][0]');",
+                            "    if (x13 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][1][0]', x13);",
+                            "    }",
+                            "    const x14 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][1][1]');",
+                            "    if (x14 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][1][1]', x14);",
+                            "    }",
+                            "    const x15 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][2][0]');",
+                            "    if (x15 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][2][0]', x15);",
+                            "    }",
+                            "    const x16 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][2][1]');",
+                            "    if (x16 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][2][1]', x16);",
+                            "    }",
+                            "    const x17 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][3][0]');",
+                            "    if (x17 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][3][0]', x17);",
+                            "    }",
+                            "    const x18 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][3][1]');",
+                            "    if (x18 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][3][1]', x18);",
+                            "    }",
+                            "    const x19 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][4][0]');",
+                            "    if (x19 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][4][0]', x19);",
+                            "    }",
+                            "    const x20 = getValueByPath(responseJson, 'features[0].geometry.coordinates[0][4][1]');",
+                            "    if (x20 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].geometry.coordinates[0][4][1]', x20);",
+                            "    }",
+                            "    const x21 = getValueByPath(responseJson, 'features[0].id');",
+                            "    if (x21 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[0].id', x21);",
+                            "    }",
+                            "    const x22 = getValueByPath(responseJson, 'features[1].type');",
+                            "    if (x22 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].type', x22);",
+                            "    }",
+                            "    const x23 = getValueByPath(responseJson, 'features[1].properties.groupByBoundaryId');",
+                            "    if (x23 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].properties.groupByBoundaryId', x23);",
+                            "    }",
+                            "    const x24 = getValueByPath(responseJson, 'features[1].properties.value2');",
+                            "    if (x24 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].properties.value2', x24);",
+                            "    }",
+                            "    const x25 = getValueByPath(responseJson, 'features[1].properties.value');",
+                            "    if (x25 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].properties.value', x25);",
+                            "    }",
+                            "    const x26 = getValueByPath(responseJson, 'features[1].properties.timestamp');",
+                            "    if (x26 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].properties.timestamp', x26);",
+                            "    }",
+                            "    const x27 = getValueByPath(responseJson, 'features[1].properties.ratio');",
+                            "    if (x27 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].properties.ratio', x27);",
+                            "    }",
+                            "    const x28 = getValueByPath(responseJson, 'features[1].geometry.type');",
+                            "    if (x28 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.type', x28);",
+                            "    }",
+                            "    const x29 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][0][0]');",
+                            "    if (x29 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][0][0]', x29);",
+                            "    }",
+                            "    const x30 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][0][1]');",
+                            "    if (x30 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][0][1]', x30);",
+                            "    }",
+                            "    const x31 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][1][0]');",
+                            "    if (x31 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][1][0]', x31);",
+                            "    }",
+                            "    const x32 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][1][1]');",
+                            "    if (x32 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][1][1]', x32);",
+                            "    }",
+                            "    const x33 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][2][0]');",
+                            "    if (x33 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][2][0]', x33);",
+                            "    }",
+                            "    const x34 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][2][1]');",
+                            "    if (x34 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][2][1]', x34);",
+                            "    }",
+                            "    const x35 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][3][0]');",
+                            "    if (x35 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][3][0]', x35);",
+                            "    }",
+                            "    const x36 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][3][1]');",
+                            "    if (x36 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][3][1]', x36);",
+                            "    }",
+                            "    const x37 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][4][0]');",
+                            "    if (x37 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][4][0]', x37);",
+                            "    }",
+                            "    const x38 = getValueByPath(responseJson, 'features[1].geometry.coordinates[0][4][1]');",
+                            "    if (x38 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].geometry.coordinates[0][4][1]', x38);",
+                            "    }",
+                            "    const x39 = getValueByPath(responseJson, 'features[1].id');",
+                            "    if (x39 !== undefined) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.body.features[1].id', x39);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('areaRatioGroupByBoundary.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('areaRatioGroupByBoundary.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3Dwood');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.filter2', 'type%3Away%20and%20building%3Dhouse');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.time', '2014-01-01/2017-01');",
+                            "pm.collectionVariables.set('areaRatioGroupByBoundary.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AnnotationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">AnnotationController.java</span></div><h1>AnnotationController.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2015 - 2021 Memorial Sloan-Kettering Cancer Center.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS
+ * FOR A PARTICULAR PURPOSE. The software and documentation provided hereunder
+ * is on an &quot;as is&quot; basis, and Memorial Sloan-Kettering Cancer Center has no
+ * obligations to provide maintenance, support, updates, enhancements or
+ * modifications. In no event shall Memorial Sloan-Kettering Cancer Center be
+ * liable to any party for direct, indirect, special, incidental or
+ * consequential damages, including lost profits, arising out of the use of this
+ * software and its documentation, even if Memorial Sloan-Kettering Cancer
+ * Center has been advised of the possibility of such damage.
+ */
+
+/*
+ * This file is part of cBioPortal.
+ *
+ * cBioPortal is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+
+package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.*;
+import java.util.*;
+
+import org.cbioportal.genome_nexus.component.annotation.NotationConverter;
+import org.cbioportal.genome_nexus.model.AnnotationField;
+import org.cbioportal.genome_nexus.model.GenomicLocation;
+import org.cbioportal.genome_nexus.model.VariantAnnotation;
+import org.cbioportal.genome_nexus.model.VariantType;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationQueryMixedFormatException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationWebServiceException;
+import org.cbioportal.genome_nexus.service.internal.VariantAnnotationService;
+import org.cbioportal.genome_nexus.service.internal.VerifiedVariantAnnotationService;
+import org.cbioportal.genome_nexus.util.TokenMapConverter;
+import org.cbioportal.genome_nexus.web.config.PublicApi;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * @author Benjamin Gross
+ */
+@PublicApi
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+@Validated
+public class AnnotationController
+{
+    private final VariantAnnotationService dbsnpAnnotationService;
+    private final VerifiedVariantAnnotationService verifiedVariantAnnotationService;
+    private final NotationConverter notationConverter;
+    private final TokenMapConverter tokenMapConverter;
+
+    @Autowired
+    public AnnotationController(VariantAnnotationService dbsnpVariantAnnotationService,
+                               VerifiedVariantAnnotationService verifiedHgvsVariantAnnotationService,
+                               NotationConverter notationConverter)
+<span class="fc" id="L73">    {</span>
+<span class="fc" id="L74">        this.dbsnpAnnotationService = dbsnpVariantAnnotationService;</span>
+<span class="fc" id="L75">        this.verifiedVariantAnnotationService = verifiedHgvsVariantAnnotationService;</span>
+<span class="fc" id="L76">        this.notationConverter = notationConverter;</span>
+<span class="fc" id="L77">        this.tokenMapConverter = new TokenMapConverter();</span>
+<span class="fc" id="L78">    }</span>
+
+    // TODO remove this endpoint after all internal dependencies are resolved
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided list of variants&quot;, hidden = true, nickname = &quot;getVariantAnnotation&quot;)
+    @RequestMapping(value = &quot;/hgvs/{variants:.+}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    @Deprecated
+    public List&lt;VariantAnnotation&gt; getVariantAnnotation(
+            @PathVariable
+            @ApiParam(value=&quot;Comma separated list of variants. For example X:g.66937331T&gt;A,17:g.41242962_41242963insGA &quot; +
+                    &quot;(GRCh37) or 1:g.182712A&gt;C,2:g.265023C&gt;T,3:g.319781del,19:g.110753dup,1:g.1385015_1387562del (GRCh38)&quot;,
+                    required = true, allowMultiple = true)
+            List&lt;String&gt; variants,
+            @RequestParam(required = false)
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            String isoformOverrideSource,
+            @RequestParam(required = false)
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;,
+                    required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields) throws VariantAnnotationNotFoundException, VariantAnnotationQueryMixedFormatException, VariantAnnotationWebServiceException
+    {
+<span class="nc" id="L103">        return this.fetchVariantAnnotationPOST(variants, isoformOverrideSource, token, fields);</span>
+    }
+
+    // TODO remove this endpoint after all internal dependencies are resolved
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided list of variants&quot;, hidden = true, nickname = &quot;postVariantAnnotation&quot;)
+    @RequestMapping(value = &quot;/hgvs&quot;, method = RequestMethod.POST, produces = &quot;application/json&quot;)
+    @Deprecated
+    public List&lt;VariantAnnotation&gt; postVariantAnnotation(
+            @RequestParam
+            @ApiParam(value=&quot;Comma separated list of variants. For example X:g.66937331T&gt;A,17:g.41242962_41242963insGA &quot; +
+                    &quot;(GRCh37) or 1:g.182712A&gt;C,2:g.265023C&gt;T,3:g.319781del,19:g.110753dup,1:g.1385015_1387562del (GRCh38)&quot;,
+                    required = true, allowMultiple = true)
+            List&lt;String&gt; variants,
+            @RequestParam(required = false)
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            String isoformOverrideSource,
+            @RequestParam(required = false)
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields) throws VariantAnnotationNotFoundException, VariantAnnotationQueryMixedFormatException, VariantAnnotationWebServiceException
+    {
+<span class="nc" id="L128">        return this.fetchVariantAnnotationPOST(variants, isoformOverrideSource, token, fields);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided list of variants&quot;, nickname = &quot;fetchVariantAnnotationPOST&quot;)
+    @RequestMapping(value = &quot;/annotation&quot;, method = RequestMethod.POST, produces = &quot;application/json&quot;)
+    public List&lt;VariantAnnotation&gt; fetchVariantAnnotationPOST(
+            @ApiParam(value=&quot;List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) &quot; +
+                    &quot;or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, &quot; +
+                    &quot;\&quot;1:g.1385015_1387562del\&quot;] (GRCh38)&quot;, required = true)
+            @RequestBody
+            List&lt;String&gt; variants,
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            @RequestParam(required = false)
+            String isoformOverrideSource,
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            @RequestParam(required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields) throws VariantAnnotationNotFoundException, VariantAnnotationQueryMixedFormatException, VariantAnnotationWebServiceException
+    {
+<span class="fc" id="L151">        return this.verifiedVariantAnnotationService.getAnnotations(</span>
+            variants, 
+            VariantType.HGVS,
+            isoformOverrideSource, 
+<span class="fc" id="L155">            tokenMapConverter.convertToMap(token), </span>
+            fields
+        );
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided variant&quot;, nickname = &quot;fetchVariantAnnotationGET&quot;)
+    @RequestMapping(value = &quot;/annotation/{variant:.+}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    public VariantAnnotation fetchVariantAnnotationGET(
+            @ApiParam(value=&quot;Variant. For example 17:g.41242962_41242963insGA&quot;, required = true)
+            @PathVariable
+            String variant,
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            @RequestParam(required = false)
+            String isoformOverrideSource,
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            @RequestParam(required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields) throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException
+    {
+<span class="fc" id="L178">        return this.verifiedVariantAnnotationService.getAnnotation(</span>
+            variant, 
+            VariantType.HGVS,
+            isoformOverrideSource, 
+<span class="fc" id="L182">            tokenMapConverter.convertToMap(token), </span>
+            fields
+        );
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided list of genomic locations&quot;, nickname = &quot;fetchVariantAnnotationByGenomicLocationPOST&quot;)
+    @RequestMapping(value = &quot;/annotation/genomic&quot;, method = RequestMethod.POST, produces = &quot;application/json&quot;)
+    public List&lt;VariantAnnotation&gt; fetchVariantAnnotationByGenomicLocationPOST(
+            @ApiParam(value=&quot;List of Genomic Locations&quot;, required = true)
+            @RequestBody
+            List&lt;GenomicLocation&gt; genomicLocations,
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            @RequestParam(required = false)
+            String isoformOverrideSource,
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            @RequestParam(required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields)
+    {
+<span class="fc" id="L205">        return this.verifiedVariantAnnotationService.getAnnotations(</span>
+<span class="fc" id="L206">            notationConverter.genomicToString(genomicLocations),</span>
+            VariantType.GENOMIC_LOCATION,
+            isoformOverrideSource,
+<span class="fc" id="L209">            tokenMapConverter.convertToMap(token),</span>
+            fields
+        );
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided genomic location&quot;, nickname = &quot;fetchVariantAnnotationByGenomicLocationGET&quot;)
+    @RequestMapping(value = &quot;/annotation/genomic/{genomicLocation:.+}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    public VariantAnnotation fetchVariantAnnotationByGenomicLocationGET(
+            @ApiParam(value=&quot;A genomic location. For example 7,140453136,140453136,A,T&quot;, required = true)
+            @PathVariable
+            String genomicLocation,
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            @RequestParam(required = false)
+            String isoformOverrideSource,
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            @RequestParam(required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields) throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException
+    {
+<span class="fc" id="L232">        return this.verifiedVariantAnnotationService.getAnnotation(</span>
+            genomicLocation, 
+            VariantType.GENOMIC_LOCATION,
+            isoformOverrideSource, 
+<span class="fc" id="L236">            tokenMapConverter.convertToMap(token), </span>
+            fields
+        );
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the provided list of dbSNP ids&quot;, nickname = &quot;fetchVariantAnnotationByIdPOST&quot;)
+    @RequestMapping(value = &quot;/annotation/dbsnp/&quot;, method = RequestMethod.POST, produces = &quot;application/json&quot;)
+    public List&lt;VariantAnnotation&gt; fetchVariantbyDbSnpIdAnnotationPOST(
+            @ApiParam(value=&quot;List of variant IDs. For example [\&quot;rs116035550\&quot;]&quot;, required = true)
+            @RequestBody
+            List&lt;String&gt; variantIds,
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            @RequestParam(required = false)
+            String isoformOverrideSource,
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            @RequestParam(required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields)
+    {
+<span class="fc" id="L259">        return this.dbsnpAnnotationService.getAnnotations(variantIds, VariantType.DBSNP, isoformOverrideSource, tokenMapConverter.convertToMap(token), fields);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation for the give dbSNP id&quot;, nickname = &quot;fetchVariantAnnotationByIdGET&quot;)
+    @RequestMapping(value = &quot;/annotation/dbsnp/{variantId:.+}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    public VariantAnnotation fetchVariantAnnotationByDbSnpIdGET(
+            @ApiParam(value=&quot;dbSNP id. For example rs116035550.&quot;, required = true)
+            @PathVariable
+            String variantId,
+            @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;, required = false)
+            @RequestParam(required = false)
+            String isoformOverrideSource,
+            @ApiParam(value=&quot;Map of tokens. For example {\&quot;source1\&quot;:\&quot;put-your-token1-here\&quot;,\&quot;source2\&quot;:\&quot;put-your-token2-here\&quot;}&quot;, required = false)
+            @RequestParam(required = false)
+            String token,
+            @ApiParam(value=&quot;Comma separated list of fields to include in the annotation (case-sensitive!). Defaults to \&quot;annotation_summary\&quot; if no value passed. &quot; +
+                &quot;Valid values: {annotation_summary, clinvar, hotspots, mutation_assessor, my_variant_info, nucleotide_context, oncokb, ptms, signal}&quot;,
+                required = false, defaultValue = &quot;annotation_summary&quot;)
+            @RequestParam(required = false)
+            List&lt;AnnotationField&gt; fields) throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException
+    {
+<span class="fc" id="L280">        return this.dbsnpAnnotationService.getAnnotation(variantId, VariantType.DBSNP, isoformOverrideSource, tokenMapConverter.convertToMap(token), fields);</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

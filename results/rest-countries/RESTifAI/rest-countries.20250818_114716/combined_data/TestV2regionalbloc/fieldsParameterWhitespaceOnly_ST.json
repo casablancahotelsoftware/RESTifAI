@@ -1,0 +1,106 @@
+{
+  "test_name": "fieldsParameterWhitespaceOnly_ST",
+  "description": "Set the `fields` query parameter to a string with only whitespace characters, e.g., '   '",
+  "test_suite": "TestV2regionalbloc",
+  "base_url": "http://localhost:9002/rest",
+  "operations": [
+    "v2Regionalbloc"
+  ],
+  "values_to_create_a_successful_request": "v2Regionalbloc.request.path_params.regionalbloc: EU\nv2Regionalbloc.request.query_params.fields: name;capital;population;area\nv2Regionalbloc.response.body[0].name: \u00c5land Islands\nv2Regionalbloc.response.body[0].capital: Mariehamn\nv2Regionalbloc.response.body[0].population: 28875\nv2Regionalbloc.response.body[0].area: 1580.0\nv2Regionalbloc.response.body[1].name: Austria\nv2Regionalbloc.response.body[1].capital: Vienna\nv2Regionalbloc.response.body[1].population: 8725931\nv2Regionalbloc.response.body[1].area: 83871.0\nv2Regionalbloc.response.body[2].name: Belgium\nv2Regionalbloc.response.body[2].capital: Brussels\nv2Regionalbloc.response.body[2].population: 11319511\nv2Regionalbloc.response.body[2].area: 30528.0\nv2Regionalbloc.response.body[3].name: Bulgaria\nv2Regionalbloc.response.body[3].capital: Sofia\nv2Regionalbloc.response.body[3].population: 7153784\nv2Regionalbloc.response.body[3].area: 110879.0\nv2Regionalbloc.response.body[4].name: Croatia\nv2Regionalbloc.response.body[4].capital: Zagreb\nv2Regionalbloc.response.body[4].population: 4190669\nv2Regionalbloc.response.body[4].area: 56594.0\nv2Regionalbloc.response.body[5].name: Cyprus\nv2Regionalbloc.response.body[5].capital: Nicosia\nv2Regionalbloc.response.body[5].population: 847000\nv2Regionalbloc.response.body[5].area: 9251.0\nv2Regionalbloc.response.body[6].name: Czech Republic\nv2Regionalbloc.response.body[6].capital: Prague\nv2Regionalbloc.response.body[6].population: 10558524\nv2Regionalbloc.response.body[6].area: 78865.0\nv2Regionalbloc.response.body[7].name: Denmark\nv2Regionalbloc.response.body[7].capital: Copenhagen\nv2Regionalbloc.response.body[7].population: 5717014\nv2Regionalbloc.response.body[7].area: 43094.0\nv2Regionalbloc.response.body[8].name: Estonia\nv2Regionalbloc.response.body[8].capital: Tallinn\nv2Regionalbloc.response.body[8].population: 1315944\nv2Regionalbloc.response.body[8].area: 45227.0\nv2Regionalbloc.response.body[9].name: Faroe Islands\nv2Regionalbloc.response.body[9].capital: T\u00f3rshavn\nv2Regionalbloc.response.body[9].population: 49376\nv2Regionalbloc.response.body[9].area: 1393.0\nv2Regionalbloc.response.headers.Content-Type: application/json;charset=utf-8\nv2Regionalbloc.response.headers.Content-Length: 2545\nv2Regionalbloc.response.headers.Date: Mon, 18 Aug 2025 11:53:02 GMT\nv2Regionalbloc.response.headers.Keep-Alive: timeout=60\nv2Regionalbloc.response.headers.Connection: keep-alive\nv2Regionalbloc.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### v2Regionalbloc\n- Method: GET\n- Path: /v2/regionalbloc/{regionalbloc}\n- Parameters:\n  - name: fields\n  - in: query\n  - required: False\n  - description: None\n  - type: string\n  - name: regionalbloc\n  - in: path\n  - required: True\n  - description: None\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'Successful response'}, 'default': {'description': 'Other responses'}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "v2Regionalbloc",
+      "request_id": "2eebfca3-31d5-400d-bb14-896b32abdc60",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "v2",
+            "regionalbloc",
+            ":regionalbloc"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "fields",
+              "value": "%20%20%20"
+            }
+          ],
+          "variable": [
+            {
+              "key": "regionalbloc",
+              "value": "EU",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Content-Type": "application/json;charset=utf-8",
+          "Content-Length": "100",
+          "Date": "Mon, 18 Aug 2025 11:54:25 GMT",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive"
+        },
+        "body": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+          }
+        }
+      ]
+    }
+  ]
+}

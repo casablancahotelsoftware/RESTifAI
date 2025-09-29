@@ -1,0 +1,95 @@
+{
+    "info": {
+        "name": "invalidTimeRangeOrder_FU",
+        "description": "Use `time` parameter with a time range where the start time is after the end time, e.g., time='2024-06-02T00:00:00Z/2024-06-01T00:00:00Z', which is logically invalid and should cause a 4xx error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177&filter=type%3Dnode%20and%20amenity%3Dparking&format=geojson&showMetadata=true&time=2024-06-02T00:00:00Z/2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dnode%20and%20amenity%3Dparking"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-02T00:00:00Z/2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922|13.3615,38.1157,13.3655,38.1177');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary.request.query_params.filter', 'type%3Dnode%20and%20amenity%3Dparking');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary.request.query_params.time', '2024-06-02T00:00:00Z/2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

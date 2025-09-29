@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApiObjectMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.config</a> &gt; <span class="el_source">ApiObjectMapper.java</span></div><h1>ApiObjectMapper.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.config;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.cbioportal.genome_nexus.web.mixin.*;
+import org.cbioportal.genome_nexus.web.mixin.my_variant_info_mixin.*;
+import org.cbioportal.genome_nexus.model.*;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.*;
+import org.cbioportal.genome_nexus.service.mixin.my_variant_info_mixin.AlleleCountMixin;
+import org.cbioportal.genome_nexus.service.mixin.my_variant_info_mixin.AlleleFrequencyMixin;
+import org.cbioportal.genome_nexus.service.mixin.my_variant_info_mixin.AlleleNumberMixin;
+import org.cbioportal.genome_nexus.service.mixin.my_variant_info_mixin.HomozygotesMixin;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class ApiObjectMapper extends ObjectMapper
+{
+    public ApiObjectMapper()
+<span class="fc" id="L20">    {</span>
+<span class="fc" id="L21">        Map&lt;Class&lt;?&gt;, Class&lt;?&gt;&gt; mixinMap = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L23">        mixinMap.put(GeneXref.class, GeneXrefMixin.class);</span>
+<span class="fc" id="L24">        mixinMap.put(Hotspot.class, HotspotMixin.class);</span>
+<span class="fc" id="L25">        mixinMap.put(MutationAssessor.class, MutationAssessorMixin.class);</span>
+<span class="fc" id="L26">        mixinMap.put(NucleotideContext.class, NucleotideContextMixin.class);</span>
+<span class="fc" id="L27">        mixinMap.put(PfamDomain.class, PfamDomainMixin.class);</span>
+<span class="fc" id="L28">        mixinMap.put(PdbHeader.class, PdbHeaderMixin.class);</span>
+<span class="fc" id="L29">        mixinMap.put(TranscriptConsequence.class, TranscriptConsequenceMixin.class);</span>
+<span class="fc" id="L30">        mixinMap.put(ColocatedVariant.class, ColocatedVariantMixin.class);</span>
+<span class="fc" id="L31">        mixinMap.put(TranscriptConsequenceSummary.class, TranscriptConsequenceSummaryMixin.class);</span>
+<span class="fc" id="L32">        mixinMap.put(VariantAnnotation.class, VariantAnnotationMixin.class);</span>
+<span class="fc" id="L33">        mixinMap.put(VariantAnnotationSummary.class, VariantAnnotationSummaryMixin.class);</span>
+<span class="fc" id="L34">        mixinMap.put(EnsemblTranscript.class, EnsemblTranscriptMixin.class);</span>
+<span class="fc" id="L35">        mixinMap.put(EnsemblGene.class, EnsemblGeneMixin.class);</span>
+<span class="fc" id="L36">        mixinMap.put(PfamDomainRange.class, PfamDomainRangeMixin.class);</span>
+<span class="fc" id="L37">        mixinMap.put(Exon.class, ExonMixin.class);</span>
+<span class="fc" id="L38">        mixinMap.put(UntranslatedRegion.class, UntranslatedRegionMixin.class);</span>
+<span class="fc" id="L39">        mixinMap.put(GenomicLocation.class, GenomicLocationMixin.class);</span>
+<span class="fc" id="L40">        mixinMap.put(AggregatedHotspots.class, AggregatedHotspotsMixin.class);</span>
+<span class="fc" id="L41">        mixinMap.put(ProteinLocation.class, ProteinLocationMixin.class);</span>
+<span class="fc" id="L42">        mixinMap.put(MyVariantInfo.class, MyVariantInfoMixin.class);</span>
+<span class="fc" id="L43">        mixinMap.put(Snpeff.class, SnpeffMixin.class);</span>
+<span class="fc" id="L44">        mixinMap.put(Ann.class, AnnMixin.class);</span>
+<span class="fc" id="L45">        mixinMap.put(Vcf.class, VcfMixin.class);</span>
+<span class="fc" id="L46">        mixinMap.put(Dbsnp.class, DbsnpMixin.class);</span>
+<span class="fc" id="L47">        mixinMap.put(Gene.class, GeneMixin.class);</span>
+<span class="fc" id="L48">        mixinMap.put(Alleles.class, AllelesMixin.class);</span>
+<span class="fc" id="L49">        mixinMap.put(Hg19.class, Hg19Mixin.class);</span>
+<span class="fc" id="L50">        mixinMap.put(Cosmic.class, CosmicMixin.class);</span>
+<span class="fc" id="L51">        mixinMap.put(MyVariantInfoClinVar.class, MyVariantInfoClinVarMixin.class);</span>
+<span class="fc" id="L52">        mixinMap.put(Hg38.class, Hg38Mixin.class);</span>
+<span class="fc" id="L53">        mixinMap.put(Mutdb.class, MutdbMixin.class);</span>
+<span class="fc" id="L54">        mixinMap.put(Gnomad.class, GnomadMixin.class);</span>
+<span class="fc" id="L55">        mixinMap.put(Rcv.class, RcvMixin.class);</span>
+<span class="fc" id="L56">        mixinMap.put(AlleleCount.class, AlleleCountMixin.class);</span>
+<span class="fc" id="L57">        mixinMap.put(AlleleNumber.class, AlleleNumberMixin.class);</span>
+<span class="fc" id="L58">        mixinMap.put(Homozygotes.class, HomozygotesMixin.class);</span>
+<span class="fc" id="L59">        mixinMap.put(AlleleFrequency.class, AlleleFrequencyMixin.class);</span>
+<span class="fc" id="L60">        mixinMap.put(IntergenicConsequences.class, IntergenicConsequencesMixin.class);</span>
+<span class="fc" id="L61">        mixinMap.put(SignalMutation.class, SignalMutationMixin.class);</span>
+<span class="fc" id="L62">        mixinMap.put(SignalQuery.class, SignalQueryMixin.class);</span>
+<span class="fc" id="L63">        mixinMap.put(CountByTumorType.class, CountByTumorTypeMixin.class);</span>
+<span class="fc" id="L64">        mixinMap.put(GeneralPopulationStats.class, GeneralPopulationStatsMixin.class);</span>
+<span class="fc" id="L65">        mixinMap.put(StatsByTumorType.class, StatsByTumorTypeMixin.class);</span>
+<span class="fc" id="L66">        mixinMap.put(SignalPopulationStats.class, SignalPopulationStatsMixin.class);</span>
+<span class="fc" id="L67">        mixinMap.put(HrdScore.class, HrdScoreMixin.class);</span>
+<span class="fc" id="L68">        super.setMixIns(mixinMap);</span>
+<span class="fc" id="L69">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

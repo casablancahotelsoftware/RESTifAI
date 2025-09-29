@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CountryRestV2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">restcountries</a> &gt; <a href="index.source.html" class="el_package">eu.fayder.restcountries.v2.rest</a> &gt; <span class="el_source">CountryRestV2.java</span></div><h1>CountryRestV2.java</h1><pre class="source lang-java linenums">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+package eu.fayder.restcountries.v2.rest;
+
+import com.google.gson.*;
+import eu.fayder.restcountries.domain.ResponseEntity;
+import eu.fayder.restcountries.v2.domain.Country;
+import eu.fayder.restcountries.domain.ICountryRestSymbols;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+@Component
+@Path(&quot;/v2&quot;)
+@Produces(MediaType.APPLICATION_JSON + &quot;;charset=utf-8&quot;)
+<span class="fc" id="L23">public class CountryRestV2 {</span>
+
+<span class="fc" id="L25">    private static final Logger LOG = Logger.getLogger(CountryRestV2.class);</span>
+
+    @GET
+    @Path(&quot;all&quot;)
+    public Object getAllCountries(@QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L30">        return this.getCountries(fields);</span>
+    }
+
+    @GET
+    public Object getCountries(@QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L35">        LOG.info(&quot;Getting all&quot;);</span>
+<span class="fc" id="L36">        List&lt;Country&gt; countries = CountryService.getInstance().getAll();</span>
+<span class="fc" id="L37">        return parsedCountries(countries, fields);</span>
+    }
+
+    @GET
+    @Path(&quot;alpha/{alphacode}&quot;)
+    public Object getByAlpha(@PathParam(&quot;alphacode&quot;) String alpha, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L43">        LOG.info(&quot;Getting by alpha &quot; + alpha);</span>
+<span class="pc bpc" id="L44" title="3 of 6 branches missed.">        if (isEmpty(alpha) || alpha.length() &lt; 2 || alpha.length() &gt; 3) {</span>
+<span class="nc" id="L45">            return getResponse(Response.Status.BAD_REQUEST);</span>
+        }
+<span class="fc" id="L47">        Country country = CountryService.getInstance().getByAlpha(alpha);</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (country != null) {</span>
+<span class="fc" id="L49">            return parsedCountry(country, fields);</span>
+        }
+<span class="nc" id="L51">        return getResponse(Response.Status.NOT_FOUND);</span>
+    }
+
+    @GET
+    @Path(&quot;alpha/&quot;)
+    public Object getByAlphaList(@QueryParam(&quot;codes&quot;) String codes, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L57">        LOG.info(&quot;Getting by list &quot; + codes);</span>
+<span class="pc bpc" id="L58" title="4 of 8 branches missed.">        if (isEmpty(codes) || codes.length() &lt; 2 || (codes.length() &gt; 3 &amp;&amp; !codes.contains(&quot;;&quot;))) {</span>
+<span class="fc" id="L59">            return getResponse(Response.Status.BAD_REQUEST);</span>
+        }
+        try {
+<span class="nc" id="L62">            List&lt;Country&gt; countries = CountryService.getInstance().getByCodeList(codes);</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (!countries.isEmpty()) {</span>
+<span class="nc" id="L64">                return parsedCountries(countries, fields);</span>
+            }
+<span class="nc" id="L66">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L67">        } catch (Exception e) {</span>
+<span class="nc" id="L68">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L69">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;currency/{currency}&quot;)
+    public Object getByCurrency(@PathParam(&quot;currency&quot;) String currency, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L76">        LOG.info(&quot;Getting by currency &quot; + currency);</span>
+<span class="pc bpc" id="L77" title="1 of 4 branches missed.">        if (isEmpty(currency) || currency.length() != 3) {</span>
+<span class="fc" id="L78">            return getResponse(Response.Status.BAD_REQUEST);</span>
+        }
+        try {
+<span class="fc" id="L81">            List&lt;Country&gt; countries = CountryService.getInstance().getByCurrency(currency);</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L83">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L85">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L86">        } catch (Exception e) {</span>
+<span class="nc" id="L87">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L88">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;name/{name}&quot;)
+    public Object getByName(@PathParam(&quot;name&quot;) String name, @QueryParam(&quot;fullText&quot;) boolean fullText, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L95">        LOG.info(&quot;Getting by name &quot; + name);</span>
+        try {
+<span class="fc" id="L97">            List&lt;Country&gt; countries = CountryService.getInstance().getByName(name, fullText);</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L99">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L101">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L102">        } catch (Exception e) {</span>
+<span class="nc" id="L103">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L104">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;callingcode/{callingcode}&quot;)
+    public Object getByCallingCode(@PathParam(&quot;callingcode&quot;) String callingcode, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L111">        LOG.info(&quot;Getting by calling code &quot; + callingcode);</span>
+        try {
+<span class="fc" id="L113">            List&lt;Country&gt; countries = CountryService.getInstance().getByCallingCode(callingcode);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L115">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L117">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L118">        } catch (Exception e) {</span>
+<span class="nc" id="L119">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L120">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;capital/{capital}&quot;)
+    public Object getByCapital(@PathParam(&quot;capital&quot;) String capital, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L127">        LOG.info(&quot;Getting by capital &quot; + capital);</span>
+        try {
+<span class="fc" id="L129">            List&lt;Country&gt; countries = CountryService.getInstance().getByCapital(capital);</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L131">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L133">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L134">        } catch (Exception e) {</span>
+<span class="nc" id="L135">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L136">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;region/{region}&quot;)
+    public Object getByRegion(@PathParam(&quot;region&quot;) String region, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L143">        LOG.info(&quot;Getting by region &quot; + region);</span>
+        try {
+<span class="fc" id="L145">            List&lt;Country&gt; countries = CountryService.getInstance().getByRegion(region);</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L147">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L149">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L150">        } catch (Exception e) {</span>
+<span class="nc" id="L151">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L152">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;subregion/{subregion}&quot;)
+    public Object getBySubRegion(@PathParam(&quot;subregion&quot;) String subregion, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L159">        LOG.info(&quot;Getting by sub region &quot; + subregion);</span>
+        try {
+<span class="fc" id="L161">            List&lt;Country&gt; countries = CountryService.getInstance().getBySubRegion(subregion);</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L163">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L165">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L166">        } catch (Exception e) {</span>
+<span class="nc" id="L167">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L168">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;lang/{lang}&quot;)
+    public Object getByLanguage(@PathParam(&quot;lang&quot;) String language, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L175">        LOG.info(&quot;Getting by language &quot; + language);</span>
+        try {
+<span class="fc" id="L177">            List&lt;Country&gt; countries = CountryService.getInstance().getByLanguage(language);</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L179">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L181">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L182">        } catch (Exception e) {</span>
+<span class="nc" id="L183">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L184">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;demonym/{demonym}&quot;)
+    public Object getByDemonym(@PathParam(&quot;demonym&quot;) String demonym, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L191">        LOG.info(&quot;Getting by demonym &quot; + demonym);</span>
+        try {
+<span class="fc" id="L193">            List&lt;Country&gt; countries = CountryService.getInstance().getByDemonym(demonym);</span>
+<span class="fc bfc" id="L194" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L195">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L197">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L198">        } catch (Exception e) {</span>
+<span class="nc" id="L199">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L200">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @GET
+    @Path(&quot;regionalbloc/{regionalbloc}&quot;)
+    public Object getByRegionalBloc(@PathParam(&quot;regionalbloc&quot;) String regionalBlock, @QueryParam(&quot;fields&quot;) String fields) {
+<span class="fc" id="L207">        LOG.info(&quot;Getting by regional bloc &quot; + regionalBlock);</span>
+        try {
+<span class="fc" id="L209">            List&lt;Country&gt; countries = CountryService.getInstance().getByRegionalBloc(regionalBlock);</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">            if (!countries.isEmpty()) {</span>
+<span class="fc" id="L211">                return parsedCountries(countries, fields);</span>
+            }
+<span class="fc" id="L213">            return getResponse(Response.Status.NOT_FOUND);</span>
+<span class="nc" id="L214">        } catch (Exception e) {</span>
+<span class="nc" id="L215">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L216">            return getResponse(Response.Status.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @POST
+    public Object doPOST() {
+<span class="nc" id="L222">        LOG.info(&quot;Handling POST Request&quot;);</span>
+<span class="nc" id="L223">        return getResponse(Response.Status.METHOD_NOT_ALLOWED);</span>
+    }
+
+    private Response getResponse(Response.Status status) {
+<span class="fc" id="L227">        Gson gson = new Gson();</span>
+<span class="fc" id="L228">        return Response</span>
+<span class="fc" id="L229">                .status(status)</span>
+<span class="fc" id="L230">                .entity(gson.toJson(new ResponseEntity(status.getStatusCode(),</span>
+<span class="fc" id="L231">                        status.getReasonPhrase()))).build();</span>
+    }
+
+    private Object parsedCountry(Country country, String fields) {
+<span class="pc bpc" id="L235" title="1 of 4 branches missed.">        if (fields == null || fields.isEmpty()) {</span>
+<span class="fc" id="L236">            return country;</span>
+        } else {
+<span class="fc" id="L238">            return getCountryJson(country, Arrays.asList(fields.split(ICountryRestSymbols.SEMICOLON)));</span>
+        }
+    }
+
+    private Object parsedCountries(List&lt;Country&gt; countries, String excludedFields) {
+<span class="fc bfc" id="L243" title="All 4 branches covered.">        if (excludedFields == null || excludedFields.isEmpty()) {</span>
+<span class="fc" id="L244">            return countries;</span>
+        } else {
+<span class="fc" id="L246">            return getCountriesJson(countries, Arrays.asList(excludedFields.split(ICountryRestSymbols.SEMICOLON)));</span>
+        }
+    }
+
+    private String getCountryJson(Country country, List&lt;String&gt; fields) {
+<span class="fc" id="L251">        Gson gson = new Gson();</span>
+<span class="fc" id="L252">        JsonParser parser = new JsonParser();</span>
+<span class="fc" id="L253">        JsonObject jsonObject = parser.parse(gson.toJson(country)).getAsJsonObject();</span>
+
+<span class="fc" id="L255">        List&lt;String&gt; excludedFields = getExcludedFields(fields);</span>
+<span class="fc bfc" id="L256" title="All 2 branches covered.">        for (String field : excludedFields) {</span>
+<span class="fc" id="L257">            jsonObject.remove(field);</span>
+<span class="fc" id="L258">        }</span>
+<span class="fc" id="L259">        return jsonObject.toString();</span>
+    }
+
+    private String getCountriesJson(List&lt;Country&gt; countries, List&lt;String&gt; fields) {
+<span class="fc" id="L263">        Gson gson = new Gson();</span>
+<span class="fc" id="L264">        JsonParser parser = new JsonParser();</span>
+<span class="fc" id="L265">        JsonArray jsonArray = parser.parse(gson.toJson(countries)).getAsJsonArray();</span>
+<span class="fc" id="L266">        JsonArray resultArray = new JsonArray();</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">        for (int i = 0; i &lt; jsonArray.size(); i++) {</span>
+<span class="fc" id="L268">            JsonObject jsonObject = (JsonObject) jsonArray.get(i);</span>
+
+<span class="fc" id="L270">            List&lt;String&gt; excludedFields = getExcludedFields(fields);</span>
+<span class="fc bfc" id="L271" title="All 2 branches covered.">            for (String excludedField : excludedFields) {</span>
+<span class="fc" id="L272">                jsonObject.remove(excludedField);</span>
+<span class="fc" id="L273">            }</span>
+<span class="fc" id="L274">            resultArray.add(jsonObject);</span>
+        }
+<span class="fc" id="L276">        return resultArray.toString();</span>
+    }
+
+    private List&lt;String&gt; getExcludedFields(List&lt;String&gt; fields) {
+<span class="fc" id="L280">        List&lt;String&gt; excludedFields = new ArrayList&lt;&gt;(Arrays.asList(COUNTRY_FIELDS));</span>
+<span class="fc" id="L281">        excludedFields.removeAll(fields);</span>
+<span class="fc" id="L282">        return excludedFields;</span>
+    }
+
+<span class="fc" id="L285">    private static final String[] COUNTRY_FIELDS = new String[]{</span>
+            &quot;name&quot;,
+            &quot;topLevelDomain&quot;,
+            &quot;alpha2Code&quot;,
+            &quot;alpha3Code&quot;,
+            &quot;callingCodes&quot;,
+            &quot;capital&quot;,
+            &quot;altSpellings&quot;,
+            &quot;region&quot;,
+            &quot;subregion&quot;,
+            &quot;translations&quot;,
+            &quot;population&quot;,
+            &quot;latlng&quot;,
+            &quot;demonym&quot;,
+            &quot;area&quot;,
+            &quot;gini&quot;,
+            &quot;timezones&quot;,
+            &quot;borders&quot;,
+            &quot;nativeName&quot;,
+            &quot;numericCode&quot;,
+            &quot;currencies&quot;,
+            &quot;languages&quot;,
+            &quot;flag&quot;,
+            &quot;regionalBlocs&quot;,
+            &quot;cioc&quot;
+    };
+
+    private boolean isEmpty(String value) {
+<span class="pc bpc" id="L313" title="2 of 4 branches missed.">        return value == null || value.isEmpty();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

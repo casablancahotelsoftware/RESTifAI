@@ -1,0 +1,100 @@
+{
+    "info": {
+        "name": "bcirclesMissingRadius_ST",
+        "description": "Set the `bcircles` query parameter to a string missing the radius value, e.g., '12.4923,41.8902,'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterDensityGroupByType",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|12.4930,41.8890,12.4932,41.8892&filter=type%3Droad%20and%20geometryType%3DLineString%20and%20highway%3D%2A&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30&bcircles=12.4923,41.8902,",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4925,41.8904|12.4930,41.8890,12.4932,41.8892"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Droad%20and%20geometryType%3DLineString%20and%20highway%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bcircles",
+                            "value": "12.4923,41.8902,"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.bboxes', '12.4923,41.8902,12.4925,41.8904|12.4930,41.8890,12.4932,41.8892');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.filter', 'type%3Droad%20and%20geometryType%3DLineString%20and%20highway%3D%2A');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.timeout', '30');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByType.request.query_params.bcircles', '12.4923,41.8902,');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,176 @@
+{
+    "info": {
+        "name": "boundaryOutsideDataCoverage_FU",
+        "description": "Use a `bpolys` polygon that is valid but completely outside the dataset coverage area, e.g., a polygon around Antarctica when no data exists there, to test no data coverage for boundary.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=true&time=2014-01-01/2017-01-01/P1Y&timeout=30&bpolys=POLYGON%28%2860%20-90%2C%20120%20-90%2C%20120%20-85%2C%2060%20-85%2C%2060%20-90%29%29",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "POLYGON%28%2860%20-90%2C%20120%20-90%2C%20120%20-85%2C%2060%20-85%2C%2060%20-90%29%29"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');",
+                            "pm.collectionVariables.set('area.request.query_params.bpolys', 'POLYGON%28%2860%20-90%2C%20120%20-90%2C%20120%20-85%2C%2060%20-85%2C%2060%20-90%29%29');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "areaGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=true&time=2014-01-01/2017-01-01/P1Y&timeout=30&bpolys=POLYGON%28%2860%20-90%2C%20120%20-90%2C%20120%20-85%2C%2060%20-85%2C%2060%20-90%29%29",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "POLYGON%28%2860%20-90%2C%20120%20-90%2C%20120%20-85%2C%2060%20-85%2C%2060%20-90%29%29"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.timeout', 30);",
+                            "pm.collectionVariables.set('areaGroupByBoundary.request.query_params.bpolys', 'POLYGON%28%2860%20-90%2C%20120%20-90%2C%20120%20-85%2C%2060%20-85%2C%2060%20-90%29%29');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

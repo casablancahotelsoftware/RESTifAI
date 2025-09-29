@@ -1,0 +1,1930 @@
+{
+    "test_name": "TestCountdensitygroupbytype_2",
+    "test_results": [
+        {
+            "test_case_name": "timeIntervalInFuture_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "62043195-c6a3-4e86-8762-b708388ff30f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2050-01-01T00:00:00Z/2050-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 2xx",
+                                "message": "expected 404 to be within 200..299",
+                                "stack": "AssertionError: expected 404 to be within 200..299\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:44 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:40:44.270048421\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2050-01-01T00:00:00Z/2050-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contributionTypeInvalidValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "366ada84-2fad-476b-81a5-4cf566bfdc14",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "update"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:45 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:40:45.288128646\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=update&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesIncompleteCoordinates_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "2d1f356a-007d-4207-8bb2-facdae942f24",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:45 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:40:46.239231634\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeIntervalStartAfterEnd_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "808aced5-1c9a-442f-88e8-b5ddbf170475",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-12-31T23:59:59Z/2023-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:49 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2692,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-12-31T23:59:59Z/2023-01-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterContradictoryConditions_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "c2e058f4-96ce-4156-8fb0-0c9a866c3a6c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20osm_type%3Dway"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2373,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20osm_type%3Dway&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeMalformedIso8601Interval_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "62902482-3376-446f-ad90-e9c7f5a61ca1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01/2023-13-01"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:40:54.012515881\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01/2023-13-01&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesEmptyString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "a054fb7c-b278-4f6e-9b28-b5482bb7bb5d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:40:54.886205953\",\n  \"status\" : 400,\n  \"message\" : \"You need to define one of the boundary parameters (bboxes, bcircles, bpolys).\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeoutNonNumericString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "c004b530-a5b2-46be-a9c1-2168e444ab25",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:40:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:40:55.850033809\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesOverlappingAreas_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "353b15bc-80f1-44ad-a466-27058d02ade5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|12.4924,41.8903,12.4926,41.8905"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:01 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 4393,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|12.4924,41.8903,12.4926,41.8905&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "showMetadataInvalidBoolean_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "93fbd29e-3bd5-47ab-a20d-c01293632341",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "yes"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2617,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=yes&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contributionTypeEmptyString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "f4c1ad55-fd80-4c6c-b1ff-7bd6e8592fb9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:05.853675075\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesZeroArea_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "a1106926-b25b-4a15-ba0b-9365b7157387",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4923,41.8902"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:06 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 63,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4923,41.8902&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : \"NaN\"\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : \"NaN\"\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : \"NaN\"\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "formatEmptyString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "9766b7f6-a37d-420f-a356-71587f1337ac",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:09 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2759,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeoutZeroValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "1d59f2ab-1336-4810-906b-fd17c753f515",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:11.619920097\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bpolysSelfIntersectingPolygon_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "d232c5fe-f479-4cbc-8865-9d45eb17022e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "12.0,12.0,14.0,14.0,14.0,12.0,12.0,14.0,14.0,12.0,12.0,12.0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:12 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:12.518758475\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=12.0,12.0,14.0,14.0,14.0,12.0,12.0,14.0,14.0,12.0,12.0,12.0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bpolysInvalidGeoJson_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "6add1b35-3f74-430d-8d8b-6ce659e58b65",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%22Feature%22%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:12 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:13.418960568\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30&bpolys=%7B%22type%22%3A%22Feature%22%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "formatInvalidValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "db94172a-fe18-4dcb-ba9d-f794e5a2e578",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:14 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:14.254403596\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=xml&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contributionTypeFilterLogicalConflict_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "95b84870-0374-494f-b432-a52389148150",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Ddeleted"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2989,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Ddeleted&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "ff3626bd-464c-4686-a9fa-e29f350a0fe2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:21 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 2854,\n    \"description\" : \"Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the type.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"node\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"way\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"relation\",\n    \"result\" : [ {\n      \"fromTimestamp\" : \"2023-01-01T00:00:00Z\",\n      \"toTimestamp\" : \"2023-12-31T23:59:59Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bboxesOutOfRangeCoordinates_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "051153d8-892b-423d-a606-095ba5706213",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "190,10,191,11|12.4923,41.8902,12.4925,41.8904"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": "creation,deletion"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:22.799157269\",\n  \"status\" : 404,\n  \"message\" : \"The provided boundary parameter does not lie completely within the underlying data-extract polygon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=190,10,191,11|12.4923,41.8902,12.4925,41.8904&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contributionTypeEmptyList_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByType_2",
+                    "id": "ff0b6fca-daf0-4010-84e4-8a64a3d120f8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "users",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "type"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                                },
+                                {
+                                    "key": "contributionType",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 17:41:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T17:41:23.791098561\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T17:41:24.129115",
+    "statistics": {
+        "total_test_cases": 21,
+        "passed_test_cases": 13,
+        "failed_test_cases": 8,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 21,
+        "success_rate": 61.904761904761905,
+        "avg_requests_per_case": 1.0
+    }
+}

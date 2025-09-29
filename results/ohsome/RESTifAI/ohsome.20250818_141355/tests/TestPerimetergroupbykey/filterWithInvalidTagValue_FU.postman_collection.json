@@ -1,0 +1,99 @@
+{
+    "info": {
+        "name": "filterWithInvalidTagValue_FU",
+        "description": "Set the `filter` parameter to a valid key but with an invalid value that does not exist in the domain, e.g., filter=highway=spaceport, where 'spaceport' is not a valid highway value.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterGroupByKey",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&groupByKeys=building&filter=highway%3Dspaceport&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "groupBy",
+                        "key"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                        },
+                        {
+                            "key": "groupByKeys",
+                            "value": "building"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "highway%3Dspaceport"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162');",
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.groupByKeys', 'building');",
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.filter', 'highway%3Dspaceport');",
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterGroupByKey.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

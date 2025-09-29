@@ -1,0 +1,95 @@
+{
+    "info": {
+        "name": "timeoutNonNumeric_ST",
+        "description": "Set the `timeout` query parameter to a non-numeric string, e.g., 'thirty'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "perimeterDensityGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/perimeter/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&filter=type%3Dbuilding%20and%20geometry%3Dpolygon%20and%20amenity%3Dschool&format=geojson&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=thirty",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "perimeter",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dbuilding%20and%20geometry%3Dpolygon%20and%20amenity%3Dschool"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "thirty"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.filter', 'type%3Dbuilding%20and%20geometry%3Dpolygon%20and%20amenity%3Dschool');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('perimeterDensityGroupByBoundary.request.query_params.timeout', 'thirty');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

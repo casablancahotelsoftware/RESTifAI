@@ -1,0 +1,164 @@
+{
+    "info": {
+        "name": "bodyArrayContainsEmptyString_ST",
+        "description": "Send a request body array with an empty string as an item, e.g., [\"\"] (assuming empty string is invalid)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchVariantAnnotationPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/annotation?isoformOverrideSource=uniprot&token=%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D&fields=hotspots",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "annotation"
+                    ],
+                    "query": [
+                        {
+                            "key": "isoformOverrideSource",
+                            "value": "uniprot"
+                        },
+                        {
+                            "key": "token",
+                            "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                        },
+                        {
+                            "key": "fields",
+                            "value": "hotspots"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.query_params.isoformOverrideSource', 'uniprot');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.query_params.token', '%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.query_params.fields', 'hotspots');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchVariantAnnotationPOST.request.body', [\"\"]);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "fetchPdbHeaderPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"1TUP\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/pdb/header",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "pdb",
+                        "header"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderPOST.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('fetchPdbHeaderPOST.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('fetchPdbHeaderPOST.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchPdbHeaderPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchPdbHeaderPOST.request.body.[0]', '1TUP');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

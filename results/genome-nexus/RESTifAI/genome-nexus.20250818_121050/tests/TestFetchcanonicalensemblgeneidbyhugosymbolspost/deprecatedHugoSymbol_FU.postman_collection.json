@@ -1,0 +1,85 @@
+{
+    "info": {
+        "name": "deprecatedHugoSymbol_FU",
+        "description": "Send a request body containing a Hugo symbol that is deprecated and no longer valid, e.g., [\"FANCS\"], which is a synonym but not an approved symbol, to test rejection of deprecated symbols.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  \"FANCS\",\n  \"BRCA1\",\n  \"EGFR\",\n  \"MYC\",\n  \"PTEN\",\n  \"KRAS\",\n  \"CDKN2A\",\n  \"APOE\",\n  \"TNF\",\n  \"VEGFA\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/ensembl/canonical-gene/hgnc",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "ensembl",
+                        "canonical-gene",
+                        "hgnc"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[0]', 'FANCS');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[1]', 'BRCA1');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[2]', 'EGFR');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[3]', 'MYC');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[4]', 'PTEN');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[5]', 'KRAS');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[6]', 'CDKN2A');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[7]', 'APOE');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[8]', 'TNF');",
+                            "pm.collectionVariables.set('fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST.request.body.[9]', 'VEGFA');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

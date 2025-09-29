@@ -1,0 +1,1164 @@
+{
+    "test_name": "TestFetchcanonicalensembltranscriptbyhugosymbolget",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "df098008-07bd-45ee-9a29-d26754c3bf50",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:16 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "fa4f8d1e-474e-434b-a2d9-25f233ba140f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:16 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "isoformOverrideSourceBoolean_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "316d7c0d-9826-45cf-911e-7c7861444b42",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:17 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "a7c8e844-0f72-40cf-a4aa-df165c275725",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "True"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:17 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidIsoformOverrideSourceForExistingGene_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "5d43479e-0801-469f-9d9d-a4a869833dc9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:18 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "b6f45b62-f6c3-4e96-a72d-e43292f44b2d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "unknownsource"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:18 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "deprecatedCanonicalTranscript_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "bdd903d7-762b-4a4a-a951-fad659f38b2b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:19 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "75b64365-1596-47e6-9b40-8f51e55fb350",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:19 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "isoformOverrideSourceEmptyString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "1f8c09b6-67e7-4034-bb9f-0e442f3c65f3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:20 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "fc9785a7-bc24-40fe-a11f-99c76abd899b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": ""
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:20 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "hugoSymbolEmptyString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "5db0f06f-f5ad-4cac-9851-a2519bd5ffec",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Allow": "POST",
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:22 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "37f0150d-1858-4c00-8ded-56923e466e19",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Allow": "POST",
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:22 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "hugoSymbolInvalidCharacters_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "c98fde96-5cc4-45b2-866f-951c92865b08",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53/../",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:23 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "e24a9651-97be-4b1f-9b59-33f6b4b296c1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53/../",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:23 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentHugoSymbol_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "34d1578d-74fb-44c0-a905-cf9030d60d98",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "FAKEGENE",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:25 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "a0bcb081-7a7c-4221-aed1-b58873563578",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "FAKEGENE",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:25 GMT"
+                    },
+                    "response_body": "{\"message\":\"Ensembl transcript not found: FAKEGENE\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "isoformOverrideSourceAsInteger_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "485e6d64-9f29-4963-a5c4-1085f635469c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:26 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "ffe3808b-4700-4aa9-8460-5af2e117af30",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "123"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:26 GMT"
+                    },
+                    "response_body": "{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "pseudogeneNoCanonicalTranscript_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "09db76f7-94fc-4250-8649-e5d66622c1b2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53P1",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:26 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+                    "id": "5f266d5a-c586-4095-b525-af3f7a93a48d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53P1",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:26 GMT"
+                    },
+                    "response_body": "{\"message\":\"Ensembl transcript not found: TP53P1\"}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:28:26.457990",
+    "statistics": {
+        "total_test_cases": 10,
+        "passed_test_cases": 2,
+        "failed_test_cases": 8,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 20,
+        "success_rate": 20.0,
+        "avg_requests_per_case": 2.0
+    }
+}

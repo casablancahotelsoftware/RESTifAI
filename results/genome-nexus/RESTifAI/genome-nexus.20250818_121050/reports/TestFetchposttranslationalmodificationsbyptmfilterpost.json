@@ -1,0 +1,2298 @@
+{
+    "test_name": "TestFetchposttranslationalmodificationsbyptmfilterpost",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "53fb9497-e76f-40e0-a80f-9ad5c498b517",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:42 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "c9cd7eb4-c13c-477f-8e42-d211e2c50c32",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:42 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "c6d50cc3-8934-43b9-8e5f-e460a5241b49",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"{{fetchPostTranslationalModificationsByPtmFilterPOST.request.body.transcriptIds[0]}}\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:42 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithDuplicateEntries_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "adc0d98e-7b79-4162-a8bc-f0ec16ce0f5e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:44 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "bdb61f10-bcb6-4274-8f17-869e77016c8d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:44 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "d468cc8a-8660-4332-89c9-2bc437f5d916",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000269305\",\n    \"ENST00000269305\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:44 GMT"
+                    },
+                    "response_body": "[{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":124,\"type\":\"S-nitrosylation\",\"pubmedIds\":[\"7791795\",\"23796488\",\"15998249\"],\"sequence\":\"LHSGTAKSVTCTYSPALNKMF\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":141,\"type\":\"S-nitrosylation\",\"pubmedIds\":[\"7791795\",\"23796488\",\"15998249\"],\"sequence\":\"NKMFCQLAKTCPVQLWVDSTP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":182,\"type\":\"S-nitrosylation\",\"pubmedIds\":[\"7791795\",\"23796488\",\"15998249\"],\"sequence\":\"VVRRCPHHERCSDSDGLAPPQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":386,\"type\":\"Sumoylation\",\"pubmedIds\":[\"22214662\",\"11124955\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":120,\"type\":\"Acetylation\",\"pubmedIds\":[\"23431171\"],\"sequence\":\"RLGFLHSGTAKSVTCTYSPAL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":164,\"type\":\"Acetylation\",\"pubmedIds\":[\"18485870\"],\"sequence\":\"GTRVRAMAIYKQSQHMTEVVR\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":173,\"type\":\"Acetylation\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"PHHELPPGSTKRALPNNTSSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":187,\"type\":\"Acetylation\",\"pubmedIds\":[\"17110336\"],\"sequence\":\"PNNTSSSPQPKKKPLDGEYFT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":188,\"type\":\"Acetylation\",\"pubmedIds\":[\"9891054\",\"9744860\",\"17110336\"],\"sequence\":\"NNTSSSPQPKKKPLDGEYFTL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":160,\"type\":\"Acetylation\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"RRTEEENLRKKGEPHHELPPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":189,\"type\":\"Acetylation\",\"pubmedIds\":[\"19608861\",\"17110336\"],\"sequence\":\"NTSSSPQPKKKPLDGEYFTLQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":238,\"type\":\"Acetylation\",\"pubmedIds\":[\"17108971\",\"9288740\",\"17110336\"],\"sequence\":\"GGSRAHSSHLKSKKGQSTSRH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":240,\"type\":\"Acetylation\",\"pubmedIds\":[\"17108971\",\"9288740\",\"16415881\",\"17110336\"],\"sequence\":\"SRAHSSHLKSKKGQSTSRHKK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":241,\"type\":\"Acetylation\",\"pubmedIds\":[\"9288740\",\"11094089\",\"17110336\"],\"sequence\":\"RAHSSHLKSKKGQSTSRHKKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":250,\"type\":\"Acetylation\",\"pubmedIds\":[\"9744860\",\"19608861\"],\"sequence\":\"KKGQSTSRHKKLMFKTEGPDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":253,\"type\":\"Acetylation\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"RRTEEENLRKKGEPHHELPPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":254,\"type\":\"Acetylation\",\"pubmedIds\":[\"17110336\",\"11046142\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":249,\"type\":\"Acetylation\",\"pubmedIds\":[\"9288740\",\"19608861\",\"17110336\"],\"sequence\":\"SKKGQSTSRHKKLMFKTEGPD\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":266,\"type\":\"Acetylation\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"PHHELPPGSTKRALPNNTSSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":280,\"type\":\"Acetylation\",\"pubmedIds\":[\"17110336\"],\"sequence\":\"PNNTSSSPQPKKKPLDGEYFT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":281,\"type\":\"Acetylation\",\"pubmedIds\":[\"9891054\",\"9744860\",\"17110336\"],\"sequence\":\"NNTSSSPQPKKKPLDGEYFTL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":282,\"type\":\"Acetylation\",\"pubmedIds\":[\"19608861\",\"17110336\"],\"sequence\":\"NTSSSPQPKKKPLDGEYFTLQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":292,\"type\":\"Acetylation\",\"pubmedIds\":[\"20167786\",\"12724314\",\"19608861\"],\"sequence\":\"RRTEEENLRKKGEPHHELPPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":305,\"type\":\"Acetylation\",\"pubmedIds\":[\"12724314\"],\"sequence\":\"PHHELPPGSTKRALPNNTSSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":319,\"type\":\"Acetylation\",\"pubmedIds\":[\"19155208\",\"17267393\"],\"sequence\":\"PNNTSSSPQPKKKPLDGEYFT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":320,\"type\":\"Acetylation\",\"pubmedIds\":[\"19155208\",\"9891054\",\"17267393\",\"9744860\"],\"sequence\":\"NNTSSSPQPKKKPLDGEYFTL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":321,\"type\":\"Acetylation\",\"pubmedIds\":[\"19608861\"],\"sequence\":\"NTSSSPQPKKKPLDGEYFTLQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":370,\"type\":\"Acetylation\",\"pubmedIds\":[\"9288740\",\"21057544\",\"19155208\",\"18485870\",\"12724314\"],\"sequence\":\"GGSRAHSSHLKSKKGQSTSRH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":357,\"type\":\"Acetylation\",\"pubmedIds\":[\"19155208\"],\"sequence\":\"ALELKDAQAGKEPGGSRAHSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":373,\"type\":\"Acetylation\",\"pubmedIds\":[\"10656795\"],\"sequence\":\"RAHSSHLKSKKGQSTSRHKKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":381,\"type\":\"Acetylation\",\"pubmedIds\":[\"19608861\"],\"sequence\":\"SKKGQSTSRHKKLMFKTEGPD\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":372,\"type\":\"Acetylation\",\"pubmedIds\":[\"18753126\",\"9288740\",\"19155208\",\"18485870\",\"12724314\"],\"sequence\":\"SRAHSSHLKSKKGQSTSRHKK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":382,\"type\":\"Acetylation\",\"pubmedIds\":[\"23431171\",\"10656795\",\"20228809\",\"19608861\"],\"sequence\":\"KKGQSTSRHKKLMFKTEGPDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":386,\"type\":\"Acetylation\",\"pubmedIds\":[\"18485870\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":110,\"type\":\"Methylation\",\"pubmedIds\":[\"5168515\"],\"sequence\":\"QKTYQGSYGFRLGFLHSGTAK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":115,\"type\":\"Methylation\",\"pubmedIds\":[\"5168519\"],\"sequence\":\"GSYGFRLGFLHSGTAKSVTCT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":209,\"type\":\"Methylation\",\"pubmedIds\":[\"5168513\"],\"sequence\":\"GNLRVEYLDDRNTFRHSVVVP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":213,\"type\":\"Methylation\",\"pubmedIds\":[\"5168517\"],\"sequence\":\"VEYLDDRNTFRHSVVVPYEPP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":238,\"type\":\"Methylation\",\"pubmedIds\":[\"17108971\",\"9288740\",\"17110336\"],\"sequence\":\"GGSRAHSSHLKSKKGQSTSRH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":240,\"type\":\"Methylation\",\"pubmedIds\":[\"17108971\",\"9288740\",\"16415881\",\"17110336\"],\"sequence\":\"SRAHSSHLKSKKGQSTSRHKK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":241,\"type\":\"Methylation\",\"pubmedIds\":[\"9288740\",\"11094089\",\"17110336\"],\"sequence\":\"RAHSSHLKSKKGQSTSRHKKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":250,\"type\":\"Methylation\",\"pubmedIds\":[\"9744860\",\"19608861\"],\"sequence\":\"KKGQSTSRHKKLMFKTEGPDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":254,\"type\":\"Methylation\",\"pubmedIds\":[\"17110336\",\"11046142\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":333,\"type\":\"Methylation\",\"pubmedIds\":[\"10018225\"],\"sequence\":\"LDGEYFTLQIRGRERFEMFRE\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":290,\"type\":\"Methylation\",\"pubmedIds\":[\"115486213\"],\"sequence\":\"RDRRTEEENLRKKGEPHHELP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":335,\"type\":\"Methylation\",\"pubmedIds\":[\"10018215\"],\"sequence\":\"GEYFTLQIRGRERFEMFRELN\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":337,\"type\":\"Methylation\",\"pubmedIds\":[\"10018205\"],\"sequence\":\"YFTLQIRGRERFEMFRELNEA\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":370,\"type\":\"Methylation\",\"pubmedIds\":[\"17108971\",\"22864287\"],\"sequence\":\"GGSRAHSSHLKSKKGQSTSRH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":373,\"type\":\"Methylation\",\"pubmedIds\":[\"20118233\"],\"sequence\":\"RAHSSHLKSKKGQSTSRHKKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":372,\"type\":\"Methylation\",\"pubmedIds\":[\"15525938\",\"16415881\"],\"sequence\":\"SRAHSSHLKSKKGQSTSRHKK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":382,\"type\":\"Methylation\",\"pubmedIds\":[\"20870725\",\"17707234\",\"22864287\"],\"sequence\":\"KKGQSTSRHKKLMFKTEGPDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":386,\"type\":\"Methylation\",\"pubmedIds\":[\"25514926\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":124,\"type\":\"Glutathionylation\",\"pubmedIds\":[\"17555331\",\"22555962\",\"22833525\"],\"sequence\":\"LHSGTAKSVTCTYSPALNKMF\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":141,\"type\":\"Glutathionylation\",\"pubmedIds\":[\"17555331\",\"22833525\"],\"sequence\":\"NKMFCQLAKTCPVQLWVDSTP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":182,\"type\":\"Glutathionylation\",\"pubmedIds\":[\"17555331\",\"22833525\"],\"sequence\":\"VVRRCPHHERCSDSDGLAPPQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":101,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17371868\"],\"sequence\":\"WPLSSSVPSQKTYQGSYGFRL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":120,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"21139048\",\"19536131\",\"22053931\"],\"sequence\":\"RLGFLHSGTAKSVTCTYSPAL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":132,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17371868\"],\"sequence\":\"VTCTYSPALNKMFCQLAKTCP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":139,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17371868\"],\"sequence\":\"ALNKMFCQLAKTCPVQLWVDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":160,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"RRTEEENLRKKGEPHHELPPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":164,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17371868\"],\"sequence\":\"GTRVRAMAIYKQSQHMTEVVR\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":173,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"PHHELPPGSTKRALPNNTSSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":187,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17110336\"],\"sequence\":\"PNNTSSSPQPKKKPLDGEYFT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":188,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"9891054\",\"9744860\",\"17110336\"],\"sequence\":\"NNTSSSPQPKKKPLDGEYFTL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":189,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19608861\",\"17110336\"],\"sequence\":\"NTSSSPQPKKKPLDGEYFTLQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":219,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"FRELNEALELKDAQAGKEPGG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":225,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"ALELKDAQAGKEPGGSRAHSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":238,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17108971\",\"9288740\",\"17110336\"],\"sequence\":\"GGSRAHSSHLKSKKGQSTSRH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":241,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"9288740\",\"11094089\",\"17110336\"],\"sequence\":\"RAHSSHLKSKKGQSTSRHKKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":240,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17108971\",\"9288740\",\"16415881\",\"17110336\"],\"sequence\":\"SRAHSSHLKSKKGQSTSRHKK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":250,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"9744860\",\"19608861\"],\"sequence\":\"KKGQSTSRHKKLMFKTEGPDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":253,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"RRTEEENLRKKGEPHHELPPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":249,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"9288740\",\"19608861\",\"17110336\"],\"sequence\":\"SKKGQSTSRHKKLMFKTEGPD\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":254,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17110336\",\"11046142\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":266,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"12724314\",\"19608861\"],\"sequence\":\"PHHELPPGSTKRALPNNTSSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":281,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"9891054\",\"9744860\",\"17110336\"],\"sequence\":\"NNTSSSPQPKKKPLDGEYFTL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":282,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19608861\",\"17110336\"],\"sequence\":\"NTSSSPQPKKKPLDGEYFTLQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":280,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"17110336\"],\"sequence\":\"PNNTSSSPQPKKKPLDGEYFT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":291,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"21139048\",\"19536131\",\"22053931\"],\"sequence\":\"DRRTEEENLRKKGEPHHELPP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":292,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19536131\"],\"sequence\":\"RRTEEENLRKKGEPHHELPPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":305,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19857530\"],\"sequence\":\"PHHELPPGSTKRALPNNTSSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":320,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19857530\"],\"sequence\":\"NNTSSSPQPKKKPLDGEYFTL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":321,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19857530\"],\"sequence\":\"NTSSSPQPKKKPLDGEYFTLQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":319,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"19927155\"],\"sequence\":\"PNNTSSSPQPKKKPLDGEYFT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":351,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"FRELNEALELKDAQAGKEPGG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":357,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"21139048\",\"19536131\",\"22053931\"],\"sequence\":\"ALELKDAQAGKEPGGSRAHSS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":372,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"SRAHSSHLKSKKGQSTSRHKK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":370,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"21139048\",\"19536131\",\"22053931\"],\"sequence\":\"GGSRAHSSHLKSKKGQSTSRH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":373,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"RAHSSHLKSKKGQSTSRHKKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":382,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"KKGQSTSRHKKLMFKTEGPDS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":381,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"11046142\"],\"sequence\":\"SKKGQSTSRHKKLMFKTEGPD\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":386,\"type\":\"Ubiquitination\",\"pubmedIds\":[\"10562557\"],\"sequence\":\"STSRHKKLMFKTEGPDSD---\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":6,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"21454683\",\"12860987\",\"15471885\",\"14517211\",\"10930428\",\"19345189\",\"15792956\",\"20363803\",\"16381945\",\"12021785\",\"14665630\",\"23193290\",\"15843377\",\"19882354\",\"11583595\",\"11875057\",\"15489221\",\"11850826\",\"976\",\"15064747\",\"12091386\",\"20696760\",\"12676607\",\"19574224\",\"18794113\",\"18769132\",\"19861417\",\"11423984\",\"12519780\"],\"sequence\":\"-----MEEPQSDPSVEPPLSQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":15,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"17108107\",\"11554766\",\"15866171\",\"15701641\",\"17591690\",\"17967874\",\"10570149\",\"21317932\"],\"sequence\":\"QSDPSVEPPLSQETFSDLWKL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":18,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"10951572\",\"16704422\",\"10606744\"],\"sequence\":\"PSVEPPLSQETFSDLWKLLPE\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":20,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"11447225\",\"12810724\",\"10570149\",\"11551930\",\"20041275\"],\"sequence\":\"VEPPLSQETFSDLWKLLPENN\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":9,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"18022393\"],\"sequence\":\"--MEEPQSDPSVEPPLSQETF\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":33,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"9372954\",\"17591690\"],\"sequence\":\"WKLLPENNVLSPLPSQAMDDL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":37,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"17254968\"],\"sequence\":\"PENNVLSPLPSQAMDDLMLSP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":46,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"11740489\",\"17349958\",\"11780126\",\"17591690\",\"16377624\"],\"sequence\":\"PSQAMDDLMLSPDDIEQWFTE\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":81,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22011578\",\"23193290\",\"17906639\",\"18718914\",\"11423984\",\"18988627\",\"11283254\",\"22817900\",\"12397362\",\"12397361\",\"22135298\",\"16381945\",\"12531896\"],\"sequence\":\"PPVAPAPAAPTPAAPAPAPSW\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":55,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"15053879\",\"20124405\"],\"sequence\":\"LSPDDIEQWFTEDPGPDEAPR\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":99,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"17525332\"],\"sequence\":\"PSWPLSSSVPSQKTYQGSYGF\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":106,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22135298\"],\"sequence\":\"SVPSQKTYQGSYGFRLGFLHS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":126,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22135298\"],\"sequence\":\"SGTAKSVTCTYSPALNKMFCQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":150,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"23193290\",\"17906639\",\"12628923\",\"21127074\",\"11285227\",\"22817900\",\"22135298\",\"16381945\"],\"sequence\":\"TCPVQLWVDSTPPPGTRVRAM\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":149,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"23193290\",\"12628923\",\"21127074\",\"11285227\",\"22817900\",\"22135298\",\"16381945\"],\"sequence\":\"KTCPVQLWVDSTPPPGTRVRA\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":155,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"23193290\",\"12628923\",\"21127074\",\"11285227\",\"18988627\",\"22817900\",\"22135298\",\"16381945\",\"16964247\"],\"sequence\":\"LWVDSTPPPGTRVRAMAIYKQ\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":183,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"20959462\"],\"sequence\":\"VRRCPHHERCSDSDGLAPPQH\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":211,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22135298\",\"23193290\",\"22611192\",\"16381945\"],\"sequence\":\"LRVEYLDDRNTFRHSVVVPYE\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":220,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22135298\"],\"sequence\":\"NTFRHSVVVPYEPPEVGSDCT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":215,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"15469940\"],\"sequence\":\"YLDDRNTFRHSVVVPYEPPEV\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":269,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"20959462\"],\"sequence\":\"DSSGNLLGRNSFEVRVCACPG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":284,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"20959462\"],\"sequence\":\"VCACPGRDRRTEEENLRKKGE\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":312,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"16674116\"],\"sequence\":\"GSTKRALPNNTSSSPQPKKKP\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":314,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"16674116\"],\"sequence\":\"TKRALPNNTSSSPQPKKKPLD\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":313,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"16674116\"],\"sequence\":\"STKRALPNNTSSSPQPKKKPL\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":315,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"10884347\",\"14702041\"],\"sequence\":\"KRALPNNTSSSPQPKKKPLDG\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":327,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22135298\"],\"sequence\":\"QPKKKPLDGEYFTLQIRGRER\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":362,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"22135298\"],\"sequence\":\"DAQAGKEPGGSRAHSSHLKSK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":366,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"15659650\",\"23193290\",\"19933256\",\"18988627\",\"19819244\",\"22817900\",\"22135298\",\"18812399\",\"9183006\",\"16381945\"],\"sequence\":\"GKEPGGSRAHSSHLKSKKGQS\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":371,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"9315650\"],\"sequence\":\"GSRAHSSHLKSKKGQSTSRHK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":376,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"9315650\"],\"sequence\":\"SSHLKSKKGQSTSRHKKLMFK\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":377,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"23193290\",\"9315650\",\"19819244\",\"22817900\",\"22135298\",\"16381945\",\"9571186\"],\"sequence\":\"SHLKSKKGQSTSRHKKLMFKT\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":378,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"9315650\"],\"sequence\":\"HLKSKKGQSTSRHKKLMFKTE\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":392,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"17108107\",\"22214662\",\"10884347\",\"11239457\",\"21317932\"],\"sequence\":\"KLMFKTEGPDSD---------\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":387,\"type\":\"Phosphorylation\",\"pubmedIds\":[\"15659650\",\"23193290\",\"19933256\",\"19819244\",\"22817900\",\"22135298\",\"18812399\",\"16381945\"],\"sequence\":\"TSRHKKLMFKTEGPDSD----\"},{\"uniprotEntry\":\"P53_HUMAN\",\"uniprotAccession\":\"P04637\",\"ensemblTranscriptIds\":[\"ENST00000269305.8\",\"ENST00000619485.4\",\"ENST00000504290.5\",\"ENST00000617185.4\",\"ENST00000504937.5\",\"ENST00000510385.5\",\"ENST00000620739.4\",\"ENST00000420246.6\",\"ENST00000622645.4\",\"ENST00000455263.6\",\"ENST00000610292.4\",\"ENST00000445888.6\",\"ENST00000610538.4\"],\"position\":149,\"type\":\"O-linked Glycosylation\",\"pubmedIds\":[\"46947\"],\"sequence\":\"KTCPVQLWVDSTPPPGTRVRA\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsEmptyArray_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "df38c9e6-1ea3-43f9-bad2-933b18338efd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:46 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "afa2e79d-3a5e-457b-a785-e4c658f7ad39",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:46 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "2a4a026e-c174-44c8-91e6-3993d7170545",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": []\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:46 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithNonHumanTranscript_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "52c812d2-03ce-4cf3-85be-c869d8f3f18a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:47 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "e54ec9dd-3401-4940-923b-cb4fbf0a356a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:47 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "60ee9d51-d300-4c91-a7fa-a54133977abe",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000361390\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:47 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithUnrelatedTranscript_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "386c1e61-c3a5-4ef9-9d13-3d9a3c88e94d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:49 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "50b94582-fe15-4f4b-a1cd-45afd9909bf5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:49 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "001129c7-5efc-4635-ae46-5bb2d2bf754c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000361390\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:49 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyIsArrayInsteadOfObject_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "ce61b5b7-278a-48b7-902b-d081748c4623",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:51 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "a2c4a07c-654b-40b4-b4c4-08ba2fef1bc8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"[\\\"ENST00000269305\\\"]\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:28:51 GMT"
+                    },
+                    "response_body": ""
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "bd1ac219-9283-4321-ae5e-7c69484e1ec8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"{{fetchPostTranslationalModificationsByPtmFilterPOST.request.body.transcriptIds[0]}}\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:51 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithNonExistentTranscript_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "e8096ae5-dedf-4418-b0c0-ad800b6bfb37",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:52 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "5e875fca-bf52-49a4-802c-f5ba843d7d5e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:52 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "8248ba5d-a7f5-4b57-b326-4655e772eb5e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST99999999999\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:52 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithInvalidVersionSuffix_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "cbad1b7c-e340-4899-9d63-2a0deb1bddd6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:54 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "c39ad2e0-9b31-4f32-8cc0-6413f6be09aa",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:54 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "92232ad0-bdcc-46d9-87f3-e0df08e9eba8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000269305.999\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:54 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingTranscriptIds_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "75a904b3-4569-4955-98f7-2100217e3137",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:55 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "53820012-1ade-4a05-a8f6-db1bdde97aa6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:55 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "6a9424e7-c172-4571-b24b-9eebd266027c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:28:55 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsNotArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "6b48ac04-0cb0-4a05-abe3-30d6f7d29d20",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:57 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "354ef8a0-12f5-4120-a14b-99d63322560d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:57 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "ce9bfa49-1be9-4427-9018-c3235b493893",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": \"ENST00000269305\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:28:57 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithNonCodingTranscript_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "412e2174-70ac-4b3d-a8f4-f564164d15e3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:57 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "fd70a186-d815-42d2-af52-93b9e9cbdceb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:57 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "27dd9bb4-d6c3-401d-b4ed-cae1a11e8df8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000456328\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:57 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsArrayWithNonStringItem_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "792e05d3-ee25-417d-9fd9-afee2089389d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:58 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "afbb7268-ee0a-47d6-996c-eb1b81cce67b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:58 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "78d25db6-5597-49b9-9336-34a55fa4fd15",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    12345\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:58 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithDeprecatedTranscriptVersion_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "3a59ab81-1a78-48b5-96fa-77e5c8f53b11",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:59 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "306ca8e4-bab4-4528-84a1-80791c7ac36f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:59 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "b69658d5-7107-41f4-a7de-009fba8f0fae",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000269305.1\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:28:59 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "transcriptIdsWithNoAssociatedPtmData_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "42ada63a-1f6f-4ab9-a6d2-d9e50b46115a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:29:01 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST",
+                    "id": "e1ad8400-1b44-4c13-bc17-5b6f2ffe4964",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-transcript",
+                                "hgnc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"TP53\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:29:01 GMT"
+                    },
+                    "response_body": "[{\"transcriptId\":\"ENST00000269305\",\"geneId\":\"ENSG00000141510\",\"refseqMrnaId\":\"NM_000546\",\"ccdsId\":\"CCDS11118\",\"hugoSymbols\":[\"TP53\"],\"proteinId\":\"ENSP00000269305\",\"proteinLength\":393,\"pfamDomains\":[{\"pfamDomainId\":\"PF07710\",\"pfamDomainStart\":318,\"pfamDomainEnd\":358},{\"pfamDomainId\":\"PF08563\",\"pfamDomainStart\":6,\"pfamDomainEnd\":29},{\"pfamDomainId\":\"PF00870\",\"pfamDomainStart\":95,\"pfamDomainEnd\":288}],\"exons\":[{\"exonId\":\"ENSE00003605891\",\"exonStart\":7571720,\"exonEnd\":7573008,\"rank\":11,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003545950\",\"exonStart\":7573927,\"exonEnd\":7574033,\"rank\":10,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003636029\",\"exonStart\":7576853,\"exonEnd\":7576926,\"rank\":9,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003586720\",\"exonStart\":7577019,\"exonEnd\":7577155,\"rank\":8,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003504863\",\"exonStart\":7577499,\"exonEnd\":7577608,\"rank\":7,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003462942\",\"exonStart\":7578177,\"exonEnd\":7578289,\"rank\":6,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003518480\",\"exonStart\":7578371,\"exonEnd\":7578554,\"rank\":5,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00003625790\",\"exonStart\":7579312,\"exonEnd\":7579590,\"rank\":4,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002419584\",\"exonStart\":7579700,\"exonEnd\":7579721,\"rank\":3,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00002667911\",\"exonStart\":7579839,\"exonEnd\":7579940,\"rank\":2,\"strand\":-1,\"version\":1},{\"exonId\":\"ENSE00001146308\",\"exonStart\":7590695,\"exonEnd\":7590856,\"rank\":1,\"strand\":-1,\"version\":3}],\"utrs\":[{\"type\":\"three_prime_UTR\",\"start\":7571720,\"end\":7572926,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7579913,\"end\":7579940,\"strand\":-1},{\"type\":\"five_prime_UTR\",\"start\":7590695,\"end\":7590856,\"strand\":-1}],\"uniprotId\":\"P04637\"}]"
+                },
+                {
+                    "name": "fetchPostTranslationalModificationsByPtmFilterPOST",
+                    "id": "00f7354c-aaac-46ee-825b-16f070502abd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ptm",
+                                "experimental"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transcriptIds\": [\n    \"ENST00000600000\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:3)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:29:01 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:29:02.225322",
+    "statistics": {
+        "total_test_cases": 14,
+        "passed_test_cases": 4,
+        "failed_test_cases": 10,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 42,
+        "success_rate": 28.57142857142857,
+        "avg_requests_per_case": 3.0
+    }
+}

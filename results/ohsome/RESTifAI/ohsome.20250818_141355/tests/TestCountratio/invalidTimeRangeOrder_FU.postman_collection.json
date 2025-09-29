@@ -1,0 +1,261 @@
+{
+    "info": {
+        "name": "invalidTimeRangeOrder_FU",
+        "description": "Set the `time` parameter to a range where the start date is after the end date, e.g., `time=2017-01-01/2014-01-01/P1Y`, which is logically invalid for time intervals.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('count_1.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('count_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('count_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count_1.request.body.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('count_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "count_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count?bboxes=8.67,49.39,8.71,49.42&contributionType=creation,deletion,tagChange,geometryChange&filter=type%3Anode%20and%20amenity%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01/P1Y&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion,tagChange,geometryChange"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Anode%20and%20amenity%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count_2.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count_2.request.query_params.contributionType', 'creation,deletion,tagChange,geometryChange');",
+                            "pm.collectionVariables.set('count_2.request.query_params.filter', 'type%3Anode%20and%20amenity%3D%2A');",
+                            "pm.collectionVariables.set('count_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count_2.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count_2.request.query_params.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('count_2.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "countRatio",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/ratio?bboxes=8.67,49.39,8.71,49.42&filter=geometry%3Apolygon%20and%20building%3D%2A&filter2=type%3Anode%20and%20%22addr%3Ahousenumber%22%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01/P1Y&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "ratio"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "geometry%3Apolygon%20and%20building%3D%2A"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type%3Anode%20and%20%22addr%3Ahousenumber%22%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01/P1Y"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countRatio.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('countRatio.request.query_params.filter', 'geometry%3Apolygon%20and%20building%3D%2A');",
+                            "pm.collectionVariables.set('countRatio.request.query_params.filter2', 'type%3Anode%20and%20%22addr%3Ahousenumber%22%3D%2A');",
+                            "pm.collectionVariables.set('countRatio.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countRatio.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('countRatio.request.query_params.time', '2017-01-01/2014-01-01/P1Y');",
+                            "pm.collectionVariables.set('countRatio.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

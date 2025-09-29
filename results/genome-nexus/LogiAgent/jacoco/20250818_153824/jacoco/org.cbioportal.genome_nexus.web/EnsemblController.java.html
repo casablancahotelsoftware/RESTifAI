@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EnsemblController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">EnsemblController.java</span></div><h1>EnsemblController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
+import org.cbioportal.genome_nexus.model.EnsemblGene;
+import org.cbioportal.genome_nexus.model.EnsemblTranscript;
+import org.cbioportal.genome_nexus.model.GeneXref;
+import org.cbioportal.genome_nexus.service.EnsemblService;
+import org.cbioportal.genome_nexus.service.GeneXrefService;
+import org.cbioportal.genome_nexus.service.exception.EnsemblTranscriptNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.EnsemblWebServiceException;
+import org.cbioportal.genome_nexus.service.exception.NoEnsemblGeneIdForHugoSymbolException;
+import org.cbioportal.genome_nexus.service.exception.NoEnsemblGeneIdForEntrezGeneIdException;
+import org.cbioportal.genome_nexus.web.config.PublicApi;
+import org.cbioportal.genome_nexus.web.param.EnsemblFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+@Api(tags = &quot;ensembl-controller&quot;, description = &quot;Ensembl Controller&quot;)
+@PublicApi
+public class EnsemblController
+{
+    private final EnsemblService ensemblService;
+    private final GeneXrefService geneXrefService;
+
+    @Autowired
+    public EnsemblController(EnsemblService ensemblService, GeneXrefService geneXrefService)
+<span class="fc" id="L35">    {</span>
+<span class="fc" id="L36">        this.ensemblService = ensemblService;</span>
+<span class="fc" id="L37">        this.geneXrefService = geneXrefService;</span>
+<span class="fc" id="L38">    }</span>
+
+    @ApiOperation(value = &quot;Retrieves canonical Ensembl Gene ID by Hugo Symbols&quot;,
+        nickname = &quot;fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST&quot;)
+    @RequestMapping(value = &quot;/ensembl/canonical-gene/hgnc&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;EnsemblGene&gt; fetchCanonicalEnsemblGeneIdByHugoSymbolPOST(
+        @ApiParam(value = &quot;List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;]&quot;,
+            required = true)
+        @RequestBody List&lt;String&gt; hugoSymbols)
+    {
+<span class="fc" id="L50">        return this.ensemblService.getCanonicalEnsemblGeneIdByHugoSymbols(hugoSymbols);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves Ensembl canonical gene id by Hugo Symbol&quot;,
+        nickname = &quot;fetchCanonicalEnsemblGeneIdByHugoSymbolGET&quot;)
+    @RequestMapping(value = &quot;/ensembl/canonical-gene/hgnc/{hugoSymbol}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public EnsemblGene fetchCanonicalEnsemblGeneIdByHugoSymbolGET(
+        @ApiParam(value = &quot;A Hugo Symbol. For example TP53&quot;,
+            required = true)
+        @PathVariable String hugoSymbol) throws NoEnsemblGeneIdForHugoSymbolException
+    {
+<span class="fc" id="L63">        return this.ensemblService.getCanonicalEnsemblGeneIdByHugoSymbol(hugoSymbol);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves canonical Ensembl Gene ID by Entrez Gene Ids&quot;,
+        nickname = &quot;fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST&quot;)
+    @RequestMapping(value = &quot;/ensembl/canonical-gene/entrez&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;EnsemblGene&gt; fetchCanonicalEnsemblGeneIdByEntrezGeneIdPOST(
+        @ApiParam(value = &quot;List of Entrez Gene Ids. For example [\&quot;23140\&quot;,\&quot;26009\&quot;,\&quot;100131879\&quot;]&quot;,
+            required = true)
+        @RequestBody List&lt;String&gt; entrezGeneIds)
+    {
+<span class="fc" id="L76">        return this.ensemblService.getCanonicalEnsemblGeneIdByEntrezGeneIds(entrezGeneIds);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves Ensembl canonical gene id by Entrez Gene Id&quot;,
+        nickname = &quot;fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET&quot;)
+    @RequestMapping(value = &quot;/ensembl/canonical-gene/entrez/{entrezGeneId}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public EnsemblGene fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET(
+        @ApiParam(value = &quot;An Entrez Gene Id. For example 23140&quot;,
+            required = true)
+        @PathVariable String entrezGeneId) throws NoEnsemblGeneIdForEntrezGeneIdException
+    {
+<span class="fc" id="L89">        return this.ensemblService.getCanonicalEnsemblGeneIdByEntrezGeneId(entrezGeneId);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves Ensembl Transcripts by protein ID, and gene ID. &quot; +
+        &quot;Retrieves all transcripts in case no query parameter provided&quot;,
+        nickname = &quot;fetchEnsemblTranscriptsGET&quot;)
+    @RequestMapping(value = &quot;/ensembl/transcript&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public List&lt;EnsemblTranscript&gt; fetchEnsemblTranscriptsGET(
+        @ApiParam(value = &quot;An Ensembl gene ID. For example ENSG00000136999&quot;)
+        @RequestParam(required = false) String geneId,
+        @ApiParam(value = &quot;An Ensembl protein ID. For example ENSP00000439985&quot;)
+        @RequestParam(required = false) String proteinId,
+        @ApiParam(value = &quot;A Hugo Symbol For example ARF5&quot;)
+        @RequestParam(required = false) String hugoSymbol)
+    {
+<span class="fc" id="L106">        return ensemblService.getEnsemblTranscripts(geneId, proteinId, hugoSymbol);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves Ensembl Transcripts by Ensembl transcript IDs, hugo Symbols, protein IDs, or gene IDs&quot;,
+        nickname = &quot;fetchEnsemblTranscriptsByEnsemblFilterPOST&quot;)
+    @RequestMapping(value = &quot;/ensembl/transcript&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;EnsemblTranscript&gt; fetchEnsemblTranscriptsByEnsemblFilterPOST(
+        @ApiParam(
+            value = EnsemblFilter.TRANSCRIPT_ID_DESC + &quot;&lt;br&gt;OR&lt;br&gt;&quot; +
+                EnsemblFilter.HUGO_SYMBOL_DESC + &quot;&lt;br&gt;OR&lt;br&gt;&quot; +
+                EnsemblFilter.PROTEIN_ID_DESC + &quot;&lt;br&gt;OR&lt;br&gt;&quot; +
+                EnsemblFilter.GENE_ID_DESC,
+            required = true)
+        @RequestBody EnsemblFilter ensemblFilter)
+    {
+<span class="fc" id="L123">        return this.ensemblService.getEnsemblTranscripts(</span>
+<span class="fc" id="L124">            ensemblFilter.getTranscriptIds(), ensemblFilter.getGeneIds(), ensemblFilter.getProteinIds(), ensemblFilter.getHugoSymbols());</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves the transcript by an Ensembl transcript ID&quot;,
+        nickname = &quot;fetchEnsemblTranscriptByTranscriptIdGET&quot;)
+    @RequestMapping(value = &quot;/ensembl/transcript/{transcriptId}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public EnsemblTranscript fetchEnsemblTranscriptByTranscriptIdGET(
+        @ApiParam(value = &quot;An Ensembl transcript ID. For example ENST00000361390&quot;,
+            required = true)
+        @PathVariable String transcriptId) throws EnsemblTranscriptNotFoundException
+    {
+<span class="fc" id="L137">        return this.ensemblService.getEnsemblTranscriptsByTranscriptId(transcriptId);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves Ensembl canonical transcripts by Hugo Symbols&quot;,
+        nickname = &quot;fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST&quot;)
+    @RequestMapping(value = &quot;/ensembl/canonical-transcript/hgnc&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;EnsemblTranscript&gt; fetchCanonicalEnsemblTranscriptsByHugoSymbolPOST(
+        @ApiParam(value = &quot;List of Hugo Symbols. For example [\&quot;TP53\&quot;,\&quot;PIK3CA\&quot;,\&quot;BRCA1\&quot;]&quot;,
+            required = true)
+        @RequestBody List&lt;String&gt; hugoSymbols,
+        @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;,
+            defaultValue=&quot;mskcc&quot;,
+            required = false)
+        @RequestParam(required = false) String isoformOverrideSource)
+    {
+<span class="fc" id="L154">        return this.ensemblService.getCanonicalEnsemblTranscriptsByHugoSymbols(hugoSymbols, isoformOverrideSource);</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves Ensembl canonical transcript by Hugo Symbol&quot;,
+        nickname = &quot;fetchCanonicalEnsemblTranscriptByHugoSymbolGET&quot;)
+    @RequestMapping(value = &quot;/ensembl/canonical-transcript/hgnc/{hugoSymbol}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public EnsemblTranscript fetchCanonicalEnsemblTranscriptByHugoSymbolGET(
+        @ApiParam(value = &quot;A Hugo Symbol. For example TP53&quot;,
+            required = true)
+        @PathVariable String hugoSymbol,
+        @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;,
+            defaultValue=&quot;mskcc&quot;,
+            required = false)
+        @RequestParam(required = false) String isoformOverrideSource) throws EnsemblTranscriptNotFoundException
+    {
+<span class="fc" id="L171">        return this.ensemblService.getCanonicalEnsemblTranscriptByHugoSymbol(hugoSymbol, isoformOverrideSource);</span>
+    }
+
+    @ApiOperation(value = &quot;Perform lookups of Ensembl identifiers and retrieve their external references in other databases&quot;,
+        nickname = &quot;fetchGeneXrefsGET&quot;)
+    @RequestMapping(value = &quot;/ensembl/xrefs&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public List&lt;GeneXref&gt; fetchGeneXrefsGET(
+        @ApiParam(value=&quot;Ensembl gene accession. For example ENSG00000169083&quot;,
+            required = true)
+        @RequestParam String accession) throws EnsemblWebServiceException
+    {
+<span class="nc" id="L184">        return geneXrefService.getGeneXrefs(accession);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

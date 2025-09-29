@@ -1,0 +1,121 @@
+{
+    "info": {
+        "name": "emptyBpolys_ST",
+        "description": "Set the `bpolys` parameter to an empty string, violating the requirement that one boundary parameter must be defined, e.g., ''",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "contributionsCountDensityGroupByBoundary_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        },
+                        {
+                            "key": "bpolys",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/contributions/count/density/groupBy/boundary",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "contributions",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.bboxes', '8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.timeout', '30');",
+                            "pm.collectionVariables.set('contributionsCountDensityGroupByBoundary_1.request.body.bpolys', '');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

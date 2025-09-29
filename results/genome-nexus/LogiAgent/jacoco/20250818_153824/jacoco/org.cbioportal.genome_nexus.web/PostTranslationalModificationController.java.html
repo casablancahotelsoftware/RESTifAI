@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PostTranslationalModificationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">PostTranslationalModificationController.java</span></div><h1>PostTranslationalModificationController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.cbioportal.genome_nexus.model.PostTranslationalModification;
+import org.cbioportal.genome_nexus.service.PostTranslationalModificationService;
+import org.cbioportal.genome_nexus.web.config.PublicApi;
+import org.cbioportal.genome_nexus.web.param.PtmFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@PublicApi
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+@Api(tags = &quot;ptm-controller&quot;, description = &quot;PTM Controller&quot;)
+public class PostTranslationalModificationController
+{
+    private final PostTranslationalModificationService postTranslationalModificationService;
+
+    @Autowired
+    public PostTranslationalModificationController(PostTranslationalModificationService postTranslationalModificationService)
+<span class="fc" id="L26">    {</span>
+<span class="fc" id="L27">        this.postTranslationalModificationService = postTranslationalModificationService;</span>
+<span class="fc" id="L28">    }</span>
+
+    @ApiOperation(value = &quot;Retrieves PTM entries by Ensembl Transcript IDs&quot;,
+        nickname = &quot;fetchPostTranslationalModificationsByPtmFilterPOST&quot;)
+    @RequestMapping(value = &quot;/ptm/experimental&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;PostTranslationalModification&gt; fetchPostTranslationalModificationsByPtmFilterPOST(
+        @ApiParam(
+            value = &quot;List of Ensembl transcript IDs. For example [\&quot;ENST00000420316\&quot;, \&quot;ENST00000646891\&quot;, \&quot;ENST00000371953\&quot;]&quot;,
+            required = true)
+        @RequestBody PtmFilter ptmFilter)
+    {
+<span class="fc" id="L41">        return this.postTranslationalModificationService.getPostTranslationalModifications(ptmFilter.getTranscriptIds());</span>
+    }
+
+    @ApiOperation(value = &quot;Retrieves PTM entries by Ensembl Transcript ID&quot;,
+        nickname = &quot;fetchPostTranslationalModificationsGET&quot;)
+    @RequestMapping(value = &quot;/ptm/experimental&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public List&lt;PostTranslationalModification&gt; fetchPostTranslationalModificationsGET(
+        @ApiParam(
+            value=&quot;Ensembl Transcript ID. For example ENST00000646891&quot;,
+            required = false)
+        @RequestParam(required = false) String ensemblTranscriptId)
+    {
+<span class="fc" id="L55">        return this.postTranslationalModificationService.getPostTranslationalModifications(ensemblTranscriptId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

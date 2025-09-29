@@ -1,0 +1,75 @@
+{
+    "info": {
+        "name": "fieldsWithInvalidCharacters_ST",
+        "description": "Set the `fields` query parameter to a string containing invalid characters not allowed by the schema, e.g., 'name,capital,population,area$'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "v2Regionalbloc",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/v2/regionalbloc/:regionalbloc?fields=name,capital,population,area$",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "v2",
+                        "regionalbloc",
+                        ":regionalbloc"
+                    ],
+                    "variable": [
+                        {
+                            "key": "regionalbloc",
+                            "value": "EU"
+                        }
+                    ],
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": "name,capital,population,area$"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('v2Regionalbloc.request.path_params.regionalbloc', 'EU');",
+                            "pm.collectionVariables.set('v2Regionalbloc.request.query_params.fields', 'name,capital,population,area$');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9002/rest');"
+                ]
+            }
+        }
+    ]
+}

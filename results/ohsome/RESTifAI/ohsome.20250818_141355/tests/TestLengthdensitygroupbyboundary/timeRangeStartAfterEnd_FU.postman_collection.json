@@ -1,0 +1,312 @@
+{
+    "info": {
+        "name": "timeRangeStartAfterEnd_FU",
+        "description": "Set the `time` parameter to a range where the start date is after the end date, e.g., '2017-01-01/2014-01-01', violating logical temporal ordering rules.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "area",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/area?bboxes=bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "area"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('area.request.query_params.bboxes', 'bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51');",
+                            "pm.collectionVariables.set('area.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('area.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('area.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('area.request.query_params.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('area.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "length",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length?bboxes=bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('length.request.query_params.bboxes', 'bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51');",
+                            "pm.collectionVariables.set('length.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('length.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('length.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('length.request.query_params.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('length.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthDensity",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/density?bboxes=bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "density"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.bboxes', 'bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('lengthDensity.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "lengthDensityGroupByBoundary",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/density/groupBy/boundary?bboxes=bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51&filter=type%3Away%20and%20natural%3D%2A&format=json&showMetadata=false&time=2017-01-01/2014-01-01&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20natural%3D%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2017-01-01/2014-01-01"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthDensityGroupByBoundary.request.query_params.bboxes', 'bbox1:-0.1357,51.495,-0.1057,51.515|bbox2:-0.145,51.49,-0.115,51.51');",
+                            "pm.collectionVariables.set('lengthDensityGroupByBoundary.request.query_params.filter', 'type%3Away%20and%20natural%3D%2A');",
+                            "pm.collectionVariables.set('lengthDensityGroupByBoundary.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthDensityGroupByBoundary.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('lengthDensityGroupByBoundary.request.query_params.time', '2017-01-01/2014-01-01');",
+                            "pm.collectionVariables.set('lengthDensityGroupByBoundary.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

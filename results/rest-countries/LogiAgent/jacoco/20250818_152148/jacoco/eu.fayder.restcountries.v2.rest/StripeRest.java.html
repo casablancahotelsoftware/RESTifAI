@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StripeRest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">restcountries</a> &gt; <a href="index.source.html" class="el_package">eu.fayder.restcountries.v2.rest</a> &gt; <span class="el_source">StripeRest.java</span></div><h1>StripeRest.java</h1><pre class="source lang-java linenums">package eu.fayder.restcountries.v2.rest;
+
+import com.google.gson.Gson;
+import com.stripe.Stripe;
+import com.stripe.exception.*;
+import com.stripe.model.Charge;
+import eu.fayder.restcountries.domain.ResponseEntity;
+import eu.fayder.restcountries.v2.domain.Contribution;
+//import org.apache.http.util.TextUtils;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.Provider;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by fayder on 24/02/2017.
+ */
+@Component
+@Path(&quot;/contribute&quot;)
+@Consumes(&quot;application/json;charset=utf-8&quot;)
+<span class="fc" id="L27">public class StripeRest {</span>
+
+<span class="fc" id="L29">    private static final Logger LOG = Logger.getLogger(StripeRest.class);</span>
+
+    private boolean isBlank(String string) {
+<span class="nc bnc" id="L32" title="All 4 branches missed.">        return string == null || string.trim().isEmpty();</span>
+    }
+
+    @POST
+    public Object contribute(Contribution contribution) {
+<span class="nc" id="L37">        LOG.debug(&quot;Contribution: &quot; + contribution);</span>
+
+<span class="nc bnc" id="L39" title="All 4 branches missed.">        if (contribution == null || isBlank(contribution.getToken())) {</span>
+<span class="nc" id="L40">            return getResponse(Response.Status.BAD_REQUEST);</span>
+        }
+
+<span class="nc" id="L43">        Stripe.apiKey = &quot;&quot;;</span>
+<span class="nc" id="L44">        Map&lt;String, Object&gt; params = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L45">        params.put(&quot;amount&quot;, contribution.getAmount());</span>
+<span class="nc" id="L46">        params.put(&quot;currency&quot;, &quot;eur&quot;);</span>
+<span class="nc" id="L47">        params.put(&quot;description&quot;, &quot;REST Countries&quot;);</span>
+<span class="nc" id="L48">        params.put(&quot;source&quot;, contribution.getToken());</span>
+
+        try {
+<span class="nc" id="L51">            Charge.create(params);</span>
+<span class="nc" id="L52">        } catch (AuthenticationException | InvalidRequestException | CardException | APIConnectionException | APIException e) {</span>
+<span class="nc" id="L53">            LOG.error(e.getMessage(), e);</span>
+<span class="nc" id="L54">            return getResponse(Response.Status.BAD_REQUEST);</span>
+<span class="nc" id="L55">        }</span>
+
+<span class="nc" id="L57">        return getResponse(Response.Status.ACCEPTED);</span>
+    }
+
+    private Response getResponse(Response.Status status) {
+<span class="nc" id="L61">        Gson gson = new Gson();</span>
+<span class="nc" id="L62">        return Response</span>
+<span class="nc" id="L63">                .status(status)</span>
+<span class="nc" id="L64">                .entity(gson.toJson(new ResponseEntity(status.getStatusCode(),</span>
+<span class="nc" id="L65">                        status.getReasonPhrase()))).build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

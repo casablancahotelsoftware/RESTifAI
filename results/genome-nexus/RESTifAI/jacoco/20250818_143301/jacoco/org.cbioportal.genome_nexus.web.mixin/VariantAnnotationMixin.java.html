@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariantAnnotationMixin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web.mixin</a> &gt; <span class="el_source">VariantAnnotationMixin.java</span></div><h1>VariantAnnotationMixin.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web.mixin;
+
+import com.fasterxml.jackson.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
+import org.cbioportal.genome_nexus.model.*;
+import org.cbioportal.genome_nexus.model.my_variant_info_model.MyVariantInfoAnnotation;
+
+import java.util.List;
+import java.util.Map;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+<span class="nc" id="L12">public class VariantAnnotationMixin {</span>
+
+    @JsonProperty(required = true)
+    @ApiModelProperty(value = &quot;Variant key&quot;, required = true)
+    private String variant;
+
+    @JsonProperty(required = true)
+    @ApiModelProperty(value = &quot;Original variant query&quot;, required = true)
+    private String originalVariantQuery;
+
+    @JsonProperty(required = false)
+    @ApiModelProperty(value = &quot;Annotation data as JSON string&quot;, required = false)
+    private String annotationJSON;
+
+    @JsonProperty(value=&quot;id&quot;, required = true)
+    @ApiModelProperty(value = &quot;Variant id&quot;, required = true)
+    private String variantId;
+
+    @JsonProperty(value=&quot;intergenic_consequences&quot;, required = true)
+    @ApiModelProperty(value = &quot;intergenicConsequences&quot;, required = true)
+    private List&lt;IntergenicConsequences&gt; intergenicConsequences;
+
+    @JsonProperty(value=&quot;assembly_name&quot;, required = true)
+    @ApiModelProperty(value = &quot;NCBI build number&quot;, required = false)
+    private String assemblyName;
+
+    @JsonProperty(value=&quot;seq_region_name&quot;, required = true)
+    @ApiModelProperty(value = &quot;Chromosome&quot;, required = false)
+    private String seqRegionName;
+
+    @JsonProperty(value=&quot;start&quot;, required = true)
+    @ApiModelProperty(value = &quot;Start position&quot;, required = false)
+    public Integer getStart()
+    {
+<span class="nc" id="L46">        return start;</span>
+    }
+    private Integer start;
+
+    @JsonProperty(value=&quot;end&quot;, required = true)
+    @ApiModelProperty(value = &quot;End position&quot;, required = false)
+    private Integer end;
+
+    @JsonProperty(value=&quot;allele_string&quot;, required = true)
+    @ApiModelProperty(value = &quot;Allele string (e.g: A/T)&quot;, required = false)
+    private String alleleString;
+
+    @JsonProperty(value=&quot;strand&quot;, required = true)
+    @ApiModelProperty(value = &quot;Strand (negative or positive)&quot;, required = false)
+    private Integer strand;
+
+    @JsonProperty(value=&quot;most_severe_consequence&quot;, required = true)
+    @ApiModelProperty(value = &quot;Most severe consequence&quot;, required = false)
+    private String mostSevereConsequence;
+
+    @JsonProperty(value=&quot;transcript_consequences&quot;, required = true)
+    @ApiModelProperty(value = &quot;List of transcripts&quot;, required = false)
+    private List&lt;TranscriptConsequence&gt; transcriptConsequences;
+
+    @JsonProperty(value=&quot;successfully_annotated&quot;, required = true)
+    @ApiModelProperty(value = &quot;Status flag indicating whether variant was succesfully annotated&quot;, required = false)
+    private Boolean successfullyAnnotated;
+
+    @JsonProperty(value=&quot;mutation_assessor&quot;, required = true)
+    @ApiModelProperty(value = &quot;Mutation Assessor&quot;, required = false)
+    private MutationAssessor mutationAssessor;
+
+    @JsonProperty(value=&quot;nucleotide_context&quot;, required = true)
+    @ApiModelProperty(value = &quot;Nucleotide Context Annotation&quot;, required = false)
+    private NucleotideContextAnnotation nucleotideContextAnnotation;
+
+    @JsonProperty(value=&quot;hotspots&quot;, required = true)
+    @ApiModelProperty(value = &quot;Hotspot Annotation&quot;, required = false)
+    private HotspotAnnotation hotspotAnnotation;
+
+    @JsonProperty(value=&quot;ptms&quot;, required = true)
+    @ApiModelProperty(value = &quot;Post Translational Modifications&quot;, required = false)
+    private PtmAnnotation ptmAnnotation;
+
+    @JsonProperty(value=&quot;oncokb&quot;, required = true)
+    @ApiModelProperty(value = &quot;Oncokb&quot;, required = false)
+    private OncokbAnnotation oncokbAnnotation;
+
+    @JsonProperty(value=&quot;annotation_summary&quot;, required = true)
+    @ApiModelProperty(value = &quot;Variant Annotation Summary&quot;, required = false)
+    private VariantAnnotationSummary annotationSummary;
+
+    @JsonProperty(value=&quot;my_variant_info&quot;, required = true)
+    @ApiModelProperty(value = &quot;My Variant Info Annotation&quot;, required = false)
+    private MyVariantInfoAnnotation myVariantInfoAnnotation;
+
+    @JsonProperty(value=&quot;clinvar&quot;, required = true)
+    @ApiModelProperty(value = &quot;MyVariantInfoClinVar&quot;, required = false)
+    private ClinvarAnnotation clinvarAnnotation;
+
+    @JsonIgnore
+    private Map&lt;String, Object&gt; dynamicProps;
+
+    @JsonAnySetter
+    public void setDynamicProp(String key, Object value) {
+
+<span class="nc" id="L112">    }</span>
+
+    @JsonAnyGetter
+    public Map&lt;String, Object&gt; getDynamicProps() {
+<span class="nc" id="L116">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

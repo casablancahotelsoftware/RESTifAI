@@ -1,0 +1,100 @@
+{
+    "info": {
+        "name": "contributionTypeEmptyList_FU",
+        "description": "Set the `contributionType` parameter to an empty list, e.g., '', which logically means no contribution types selected, to test requests that logically cannot return any data.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByType_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/density/groupBy/type?bboxes=12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159&contributionType=&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe&format=json&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": ""
+                        },
+                        {
+                            "key": "filter",
+                            "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.bboxes', '12.4923,41.8902,12.4925,41.8904|13.3615,38.1157,13.3617,38.1159');",
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.contributionType', '');",
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.filter', 'osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20tag%3Aamenity%3Dcafe');",
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('countDensityGroupByType_2.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

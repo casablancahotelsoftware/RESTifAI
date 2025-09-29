@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AnnotationSummaryController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus.web</a> &gt; <span class="el_source">AnnotationSummaryController.java</span></div><h1>AnnotationSummaryController.java</h1><pre class="source lang-java linenums">package org.cbioportal.genome_nexus.web;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.cbioportal.genome_nexus.model.VariantAnnotationSummary;
+import org.cbioportal.genome_nexus.service.VariantAnnotationSummaryService;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationNotFoundException;
+import org.cbioportal.genome_nexus.service.exception.VariantAnnotationWebServiceException;
+import org.cbioportal.genome_nexus.web.config.InternalApi;
+import org.cbioportal.genome_nexus.web.param.TranscriptSummaryProjection;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@InternalApi
+@RestController // shorthand for @Controller, @ResponseBody
+@CrossOrigin(origins=&quot;*&quot;) // allow all cross-domain requests
+@RequestMapping(value= &quot;/&quot;)
+public class AnnotationSummaryController
+{
+    private final VariantAnnotationSummaryService variantAnnotationSummaryService;
+
+    @Autowired
+    public AnnotationSummaryController(VariantAnnotationSummaryService variantAnnotationSummaryService)
+<span class="fc" id="L26">    {</span>
+<span class="fc" id="L27">        this.variantAnnotationSummaryService = variantAnnotationSummaryService;</span>
+<span class="fc" id="L28">    }</span>
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation summary for the provided list of variants&quot;,
+        nickname = &quot;fetchVariantAnnotationSummaryPOST&quot;)
+    @RequestMapping(value = &quot;/annotation/summary&quot;,
+        method = RequestMethod.POST,
+        produces = &quot;application/json&quot;)
+    public List&lt;VariantAnnotationSummary&gt; fetchVariantAnnotationSummaryPOST(
+        @ApiParam(value=&quot;List of variants. For example [\&quot;X:g.66937331T&gt;A\&quot;,\&quot;17:g.41242962_41242963insGA\&quot;] (GRCh37) &quot; +
+            &quot;or [\&quot;1:g.182712A&gt;C\&quot;, \&quot;2:g.265023C&gt;T\&quot;, \&quot;3:g.319781del\&quot;, \&quot;19:g.110753dup\&quot;, &quot; +
+            &quot;\&quot;1:g.1385015_1387562del\&quot;] (GRCh38)&quot;,
+            required = true)
+        @RequestBody List&lt;String&gt; variants,
+        @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;)
+        @RequestParam(required = false) String isoformOverrideSource,
+        @ApiParam(value=&quot;Indicates whether to return summary for all transcripts or only for canonical transcript&quot;)
+        @RequestParam(defaultValue = &quot;ALL&quot;) TranscriptSummaryProjection projection)
+    {
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (projection == TranscriptSummaryProjection.CANONICAL) {</span>
+<span class="nc" id="L47">            return this.variantAnnotationSummaryService.getAnnotationSummaryForCanonical(variants, isoformOverrideSource);</span>
+        }
+        else {
+<span class="nc" id="L50">            return this.variantAnnotationSummaryService.getAnnotationSummary(variants, isoformOverrideSource);</span>
+        }
+    }
+
+    @ApiOperation(value = &quot;Retrieves VEP annotation summary for the provided variant&quot;,
+        nickname = &quot;fetchVariantAnnotationSummaryGET&quot;)
+    @RequestMapping(value = &quot;/annotation/summary/{variant:.+}&quot;,
+        method = RequestMethod.GET,
+        produces = &quot;application/json&quot;)
+    public VariantAnnotationSummary fetchVariantAnnotationSummaryGET(
+        @ApiParam(value=&quot;Variant. For example 17:g.41242962_41242963insGA&quot;,
+            required = true)
+        @PathVariable String variant,
+        @ApiParam(value=&quot;Isoform override source. For example mskcc&quot;)
+        @RequestParam(required = false) String isoformOverrideSource,
+        @ApiParam(value=&quot;Indicates whether to return summary for all transcripts or only for canonical transcript&quot;)
+        @RequestParam(defaultValue = &quot;ALL&quot;) TranscriptSummaryProjection projection)
+        throws VariantAnnotationNotFoundException, VariantAnnotationWebServiceException
+    {
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (projection == TranscriptSummaryProjection.CANONICAL) {</span>
+            // Default projection returns both the canonical and all transcript
+            // consequence summaries. This returns just the summary for the
+            // canonical transcript
+<span class="nc" id="L73">            return this.variantAnnotationSummaryService.getAnnotationSummaryForCanonical(variant, isoformOverrideSource);</span>
+        }
+        else {
+<span class="nc" id="L76">            return this.variantAnnotationSummaryService.getAnnotationSummary(variant, isoformOverrideSource);</span>
+        }
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

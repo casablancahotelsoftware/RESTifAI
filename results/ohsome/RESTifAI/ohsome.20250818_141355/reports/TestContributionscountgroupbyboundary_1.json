@@ -1,0 +1,2444 @@
+{
+    "test_name": "TestContributionscountgroupbyboundary_1",
+    "test_results": [
+        {
+            "test_case_name": "selfIntersectingPolygonInBpolys_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "6b4389c0-7a02-43fc-ae08-d501b2813e8d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:42 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:42.863802847\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "abd55c7c-c422-4e9c-8e2c-2778a8051a89",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:42 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "f594cf42-6ffc-4941-9f22-4ddf74277d82",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:44 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:44.252575434\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "a152b5bf-62a5-4222-9569-d5c30a44f187",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:44 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidContributionTypeValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "5170c415-af07-4d2a-8a5b-b01d3e45618d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:45 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:45.69019469\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "a59bd26d-a2d5-440e-a4d9-6e4af8af635b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:45 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:45.790754735\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonClosedPolygonInBpolys_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "e0cb5bdc-2734-48d8-9922-4066afe8c7e3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:46 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:46.748697045\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "fb084c60-43da-4c34-b37a-3da715efd499",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:46 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "dfcba2c3-9fc9-44c7-af0c-93a5372f5fec",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:48.191108246\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "d7fad336-5baf-4b5f-919d-019da71fc126",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:48.295433194\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "impossibleFilterCondition_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "aa418ab3-e561-49c7-b903-ef76f8ab29a2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:48 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:49.098762313\",\n  \"status\" : 400,\n  \"message\" : \"Invalid filter syntax. Please look at the additional info and examples about the filter parameter at https://docs.ohsome.org/ohsome-api. Detailed error message: line 1, column 18: whitespaces, EQUALS (=), NOT_EQUALS (!=) or in expected, t encountered.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "23b1baa1-b5aa-4a7f-af6f-b7474942134c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:49 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:49.199035174\",\n  \"status\" : 400,\n  \"message\" : \"Invalid filter syntax. Please look at the additional info and examples about the filter parameter at https://docs.ohsome.org/ohsome-api. Detailed error message: line 1, column 18: whitespaces, EQUALS (=), NOT_EQUALS (!=) or in expected, t encountered.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeoutValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "72548b94-fe58-4a02-ba71-2ed0d850638f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:49 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:50.104628469\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "c11e7023-91e5-4f32-bf93-2f60daae323b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:50 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:50.203940391\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBpolysValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "8b6ad9b0-8575-46cc-b5cf-1314fc4fac59",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:50 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:51.141377908\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "67005220-e8f2-4834-9aff-390a79793673",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:51 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyBboxesValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "49a06a70-1760-46a1-9104-dad56ab3242b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:51 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:52.586687207\",\n  \"status\" : 400,\n  \"message\" : \"You need to define one of the boundary parameters (bboxes, bcircles, bpolys).\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "baa1c6a5-22f7-41a3-a1f4-8ecc84b1626e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeRange_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "8ecf5123-aade-4edc-b481-d054bb20a0b4",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:53.911808544\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "505eae60-d013-404e-8846-ceb6de6b6e7a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:53 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:53.968432405\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyContributionType_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "68cc7157-4fc3-439d-b16d-1395570c207f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:54.905898322\",\n  \"status\" : 400,\n  \"message\" : \"The contribution type must be 'creation', 'deletion','geometryChange', 'tagChange' or a combination of them\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "16bbf235-25d4-49d7-a2cb-27ad76d1cf22",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "malformedBcirclesValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "d56d8496-3bdb-4515-a062-f5d6fe32cbeb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:56 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:06:57.040570409\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "302366c4-9288-4c54-99f7-34aa7ce9f3be",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:57 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "4649593f-4a92-4c51-a1c2-67cfa51e0d87",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "7e7c7202-ad1d-4a42-8744-9582abb1c3d6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:06:58 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFilterValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "b45b336b-357a-427b-9dbd-764f7f0a98f6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:07:29.683133463\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/contributions/count\"\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "8c41293d-b95a-4208-a1a9-0e82ce41abfc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroLengthTimeInterval_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "80212bb8-28f3-4a0e-a5cc-f937b77349b4",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "ed32cb21-0a31-43fa-a535-e62c368c76e5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T18:07:31.968+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/contributions/count/groupBy/boundary\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "bboxWithNoData_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "a672a689-34ed-4045-8bda-34a2952fb24a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:32 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 6.0\n  }, {\n    \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 18.0\n  } ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "7e6dd2ef-af75-46ae-8149-f645a863005f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:33 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "0c71e986-4159-4421-b738-2d67de1e6e8f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:35 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 626,\n    \"description\" : \"Number of performed contributions per time interval.\"\n  },\n  \"result\" : [ {\n    \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 8.0\n  }, {\n    \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 3.0\n  }, {\n    \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 2.0\n  } ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "0c15011a-8a99-43ad-bf39-50bd4bd5c39a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:35 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 671,\n    \"description\" : \"Number of performed contributions per time interval, aggregated on the boundary.\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "noContributionsForType_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "2d369a3e-4614-4f17-985f-74303e170b63",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:37 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 3.0\n  }, {\n    \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 5.0\n  } ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "6e15bee6-efac-4c01-8112-9add308cc4ec",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:37 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 0.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 5.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "beda1a99-4737-48f8-983c-eb334c5471b1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:38 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 8.0\n  }, {\n    \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 3.0\n  }, {\n    \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 2.0\n  } ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "e724ce9c-4c52-47a7-b051-596fa4eb7771",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:40 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "timeRangeEndBeforeStart_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "contributionsCount_1",
+                    "id": "26571d5c-2065-4696-8d66-64f3cbd88b7d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:41 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"fromTimestamp\" : \"2014-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 8.0\n  }, {\n    \"fromTimestamp\" : \"2015-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 3.0\n  }, {\n    \"fromTimestamp\" : \"2016-01-01T00:00:00Z\",\n    \"toTimestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 2.0\n  } ]\n}"
+                },
+                {
+                    "name": "contributionsCountGroupByBoundary_1",
+                    "id": "e9a7b39f-f25b-4590-a57f-c7c4b08dcf3a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "contributions",
+                                "count",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 18:07:41 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2015-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2014-01-01T00:00:00Z\",\n      \"value\" : 8.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z-2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2016-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2015-01-01T00:00:00Z\",\n      \"value\" : 3.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z-2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"timestampTo\" : \"2017-01-01T00:00:00Z\",\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"timestampFrom\" : \"2016-01-01T00:00:00Z\",\n      \"value\" : 2.0\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z-2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T18:07:42.774118",
+    "statistics": {
+        "total_test_cases": 20,
+        "passed_test_cases": 14,
+        "failed_test_cases": 6,
+        "test_cases_with_server_errors": 1,
+        "total_requests": 40,
+        "success_rate": 70.0,
+        "avg_requests_per_case": 2.0
+    }
+}

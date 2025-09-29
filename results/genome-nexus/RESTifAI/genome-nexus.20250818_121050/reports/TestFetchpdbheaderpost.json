@@ -1,0 +1,972 @@
+{
+    "test_name": "TestFetchpdbheaderpost",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "cefd31e0-1087-4eaf-a124-a850ee2bb0b9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"NM_000546.5:c.215C>G\",\n  \"ENST00000367770.8:p.R175H\",\n  \"chr17:g.7579472C>G\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:18 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"NM_000546.5:c.215C>G\",\"colocatedVariants\":[{\"dbSnpId\":\"CM961374\"},{\"dbSnpId\":\"COSV52666208\"},{\"dbSnpId\":\"COSV53098660\"},{\"dbSnpId\":\"rs1042522\"}],\"originalVariantQuery\":\"NM_000546.5:c.215C>G\",\"id\":\"NM_000546.5:c.215C>G\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":7579472,\"end\":7579472,\"allele_string\":\"C/G\",\"strand\":-1,\"most_severe_consequence\":\"missense_variant\",\"transcript_consequences\":[{\"exon\":\"4/11\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000269305\",\"hgvsp\":\"ENSP00000269305.4:p.Pro72Arg\",\"hgvsc\":\"ENST00000269305.4:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000269305\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"canonical\":\"1\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.57,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001126112.2\",\"NM_001276761.1\",\"NM_001276760.1\",\"NM_000546.5\",\"NM_001126118.1\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"3/9\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000359597\",\"hgvsp\":\"ENSP00000352610.4:p.Pro72Arg\",\"hgvsc\":\"ENST00000359597.4:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000352610\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.354,\"polyphen_prediction\":\"benign\",\"sift_score\":0.36,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"3/7\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000413465\",\"hgvsp\":\"ENSP00000410739.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000413465.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000410739\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.372,\"polyphen_prediction\":\"benign\",\"sift_score\":0.24,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/12\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000420246\",\"hgvsp\":\"ENSP00000391127.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000420246.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000391127\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.127,\"polyphen_prediction\":\"benign\",\"sift_score\":0.26,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001126114.2\",\"NM_001276696.1\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/11\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000445888\",\"hgvsp\":\"ENSP00000391478.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000445888.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000391478\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.57,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/12\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000455263\",\"hgvsp\":\"ENSP00000398846.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000455263.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000398846\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.147,\"polyphen_prediction\":\"benign\",\"sift_score\":0.37,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001276695.1\",\"NM_001126113.2\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"5/6\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000503591\",\"hgvsp\":\"ENSP00000426252.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000503591.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000426252\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.22,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"transcript_id\":\"ENST00000504290\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000504937\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"exon\":\"3/5\",\"transcript_id\":\"ENST00000505014\",\"hgvsc\":\"ENST00000505014.1:n.471C>G\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"non_coding_transcript_exon_variant\"]},{\"exon\":\"4/5\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000508793\",\"hgvsp\":\"ENSP00000424104.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000508793.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000424104\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.52,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"transcript_id\":\"ENST00000509690\",\"hgvsc\":\"ENST00000509690.1:c.-21-918C>G\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000425104\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000510385\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000514944\",\"hgvsc\":\"ENST00000514944.1:c.96+228C>G\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000423862\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000574684\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000576024\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000458393\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"exon\":\"4/5\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000604348\",\"hgvsp\":\"ENSP00000473895.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000604348.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000473895\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.005,\"polyphen_prediction\":\"benign\",\"sift_score\":0.2,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]}},{\"variant\":\"ENST00000367770.8:p.R175H\",\"errorMessage\":\"Error from VEP for: ENST00000367770.8:p.R175H\",\"originalVariantQuery\":\"ENST00000367770.8:p.R175H\",\"successfully_annotated\":false},{\"variant\":\"17:g.7579472C>G\",\"errorMessage\":\"Error from VEP for: 17:g.7579472C>G\",\"originalVariantQuery\":\"chr17:g.7579472C>G\",\"successfully_annotated\":false}]"
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "5d146da7-d265-4c77-92dc-a1511e2d2035",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1TUP\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:18 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1TUP\",\"title\":\"tumor suppressor p53 complexed with dna\",\"compound\":{\"1\":{\"chain\":[\"e\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*tp*tp*tp*cp*cp*tp*ap*gp*ap*cp*tp*tp*gp*cp*cp*cp*a p*ap*tp*tp*a)- 3')\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"f\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*ap*tp*ap*ap*tp*tp*gp*gp*gp*cp*ap*ap*gp*tp*cp*tp*a p*gp*gp*ap*a)- 3')\",\"mol_id\":\"2\"},\"3\":{\"chain\":[\"a\",\"b\",\"c\"],\"molecule\":\"protein (p53 tumor suppressor )\",\"mol_id\":\"3\"}},\"source\":{\"1\":{\"synthetic\":\"yes\",\"mol_id\":\"1\"},\"2\":{\"synthetic\":\"yes\",\"mol_id\":\"2\"},\"3\":{\"organism_scientific\":\"homo sapiens\",\"cell_line\":\"a431\",\"organism_common\":\"human\",\"organism_taxid\":\"9606\",\"cell\":\"human vulva carcinoma\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"3\"}}}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bodyArrayContainsNonString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "f8e1f611-5539-47b1-9b1f-ece93f6cbef0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  12345\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:19 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"12345\",\"errorMessage\":\"Error from VEP for: 12345\",\"originalVariantQuery\":\"12345\",\"successfully_annotated\":false}]"
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "098ff213-73fd-430e-b856-c57022688e2e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1TUP\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:19 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1TUP\",\"title\":\"tumor suppressor p53 complexed with dna\",\"compound\":{\"1\":{\"chain\":[\"e\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*tp*tp*tp*cp*cp*tp*ap*gp*ap*cp*tp*tp*gp*cp*cp*cp*a p*ap*tp*tp*a)- 3')\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"f\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*ap*tp*ap*ap*tp*tp*gp*gp*gp*cp*ap*ap*gp*tp*cp*tp*a p*gp*gp*ap*a)- 3')\",\"mol_id\":\"2\"},\"3\":{\"chain\":[\"a\",\"b\",\"c\"],\"molecule\":\"protein (p53 tumor suppressor )\",\"mol_id\":\"3\"}},\"source\":{\"1\":{\"synthetic\":\"yes\",\"mol_id\":\"1\"},\"2\":{\"synthetic\":\"yes\",\"mol_id\":\"2\"},\"3\":{\"organism_scientific\":\"homo sapiens\",\"cell_line\":\"a431\",\"organism_common\":\"human\",\"organism_taxid\":\"9606\",\"cell\":\"human vulva carcinoma\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"3\"}}}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bodyArrayContainsNull_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "9fa1bbef-ea51-4183-83c3-3e610f5416cd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  null,\n  \"ENST00000367770.8:p.R175H\",\n  \"chr17:g.7579472C>G\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:27:21 GMT"
+                    },
+                    "response_body": ""
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "9ae21e13-8c7b-4de2-97a0-4fe1fdaeb150",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1TUP\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:21 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1TUP\",\"title\":\"tumor suppressor p53 complexed with dna\",\"compound\":{\"1\":{\"chain\":[\"e\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*tp*tp*tp*cp*cp*tp*ap*gp*ap*cp*tp*tp*gp*cp*cp*cp*a p*ap*tp*tp*a)- 3')\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"f\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*ap*tp*ap*ap*tp*tp*gp*gp*gp*cp*ap*ap*gp*tp*cp*tp*a p*gp*gp*ap*a)- 3')\",\"mol_id\":\"2\"},\"3\":{\"chain\":[\"a\",\"b\",\"c\"],\"molecule\":\"protein (p53 tumor suppressor )\",\"mol_id\":\"3\"}},\"source\":{\"1\":{\"synthetic\":\"yes\",\"mol_id\":\"1\"},\"2\":{\"synthetic\":\"yes\",\"mol_id\":\"2\"},\"3\":{\"organism_scientific\":\"homo sapiens\",\"cell_line\":\"a431\",\"organism_common\":\"human\",\"organism_taxid\":\"9606\",\"cell\":\"human vulva carcinoma\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"3\"}}}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bodyNotArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "0a496729-4e01-48c4-b938-6eac506211cc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"pdbId\": \"1TUP\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:27:22 GMT"
+                    },
+                    "response_body": ""
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "b4dde00c-d87c-42d5-aeec-4b258f7c116a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1TUP\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:22 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1TUP\",\"title\":\"tumor suppressor p53 complexed with dna\",\"compound\":{\"1\":{\"chain\":[\"e\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*tp*tp*tp*cp*cp*tp*ap*gp*ap*cp*tp*tp*gp*cp*cp*cp*a p*ap*tp*tp*a)- 3')\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"f\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*ap*tp*ap*ap*tp*tp*gp*gp*gp*cp*ap*ap*gp*tp*cp*tp*a p*gp*gp*ap*a)- 3')\",\"mol_id\":\"2\"},\"3\":{\"chain\":[\"a\",\"b\",\"c\"],\"molecule\":\"protein (p53 tumor suppressor )\",\"mol_id\":\"3\"}},\"source\":{\"1\":{\"synthetic\":\"yes\",\"mol_id\":\"1\"},\"2\":{\"synthetic\":\"yes\",\"mol_id\":\"2\"},\"3\":{\"organism_scientific\":\"homo sapiens\",\"cell_line\":\"a431\",\"organism_common\":\"human\",\"organism_taxid\":\"9606\",\"cell\":\"human vulva carcinoma\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"3\"}}}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "deprecatedPdbId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "01a615ca-07d1-49ed-a489-14cf0ec52ebf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"NM_000546.5:c.215C>G\",\n  \"ENST00000367770.8:p.R175H\",\n  \"chr17:g.7579472C>G\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:24 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"NM_000546.5:c.215C>G\",\"colocatedVariants\":[{\"dbSnpId\":\"CM961374\"},{\"dbSnpId\":\"COSV52666208\"},{\"dbSnpId\":\"COSV53098660\"},{\"dbSnpId\":\"rs1042522\"}],\"originalVariantQuery\":\"NM_000546.5:c.215C>G\",\"id\":\"NM_000546.5:c.215C>G\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":7579472,\"end\":7579472,\"allele_string\":\"C/G\",\"strand\":-1,\"most_severe_consequence\":\"missense_variant\",\"transcript_consequences\":[{\"exon\":\"4/11\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000269305\",\"hgvsp\":\"ENSP00000269305.4:p.Pro72Arg\",\"hgvsc\":\"ENST00000269305.4:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000269305\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"canonical\":\"1\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.57,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001126112.2\",\"NM_001276761.1\",\"NM_001276760.1\",\"NM_000546.5\",\"NM_001126118.1\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"3/9\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000359597\",\"hgvsp\":\"ENSP00000352610.4:p.Pro72Arg\",\"hgvsc\":\"ENST00000359597.4:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000352610\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.354,\"polyphen_prediction\":\"benign\",\"sift_score\":0.36,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"3/7\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000413465\",\"hgvsp\":\"ENSP00000410739.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000413465.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000410739\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.372,\"polyphen_prediction\":\"benign\",\"sift_score\":0.24,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/12\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000420246\",\"hgvsp\":\"ENSP00000391127.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000420246.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000391127\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.127,\"polyphen_prediction\":\"benign\",\"sift_score\":0.26,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001126114.2\",\"NM_001276696.1\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/11\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000445888\",\"hgvsp\":\"ENSP00000391478.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000445888.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000391478\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.57,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/12\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000455263\",\"hgvsp\":\"ENSP00000398846.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000455263.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000398846\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.147,\"polyphen_prediction\":\"benign\",\"sift_score\":0.37,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001276695.1\",\"NM_001126113.2\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"5/6\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000503591\",\"hgvsp\":\"ENSP00000426252.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000503591.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000426252\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.22,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"transcript_id\":\"ENST00000504290\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000504937\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"exon\":\"3/5\",\"transcript_id\":\"ENST00000505014\",\"hgvsc\":\"ENST00000505014.1:n.471C>G\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"non_coding_transcript_exon_variant\"]},{\"exon\":\"4/5\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000508793\",\"hgvsp\":\"ENSP00000424104.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000508793.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000424104\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.52,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"transcript_id\":\"ENST00000509690\",\"hgvsc\":\"ENST00000509690.1:c.-21-918C>G\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000425104\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000510385\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000514944\",\"hgvsc\":\"ENST00000514944.1:c.96+228C>G\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000423862\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000574684\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000576024\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000458393\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"exon\":\"4/5\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000604348\",\"hgvsp\":\"ENSP00000473895.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000604348.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000473895\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.005,\"polyphen_prediction\":\"benign\",\"sift_score\":0.2,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]}},{\"variant\":\"ENST00000367770.8:p.R175H\",\"errorMessage\":\"Error from VEP for: ENST00000367770.8:p.R175H\",\"originalVariantQuery\":\"ENST00000367770.8:p.R175H\",\"successfully_annotated\":false},{\"variant\":\"17:g.7579472C>G\",\"errorMessage\":\"Error from VEP for: 17:g.7579472C>G\",\"originalVariantQuery\":\"chr17:g.7579472C>G\",\"successfully_annotated\":false}]"
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "bc949df6-d4ab-4731-ae16-69b946309fda",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1ABC\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:26 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyBodyArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "bd9cb0ed-fd17-4fd3-bf6d-697296ab71da",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:27:27 GMT"
+                    },
+                    "response_body": ""
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "2554fd85-fdf4-4079-9ba8-259e9827d759",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1TUP\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:27 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1TUP\",\"title\":\"tumor suppressor p53 complexed with dna\",\"compound\":{\"1\":{\"chain\":[\"e\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*tp*tp*tp*cp*cp*tp*ap*gp*ap*cp*tp*tp*gp*cp*cp*cp*a p*ap*tp*tp*a)- 3')\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"f\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*ap*tp*ap*ap*tp*tp*gp*gp*gp*cp*ap*ap*gp*tp*cp*tp*a p*gp*gp*ap*a)- 3')\",\"mol_id\":\"2\"},\"3\":{\"chain\":[\"a\",\"b\",\"c\"],\"molecule\":\"protein (p53 tumor suppressor )\",\"mol_id\":\"3\"}},\"source\":{\"1\":{\"synthetic\":\"yes\",\"mol_id\":\"1\"},\"2\":{\"synthetic\":\"yes\",\"mol_id\":\"2\"},\"3\":{\"organism_scientific\":\"homo sapiens\",\"cell_line\":\"a431\",\"organism_common\":\"human\",\"organism_taxid\":\"9606\",\"cell\":\"human vulva carcinoma\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"3\"}}}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentPdbId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "ef6db61d-f101-44cc-bb48-ed98dbc78afc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"NM_000546.5:c.215C>G\",\n  \"ENST00000367770.8:p.R175H\",\n  \"chr17:g.7579472C>G\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:29 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"NM_000546.5:c.215C>G\",\"colocatedVariants\":[{\"dbSnpId\":\"CM961374\"},{\"dbSnpId\":\"COSV52666208\"},{\"dbSnpId\":\"COSV53098660\"},{\"dbSnpId\":\"rs1042522\"}],\"originalVariantQuery\":\"NM_000546.5:c.215C>G\",\"id\":\"NM_000546.5:c.215C>G\",\"assembly_name\":\"GRCh37\",\"seq_region_name\":\"17\",\"start\":7579472,\"end\":7579472,\"allele_string\":\"C/G\",\"strand\":-1,\"most_severe_consequence\":\"missense_variant\",\"transcript_consequences\":[{\"exon\":\"4/11\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000269305\",\"hgvsp\":\"ENSP00000269305.4:p.Pro72Arg\",\"hgvsc\":\"ENST00000269305.4:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000269305\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"canonical\":\"1\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.57,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001126112.2\",\"NM_001276761.1\",\"NM_001276760.1\",\"NM_000546.5\",\"NM_001126118.1\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"3/9\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000359597\",\"hgvsp\":\"ENSP00000352610.4:p.Pro72Arg\",\"hgvsc\":\"ENST00000359597.4:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000352610\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.354,\"polyphen_prediction\":\"benign\",\"sift_score\":0.36,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"3/7\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000413465\",\"hgvsp\":\"ENSP00000410739.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000413465.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000410739\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.372,\"polyphen_prediction\":\"benign\",\"sift_score\":0.24,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/12\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000420246\",\"hgvsp\":\"ENSP00000391127.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000420246.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000391127\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.127,\"polyphen_prediction\":\"benign\",\"sift_score\":0.26,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001126114.2\",\"NM_001276696.1\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/11\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000445888\",\"hgvsp\":\"ENSP00000391478.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000445888.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000391478\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.57,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"4/12\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000455263\",\"hgvsp\":\"ENSP00000398846.2:p.Pro72Arg\",\"hgvsc\":\"ENST00000455263.2:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000398846\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.147,\"polyphen_prediction\":\"benign\",\"sift_score\":0.37,\"sift_prediction\":\"tolerated\",\"refseq_transcript_ids\":[\"NM_001276695.1\",\"NM_001126113.2\"],\"consequence_terms\":[\"missense_variant\"]},{\"exon\":\"5/6\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000503591\",\"hgvsp\":\"ENSP00000426252.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000503591.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000426252\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.22,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"transcript_id\":\"ENST00000504290\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000504937\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"exon\":\"3/5\",\"transcript_id\":\"ENST00000505014\",\"hgvsc\":\"ENST00000505014.1:n.471C>G\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"non_coding_transcript_exon_variant\"]},{\"exon\":\"4/5\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000508793\",\"hgvsp\":\"ENSP00000424104.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000508793.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000424104\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.045,\"polyphen_prediction\":\"benign\",\"sift_score\":0.52,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]},{\"transcript_id\":\"ENST00000509690\",\"hgvsc\":\"ENST00000509690.1:c.-21-918C>G\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000425104\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000510385\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000514944\",\"hgvsc\":\"ENST00000514944.1:c.96+228C>G\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000423862\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"intron_variant\"]},{\"transcript_id\":\"ENST00000574684\",\"variant_allele\":\"G\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"transcript_id\":\"ENST00000576024\",\"variant_allele\":\"G\",\"protein_id\":\"ENSP00000458393\",\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"hgnc_id\":\"11998\",\"consequence_terms\":[\"upstream_gene_variant\"]},{\"exon\":\"4/5\",\"alphaMissense\":{\"score\":0.0724,\"pathogenicity\":\"benign\"},\"transcript_id\":\"ENST00000604348\",\"hgvsp\":\"ENSP00000473895.1:p.Pro72Arg\",\"hgvsc\":\"ENST00000604348.1:c.215C>G\",\"variant_allele\":\"G\",\"codons\":\"cCc/cGc\",\"protein_id\":\"ENSP00000473895\",\"protein_start\":72,\"protein_end\":72,\"gene_symbol\":\"TP53\",\"gene_id\":\"ENSG00000141510\",\"amino_acids\":\"P/R\",\"hgnc_id\":\"11998\",\"polyphen_score\":0.005,\"polyphen_prediction\":\"benign\",\"sift_score\":0.2,\"sift_prediction\":\"tolerated\",\"consequence_terms\":[\"missense_variant\"]}],\"successfully_annotated\":true,\"hotspots\":{\"license\":\"https://opendatacommons.org/licenses/odbl/1.0/\",\"annotation\":[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]}},{\"variant\":\"ENST00000367770.8:p.R175H\",\"errorMessage\":\"Error from VEP for: ENST00000367770.8:p.R175H\",\"originalVariantQuery\":\"ENST00000367770.8:p.R175H\",\"successfully_annotated\":false},{\"variant\":\"17:g.7579472C>G\",\"errorMessage\":\"Error from VEP for: 17:g.7579472C>G\",\"originalVariantQuery\":\"chr17:g.7579472C>G\",\"successfully_annotated\":false}]"
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "d3d7b35f-f93d-482c-b21d-49e46e87c8c2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"ZZZZ\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:33 GMT"
+                    },
+                    "response_body": "[]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bodyArrayContainsEmptyString_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchVariantAnnotationPOST",
+                    "id": "b710d370-0fb1-43d7-84b2-25521dc087d0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "annotation"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "isoformOverrideSource",
+                                    "value": "uniprot"
+                                },
+                                {
+                                    "key": "token",
+                                    "value": "%7B%22source1%22%3A%22put-your-token1-here%22%2C%22source2%22%3A%22put-your-token2-here%22%7D"
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "hotspots"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:35 GMT"
+                    },
+                    "response_body": "[{\"variant\":\"\",\"errorMessage\":\"Error from VEP for: \",\"originalVariantQuery\":\"\",\"successfully_annotated\":false}]"
+                },
+                {
+                    "name": "fetchPdbHeaderPOST",
+                    "id": "bb51927f-2e20-47de-97fc-41bfbf3d8edd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "pdb",
+                                "header"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"1TUP\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:35 GMT"
+                    },
+                    "response_body": "[{\"pdbId\":\"1TUP\",\"title\":\"tumor suppressor p53 complexed with dna\",\"compound\":{\"1\":{\"chain\":[\"e\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*tp*tp*tp*cp*cp*tp*ap*gp*ap*cp*tp*tp*gp*cp*cp*cp*a p*ap*tp*tp*a)- 3')\",\"mol_id\":\"1\"},\"2\":{\"chain\":[\"f\"],\"engineered\":\"yes\",\"molecule\":\"dna (5'- d(*ap*tp*ap*ap*tp*tp*gp*gp*gp*cp*ap*ap*gp*tp*cp*tp*a p*gp*gp*ap*a)- 3')\",\"mol_id\":\"2\"},\"3\":{\"chain\":[\"a\",\"b\",\"c\"],\"molecule\":\"protein (p53 tumor suppressor )\",\"mol_id\":\"3\"}},\"source\":{\"1\":{\"synthetic\":\"yes\",\"mol_id\":\"1\"},\"2\":{\"synthetic\":\"yes\",\"mol_id\":\"2\"},\"3\":{\"organism_scientific\":\"homo sapiens\",\"cell_line\":\"a431\",\"organism_common\":\"human\",\"organism_taxid\":\"9606\",\"cell\":\"human vulva carcinoma\",\"expression_system_taxid\":\"562\",\"expression_system\":\"escherichia coli\",\"mol_id\":\"3\"}}}]"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:27:35.257970",
+    "statistics": {
+        "total_test_cases": 8,
+        "passed_test_cases": 4,
+        "failed_test_cases": 4,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 16,
+        "success_rate": 50.0,
+        "avg_requests_per_case": 2.0
+    }
+}

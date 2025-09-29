@@ -1,0 +1,193 @@
+{
+  "test_name": "invalidBoundingBoxCoordinates_FU",
+  "description": "Set the `bboxes` parameter to coordinates that define an invalid geographic area where min longitude is greater than max longitude, e.g., '13.4,52.5,13.3,52.6', to test invalid bounding box logic.",
+  "test_suite": "TestPerimetergroupbyboundarygroupbytag",
+  "base_url": "https://api.ohsome.org/v1",
+  "operations": [
+    "perimeterGroupByBoundaryGroupByTag"
+  ],
+  "values_to_create_a_successful_request": "perimeterGroupByBoundaryGroupByTag.request.query_params.bboxes: 13.388860,52.517037,13.397634,52.523219\nperimeterGroupByBoundaryGroupByTag.request.query_params.filter: type=way and highway=primary\nperimeterGroupByBoundaryGroupByTag.request.query_params.format: geojson\nperimeterGroupByBoundaryGroupByTag.request.query_params.groupByKey: highway\nperimeterGroupByBoundaryGroupByTag.request.query_params.groupByValues: primary,residential\nperimeterGroupByBoundaryGroupByTag.request.query_params.showMetadata: true\nperimeterGroupByBoundaryGroupByTag.request.query_params.time: 2024-06-01T00:00:00Z\nperimeterGroupByBoundaryGroupByTag.request.query_params.timeout: 30\nperimeterGroupByBoundaryGroupByTag.response.body.attribution.url: https://ohsome.org/copyrights\nperimeterGroupByBoundaryGroupByTag.response.body.attribution.text: \u00a9 OpenStreetMap contributors\nperimeterGroupByBoundaryGroupByTag.response.body.apiVersion: 1.10.4\nperimeterGroupByBoundaryGroupByTag.response.body.metadata.executionTime: 6779\nperimeterGroupByBoundaryGroupByTag.response.body.metadata.description: Total perimeter of items in meters, aggregated on the boundary and on the tag.\nperimeterGroupByBoundaryGroupByTag.response.body.metadata.requestUrl: https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860%2C52.517037%2C13.397634%2C52.523219&filter=type%3Dway+and+highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary%2Cresidential&showMetadata=true&time=2024-06-01T00%3A00%3A00Z&timeout=30\nperimeterGroupByBoundaryGroupByTag.response.body.type: FeatureCollection\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].type: Feature\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].properties.groupByBoundaryId: boundary1_highway=residential\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].properties.value: 0.0\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].properties.timestamp: 2024-06-01T00:00:00Z\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.type: Polygon\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][0][0]: 13.38886\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][0][1]: 52.517036999999995\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][1][0]: 13.397634\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][1][1]: 52.517036999999995\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][2][0]: 13.397634\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][2][1]: 52.523219\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][3][0]: 13.38886\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][3][1]: 52.523219\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][4][0]: 13.38886\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].geometry.coordinates[0][4][1]: 52.517036999999995\nperimeterGroupByBoundaryGroupByTag.response.body.features[0].id: boundary1_highway=residential@2024-06-01T00:00:00Z\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].type: Feature\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].properties.groupByBoundaryId: boundary1_highway=primary\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].properties.value: 0.0\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].properties.timestamp: 2024-06-01T00:00:00Z\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.type: Polygon\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][0][0]: 13.38886\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][0][1]: 52.517036999999995\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][1][0]: 13.397634\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][1][1]: 52.517036999999995\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][2][0]: 13.397634\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][2][1]: 52.523219\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][3][0]: 13.38886\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][3][1]: 52.523219\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][4][0]: 13.38886\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].geometry.coordinates[0][4][1]: 52.517036999999995\nperimeterGroupByBoundaryGroupByTag.response.body.features[1].id: boundary1_highway=primary@2024-06-01T00:00:00Z\nperimeterGroupByBoundaryGroupByTag.response.headers.Date: Mon, 18 Aug 2025 16:00:44 GMT\nperimeterGroupByBoundaryGroupByTag.response.headers.Server: Apache/2.4.58 (Ubuntu)\nperimeterGroupByBoundaryGroupByTag.response.headers.Strict-Transport-Security: max-age=63072000; includeSubdomains;\nperimeterGroupByBoundaryGroupByTag.response.headers.Access-Control-Allow-Origin: *\nperimeterGroupByBoundaryGroupByTag.response.headers.Access-Control-Allow-Methods: POST, GET\nperimeterGroupByBoundaryGroupByTag.response.headers.Access-Control-Max-Age: 3600\nperimeterGroupByBoundaryGroupByTag.response.headers.Access-Control-Allow-Credentials: true\nperimeterGroupByBoundaryGroupByTag.response.headers.Access-Control-Allow-Headers: Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization\nperimeterGroupByBoundaryGroupByTag.response.headers.Cache-Control: no-transform, public, max-age=31556926\nperimeterGroupByBoundaryGroupByTag.response.headers.vary: accept-encoding\nperimeterGroupByBoundaryGroupByTag.response.headers.Content-Encoding: gzip\nperimeterGroupByBoundaryGroupByTag.response.headers.Content-Type: application/json\nperimeterGroupByBoundaryGroupByTag.response.headers.Keep-Alive: timeout=5, max=100\nperimeterGroupByBoundaryGroupByTag.response.headers.Connection: Keep-Alive\nperimeterGroupByBoundaryGroupByTag.response.headers.Transfer-Encoding: chunked\nperimeterGroupByBoundaryGroupByTag.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### perimeterGroupByBoundaryGroupByTag\n- Method: GET\n- Path: /elements/perimeter/groupBy/boundary/groupBy/tag\n- Parameters:\n  - name: bboxes\n  - in: query\n  - required: False\n  - description: WGS84 coordinates in the following format: id1:lon1,lat1,lon2,lat2|id2:lon1,lat1,lon2,lat2|... OR lon1,lat1,lon2,lat2|lon1,lat1,lon2,lat2|...; no default value (one boundary parameter must be defined)\n  - type: string\n  - default: 8.67,49.39,8.71,49.42\n  - name: bcircles\n  - in: query\n  - required: False\n  - description: WGS84 coordinates + radius in meter in the following format: id1:lon,lat,r|id2:lon,lat,r|... OR lon,lat,r|lon,lat,r|...; no default value (one boundary parameter must be defined)\n  - type: string\n  - name: bpolys\n  - in: query\n  - required: False\n  - description: WGS84 coordinates given as a list of coordinate pairs (as for bboxes) or GeoJSON FeatureCollection. The first point has to be the same as the last point and MultiPolygons are only supported in GeoJSON; no default value (one boundary parameter must be defined)\n  - type: string\n  - name: filter\n  - in: query\n  - required: False\n  - description: Combines several attributive filters, e.g. OSM type, the geometry (simple feature) type, as well as the OSM tag; no default value\n  - type: string\n  - default: type:way and natural=*\n  - name: format\n  - in: query\n  - required: False\n  - description: Output format geojson (for /groupBy/boundary resources only), csv, or json; default: json\n  - type: string\n  - default: json\n  - name: groupByKey\n  - in: query\n  - required: True\n  - description: OSM key e.g.: 'highway', 'building'; no default value (one groupByKey parameter must be defined)\n  - type: string\n  - default: building\n  - name: groupByValues\n  - in: query\n  - required: False\n  - description: OSM value(s) e.g.: 'primary', 'residential'; default: no value\n  - type: string\n  - name: showMetadata\n  - in: query\n  - required: False\n  - description: Boolean operator 'true' or 'false'; default: 'false'\n  - type: string\n  - name: time\n  - in: query\n  - required: False\n  - description: ISO-8601 conform timestring(s); default: latest timestamp within dataset\n  - type: string\n  - default: 2014-01-01/2017-01-01/P1Y\n  - name: timeout\n  - in: query\n  - required: False\n  - description: Custom timeout in seconds; no default value\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'title': 'GroupByResponse', 'required': ['apiVersion', 'attribution', 'features', 'groupByResult', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'groupByResult': {'type': 'array', 'description': 'GroupByResult array holding the respective objects with their timestamp-value pairs', 'items': {'title': 'GroupByResult', 'required': ['groupByObject', 'result'], 'type': 'object', 'properties': {'groupByObject': {'type': 'object', 'properties': {}, 'description': 'Object on which the results are grouped on'}, 'result': {'type': 'array', 'description': 'Result array holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}}}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}, 'text/csv': {'schema': {'title': 'GroupByResponse', 'required': ['apiVersion', 'attribution', 'features', 'groupByResult', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'groupByResult': {'type': 'array', 'description': 'GroupByResult array holding the respective objects with their timestamp-value pairs', 'items': {'title': 'GroupByResult', 'required': ['groupByObject', 'result'], 'type': 'object', 'properties': {'groupByObject': {'type': 'object', 'properties': {}, 'description': 'Object on which the results are grouped on'}, 'result': {'type': 'array', 'description': 'Result array holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}}}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}}}, '400': {'description': 'Bad request', 'content': {}}, '401': {'description': 'Unauthorized', 'content': {}}, '404': {'description': 'Not found', 'content': {}}, '405': {'description': 'Method not allowed', 'content': {}}, '413': {'description': 'Payload too large', 'content': {}}, '500': {'description': 'Internal server error', 'content': {}}, '501': {'description': 'Not implemented', 'content': {}}, '503': {'description': 'Service Unavailable', 'content': {}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "perimeterGroupByBoundaryGroupByTag",
+      "request_id": "e863c955-8e08-470b-9ac1-bf3bc9868059",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "elements",
+            "perimeter",
+            "groupBy",
+            "boundary",
+            "groupBy",
+            "tag"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "bboxes",
+              "value": "13.4,52.5,13.3,52.6"
+            },
+            {
+              "key": "filter",
+              "value": "type%3Dway%20and%20highway%3Dprimary"
+            },
+            {
+              "key": "format",
+              "value": "geojson"
+            },
+            {
+              "key": "groupByKey",
+              "value": "highway"
+            },
+            {
+              "key": "groupByValues",
+              "value": "primary,residential"
+            },
+            {
+              "key": "showMetadata",
+              "value": "true"
+            },
+            {
+              "key": "time",
+              "value": "2024-06-01T00:00:00Z"
+            },
+            {
+              "key": "timeout",
+              "value": "30"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Date": "Mon, 18 Aug 2025 16:42:36 GMT",
+          "Server": "Apache/2.4.58 (Ubuntu)",
+          "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET",
+          "Access-Control-Max-Age": "3600",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+          "Cache-Control": "no-transform, public, max-age=31556926",
+          "vary": "accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Keep-Alive": "timeout=5, max=100",
+          "Connection": "Keep-Alive",
+          "Transfer-Encoding": "chunked"
+        },
+        "body": {
+          "attribution": {
+            "url": "https://ohsome.org/copyrights",
+            "text": " OpenStreetMap contributors"
+          },
+          "apiVersion": "1.10.4",
+          "metadata": {
+            "executionTime": 8854,
+            "description": "Total perimeter of items in meters, aggregated on the boundary and on the tag.",
+            "requestUrl": "https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.4,52.5,13.3,52.6&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30"
+          },
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "groupByBoundaryId": "boundary1_highway=residential",
+                "value": 0.0,
+                "timestamp": "2024-06-01T00:00:00Z"
+              },
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [
+                      13.399999999999999,
+                      52.5
+                    ],
+                    [
+                      13.299999999999999,
+                      52.5
+                    ],
+                    [
+                      13.299999999999999,
+                      52.599999999999994
+                    ],
+                    [
+                      13.399999999999999,
+                      52.599999999999994
+                    ],
+                    [
+                      13.399999999999999,
+                      52.5
+                    ]
+                  ]
+                ]
+              },
+              "id": "boundary1_highway=residential@2024-06-01T00:00:00Z"
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "groupByBoundaryId": "boundary1_highway=primary",
+                "value": 0.0,
+                "timestamp": "2024-06-01T00:00:00Z"
+              },
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [
+                      13.399999999999999,
+                      52.5
+                    ],
+                    [
+                      13.299999999999999,
+                      52.5
+                    ],
+                    [
+                      13.299999999999999,
+                      52.599999999999994
+                    ],
+                    [
+                      13.399999999999999,
+                      52.599999999999994
+                    ],
+                    [
+                      13.399999999999999,
+                      52.5
+                    ]
+                  ]
+                ]
+              },
+              "id": "boundary1_highway=primary@2024-06-01T00:00:00Z"
+            }
+          ]
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+          }
+        }
+      ]
+    }
+  ]
+}

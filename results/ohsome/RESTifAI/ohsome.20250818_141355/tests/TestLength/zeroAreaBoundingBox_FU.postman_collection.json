@@ -1,0 +1,92 @@
+{
+    "info": {
+        "name": "zeroAreaBoundingBox_FU",
+        "description": "Set the `bboxes` parameter to a bounding box with zero area, e.g., '12.4924,41.8902,12.4924,41.8902', which violates the business logic that bounding boxes must cover a non-zero spatial area.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "length",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length?bboxes=12.4924,41.8902,12.4924,41.8902&filter=type%3Dway%20and%20highway%3Dresidential&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4924,41.8902,12.4924,41.8902"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dway%20and%20highway%3Dresidential"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('length.request.query_params.bboxes', '12.4924,41.8902,12.4924,41.8902');",
+                            "pm.collectionVariables.set('length.request.query_params.filter', 'type%3Dway%20and%20highway%3Dresidential');",
+                            "pm.collectionVariables.set('length.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('length.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('length.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('length.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

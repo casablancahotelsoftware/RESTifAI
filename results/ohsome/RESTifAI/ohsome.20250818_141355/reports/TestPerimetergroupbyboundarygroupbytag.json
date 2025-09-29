@@ -1,0 +1,1551 @@
+{
+    "test_name": "TestPerimetergroupbyboundarygroupbytag",
+    "test_results": [
+        {
+            "test_case_name": "futureTimeQuery_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "ece706b7-a08f-46f1-8fe6-8c294eb074d2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2100-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 2xx",
+                                "message": "expected 404 to be within 200..299",
+                                "stack": "AssertionError: expected 404 to be within 200..299\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:00 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:41:01.374912033\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2100-01-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "1a009234-38d9-4d82-8962-efbfad932294",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:02 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:41:02.282224693\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=xml&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBboxesFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "90419d1e-e32a-41d9-b08b-2cc5d6fbdd64",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:02 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:41:03.101323434\",\n  \"status\" : 400,\n  \"message\" : \"Apart from the custom ids, the bboxeses array must contain double-parseable values in the following order: minLon, minLat, maxLon, maxLat.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingGroupByKey_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "30c81d42-addc-4e7b-85aa-dbe1b39eba80",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:41:04.02698706\",\n  \"status\" : 400,\n  \"message\" : \"You need to give one groupByKey parameter, if you want to use groupBy/tag.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "2786b71e-ece8-490d-9373-1b0ae484858f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "yesterday"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:41:04.842582957\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=yesterday&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "groupByKeyNotApplicableToFilter_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "e4704950-5f34-4104-a0d6-dfdef1b0aacd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "building"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:12 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 7071,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=building&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_building=residential\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_building=residential@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_building=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_building=primary@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterConditions_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "6ad32fee-cce7-4588-8a13-44e10ae24512",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20type%3Dnode"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:23 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 9519,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20type%3Dnode&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=residential\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=residential@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=primary@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFilterString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "4dc39451-2076-4429-bf4c-78702ae80b4a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:41:54 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:41:54.142687294\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyGroupByValuesWithGroupByKey_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "d9d7b111-d546-4364-9da2-3ced44f75405",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:02 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 7356,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidGroupByValuesForKey_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "9d890c36-2e39-44a5-8207-95ae00bef0ee",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,castle"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 6992,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,castle&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=primary@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=castle\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=castle@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroTimeoutValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "d7e78b4b-ed27-4b63-9e70-f457ad5c8e01",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:42:11.012727518\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "61deebb6-6ec3-4797-b7af-a2b1b596e7fb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:11 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-18T16:42:11.849706038\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=thirty\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "e107d324-4741-4178-9dc8-7dba643c0e71",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "yes"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 6777,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=yes&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=residential\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=residential@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=primary@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterWithNonExistentTagValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "053e77f4-c193-41a5-9448-a04c218514ae",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dnonexistenthighway"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:27 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 6854,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dnonexistenthighway&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=residential\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=residential@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=primary@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBoundingBoxCoordinates_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "e863c955-8e08-470b-9ac1-bf3bc9868059",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.4,52.5,13.3,52.6"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:36 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 8854,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.4,52.5,13.3,52.6&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=residential\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.399999999999999, 52.5 ], [ 13.299999999999999, 52.5 ], [ 13.299999999999999, 52.599999999999994 ], [ 13.399999999999999, 52.599999999999994 ], [ 13.399999999999999, 52.5 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=residential@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.399999999999999, 52.5 ], [ 13.299999999999999, 52.5 ], [ 13.299999999999999, 52.599999999999994 ], [ 13.399999999999999, 52.599999999999994 ], [ 13.399999999999999, 52.5 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=primary@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "perimeterGroupByBoundaryGroupByTag",
+                    "id": "7d9582d0-cfbc-433b-8546-621acc047543",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "perimeter",
+                                "groupBy",
+                                "boundary",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.523219"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Dway%20and%20highway%3Dprimary"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "primary,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Mon, 18 Aug 2025 16:42:44 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 7223,\n    \"description\" : \"Total perimeter of items in meters, aggregated on the boundary and on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/perimeter/groupBy/boundary/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.523219&filter=type%3Dway%20and%20highway%3Dprimary&format=geojson&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=residential\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=residential@2024-06-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1_highway=primary\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2024-06-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 13.38886, 52.517036999999995 ], [ 13.397634, 52.517036999999995 ], [ 13.397634, 52.523219 ], [ 13.38886, 52.523219 ], [ 13.38886, 52.517036999999995 ] ] ]\n    },\n    \"id\" : \"boundary1_highway=primary@2024-06-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T16:42:44.939038",
+    "statistics": {
+        "total_test_cases": 16,
+        "passed_test_cases": 9,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 16,
+        "success_rate": 56.25,
+        "avg_requests_per_case": 1.0
+    }
+}

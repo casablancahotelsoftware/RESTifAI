@@ -1,0 +1,113 @@
+{
+    "info": {
+        "name": "contradictoryFilterConditions_FU",
+        "description": "Set the `filter` parameter to contradictory conditions that cannot be true simultaneously, e.g., 'building=* and building=nonexistentvalue', causing no valid data to match and thus a logical error.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countRatio_1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "building=* and building=nonexistentvalue",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter2",
+                            "value": "type:node and \"addr:housenumber\"=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/ratio",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "ratio"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countRatio_1.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.bboxes', '8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.filter', 'building=* and building=nonexistentvalue');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.filter2', 'type:node and \"addr:housenumber\"=*');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.format', 'json');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.time', '2014-01-01/2017-01-01/P1Y');",
+                            "pm.collectionVariables.set('countRatio_1.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

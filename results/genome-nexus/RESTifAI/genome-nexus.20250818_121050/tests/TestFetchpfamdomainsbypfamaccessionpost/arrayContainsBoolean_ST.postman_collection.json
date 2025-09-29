@@ -1,0 +1,78 @@
+{
+    "info": {
+        "name": "arrayContainsBoolean_ST",
+        "description": "Send a request body as an array containing a boolean value, e.g., [true] instead of [\"PF00069\"]",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchPfamDomainsByPfamAccessionPOST",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "[\n  true,\n  \"PF00069\",\n  \"PF00533\",\n  \"PF07714\"\n]",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/pfam/domain",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "pfam",
+                        "domain"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchPfamDomainsByPfamAccessionPOST.request.headers.Content-Type', 'application/json');",
+                            "pm.collectionVariables.set('fetchPfamDomainsByPfamAccessionPOST.request.body.[0]', true);",
+                            "pm.collectionVariables.set('fetchPfamDomainsByPfamAccessionPOST.request.body.[1]', 'PF00069');",
+                            "pm.collectionVariables.set('fetchPfamDomainsByPfamAccessionPOST.request.body.[2]', 'PF00533');",
+                            "pm.collectionVariables.set('fetchPfamDomainsByPfamAccessionPOST.request.body.[3]', 'PF07714');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

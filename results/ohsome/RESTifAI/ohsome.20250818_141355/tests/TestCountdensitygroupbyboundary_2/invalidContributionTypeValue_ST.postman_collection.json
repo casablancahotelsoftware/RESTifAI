@@ -1,0 +1,100 @@
+{
+    "info": {
+        "name": "invalidContributionTypeValue_ST",
+        "description": "Set the `contributionType` query parameter to an invalid value 'creation,invalidType' where 'invalidType' is not in the allowed set",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByBoundary_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/density/groupBy/boundary?bboxes=12.4923,41.8902,12.4964,41.8922|13.3614,38.1157,13.3655,38.1177&contributionType=creation,invalidType&filter=osm_type%3Dnode%20and%20geometry%3Dsimple%20and%20tag%3Dhighway&format=geojson&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4964,41.8922|13.3614,38.1157,13.3655,38.1177"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,invalidType"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "osm_type%3Dnode%20and%20geometry%3Dsimple%20and%20tag%3Dhighway"
+                        },
+                        {
+                            "key": "format",
+                            "value": "geojson"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.bboxes', '12.4923,41.8902,12.4964,41.8922|13.3614,38.1157,13.3655,38.1177');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.contributionType', 'creation,invalidType');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.filter', 'osm_type%3Dnode%20and%20geometry%3Dsimple%20and%20tag%3Dhighway');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.format', 'geojson');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_2.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

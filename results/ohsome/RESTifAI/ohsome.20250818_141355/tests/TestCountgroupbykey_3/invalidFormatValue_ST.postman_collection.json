@@ -1,0 +1,120 @@
+{
+    "info": {
+        "name": "invalidFormatValue_ST",
+        "description": "Set the `format` parameter to an unsupported value not in the enum, e.g., 'xml'",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByKey_3",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "groupByKeys",
+                            "value": "highway",
+                            "type": "text"
+                        },
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and highway=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "xml",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2015-01-01/2016-01-01/P1M",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/groupBy/key",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "groupBy",
+                        "key"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByKey_3.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.groupByKeys', 'highway');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.filter', 'type:way and highway=*');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.format', 'xml');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.time', '2015-01-01/2016-01-01/P1M');",
+                            "pm.collectionVariables.set('countGroupByKey_3.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "info": {
+        "name": "disjointBoundingBoxesNoData_FU",
+        "description": "Set the `bboxes` parameter to two bounding boxes that do not overlap or are geographically disjoint with no data coverage, e.g., '0,0,0.0001,0.0001|180,90,180.0001,90.0001', which logically results in no data and should be rejected.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "lengthDensityGroupByType",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/length/density/groupBy/type?bboxes=0,0,0.0001,0.0001|180,90,180.0001,90.0001&filter=type%3Dhighway%20and%20geometryType%3DLineString%20and%20tag%3Dprimary&format=json&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "length",
+                        "density",
+                        "groupBy",
+                        "type"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "0,0,0.0001,0.0001|180,90,180.0001,90.0001"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Dhighway%20and%20geometryType%3DLineString%20and%20tag%3Dprimary"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('lengthDensityGroupByType.request.query_params.bboxes', '0,0,0.0001,0.0001|180,90,180.0001,90.0001');",
+                            "pm.collectionVariables.set('lengthDensityGroupByType.request.query_params.filter', 'type%3Dhighway%20and%20geometryType%3DLineString%20and%20tag%3Dprimary');",
+                            "pm.collectionVariables.set('lengthDensityGroupByType.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('lengthDensityGroupByType.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('lengthDensityGroupByType.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('lengthDensityGroupByType.request.query_params.timeout', 30);"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

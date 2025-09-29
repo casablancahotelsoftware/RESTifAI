@@ -1,0 +1,66 @@
+{
+    "info": {
+        "name": "unexpectedQueryParameter_ST",
+        "description": "Send a request with an unexpected query parameter, e.g., ?unexpectedParam=value, when fetchVersionGET defines no parameters",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "fetchVersionGET",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/version?unexpectedParam=value",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "version"
+                    ],
+                    "query": [
+                        {
+                            "key": "unexpectedParam",
+                            "value": "value"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('fetchVersionGET.request.query_params.unexpectedParam', 'value');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'http://localhost:9000');"
+                ]
+            }
+        }
+    ]
+}

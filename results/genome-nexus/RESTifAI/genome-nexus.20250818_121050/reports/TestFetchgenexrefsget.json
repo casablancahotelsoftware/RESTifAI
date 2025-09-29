@@ -1,0 +1,1142 @@
+{
+    "test_name": "TestFetchgenexrefsget",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "ce5dc65c-6bb3-4f51-85f4-b5e126eb01a5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:36 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "e32ff14f-a5c1-4bf7-8be2-df7d9beb2002",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "{{fetchGeneXrefsGET.request.query_params.accession}}"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:36 GMT"
+                    },
+                    "response_body": "[{\"display_id\":\"P53\",\"primary_id\":\"P53\",\"version\":\"0\",\"description\":\"\",\"dbname\":\"Uniprot_gn\",\"synonyms\":[\"TP53\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"UniProtKB Gene Name\"},{\"display_id\":\"TP53\",\"primary_id\":\"TP53\",\"version\":\"0\",\"description\":\"\",\"dbname\":\"Uniprot_gn\",\"synonyms\":[\"p53\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"UniProtKB Gene Name\"},{\"display_id\":\"OTTHUMG00000162125\",\"primary_id\":\"OTTHUMG00000162125\",\"version\":\"4\",\"dbname\":\"OTTG\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"NONE\",\"db_display_name\":\"Havana gene\"},{\"display_id\":\"LRG_321\",\"primary_id\":\"LRG_321\",\"version\":\"0\",\"description\":\"Locus Reference Genomic record for TP53\",\"dbname\":\"LRG\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DIRECT\",\"db_display_name\":\"Locus Reference Genomic\"},{\"display_id\":\"Hs.743051\",\"primary_id\":\"Hs.743051\",\"version\":\"0\",\"description\":\"Transcribed locus\",\"dbname\":\"UniGene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"SEQUENCE_MATCH\",\"db_display_name\":\"UniGene\"},{\"display_id\":\"Hs.437460\",\"primary_id\":\"Hs.437460\",\"version\":\"0\",\"description\":\"Tumor protein p53\",\"dbname\":\"UniGene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"SEQUENCE_MATCH\",\"db_display_name\":\"UniGene\"},{\"display_id\":\"LRG_321\",\"primary_id\":\"LRG_321\",\"version\":\"0\",\"dbname\":\"ENS_LRG_gene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"NONE\",\"db_display_name\":\"LRG display in Ensembl gene\"},{\"display_id\":\" BASAL CELL CARCINOMA, SUSCEPTIBILI [#614740]\",\"primary_id\":\"614740\",\"version\":\"0\",\"description\":\" BASAL CELL CARCINOMA, SUSCEPTIBILITY TO, 7; BCC7\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" SQUAMOUS CELL CARCINOMA, HEAD AND  [#275355]\",\"primary_id\":\"275355\",\"version\":\"0\",\"description\":\" SQUAMOUS CELL CARCINOMA, HEAD AND NECK; HNSCC\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[\"601400\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" PAPILLOMA OF CHOROID PLEXUS [#260500]\",\"primary_id\":\"260500\",\"version\":\"0\",\"description\":\" PAPILLOMA OF CHOROID PLEXUS; CPP\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" LUNG CANCER [#211980]\",\"primary_id\":\"211980\",\"version\":\"0\",\"description\":\" LUNG CANCER\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" ADRENOCORTICAL CARCINOMA, HEREDITA [#202300]\",\"primary_id\":\"202300\",\"version\":\"0\",\"description\":\" ADRENOCORTICAL CARCINOMA, HEREDITARY; ADCC\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" LI-FRAUMENI SYNDROME 1 [#151623]\",\"primary_id\":\"151623\",\"version\":\"0\",\"description\":\" LI-FRAUMENI SYNDROME 1; LFS1\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" ESOPHAGEAL CANCER [#133239]\",\"primary_id\":\"133239\",\"version\":\"0\",\"description\":\" ESOPHAGEAL CANCER\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" TUMOR PROTEIN p53 [*191170]\",\"primary_id\":\"191170\",\"version\":\"0\",\"description\":\" TUMOR PROTEIN p53; TP53\",\"dbname\":\"MIM_GENE\",\"synonyms\":[\"120460\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM gene\"},{\"display_id\":\"TP53\",\"primary_id\":\"11998\",\"version\":\"0\",\"description\":\"tumor protein p53\",\"dbname\":\"HGNC\",\"synonyms\":[\"LFS1\",\"p53\"],\"info_text\":\"Generated via ensembl_manual\",\"info_types\":\"DIRECT\",\"db_display_name\":\"HGNC Symbol\"},{\"display_id\":\"TP53\",\"primary_id\":\"7157\",\"version\":\"0\",\"description\":\"tumor protein p53\",\"dbname\":\"EntrezGene\",\"synonyms\":[\"BCC7\",\"LFS1\",\"P53\",\"TRP53\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"NCBI gene (formerly Entrezgene)\"},{\"display_id\":\"TP53\",\"primary_id\":\"123\",\"version\":\"1\",\"description\":\"\",\"dbname\":\"DBASS3\",\"synonyms\":[],\"info_text\":\"Generated via Database of aberrant 3' splice sites.\",\"info_types\":\"DIRECT\",\"db_display_name\":\"DataBase of Aberrant 3' Splice Sites\"},{\"display_id\":\"ENSG00000141510\",\"primary_id\":\"ENSG00000141510\",\"version\":\"0\",\"description\":\"\",\"dbname\":\"ArrayExpress\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DIRECT\",\"db_display_name\":\"Expression Atlas\"},{\"display_id\":\"TP53\",\"primary_id\":\"7157\",\"version\":\"0\",\"description\":\"tumor protein p53\",\"dbname\":\"WikiGene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"WikiGene\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unexpectedQueryParameter_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "379070a0-1bc2-48ea-9715-ddb4fab090bf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:37 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "af5e6b6f-89f9-4a22-8e8b-5bb0df3456f3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "{{fetchGeneXrefsGET.request.query_params.accession}}"
+                                },
+                                {
+                                    "key": "accessionExtra",
+                                    "value": "unexpected_value"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:37 GMT"
+                    },
+                    "response_body": "[{\"display_id\":\"P53\",\"primary_id\":\"P53\",\"version\":\"0\",\"description\":\"\",\"dbname\":\"Uniprot_gn\",\"synonyms\":[\"TP53\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"UniProtKB Gene Name\"},{\"display_id\":\"TP53\",\"primary_id\":\"TP53\",\"version\":\"0\",\"description\":\"\",\"dbname\":\"Uniprot_gn\",\"synonyms\":[\"p53\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"UniProtKB Gene Name\"},{\"display_id\":\"OTTHUMG00000162125\",\"primary_id\":\"OTTHUMG00000162125\",\"version\":\"4\",\"dbname\":\"OTTG\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"NONE\",\"db_display_name\":\"Havana gene\"},{\"display_id\":\"LRG_321\",\"primary_id\":\"LRG_321\",\"version\":\"0\",\"description\":\"Locus Reference Genomic record for TP53\",\"dbname\":\"LRG\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DIRECT\",\"db_display_name\":\"Locus Reference Genomic\"},{\"display_id\":\"Hs.743051\",\"primary_id\":\"Hs.743051\",\"version\":\"0\",\"description\":\"Transcribed locus\",\"dbname\":\"UniGene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"SEQUENCE_MATCH\",\"db_display_name\":\"UniGene\"},{\"display_id\":\"Hs.437460\",\"primary_id\":\"Hs.437460\",\"version\":\"0\",\"description\":\"Tumor protein p53\",\"dbname\":\"UniGene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"SEQUENCE_MATCH\",\"db_display_name\":\"UniGene\"},{\"display_id\":\"LRG_321\",\"primary_id\":\"LRG_321\",\"version\":\"0\",\"dbname\":\"ENS_LRG_gene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"NONE\",\"db_display_name\":\"LRG display in Ensembl gene\"},{\"display_id\":\" BASAL CELL CARCINOMA, SUSCEPTIBILI [#614740]\",\"primary_id\":\"614740\",\"version\":\"0\",\"description\":\" BASAL CELL CARCINOMA, SUSCEPTIBILITY TO, 7; BCC7\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" SQUAMOUS CELL CARCINOMA, HEAD AND  [#275355]\",\"primary_id\":\"275355\",\"version\":\"0\",\"description\":\" SQUAMOUS CELL CARCINOMA, HEAD AND NECK; HNSCC\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[\"601400\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" PAPILLOMA OF CHOROID PLEXUS [#260500]\",\"primary_id\":\"260500\",\"version\":\"0\",\"description\":\" PAPILLOMA OF CHOROID PLEXUS; CPP\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" LUNG CANCER [#211980]\",\"primary_id\":\"211980\",\"version\":\"0\",\"description\":\" LUNG CANCER\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" ADRENOCORTICAL CARCINOMA, HEREDITA [#202300]\",\"primary_id\":\"202300\",\"version\":\"0\",\"description\":\" ADRENOCORTICAL CARCINOMA, HEREDITARY; ADCC\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" LI-FRAUMENI SYNDROME 1 [#151623]\",\"primary_id\":\"151623\",\"version\":\"0\",\"description\":\" LI-FRAUMENI SYNDROME 1; LFS1\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" ESOPHAGEAL CANCER [#133239]\",\"primary_id\":\"133239\",\"version\":\"0\",\"description\":\" ESOPHAGEAL CANCER\",\"dbname\":\"MIM_MORBID\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM morbid\"},{\"display_id\":\" TUMOR PROTEIN p53 [*191170]\",\"primary_id\":\"191170\",\"version\":\"0\",\"description\":\" TUMOR PROTEIN p53; TP53\",\"dbname\":\"MIM_GENE\",\"synonyms\":[\"120460\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"MIM gene\"},{\"display_id\":\"TP53\",\"primary_id\":\"11998\",\"version\":\"0\",\"description\":\"tumor protein p53\",\"dbname\":\"HGNC\",\"synonyms\":[\"LFS1\",\"p53\"],\"info_text\":\"Generated via ensembl_manual\",\"info_types\":\"DIRECT\",\"db_display_name\":\"HGNC Symbol\"},{\"display_id\":\"TP53\",\"primary_id\":\"7157\",\"version\":\"0\",\"description\":\"tumor protein p53\",\"dbname\":\"EntrezGene\",\"synonyms\":[\"BCC7\",\"LFS1\",\"P53\",\"TRP53\"],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"NCBI gene (formerly Entrezgene)\"},{\"display_id\":\"TP53\",\"primary_id\":\"123\",\"version\":\"1\",\"description\":\"\",\"dbname\":\"DBASS3\",\"synonyms\":[],\"info_text\":\"Generated via Database of aberrant 3' splice sites.\",\"info_types\":\"DIRECT\",\"db_display_name\":\"DataBase of Aberrant 3' Splice Sites\"},{\"display_id\":\"ENSG00000141510\",\"primary_id\":\"ENSG00000141510\",\"version\":\"0\",\"description\":\"\",\"dbname\":\"ArrayExpress\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DIRECT\",\"db_display_name\":\"Expression Atlas\"},{\"display_id\":\"TP53\",\"primary_id\":\"7157\",\"version\":\"0\",\"description\":\"tumor protein p53\",\"dbname\":\"WikiGene\",\"synonyms\":[],\"info_text\":\"\",\"info_types\":\"DEPENDENT\",\"db_display_name\":\"WikiGene\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "whitespaceOnlyStringForAccession_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "76c79458-a072-421d-aeec-e5e0741f3fac",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:38 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "ea249870-c17d-409c-a6a1-57800601c4f3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "%20%20%20"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:38 GMT"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"page not found. Please check your uri and refer to our documentation http://grch37.rest.ensembl.org/\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "crossSpeciesEnsemblGeneId_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "e4ca1deb-321d-4f62-9339-0ced170b5190",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:40 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "8d9838a2-7fde-4f76-aadf-ba59c00b1e58",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "ENSMUSG00000000001"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:40 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"Can not find internal name for species 'mus_musculus'\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentEnsemblGeneId_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "482a0e64-6b80-4c8b-bad3-0f3c5512619e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:41 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "b09523b1-a901-4bfc-aa0b-6ad2b72fe708",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "ENSG00000000000"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:41 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"ID 'ENSG00000000000' not found\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "syntheticGeneWithoutXrefs_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "cfd953dc-2e9f-4c61-903c-bccca23ff71b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:43 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "74f49eb6-c5b9-4ea2-9acd-7491346ddaed",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "ENSG00000SYNTH01"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 2xx",
+                                "message": "expected 400 to be within 200..299",
+                                "stack": "AssertionError: expected 400 to be within 200..299\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:43 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"ID 'ENSG00000SYNTH01' not found\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyStringForAccession_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "a08ba046-5e11-4e27-9157-a59b8a2b8795",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:44 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "50b5e5e1-944f-4e93-ab68-c97ecd53a87e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": ""
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:44 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"ID 'ACCESSION' not found\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingRequiredQueryParameterAccession_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "ea6a5801-cfdb-4e65-99d2-770263b54150",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:45 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "14608f22-d410-4d21-a87b-0b11834b7f5c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Accept-Ranges": "bytes",
+                        "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "text/html;charset=UTF-8",
+                        "Content-Language": "en",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:45 GMT"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonStringTypeForAccession_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "3d00ee11-4412-4ffc-921d-3010ded0cfec",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:46 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "00d6b96a-5182-4210-8c11-701cf2e40a09",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "{'id': 'ENSG00000169083'}"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "text/html;charset=utf-8",
+                        "Content-Language": "en",
+                        "Content-Length": "800",
+                        "Date": "Mon, 18 Aug 2025 12:27:46 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "<!doctype html><html lang=\"en\"><head><title>HTTP Status 400  Bad Request</title><style type=\"text/css\">h1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} h2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} h3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} body {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} b {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} p {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;} a {color:black;} a.name {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400  Bad Request</h1></body></html>"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "deprecatedEnsemblGeneId_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "4949c295-1e8c-4d6e-af74-fdaf22c92dcd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:48 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "5fcb0dea-77e7-4085-a420-a1aea4e8ed4d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "ENSG00000100000"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:48 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"ID 'ENSG00000100000' not found\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "withdrawnGeneEnsemblId_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+                    "id": "bd669001-8226-41e7-8abe-904ddb6e429c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "hgnc",
+                                ":hugoSymbol"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "TP53",
+                                    "key": "hugoSymbol"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:49 GMT"
+                    },
+                    "response_body": "{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"}"
+                },
+                {
+                    "name": "fetchGeneXrefsGET",
+                    "id": "e8311552-ffcc-4eae-a723-f433c4700f88",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "xrefs"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "accession",
+                                    "value": "ENSG00000WITHD01"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:27:49 GMT",
+                        "Connection": "close"
+                    },
+                    "response_body": "{\"message\":\"{\\\"error\\\":\\\"ID 'ENSG00000WITHD01' not found\\\"}\"}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:27:49.781521",
+    "statistics": {
+        "total_test_cases": 11,
+        "passed_test_cases": 8,
+        "failed_test_cases": 3,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 22,
+        "success_rate": 72.72727272727273,
+        "avg_requests_per_case": 2.0
+    }
+}

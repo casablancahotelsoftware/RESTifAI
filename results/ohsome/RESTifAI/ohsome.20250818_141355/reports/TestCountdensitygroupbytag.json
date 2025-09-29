@@ -1,0 +1,1533 @@
+{
+    "test_name": "TestCountdensitygroupbytag",
+    "test_results": [
+        {
+            "test_case_name": "unsupportedGeographicRegion_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "73000bff-c468-4cd8-9cba-5d34874b2913",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "0,0,0.1,0.1"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 327,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=0,0,0.1,0.1&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"highway=bus_stop\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway=traffic_signals\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonPositiveTimeoutValue_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "f2fc13bd-ecc4-4c2d-af61-bf6295143119",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "-5"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 500 to be within 400..499",
+                                "stack": "AssertionError: expected 500 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": true,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:16.865+00:00\",\n  \"status\" : 500,\n  \"error\" : \"Internal Server Error\",\n  \"path\" : \"/elements/count/density/groupBy/tag\"\n}"
+                }
+            ],
+            "has_server_error": true
+        },
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "42f34bbe-2698-4d26-9bed-3ba7f04ca803",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:17.847686656\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=xml&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericBboxes_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "c0cf323e-4db2-4695-bb31-0ca724c32a73",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "abc,def,ghi,jkl"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:18.917102182\",\n  \"status\" : 400,\n  \"message\" : \"Apart from the custom ids, the bboxeses array must contain double-parseable values in the following order: minLon, minLat, maxLon, maxLat.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=abc,def,ghi,jkl&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "08bad505-2434-44a9-96db-4b207f1bcafe",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2100-01-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:19 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:19.973933886\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2100-01-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidTimeFormat_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "5b3eb822-4dcc-4ba5-a0d4-f9173aa35512",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "June%201st%2C%202024"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:19 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:20.95362096\",\n  \"status\" : 400,\n  \"message\" : \"The provided time parameter is not ISO-8601 conform.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=June%201st%2C%202024&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterToGroupBy_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "10474825-146e-4ce5-a862-ef6c09438310",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20building%3Dhouse"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:22 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 886,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Away%20and%20building%3Dhouse&format=json&groupByKey=highway&groupByValues=bus_stop&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"highway=bus_stop\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyGroupByKey_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "13ab4f76-8a33-4ae5-83c0-2fc80f8708ae",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:24 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 471,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 10.16\n    } ]\n  }, {\n    \"groupByObject\" : \"=bus_stop\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"=traffic_signals\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidBboxesCoordinateCount_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "bedbb3b5-8369-4fb9-8b48-098ec34af847",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:24 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:25.272036199\",\n  \"status\" : 400,\n  \"message\" : \"Error in processing the boundary parameter. Please remember to follow the format, where you separate every coordinate with a comma, each boundary object with a pipe-sign and add optional custom ids to every first coordinate with a colon.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingRequiredGroupByKey_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "00c8b9f0-64c4-44ae-a59f-99e9000ffef3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:26 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:26.266357114\",\n  \"status\" : 400,\n  \"message\" : \"You need to give one groupByKey parameter, if you want to use groupBy/tag.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyGroupByValues_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "60fb9997-0fbe-4e2e-b556-129447a442dc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:27 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 482,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 10.16\n    } ]\n  }, {\n    \"groupByObject\" : \"highway=\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "mismatchedGroupByValuesForKey_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "4f44ec4a-13a3-4584-a962-b35fece49d33",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "building,residential"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 503,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=building,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"remainder\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 10.16\n    } ]\n  }, {\n    \"groupByObject\" : \"highway=residential\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  }, {\n    \"groupByObject\" : \"highway=building\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "d4172391-a4ed-4909-ab4c-cb2f430772bf",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:08:30.150002384\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=thirty\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "9ec096ea-38d9-4e9e-848e-e9efe2b24bfc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "yes"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:08:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 483,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=yes&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"highway=bus_stop\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 10.16\n    } ]\n  }, {\n    \"groupByObject\" : \"highway=traffic_signals\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFilter_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "ca030200-196c-4b20-b87b-4e0263196cc0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:09:02 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:09:02.596868292\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "countDensityGroupByTag",
+                    "id": "5b1a6809-7edb-422b-8bb9-50209548ad68",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "count",
+                                "density",
+                                "groupBy",
+                                "tag"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "13.388860,52.517037,13.397634,52.520008"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Anode%20and%20highway%3Dbus_stop"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "json"
+                                },
+                                {
+                                    "key": "groupByKey",
+                                    "value": "highway"
+                                },
+                                {
+                                    "key": "groupByValues",
+                                    "value": "bus_stop,traffic_signals"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2024-06-01T00:00:00Z"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:35:10 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"metadata\" : {\n    \"executionTime\" : 533,\n    \"description\" : \"Density of selected items (count of items in absolute values divided by the area in square kilometers), aggregated on the tag.\",\n    \"requestUrl\" : \"https://api.ohsome.org/v1/elements/count/density/groupBy/tag?bboxes=13.388860,52.517037,13.397634,52.520008&filter=type%3Anode%20and%20highway%3Dbus_stop&format=json&groupByKey=highway&groupByValues=bus_stop,traffic_signals&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30\"\n  },\n  \"groupByResult\" : [ {\n    \"groupByObject\" : \"highway=bus_stop\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 10.16\n    } ]\n  }, {\n    \"groupByObject\" : \"highway=traffic_signals\",\n    \"result\" : [ {\n      \"timestamp\" : \"2024-06-01T00:00:00Z\",\n      \"value\" : 0.0\n    } ]\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-19T01:34:57.724408",
+    "statistics": {
+        "total_test_cases": 16,
+        "passed_test_cases": 9,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 1,
+        "total_requests": 16,
+        "success_rate": 56.25,
+        "avg_requests_per_case": 1.0
+    }
+}

@@ -1,0 +1,120 @@
+{
+  "test_name": "pseudogeneNoCanonicalTranscript_FU",
+  "description": "Change the `hugoSymbol` path parameter to a valid Hugo symbol 'TP53' but request a canonical transcript for a gene symbol that is a known pseudogene or non-coding RNA with no protein-coding transcript, e.g., 'TP53P1' (a pseudogene), which logically should not have a canonical protein-coding transcript.",
+  "test_suite": "TestFetchcanonicalensembltranscriptbyhugosymbolget",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET"
+  ],
+  "values_to_create_a_successful_request": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET.request.path_params.hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.geneId: ENSG00000141510\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[0]: p53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[1]: LFS1\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.entrezGeneId: 7157\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Date: Mon, 18 Aug 2025 12:18:02 GMT\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.status_code: 200\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.request.path_params.hugoSymbol: TP53\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.request.query_params.isoformOverrideSource: uniprot\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.transcriptId: ENST00000269305\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.geneId: ENSG00000141510\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.refseqMrnaId: NM_000546\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.ccdsId: CCDS11118\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.hugoSymbols[0]: TP53\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.proteinId: ENSP00000269305\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.proteinLength: 393\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[0].pfamDomainId: PF07710\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[0].pfamDomainStart: 318\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[0].pfamDomainEnd: 358\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[1].pfamDomainId: PF08563\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[1].pfamDomainStart: 6\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[1].pfamDomainEnd: 29\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[2].pfamDomainId: PF00870\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[2].pfamDomainStart: 95\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.pfamDomains[2].pfamDomainEnd: 288\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[0].exonId: ENSE00003605891\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[0].exonStart: 7571720\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[0].exonEnd: 7573008\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[0].rank: 11\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[0].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[0].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[1].exonId: ENSE00003545950\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[1].exonStart: 7573927\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[1].exonEnd: 7574033\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[1].rank: 10\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[1].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[1].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[2].exonId: ENSE00003636029\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[2].exonStart: 7576853\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[2].exonEnd: 7576926\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[2].rank: 9\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[2].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[2].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[3].exonId: ENSE00003586720\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[3].exonStart: 7577019\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[3].exonEnd: 7577155\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[3].rank: 8\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[3].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[3].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[4].exonId: ENSE00003504863\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[4].exonStart: 7577499\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[4].exonEnd: 7577608\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[4].rank: 7\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[4].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[4].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[5].exonId: ENSE00003462942\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[5].exonStart: 7578177\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[5].exonEnd: 7578289\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[5].rank: 6\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[5].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[5].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[6].exonId: ENSE00003518480\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[6].exonStart: 7578371\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[6].exonEnd: 7578554\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[6].rank: 5\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[6].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[6].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[7].exonId: ENSE00003625790\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[7].exonStart: 7579312\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[7].exonEnd: 7579590\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[7].rank: 4\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[7].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[7].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[8].exonId: ENSE00002419584\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[8].exonStart: 7579700\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[8].exonEnd: 7579721\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[8].rank: 3\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[8].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[8].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[9].exonId: ENSE00002667911\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[9].exonStart: 7579839\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[9].exonEnd: 7579940\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[9].rank: 2\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[9].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[9].version: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[10].exonId: ENSE00001146308\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[10].exonStart: 7590695\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[10].exonEnd: 7590856\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[10].rank: 1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[10].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.exons[10].version: 3\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[0].type: three_prime_UTR\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[0].start: 7571720\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[0].end: 7572926\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[0].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[1].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[1].start: 7579913\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[1].end: 7579940\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[1].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[2].type: five_prime_UTR\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[2].start: 7590695\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[2].end: 7590856\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.utrs[2].strand: -1\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.body.uniprotId: P04637\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.headers.Date: Mon, 18 Aug 2025 12:18:03 GMT\nfetchCanonicalEnsemblTranscriptByHugoSymbolGET.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchCanonicalEnsemblGeneIdByHugoSymbolGET\n- Method: GET\n- Path: /ensembl/canonical-gene/hgnc/{hugoSymbol}\n- Parameters:\n  - name: hugoSymbol\n  - in: path\n  - required: True\n  - description: A Hugo Symbol. For example TP53\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'required': ['geneId', 'hugoSymbol'], 'type': 'object', 'properties': {'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'hugoSymbol': {'type': 'string', 'description': 'Approved Hugo symbol'}, 'synonyms': {'type': 'array', 'description': 'Hugo symbol synonyms', 'items': {'type': 'string'}}, 'previousSymbols': {'type': 'array', 'description': 'Previous Hugo symbols', 'items': {'type': 'string'}}, 'entrezGeneId': {'type': 'string', 'description': 'Entrez Gene Id'}}}}}}}\n",
+    "#### fetchCanonicalEnsemblTranscriptByHugoSymbolGET\n- Method: GET\n- Path: /ensembl/canonical-transcript/hgnc/{hugoSymbol}\n- Parameters:\n  - name: hugoSymbol\n  - in: path\n  - required: True\n  - description: A Hugo Symbol. For example TP53\n  - type: string\n  - name: isoformOverrideSource\n  - in: query\n  - required: False\n  - description: Isoform override source. For example uniprot\n  - type: string\n  - default: uniprot\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'required': ['geneId', 'proteinId', 'transcriptId'], 'type': 'object', 'properties': {'uniprotId': {'type': 'string'}, 'transcriptId': {'type': 'string', 'description': 'Ensembl transcript id'}, 'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'proteinId': {'type': 'string', 'description': 'Ensembl protein id'}, 'proteinLength': {'type': 'integer', 'description': 'Length of protein', 'format': 'int32'}, 'pfamDomains': {'type': 'array', 'description': 'Pfam domains', 'items': {'required': ['pfamDomainEnd', 'pfamDomainId', 'pfamDomainStart'], 'type': 'object', 'properties': {'pfamDomainId': {'type': 'string', 'description': 'Pfam domain id'}, 'pfamDomainStart': {'type': 'integer', 'description': 'Pfam domain start amino acid', 'format': 'int32'}, 'pfamDomainEnd': {'type': 'integer', 'description': 'Pfam domain end amino acid', 'format': 'int32'}}}}, 'hugoSymbols': {'type': 'array', 'description': 'Hugo symbols', 'items': {'type': 'string'}}, 'refseqMrnaId': {'type': 'string', 'description': 'RefSeq mRNA ID'}, 'ccdsId': {'type': 'string', 'description': 'Consensus CDS (CCDS) ID'}, 'exons': {'type': 'array', 'description': 'Exon information', 'items': {'required': ['exonEnd', 'exonId', 'exonStart', 'rank', 'strand', 'version'], 'type': 'object', 'properties': {'exonId': {'type': 'string', 'description': 'Exon id'}, 'exonStart': {'type': 'integer', 'description': 'Start position of exon', 'format': 'int32'}, 'exonEnd': {'type': 'integer', 'description': 'End position of exon', 'format': 'int32'}, 'rank': {'type': 'integer', 'description': 'Number of exon in transcript', 'format': 'int32'}, 'strand': {'type': 'integer', 'description': 'Strand exon is on, -1 for - and 1 for +', 'format': 'int32'}, 'version': {'type': 'integer', 'description': 'Exon version', 'format': 'int32'}}}}, 'utrs': {'type': 'array', 'description': 'UTR information', 'items': {'required': ['end', 'start', 'strand', 'type'], 'type': 'object', 'properties': {'type': {'type': 'string', 'description': 'UTR Type'}, 'start': {'type': 'integer', 'description': 'Start position of UTR', 'format': 'int32'}, 'end': {'type': 'integer', 'description': 'End position of UTR', 'format': 'int32'}, 'strand': {'type': 'integer', 'description': 'Strand UTR is on, -1 for - and 1 for +', 'format': 'int32'}}}}}}}}}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+      "request_id": "09db76f7-94fc-4250-8649-e5d66622c1b2",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-gene",
+            "hgnc",
+            ":hugoSymbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "hugoSymbol",
+              "value": "TP53P1",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Accept-Ranges": "bytes",
+          "Last-Modified": "Mon, 18 Aug 2025 11:39:43 GMT",
+          "Content-Encoding": "gzip",
+          "Content-Type": "text/html;charset=UTF-8",
+          "Content-Language": "en",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:28:26 GMT"
+        },
+        "body": "<!doctype html><html lang=\"en\"><head><script src=\"https://kit.fontawesome.com/6be4547409.js\" crossorigin=\"anonymous\"></script><script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SYL8VKMYQB\"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag(\"js\",new Date),gtag(\"config\",\"G-SYL8VKMYQB\")</script><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Genome Nexus</title><link href=\"/static/css/2.f375d12b.chunk.css\" rel=\"stylesheet\"><link href=\"/static/css/main.d41d2d4a.chunk.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&\"object\"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,\"default\",{enumerable:!0,value:e}),2&r&&\"string\"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,\"a\",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p=\"/\";var l=this[\"webpackJsonpgenome-nexus-frontend\"]=this[\"webpackJsonpgenome-nexus-frontend\"]||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src=\"/static/js/2.2bcfcb60.chunk.js\"></script><script src=\"/static/js/main.dd8cff1d.chunk.js\"></script></body></html>"
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 2xx",
+          "error": null
+        }
+      ]
+    },
+    {
+      "request_name": "fetchCanonicalEnsemblTranscriptByHugoSymbolGET",
+      "request_id": "5f266d5a-c586-4095-b525-af3f7a93a48d",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-transcript",
+            "hgnc",
+            ":hugoSymbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "isoformOverrideSource",
+              "value": "uniprot"
+            }
+          ],
+          "variable": [
+            {
+              "key": "hugoSymbol",
+              "value": "TP53P1",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:28:26 GMT"
+        },
+        "body": {
+          "message": "Ensembl transcript not found: TP53P1"
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

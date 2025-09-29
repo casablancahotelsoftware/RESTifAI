@@ -1,0 +1,2416 @@
+{
+    "test_name": "TestLengthgroupbyboundary",
+    "test_results": [
+        {
+            "test_case_name": "invalidFormatValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "1a683751-891b-449e-a1fa-5e0bc345c6dc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "99c82e7d-580c-4a9f-a970-0b951c6c0c87",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "xml"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:04 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:04.615155881\",\n  \"status\" : 400,\n  \"message\" : \"The given 'format' parameter is invalid. Please choose between 'geojson'(only available for /groupBy/boundary and data extraction requests), 'json', or 'csv'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=xml&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedMultiPolygonBoundary_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "406741d2-c354-49da-9aeb-8189eb419d25",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:05 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "11436cfd-8170-4c45-ac72-94e6645e042a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%22MultiPolygon%22%2C%22coordinates%22%3A%5B%5B%5B%5B8.67%2C49.39%5D%2C%5B8.71%2C49.39%5D%2C%5B8.71%2C49.42%5D%2C%5B8.67%2C49.42%5D%2C%5B8.67%2C49.39%5D%5D%5D%2C%5B%5B%5B8.68%2C49.40%5D%2C%5B8.70%2C49.40%5D%2C%5B8.70%2C49.41%5D%2C%5B8.68%2C49.41%5D%2C%5B8.68%2C49.40%5D%5D%5D%5D%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:05 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:05.9827848\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30&bpolys=%7B%22type%22%3A%22MultiPolygon%22%2C%22coordinates%22%3A%5B%5B%5B%5B8.67%2C49.39%5D%2C%5B8.71%2C49.39%5D%2C%5B8.71%2C49.42%5D%2C%5B8.67%2C49.42%5D%2C%5B8.67%2C49.39%5D%5D%5D%2C%5B%5B%5B8.68%2C49.40%5D%2C%5B8.70%2C49.40%5D%2C%5B8.70%2C49.41%5D%2C%5B8.68%2C49.41%5D%2C%5B8.68%2C49.40%5D%5D%5D%5D%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "contradictoryFilterConditions_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "c18fe5df-87e6-4123-86ba-001a4c359e24",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:07 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "38e72635-d6d2-4a25-a832-cd8208000220",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20type%3Anode"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:07 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "bcirclesMissingRadius_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "1ac967a7-f7b9-450a-ae24-84d70865cf1b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:08 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "670d38dc-85e1-4d8d-ac20-df1db15f0035",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bcircles",
+                                    "value": "8.67,49.39,"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:08 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:08.681524705\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30&bcircles=8.67,49.39,\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyBboxes_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "6167f986-b72b-474a-adb2-99bcf36624f0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:09 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "c451e66b-2b35-4d5d-bfd7-1415b436a2aa",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:09 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:10.079178912\",\n  \"status\" : 400,\n  \"message\" : \"You need to define one of the boundary parameters (bboxes, bcircles, bpolys).\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonOverlappingBboxesNoBoundaries_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "53f086cc-df12-4cc4-a0a1-526d935533de",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:11 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "cf366511-66a5-4b03-ae38-072016091cd8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "0,0,0.1,0.1|0.2,0.2,0.3,0.3"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:11 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.0, 0.0 ], [ 0.09999999999999999, 0.0 ], [ 0.09999999999999999, 0.09999999999999999 ], [ 0.0, 0.09999999999999999 ], [ 0.0, 0.0 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.0, 0.0 ], [ 0.09999999999999999, 0.0 ], [ 0.09999999999999999, 0.09999999999999999 ], [ 0.0, 0.09999999999999999 ], [ 0.0, 0.0 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.0, 0.0 ], [ 0.09999999999999999, 0.0 ], [ 0.09999999999999999, 0.09999999999999999 ], [ 0.0, 0.09999999999999999 ], [ 0.0, 0.0 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.0, 0.0 ], [ 0.09999999999999999, 0.0 ], [ 0.09999999999999999, 0.09999999999999999 ], [ 0.0, 0.09999999999999999 ], [ 0.0, 0.0 ] ] ]\n    },\n    \"id\" : \"boundary1@2017-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.19999999999999998, 0.19999999999999998 ], [ 0.3, 0.19999999999999998 ], [ 0.3, 0.3 ], [ 0.19999999999999998, 0.3 ], [ 0.19999999999999998, 0.19999999999999998 ] ] ]\n    },\n    \"id\" : \"boundary2@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.19999999999999998, 0.19999999999999998 ], [ 0.3, 0.19999999999999998 ], [ 0.3, 0.3 ], [ 0.19999999999999998, 0.3 ], [ 0.19999999999999998, 0.19999999999999998 ] ] ]\n    },\n    \"id\" : \"boundary2@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.19999999999999998, 0.19999999999999998 ], [ 0.3, 0.19999999999999998 ], [ 0.3, 0.3 ], [ 0.19999999999999998, 0.3 ], [ 0.19999999999999998, 0.19999999999999998 ] ] ]\n    },\n    \"id\" : \"boundary2@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary2\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 0.19999999999999998, 0.19999999999999998 ], [ 0.3, 0.19999999999999998 ], [ 0.3, 0.3 ], [ 0.19999999999999998, 0.3 ], [ 0.19999999999999998, 0.19999999999999998 ] ] ]\n    },\n    \"id\" : \"boundary2@2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "zeroTimeoutValue_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "f9f80893-437c-4b1e-be3b-4ae0a4a69710",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:13 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:13.518859901\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length\"\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "68f455f0-24ef-4489-bf10-f5b2d2868053",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "0"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:13 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:13.860637905\",\n  \"status\" : 413,\n  \"message\" : \"The given query is too large in respect to the given timeout. Please use a smaller region and/or coarser time period.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=0\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "filterWithNonexistentTag_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "3d40da37-d1b9-48f0-b3cc-001c3ab90331",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 0.0\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "9f37755b-2b7b-4562-908e-7a166ff3cabe",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20nonexistenttag%3Dyes"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:2)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:15 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 0.0,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "polygonOutsideDataCoverage_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "e4b35578-be99-4b02-9bdf-d143f738fdce",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:17.296478839\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length\"\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "29ae9939-65d7-43a5-beeb-3839cff6d6d3",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:17 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 413.02,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "selfIntersectingPolygonBoundary_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "17904f76-4971-41b4-bc1d-3e20153185de",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "8431af69-52cf-4703-a35d-0047566da94e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B8.67%2C49.39%5D%2C%5B8.709999999999999%2C49.419999999999995%5D%2C%5B8.67%2C49.419999999999995%5D%2C%5B8.709999999999999%2C49.39%5D%2C%5B8.67%2C49.39%5D%5D%5D%7D%7D%5D%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:18 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:19.293309422\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30&bpolys=%7B%22type%22%3A%22FeatureCollection%22%2C%22features%22%3A%5B%7B%22type%22%3A%22Feature%22%2C%22geometry%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B8.67%2C49.39%5D%2C%5B8.709999999999999%2C49.419999999999995%5D%2C%5B8.67%2C49.419999999999995%5D%2C%5B8.709999999999999%2C49.39%5D%2C%5B8.67%2C49.39%5D%5D%5D%7D%7D%5D%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonNumericTimeout_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "2762acf4-11ef-4407-9e2a-b40a411bfccd",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:20 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "716a5223-4598-45cd-b53f-4256d20e9a6c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "thirty"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:20 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:20.93644598\",\n  \"status\" : 400,\n  \"message\" : \"The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=thirty\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "futureTimeRangeNoData_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "d963f4f9-4cf0-4aef-bc7c-60b1af640478",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:21 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:22.026777322\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length\"\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "24310dae-366a-4c20-add2-2bccb2eca7f1",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2050-01-01/2051-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:21 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:22.116072585\",\n  \"status\" : 404,\n  \"message\" : \"The given time parameter is not completely within the timeframe (2007-10-08T00:00:00Z to 2025-07-01T12:00Z) of the underlying osh-data.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2050-01-01/2051-01-01/P1Y&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidShowMetadataValue_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "d96834a7-334a-475a-87ea-7d4c029a861b",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:24 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "cb615872-76a5-4fd5-9e6f-ad90f3e48916",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "maybe"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:24 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:24.72555345\",\n  \"status\" : 400,\n  \"message\" : \"The given parameter showMetadata can only contain the values 'true', 'yes', 'false', or 'no'.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=maybe&time=2014-01-01/2017-01-01/P1Y&timeout=30\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unclosedPolygonBoundary_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "29882292-6be7-43d1-8133-9187cf642be5",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:26 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "bf3d0045-8c70-4ae9-ae29-c1c33c497d05",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "8.67,49.39,8.71,49.39,8.71,49.42"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:26 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:26.268805433\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30&bpolys=8.67,49.39,8.71,49.39,8.71,49.42\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "malformedBpolys_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "304171f8-819c-494d-9ea7-df598de9dbbb",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:27 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "e02af1fd-bf4c-4a9f-9c7d-70efd8bd5fa6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                },
+                                {
+                                    "key": "bpolys",
+                                    "value": "%7Binvalid%3Ajson%7D"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:27 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:27.90255823\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length/groupBy/boundary?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20natural%3D%2A&format=geojson&showMetadata=false&time=2014-01-01/2017-01-01/P1Y&timeout=30&bpolys=%7Binvalid%3Ajson%7D\"\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "multipleBoundaryParametersProvided_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "0dd6cfff-bae8-40b6-9436-322733650bf9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Connection": "close",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"timestamp\" : \"2025-08-19T01:36:29.186804934\",\n  \"status\" : 400,\n  \"message\" : \"Your provided boundary parameter (bboxes, bcircles, or bpolys) does not fit its format, or you defined more than one boundary parameter.\",\n  \"requestUrl\" : \"https://api.ohsome.org/v1/elements/length\"\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "eb286e78-96fb-4d1e-ae95-250e552eda6c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:29 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 413.02,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "length_1",
+                    "id": "b8407553-684f-4964-88fd-f186bd1f5d99",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "urlencoded",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:30 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=100",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"result\" : [ {\n    \"timestamp\" : \"2014-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2015-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2016-01-01T00:00:00Z\",\n    \"value\" : 190.09\n  }, {\n    \"timestamp\" : \"2017-01-01T00:00:00Z\",\n    \"value\" : 413.02\n  } ]\n}"
+                },
+                {
+                    "name": "lengthGroupByBoundary",
+                    "id": "4e4fe2bb-c812-4465-bd30-61b1320bada8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "elements",
+                                "length",
+                                "groupBy",
+                                "boundary"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "bboxes",
+                                    "value": "8.67,49.39,8.71,49.42"
+                                },
+                                {
+                                    "key": "filter",
+                                    "value": "type%3Away%20and%20natural%3D%2A"
+                                },
+                                {
+                                    "key": "format",
+                                    "value": "geojson"
+                                },
+                                {
+                                    "key": "showMetadata",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "time",
+                                    "value": "2014-01-01/2017-01-01/P1Y"
+                                },
+                                {
+                                    "key": "timeout",
+                                    "value": "30"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Date": "Tue, 19 Aug 2025 01:36:31 GMT",
+                        "Server": "Apache/2.4.58 (Ubuntu)",
+                        "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "POST, GET",
+                        "Access-Control-Max-Age": "3600",
+                        "Access-Control-Allow-Credentials": "true",
+                        "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+                        "Cache-Control": "no-transform, public, max-age=31556926",
+                        "vary": "accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Keep-Alive": "timeout=5, max=99",
+                        "Connection": "Keep-Alive",
+                        "Transfer-Encoding": "chunked"
+                    },
+                    "response_body": "{\n  \"attribution\" : {\n    \"url\" : \"https://ohsome.org/copyrights\",\n    \"text\" : \" OpenStreetMap contributors\"\n  },\n  \"apiVersion\" : \"1.10.4\",\n  \"type\" : \"FeatureCollection\",\n  \"features\" : [ {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2014-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2014-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2015-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2015-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 190.09,\n      \"timestamp\" : \"2016-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2016-01-01T00:00:00Z\"\n  }, {\n    \"type\" : \"Feature\",\n    \"properties\" : {\n      \"groupByBoundaryId\" : \"boundary1\",\n      \"value\" : 413.02,\n      \"timestamp\" : \"2017-01-01T00:00:00Z\"\n    },\n    \"geometry\" : {\n      \"type\" : \"Polygon\",\n      \"coordinates\" : [ [ [ 8.67, 49.39 ], [ 8.709999999999999, 49.39 ], [ 8.709999999999999, 49.419999999999995 ], [ 8.67, 49.419999999999995 ], [ 8.67, 49.39 ] ] ]\n    },\n    \"id\" : \"boundary1@2017-01-01T00:00:00Z\"\n  } ]\n}"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-19T01:36:32.477008",
+    "statistics": {
+        "total_test_cases": 17,
+        "passed_test_cases": 14,
+        "failed_test_cases": 3,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 34,
+        "success_rate": 82.35294117647058,
+        "avg_requests_per_case": 2.0
+    }
+}

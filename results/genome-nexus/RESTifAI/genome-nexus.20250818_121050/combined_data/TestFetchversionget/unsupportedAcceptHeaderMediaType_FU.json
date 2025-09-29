@@ -1,0 +1,57 @@
+{
+  "test_name": "unsupportedAcceptHeaderMediaType_FU",
+  "description": "Send a GET request to /version with an Accept header specifying an unsupported media type, e.g., Accept: application/xml, which is logically invalid as the endpoint only supports application/json.",
+  "test_suite": "TestFetchversionget",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchVersionGET"
+  ],
+  "values_to_create_a_successful_request": "fetchVersionGET.response.body.genomeNexus.server.version: 1.0.2\nfetchVersionGET.response.body.genomeNexus.server.static: True\nfetchVersionGET.response.body.genomeNexus.database.version: 3.6.2\nfetchVersionGET.response.body.genomeNexus.database.static: True\nfetchVersionGET.response.body.vep.server.version: NA\nfetchVersionGET.response.body.vep.server.static: False\nfetchVersionGET.response.body.vep.cache.version: 114\nfetchVersionGET.response.body.vep.cache.static: False\nfetchVersionGET.response.body.vep.comment: None\nfetchVersionGET.response.body.annotationSourcesInfo[0].id: hgnc\nfetchVersionGET.response.body.annotationSourcesInfo[0].name: HGNC\nfetchVersionGET.response.body.annotationSourcesInfo[0].version: 22-10-01\nfetchVersionGET.response.body.annotationSourcesInfo[0].type: mirrored\nfetchVersionGET.response.body.annotationSourcesInfo[0].description: The resource for approved human gene nomenclature. Genome Nexus uses HGNC gene symbols in annotation\nfetchVersionGET.response.body.annotationSourcesInfo[0].url: http://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/archive/monthly/tsv/\nfetchVersionGET.response.body.annotationSourcesInfo[1].id: vep\nfetchVersionGET.response.body.annotationSourcesInfo[1].name: VEP\nfetchVersionGET.response.body.annotationSourcesInfo[1].version: grch37\nfetchVersionGET.response.body.annotationSourcesInfo[1].type: mirrored\nfetchVersionGET.response.body.annotationSourcesInfo[1].description: VEP determines the effect of your variants(SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\nfetchVersionGET.response.body.annotationSourcesInfo[1].url: https://grch37.ensembl.org/info/docs/tools/vep/index.html\nfetchVersionGET.response.body.annotationSourcesInfo[2].id: cancer_hotspots\nfetchVersionGET.response.body.annotationSourcesInfo[2].name: Cancer Hotspots\nfetchVersionGET.response.body.annotationSourcesInfo[2].version: v2\nfetchVersionGET.response.body.annotationSourcesInfo[2].type: mirrored\nfetchVersionGET.response.body.annotationSourcesInfo[2].description: A resource for statistically significant mutations in cancer \nfetchVersionGET.response.body.annotationSourcesInfo[2].url: https://www.cancerhotspots.org\nfetchVersionGET.response.body.annotationSourcesInfo[3].id: revue\nfetchVersionGET.response.body.annotationSourcesInfo[3].name: reVUE\nfetchVersionGET.response.body.annotationSourcesInfo[3].version: d8a7d01bac02671e74b4522bacfca6e82f360046\nfetchVersionGET.response.body.annotationSourcesInfo[3].type: mirrored\nfetchVersionGET.response.body.annotationSourcesInfo[3].description: A Repository for Variants with Unexpected Effects (VUE) in Cancer\nfetchVersionGET.response.body.annotationSourcesInfo[3].url: https://www.cancerrevue.org/\nfetchVersionGET.response.body.annotationSourcesInfo[4].id: 3d_hotspots\nfetchVersionGET.response.body.annotationSourcesInfo[4].name: 3D Hotspots\nfetchVersionGET.response.body.annotationSourcesInfo[4].version: v2\nfetchVersionGET.response.body.annotationSourcesInfo[4].type: mirrored\nfetchVersionGET.response.body.annotationSourcesInfo[4].description: A resource for statistically significant mutations clustering in 3d protein structures in cancer\nfetchVersionGET.response.body.annotationSourcesInfo[4].url: https://www.3dhotspots.org/\nfetchVersionGET.response.body.annotationSourcesInfo[5].id: mutation_assessor\nfetchVersionGET.response.body.annotationSourcesInfo[5].name: Mutation Assessor\nfetchVersionGET.response.body.annotationSourcesInfo[5].version: v3\nfetchVersionGET.response.body.annotationSourcesInfo[5].type: mirrored\nfetchVersionGET.response.body.annotationSourcesInfo[5].description: Mutation Assessor predicts the functional impact of amino-acid substitutions in proteins, such as mutations discovered in cancer or missense polymorphisms.\nfetchVersionGET.response.body.annotationSourcesInfo[5].url: http://mutationassessor.org/r3/\nfetchVersionGET.response.body.annotationSourcesInfo[6].id: my_variant_info\nfetchVersionGET.response.body.annotationSourcesInfo[6].name: My Variant Info\nfetchVersionGET.response.body.annotationSourcesInfo[6].version: Includes many annotation sources, see https://docs.myvariant.info/en/latest/doc/data.html\nfetchVersionGET.response.body.annotationSourcesInfo[6].type: external\nfetchVersionGET.response.body.annotationSourcesInfo[6].description: MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources.\nfetchVersionGET.response.body.annotationSourcesInfo[6].url: https://myvariant.info\nfetchVersionGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchVersionGET.response.headers.Content-Encoding: gzip\nfetchVersionGET.response.headers.Content-Type: application/json\nfetchVersionGET.response.headers.Transfer-Encoding: chunked\nfetchVersionGET.response.headers.Date: Mon, 18 Aug 2025 12:23:50 GMT\nfetchVersionGET.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchVersionGET\n- Method: GET\n- Path: /version\n- Parameters:\nNone\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'type': 'object', 'properties': {'version': {'type': 'string'}}}}}}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "fetchVersionGET",
+      "request_id": "050cd217-9374-4921-bf53-52cfc47c8ee7",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "version"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          }
+        ],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "Access-Control-Request-Headers",
+          "Content-Language": "en",
+          "Content-Length": "0",
+          "Date": "Mon, 18 Aug 2025 12:25:23 GMT"
+        },
+        "body": ""
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

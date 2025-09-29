@@ -1,0 +1,76 @@
+{
+  "test_name": "synonymInsteadOfApprovedSymbol_FU",
+  "description": "Change the `hugoSymbol` path parameter to a Hugo symbol that is known to be a synonym but not the approved symbol, e.g., 'p53', to test rejection of non-canonical symbols in this endpoint.",
+  "test_suite": "TestFetchcanonicalensemblgeneidbyhugosymbolget",
+  "base_url": "http://localhost:9000/",
+  "operations": [
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET"
+  ],
+  "values_to_create_a_successful_request": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET.request.path_params.hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.geneId: ENSG00000141510\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.hugoSymbol: TP53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[0]: p53\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.synonyms[1]: LFS1\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.body.entrezGeneId: 7157\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Vary: accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Content-Encoding: gzip\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Content-Type: application/json\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Transfer-Encoding: chunked\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.headers.Date: Mon, 18 Aug 2025 12:17:08 GMT\nfetchCanonicalEnsemblGeneIdByHugoSymbolGET.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### fetchCanonicalEnsemblGeneIdByHugoSymbolGET\n- Method: GET\n- Path: /ensembl/canonical-gene/hgnc/{hugoSymbol}\n- Parameters:\n  - name: hugoSymbol\n  - in: path\n  - required: True\n  - description: A Hugo Symbol. For example TP53\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'required': ['geneId', 'hugoSymbol'], 'type': 'object', 'properties': {'geneId': {'type': 'string', 'description': 'Ensembl gene id'}, 'hugoSymbol': {'type': 'string', 'description': 'Approved Hugo symbol'}, 'synonyms': {'type': 'array', 'description': 'Hugo symbol synonyms', 'items': {'type': 'string'}}, 'previousSymbols': {'type': 'array', 'description': 'Previous Hugo symbols', 'items': {'type': 'string'}}, 'entrezGeneId': {'type': 'string', 'description': 'Entrez Gene Id'}}}}}}}\n"
+  ],
+  "passed": false,
+  "test_results": [
+    {
+      "request_name": "fetchCanonicalEnsemblGeneIdByHugoSymbolGET",
+      "request_id": "c08da9ee-d86f-447b-9b1f-cad026e30466",
+      "success": false,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "ensembl",
+            "canonical-gene",
+            "hgnc",
+            ":hugoSymbol"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "hugoSymbol",
+              "value": "p53",
+              "type": "any"
+            }
+          ]
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Transfer-Encoding": "chunked",
+          "Date": "Mon, 18 Aug 2025 12:24:05 GMT"
+        },
+        "body": {
+          "geneId": "ENSG00000141510",
+          "hugoSymbol": "TP53",
+          "synonyms": [
+            "p53",
+            "LFS1"
+          ],
+          "entrezGeneId": "7157"
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": {
+            "name": "AssertionError",
+            "index": 0,
+            "test": "Response status code is 4xx",
+            "message": "expected 200 to be within 400..499",
+            "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+    "info": {
+        "name": "futureTimeRange_FU",
+        "description": "Set the `time` parameter to a future date range beyond the current date, e.g., '2030-01-01/2031-01-01/P1Y', which logically cannot have any data and should be rejected.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countDensityGroupByBoundary_3",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                    }
+                ],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43",
+                            "type": "text"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion",
+                            "type": "text"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type:way and natural=*",
+                            "type": "text"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false",
+                            "type": "text"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2030-01-01/2031-01-01/P1Y",
+                            "type": "text"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/density/groupBy/boundary",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "density",
+                        "groupBy",
+                        "boundary"
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.headers.Content-Type', 'application/x-www-form-urlencoded');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.bboxes', '8.67,49.39,8.71,49.42|8.68,49.40,8.72,49.43');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.filter', 'type:way and natural=*');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.format', 'json');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.showMetadata', 'false');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.time', '2030-01-01/2031-01-01/P1Y');",
+                            "pm.collectionVariables.set('countDensityGroupByBoundary_3.request.body.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

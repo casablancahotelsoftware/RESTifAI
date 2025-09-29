@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CountryService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">restcountries</a> &gt; <a href="index.source.html" class="el_package">eu.fayder.restcountries.v2.rest</a> &gt; <span class="el_source">CountryService.java</span></div><h1>CountryService.java</h1><pre class="source lang-java linenums">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+package eu.fayder.restcountries.v2.rest;
+
+import eu.fayder.restcountries.v2.domain.Country;
+import eu.fayder.restcountries.v2.domain.Language;
+import eu.fayder.restcountries.rest.CountryServiceBase;
+import eu.fayder.restcountries.v2.domain.Currency;
+import eu.fayder.restcountries.v2.domain.RegionalBloc;
+import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CountryService extends CountryServiceBase {
+
+<span class="fc" id="L18">    private static final Logger LOG = Logger.getLogger(CountryService.class);</span>
+
+    private static List&lt;Country&gt; countries;
+
+<span class="fc" id="L22">    private CountryService() {</span>
+<span class="fc" id="L23">        initialize();</span>
+<span class="fc" id="L24">    }</span>
+
+    private static class InstanceHolder {
+<span class="fc" id="L27">        private static final CountryService INSTANCE = new CountryService();</span>
+    }
+
+    public static CountryService getInstance() {
+<span class="fc" id="L31">        return InstanceHolder.INSTANCE;</span>
+    }
+
+    public List&lt;Country&gt; getAll() {
+<span class="nc" id="L35">        return countries;</span>
+    }
+
+    public Country getByAlpha(String alpha) {
+<span class="fc" id="L39">        return super.getByAlpha(alpha, countries);</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;Country&gt; getByCodeList(String codeList) {
+<span class="nc" id="L44">        return (List&lt;Country&gt;) super.getByCodeList(codeList, countries);</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;Country&gt; getByName(String name, boolean isFullText) {
+<span class="nc" id="L49">        return (List&lt;Country&gt;) super.getByName(name, isFullText, countries);</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;Country&gt; getByCallingCode(String callingcode) {
+<span class="fc" id="L54">        return (List&lt;Country&gt;) super.getByCallingCode(callingcode, countries);</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;Country&gt; getByCapital(String capital) {
+<span class="nc" id="L59">        return (List&lt;Country&gt;) super.getByCapital(capital, countries);</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;Country&gt; getByRegion(String region) {
+<span class="fc" id="L64">        return (List&lt;Country&gt;) super.getByRegion(region, countries);</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public List&lt;Country&gt; getBySubRegion(String subregion) {
+<span class="fc" id="L69">        return (List&lt;Country&gt;) super.getBySubregion(subregion, countries);</span>
+    }
+
+    public List&lt;Country&gt; getByCurrency(String currency) {
+<span class="fc" id="L73">        List&lt;Country&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (Country country : countries) {</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">            for (Currency curr : country.getCurrencies()) {</span>
+<span class="fc bfc" id="L76" title="All 4 branches covered.">                if (curr.getCode() != null &amp;&amp; currency.toLowerCase().equals(curr.getCode().toLowerCase())) {</span>
+<span class="fc" id="L77">                    result.add(country);</span>
+                }
+<span class="fc" id="L79">            }</span>
+<span class="fc" id="L80">        }</span>
+<span class="fc" id="L81">        return result;</span>
+    }
+
+    public List&lt;Country&gt; getByLanguage(String language) {
+<span class="fc" id="L85">        List&lt;Country&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (language.length() == 2) {</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            for (Country country : countries) {</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">                for (Language lang : country.getLanguages()) {</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">                    if (language.toLowerCase().equals(lang.getIso639_1())) {</span>
+<span class="fc" id="L90">                        result.add(country);</span>
+                    }
+<span class="fc" id="L92">                }</span>
+<span class="fc" id="L93">            }</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        } else if (language.length() == 3) {</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">            for (Country country : countries) {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                for (Language lang : country.getLanguages()) {</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">                    if (language.toLowerCase().equals(lang.getIso639_2())) {</span>
+<span class="nc" id="L98">                        result.add(country);</span>
+                    }
+<span class="nc" id="L100">                }</span>
+<span class="nc" id="L101">            }</span>
+        }
+<span class="fc" id="L103">        return result;</span>
+    }
+
+    public List&lt;Country&gt; getByDemonym(String demonym) {
+<span class="nc" id="L107">        List&lt;Country&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        for (Country country : countries) {</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">            if (country.getDemonym().toLowerCase().equals(normalize(demonym.toLowerCase()))) {</span>
+<span class="nc" id="L110">                result.add(country);</span>
+            }
+<span class="nc" id="L112">        }</span>
+<span class="nc" id="L113">        return result;</span>
+    }
+
+    public List&lt;Country&gt; getByRegionalBloc(String regionalBloc) {
+<span class="fc" id="L117">        List&lt;Country&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        for (Country country : countries) {</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">            for (RegionalBloc countryRegionalBloc : country.getRegionalBlocs()) {</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">                if (countryRegionalBloc.getAcronym().toUpperCase().equals(regionalBloc.toUpperCase())</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">                        || countryRegionalBloc.getOtherAcronyms().contains(regionalBloc.toUpperCase())) {</span>
+<span class="fc" id="L122">                    result.add(country);</span>
+                }
+<span class="fc" id="L124">            }</span>
+<span class="fc" id="L125">        }</span>
+<span class="fc" id="L126">        return result;</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private void initialize() {
+<span class="fc" id="L131">        countries = (List&lt;Country&gt;) super.loadJson(&quot;countriesV2.json&quot;, Country.class);</span>
+<span class="fc" id="L132">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

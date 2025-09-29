@@ -1,0 +1,23 @@
+name: Test annotation endpoint with OncoKB
+
+on:
+  schedule:
+    - cron:  '1 0 * * *'
+
+jobs:
+  test-oncokb-endpoint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: GET oncokb data
+      env:
+        ONCOKB_TOKEN: ${{ secrets.ONCOKB_TOKEN }}
+      run: |
+        curl_result=$(curl --get --header 'Accept: application/json' --data-urlencode "token=$ONCOKB_TOKEN" --data "fields=oncokb" "https://www.genomenexus.org/annotation/17:g.41242962_41242963insGA" -w ",http_code:%{http_code}")
+        if [[ "${curl_result}" == *"http_code:200"* && "${curl_result}" == *"oncokb"* ]]; then
+          echo "Request succeeded"
+          exit 0
+        else
+          echo "Request failed"
+          exit 1
+        fi
+

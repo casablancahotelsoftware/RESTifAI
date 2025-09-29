@@ -1,0 +1,236 @@
+{
+    "info": {
+        "name": "validRequest",
+        "description": "This test case tests the endpoint for valid data and expects a successful response from the service",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByKey_2",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/count/groupBy/key?bboxes=12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162&contributionType=creation,deletion&filter=osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop&format=json&groupByKeys=highway,building&showMetadata=true&time=2023-01-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        "count",
+                        "groupBy",
+                        "key"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162"
+                        },
+                        {
+                            "key": "contributionType",
+                            "value": "creation,deletion"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKeys",
+                            "value": "highway,building"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 2xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(200, 299);",
+                            "});",
+                            "",
+                            "try {",
+                            "",
+                            "   /**",
+                            "    * Gets a value from a nested object using a flattened key path",
+                            "    * @param {Object} obj - The object to extract from",
+                            "    * @param {string} path - Flattened key path (e.g., 'users[1].role.id')",
+                            "    * @return {*} The extracted value or undefined if not found",
+                            "    */",
+                            "   function getValueByPath(obj, path) {",
+                            "       // Handle array notation by splitting correctly",
+                            "       const parts = [];",
+                            "       let currentPart = '';",
+                            "       let inBracket = false;",
+                            "",
+                            "       // Parse the path maintaining array indexes",
+                            "       for (let i = 0; i < path.length; i++) {",
+                            "           const char = path[i];",
+                            "           if (char === '.' && !inBracket) {",
+                            "               if (currentPart) parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else if (char === '[') {",
+                            "               inBracket = true;",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '[';",
+                            "           } else if (char === ']') {",
+                            "               inBracket = false;",
+                            "               currentPart += ']';",
+                            "               parts.push(currentPart);",
+                            "               currentPart = '';",
+                            "           } else {",
+                            "               currentPart += char;",
+                            "           }",
+                            "       }",
+                            "       if (currentPart) parts.push(currentPart);",
+                            "",
+                            "       // Navigate through the object",
+                            "       let current = obj;",
+                            "       for (const part of parts) {",
+                            "           if (!current) return undefined;",
+                            "",
+                            "           if (part.startsWith('[') && part.endsWith(']')) {",
+                            "               // Handle array index",
+                            "               const index = parseInt(part.substring(1, part.length - 1));",
+                            "               if (!Array.isArray(current) || current.length <= index) {",
+                            "                   return undefined;",
+                            "               }",
+                            "               current = current[index];",
+                            "           } else {",
+                            "               // Handle object property",
+                            "               current = current[part];",
+                            "           }",
+                            "       }",
+                            "       return current;",
+                            "   }",
+                            "",
+                            "    // Extract response body values",
+                            "    const responseJson = pm.response.json();",
+                            "",
+                            "    // Store expected body fields",
+                            "    const x0 = getValueByPath(responseJson, 'attribution.url');",
+                            "    if (x0 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.attribution.url', x0);",
+                            "    }",
+                            "    const x1 = getValueByPath(responseJson, 'attribution.text');",
+                            "    if (x1 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.attribution.text', x1);",
+                            "    }",
+                            "    const x2 = getValueByPath(responseJson, 'apiVersion');",
+                            "    if (x2 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.apiVersion', x2);",
+                            "    }",
+                            "    const x3 = getValueByPath(responseJson, 'metadata.executionTime');",
+                            "    if (x3 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.metadata.executionTime', x3);",
+                            "    }",
+                            "    const x4 = getValueByPath(responseJson, 'metadata.description');",
+                            "    if (x4 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.metadata.description', x4);",
+                            "    }",
+                            "    const x5 = getValueByPath(responseJson, 'metadata.requestUrl');",
+                            "    if (x5 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.metadata.requestUrl', x5);",
+                            "    }",
+                            "    const x6 = getValueByPath(responseJson, 'groupByResult[0].groupByObject');",
+                            "    if (x6 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[0].groupByObject', x6);",
+                            "    }",
+                            "    const x7 = getValueByPath(responseJson, 'groupByResult[0].result[0].fromTimestamp');",
+                            "    if (x7 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[0].result[0].fromTimestamp', x7);",
+                            "    }",
+                            "    const x8 = getValueByPath(responseJson, 'groupByResult[0].result[0].toTimestamp');",
+                            "    if (x8 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[0].result[0].toTimestamp', x8);",
+                            "    }",
+                            "    const x9 = getValueByPath(responseJson, 'groupByResult[0].result[0].value');",
+                            "    if (x9 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[0].result[0].value', x9);",
+                            "    }",
+                            "    const x10 = getValueByPath(responseJson, 'groupByResult[1].groupByObject');",
+                            "    if (x10 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[1].groupByObject', x10);",
+                            "    }",
+                            "    const x11 = getValueByPath(responseJson, 'groupByResult[1].result[0].fromTimestamp');",
+                            "    if (x11 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[1].result[0].fromTimestamp', x11);",
+                            "    }",
+                            "    const x12 = getValueByPath(responseJson, 'groupByResult[1].result[0].toTimestamp');",
+                            "    if (x12 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[1].result[0].toTimestamp', x12);",
+                            "    }",
+                            "    const x13 = getValueByPath(responseJson, 'groupByResult[1].result[0].value');",
+                            "    if (x13 !== undefined) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.body.groupByResult[1].result[0].value', x13);",
+                            "    }",
+                            "",
+                            "    // Store response headers",
+                            "    pm.response.headers.each(function(header) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.headers.', header.value);",
+                            "    });",
+                            "",
+                            "    // Store response cookies",
+                            "    pm.response.cookies.each(function(cookie) {",
+                            "        pm.collectionVariables.set('countGroupByKey_2.response.cookies.', cookie.value);",
+                            "    });",
+                            "",
+                            "    // Store status code",
+                            "    pm.collectionVariables.set('countGroupByKey_2.response.status_code', pm.response.code);",
+                            "} catch (error) {",
+                            "    console.error('Failed to process response:', error.message);",
+                            "}"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.bboxes', '12.4923,41.8902,12.4928,41.8907|13.3615,38.1157,13.3620,38.1162');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.contributionType', 'creation,deletion');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.filter', 'osm_type%3Dnode%20and%20geometry_type%3DPoint%20and%20highway%3Dbus_stop');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.groupByKeys', 'highway,building');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.time', '2023-01-01T00:00:00Z/2023-12-31T23:59:59Z');",
+                            "pm.collectionVariables.set('countGroupByKey_2.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

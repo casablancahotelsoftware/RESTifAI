@@ -1,0 +1,108 @@
+{
+  "test_name": "nonNumericTimeout_ST",
+  "description": "Set `timeout` query parameter to a non-numeric string, e.g., 'thirty' instead of a numeric string",
+  "test_suite": "TestCountdensitygroupbytag_2",
+  "base_url": "https://api.ohsome.org/v1",
+  "operations": [
+    "countDensityGroupByTag_2"
+  ],
+  "values_to_create_a_successful_request": "countDensityGroupByTag_2.request.query_params.bboxes: 12.4923,41.8902,12.4928,41.8907\ncountDensityGroupByTag_2.request.query_params.contributionType: creation,tagChange\ncountDensityGroupByTag_2.request.query_params.filter: osm_type = way and geometry_type = Polygon and building = yes\ncountDensityGroupByTag_2.request.query_params.format: json\ncountDensityGroupByTag_2.request.query_params.groupByKey: building\ncountDensityGroupByTag_2.request.query_params.groupByValues: residential,commercial\ncountDensityGroupByTag_2.request.query_params.showMetadata: true\ncountDensityGroupByTag_2.request.query_params.time: 2023-12-01T00:00:00Z/2023-12-31T23:59:59Z\ncountDensityGroupByTag_2.request.query_params.timeout: 30\ncountDensityGroupByTag_2.response.body.attribution.url: https://ohsome.org/copyrights\ncountDensityGroupByTag_2.response.body.attribution.text: \u00a9 OpenStreetMap contributors\ncountDensityGroupByTag_2.response.body.apiVersion: 1.10.4\ncountDensityGroupByTag_2.response.body.metadata.executionTime: 4719\ncountDensityGroupByTag_2.response.body.metadata.description: Density of distinct active users  per time interval (number of users per square-kilometer), aggregated on the tag.\ncountDensityGroupByTag_2.response.body.metadata.requestUrl: https://api.ohsome.org/v1/users/count/density/groupBy/tag?bboxes=12.4923%2C41.8902%2C12.4928%2C41.8907&contributionType=creation%2CtagChange&filter=osm_type+%3D+way+and+geometry_type+%3D+Polygon+and+building+%3D+yes&format=json&groupByKey=building&groupByValues=residential%2Ccommercial&showMetadata=true&time=2023-12-01T00%3A00%3A00Z%2F2023-12-31T23%3A59%3A59Z&timeout=30\ncountDensityGroupByTag_2.response.body.groupByResult[0].groupByObject: building=residential\ncountDensityGroupByTag_2.response.body.groupByResult[0].result[0].fromTimestamp: 2023-12-01T00:00:00Z\ncountDensityGroupByTag_2.response.body.groupByResult[0].result[0].toTimestamp: 2023-12-31T23:59:59Z\ncountDensityGroupByTag_2.response.body.groupByResult[0].result[0].value: 0.0\ncountDensityGroupByTag_2.response.body.groupByResult[1].groupByObject: building=commercial\ncountDensityGroupByTag_2.response.body.groupByResult[1].result[0].fromTimestamp: 2023-12-01T00:00:00Z\ncountDensityGroupByTag_2.response.body.groupByResult[1].result[0].toTimestamp: 2023-12-31T23:59:59Z\ncountDensityGroupByTag_2.response.body.groupByResult[1].result[0].value: 0.0\ncountDensityGroupByTag_2.response.headers.Date: Mon, 18 Aug 2025 16:14:57 GMT\ncountDensityGroupByTag_2.response.headers.Server: Apache/2.4.58 (Ubuntu)\ncountDensityGroupByTag_2.response.headers.Strict-Transport-Security: max-age=63072000; includeSubdomains;\ncountDensityGroupByTag_2.response.headers.Access-Control-Allow-Origin: *\ncountDensityGroupByTag_2.response.headers.Access-Control-Allow-Methods: POST, GET\ncountDensityGroupByTag_2.response.headers.Access-Control-Max-Age: 3600\ncountDensityGroupByTag_2.response.headers.Access-Control-Allow-Credentials: true\ncountDensityGroupByTag_2.response.headers.Access-Control-Allow-Headers: Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization\ncountDensityGroupByTag_2.response.headers.Cache-Control: no-transform, public, max-age=31556926\ncountDensityGroupByTag_2.response.headers.vary: accept-encoding\ncountDensityGroupByTag_2.response.headers.Content-Encoding: gzip\ncountDensityGroupByTag_2.response.headers.Content-Type: application/json\ncountDensityGroupByTag_2.response.headers.Keep-Alive: timeout=5, max=100\ncountDensityGroupByTag_2.response.headers.Connection: Keep-Alive\ncountDensityGroupByTag_2.response.headers.Transfer-Encoding: chunked\ncountDensityGroupByTag_2.response.status_code: 200",
+  "relevant_endpoints": [
+    "#### countDensityGroupByTag_2\n- Method: GET\n- Path: /users/count/density/groupBy/tag\n- Parameters:\n  - name: bboxes\n  - in: query\n  - required: False\n  - description: WGS84 coordinates in the following format: id1:lon1,lat1,lon2,lat2|id2:lon1,lat1,lon2,lat2|... OR lon1,lat1,lon2,lat2|lon1,lat1,lon2,lat2|...; no default value (one boundary parameter must be defined)\n  - type: string\n  - default: 8.67,49.39,8.71,49.42\n  - name: bcircles\n  - in: query\n  - required: False\n  - description: WGS84 coordinates + radius in meter in the following format: id1:lon,lat,r|id2:lon,lat,r|... OR lon,lat,r|lon,lat,r|...; no default value (one boundary parameter must be defined)\n  - type: string\n  - name: bpolys\n  - in: query\n  - required: False\n  - description: WGS84 coordinates given as a list of coordinate pairs (as for bboxes) or GeoJSON FeatureCollection. The first point has to be the same as the last point and MultiPolygons are only supported in GeoJSON; no default value (one boundary parameter must be defined)\n  - type: string\n  - name: contributionType\n  - in: query\n  - required: False\n  - description: Filter contributions by contribution type: 'creation', 'deletion', 'tagChange', 'geometryChange' or a combination of them; no default value\n  - type: string\n  - name: filter\n  - in: query\n  - required: False\n  - description: Combines several attributive filters, e.g. OSM type, the geometry (simple feature) type, as well as the OSM tag; no default value\n  - type: string\n  - default: type:way and natural=*\n  - name: format\n  - in: query\n  - required: False\n  - description: Output format geojson (for /groupBy/boundary resources only), csv, or json; default: json\n  - type: string\n  - default: json\n  - name: groupByKey\n  - in: query\n  - required: True\n  - description: OSM key e.g.: 'highway', 'building'; no default value (one groupByKey parameter must be defined)\n  - type: string\n  - default: building\n  - name: groupByValues\n  - in: query\n  - required: False\n  - description: OSM value(s) e.g.: 'primary', 'residential'; default: no value\n  - type: string\n  - name: showMetadata\n  - in: query\n  - required: False\n  - description: Boolean operator 'true' or 'false'; default: 'false'\n  - type: string\n  - name: time\n  - in: query\n  - required: False\n  - description: ISO-8601 conform timestring(s); default: latest timestamp within dataset\n  - type: string\n  - default: 2014-01-01/2017-01-01/P1Y\n  - name: timeout\n  - in: query\n  - required: False\n  - description: Custom timeout in seconds; no default value\n  - type: string\n- Request Body Schema:\nNone\n- Responses:\n{'200': {'description': 'OK', 'content': {'application/json': {'schema': {'title': 'GroupByResponse', 'required': ['apiVersion', 'attribution', 'features', 'groupByResult', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'groupByResult': {'type': 'array', 'description': 'GroupByResult array holding the respective objects with their timestamp-value pairs', 'items': {'title': 'GroupByResult', 'required': ['groupByObject', 'result'], 'type': 'object', 'properties': {'groupByObject': {'type': 'object', 'properties': {}, 'description': 'Object on which the results are grouped on'}, 'result': {'type': 'array', 'description': 'Result array holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}}}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}, 'text/csv': {'schema': {'title': 'GroupByResponse', 'required': ['apiVersion', 'attribution', 'features', 'groupByResult', 'type'], 'type': 'object', 'properties': {'apiVersion': {'type': 'string', 'description': 'Version of this api'}, 'attribution': {'title': 'Attribution', 'required': ['text', 'url'], 'type': 'object', 'properties': {'text': {'type': 'string', 'description': 'Copyright info about the used data'}, 'url': {'type': 'string', 'description': 'URL to the copyright and license info'}}}, 'features': {'type': 'array', 'description': 'GeoJSON Features', 'items': {'title': 'Feature', 'allOf': [{'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, {'title': 'Feature', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}, 'geometry': {'title': 'GeoJsonObject', 'type': 'object', 'properties': {'bbox': {'type': 'array', 'items': {'type': 'number', 'format': 'double'}}, 'crs': {'title': 'Crs', 'type': 'object', 'properties': {'properties': {'type': 'object', 'properties': {}}, 'type': {'type': 'string', 'enum': ['name', 'link']}}}}, 'discriminator': {'propertyName': 'type'}}, 'id': {'type': 'string'}, 'properties': {'type': 'object', 'properties': {}}}}]}}, 'groupByResult': {'type': 'array', 'description': 'GroupByResult array holding the respective objects with their timestamp-value pairs', 'items': {'title': 'GroupByResult', 'required': ['groupByObject', 'result'], 'type': 'object', 'properties': {'groupByObject': {'type': 'object', 'properties': {}, 'description': 'Object on which the results are grouped on'}, 'result': {'type': 'array', 'description': 'Result array holding timestamp-value pairs', 'items': {'title': 'Result', 'type': 'object', 'properties': {'value': {'type': 'number', 'format': 'double'}}}}}}}, 'metadata': {'title': 'Metadata', 'required': ['description', 'executionTime', 'requestUrl'], 'type': 'object', 'properties': {'description': {'type': 'string', 'description': 'Text describing the result in a sentence'}, 'executionTime': {'type': 'integer', 'description': 'Time the server needed to execute the request', 'format': 'int64'}, 'requestUrl': {'type': 'string', 'description': 'Request URL to which this whole output JSON was generated'}}}, 'type': {'type': 'string', 'description': 'Type of the GeoJSON'}}}}}}, '400': {'description': 'Bad request', 'content': {}}, '401': {'description': 'Unauthorized', 'content': {}}, '404': {'description': 'Not found', 'content': {}}, '405': {'description': 'Method not allowed', 'content': {}}, '413': {'description': 'Payload too large', 'content': {}}, '500': {'description': 'Internal server error', 'content': {}}, '501': {'description': 'Not implemented', 'content': {}}, '503': {'description': 'Service Unavailable', 'content': {}}}\n"
+  ],
+  "passed": true,
+  "test_results": [
+    {
+      "request_name": "countDensityGroupByTag_2",
+      "request_id": "8af2f284-a26a-468b-8ea6-e8f7e2a11740",
+      "success": true,
+      "is_server_error": false,
+      "request_data": {
+        "method": "GET",
+        "url": {
+          "path": [
+            "users",
+            "count",
+            "density",
+            "groupBy",
+            "tag"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "key": "bboxes",
+              "value": "12.4923,41.8902,12.4928,41.8907"
+            },
+            {
+              "key": "contributionType",
+              "value": "creation,tagChange"
+            },
+            {
+              "key": "filter",
+              "value": "osm_type%20%3D%20way%20and%20geometry_type%20%3D%20Polygon%20and%20building%20%3D%20yes"
+            },
+            {
+              "key": "format",
+              "value": "json"
+            },
+            {
+              "key": "groupByKey",
+              "value": "building"
+            },
+            {
+              "key": "groupByValues",
+              "value": "residential,commercial"
+            },
+            {
+              "key": "showMetadata",
+              "value": "true"
+            },
+            {
+              "key": "time",
+              "value": "2023-12-01T00:00:00Z/2023-12-31T23:59:59Z"
+            },
+            {
+              "key": "timeout",
+              "value": "thirty"
+            }
+          ],
+          "variable": []
+        },
+        "headers": [],
+        "body": ""
+      },
+      "response_data": {
+        "headers": {
+          "Date": "Mon, 18 Aug 2025 16:57:30 GMT",
+          "Server": "Apache/2.4.58 (Ubuntu)",
+          "Strict-Transport-Security": "max-age=63072000; includeSubdomains;",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET",
+          "Access-Control-Max-Age": "3600",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Headers": "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "vary": "accept-encoding",
+          "Content-Encoding": "gzip",
+          "Content-Type": "application/json",
+          "Connection": "close",
+          "Transfer-Encoding": "chunked"
+        },
+        "body": {
+          "timestamp": "2025-08-18T16:57:30.718168609",
+          "status": 400,
+          "message": "The given timeout does not fit to its format. Please give one value in seconds and use a point as the decimal delimiter, if needed.",
+          "requestUrl": "https://api.ohsome.org/v1/users/count/density/groupBy/tag?bboxes=12.4923,41.8902,12.4928,41.8907&contributionType=creation,tagChange&filter=osm_type%20%3D%20way%20and%20geometry_type%20%3D%20Polygon%20and%20building%20%3D%20yes&format=json&groupByKey=building&groupByValues=residential,commercial&showMetadata=true&time=2023-12-01T00:00:00Z/2023-12-31T23:59:59Z&timeout=thirty"
+        }
+      },
+      "assertions": [
+        {
+          "assertion": "Response status code is 4xx",
+          "error": null
+        }
+      ]
+    }
+  ]
+}

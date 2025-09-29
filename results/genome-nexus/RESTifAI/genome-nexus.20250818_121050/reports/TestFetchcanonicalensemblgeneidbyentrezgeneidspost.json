@@ -1,0 +1,962 @@
+{
+    "test_name": "TestFetchcanonicalensemblgeneidbyentrezgeneidspost",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "ac027a05-18bb-4329-a04a-c2c6e63d6894",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"1956\",\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:00 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000146648\",\"hugoSymbol\":\"EGFR\",\"synonyms\":[\"ERBB1\",\"ERRP\"],\"previousSymbols\":[\"ERBB\"],\"entrezGeneId\":\"1956\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "containsReservedInvalidEntrezGeneId_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "ec0c3634-e3b5-4ca7-898e-99102aad0e20",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"0000\",\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:01 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "arrayContainsBooleanItem_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "e2b81b7b-ceef-4bce-8fe5-29bdcbde7504",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  true,\n  \"1956\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:03 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "arrayContainsNullItem_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "5ceff4ee-6e88-43c5-ab8f-b6021d101c7e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  null,\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:04 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "duplicateEntrezGeneIdsInRequest_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "82af03a0-3a1c-4bca-90ab-6a00d18f611a",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"7157\",\n  \"1956\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:05 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000146648\",\"hugoSymbol\":\"EGFR\",\"synonyms\":[\"ERBB1\",\"ERRP\"],\"previousSymbols\":[\"ERBB\"],\"entrezGeneId\":\"1956\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "repeatedEntrezGeneIdsViolateUniqueness_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "902edbc4-baea-40b1-b5be-b78f29d6d49e",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"1956\",\n  \"7157\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:06 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000146648\",\"hugoSymbol\":\"EGFR\",\"synonyms\":[\"ERBB1\",\"ERRP\"],\"previousSymbols\":[\"ERBB\"],\"entrezGeneId\":\"1956\"},{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "arrayItemsNotStringType_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "f67d5d11-7768-4615-9807-5566cc4e93ce",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  7157,\n  1956,\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:08 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000146648\",\"hugoSymbol\":\"EGFR\",\"synonyms\":[\"ERBB1\",\"ERRP\"],\"previousSymbols\":[\"ERBB\"],\"entrezGeneId\":\"1956\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "arrayContainsObjectItem_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "c836549a-3035-41f3-966a-8edea81ad9a9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  {\n    \"id\": \"1956\"\n  },\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:09 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyIsStringNotArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "bf1cc256-55f8-49cc-9cd3-e2addc1a7a98",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"7157,1956,672\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:10 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyNotArray_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "ffb5a480-16a5-4885-a3bf-50958cf2d6a8",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"geneIds\": [\n    \"7157\",\n    \"1956\"\n  ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:11 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "requestBodyEmptyObject_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "26870c39-a738-4fa6-8098-95f10731280d",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:12 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyEntrezGeneIdArray_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "42793b03-b45b-4e6c-a64d-b7cb2bad7eac",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:13 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "negativeEntrezGeneIdValue_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "df24fab3-c9b9-49ac-80e8-82c2ccdb5257",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"-1956\",\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:15 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "arrayContainsEmptyString_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "1fcdb8f9-21ed-4942-b9a8-f3ea54d5dcc0",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"\",\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "Access-Control-Request-Headers",
+                        "Allow": "GET, HEAD",
+                        "Content-Language": "en",
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 12:25:16 GMT"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "allEntrezGeneIdsDoNotExist_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "86858666-b73e-4c1c-9069-e953ea1a70e6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"999999\",\n  \"888888\",\n  \"672\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:18 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000012048\",\"hugoSymbol\":\"BRCA1\",\"synonyms\":[\"RNF53\",\"BRCC1\",\"PPP1R53\",\"FANCS\"],\"entrezGeneId\":\"672\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "entrezGeneIdFromUnsupportedSpecies_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST",
+                    "id": "29c6e0de-eefb-40b2-bbec-22f8fcc79a0c",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "ensembl",
+                                "canonical-gene",
+                                "entrez"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\n  \"7157\",\n  \"1956\",\n  \"123456789\",\n  \"1029\"\n]",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Vary": "accept-encoding,origin,access-control-request-headers,access-control-request-method,accept-encoding",
+                        "Content-Encoding": "gzip",
+                        "Content-Type": "application/json",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 12:25:19 GMT"
+                    },
+                    "response_body": "[{\"geneId\":\"ENSG00000141510\",\"hugoSymbol\":\"TP53\",\"synonyms\":[\"p53\",\"LFS1\"],\"entrezGeneId\":\"7157\"},{\"geneId\":\"ENSG00000146648\",\"hugoSymbol\":\"EGFR\",\"synonyms\":[\"ERBB1\",\"ERRP\"],\"previousSymbols\":[\"ERBB\"],\"entrezGeneId\":\"1956\"},{\"geneId\":\"ENSG00000147889\",\"hugoSymbol\":\"CDKN2A\",\"synonyms\":[\"CDK4I\",\"p16\",\"INK4a\",\"MTS1\",\"CMM2\",\"ARF\",\"p19\",\"p14\",\"INK4\",\"p16INK4a\",\"p19Arf\",\"p14ARF\",\"P16-INK4A\"],\"previousSymbols\":[\"CDKN2\",\"MLM\"],\"entrezGeneId\":\"1029\"}]"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T12:25:19.619676",
+    "statistics": {
+        "total_test_cases": 16,
+        "passed_test_cases": 9,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 16,
+        "success_rate": 56.25,
+        "avg_requests_per_case": 1.0
+    }
+}

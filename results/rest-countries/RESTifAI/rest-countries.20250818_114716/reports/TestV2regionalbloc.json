@@ -1,0 +1,641 @@
+{
+    "test_name": "TestV2regionalbloc",
+    "test_results": [
+        {
+            "test_case_name": "validRequest",
+            "success": true,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "06e6a173-cde9-4e3a-b522-86327955df10",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "name;capital;population;area"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 2xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "2545",
+                        "Date": "Mon, 18 Aug 2025 11:54:24 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{\"name\":\"land Islands\",\"capital\":\"Mariehamn\",\"population\":28875,\"area\":1580.0},{\"name\":\"Austria\",\"capital\":\"Vienna\",\"population\":8725931,\"area\":83871.0},{\"name\":\"Belgium\",\"capital\":\"Brussels\",\"population\":11319511,\"area\":30528.0},{\"name\":\"Bulgaria\",\"capital\":\"Sofia\",\"population\":7153784,\"area\":110879.0},{\"name\":\"Croatia\",\"capital\":\"Zagreb\",\"population\":4190669,\"area\":56594.0},{\"name\":\"Cyprus\",\"capital\":\"Nicosia\",\"population\":847000,\"area\":9251.0},{\"name\":\"Czech Republic\",\"capital\":\"Prague\",\"population\":10558524,\"area\":78865.0},{\"name\":\"Denmark\",\"capital\":\"Copenhagen\",\"population\":5717014,\"area\":43094.0},{\"name\":\"Estonia\",\"capital\":\"Tallinn\",\"population\":1315944,\"area\":45227.0},{\"name\":\"Faroe Islands\",\"capital\":\"Trshavn\",\"population\":49376,\"area\":1393.0},{\"name\":\"Finland\",\"capital\":\"Helsinki\",\"population\":5491817,\"area\":338424.0},{\"name\":\"France\",\"capital\":\"Paris\",\"population\":66710000,\"area\":640679.0},{\"name\":\"French Guiana\",\"capital\":\"Cayenne\",\"population\":254541},{\"name\":\"Germany\",\"capital\":\"Berlin\",\"population\":81770900,\"area\":357114.0},{\"name\":\"Gibraltar\",\"capital\":\"Gibraltar\",\"population\":33140,\"area\":6.0},{\"name\":\"Greece\",\"capital\":\"Athens\",\"population\":10858018,\"area\":131990.0},{\"name\":\"Hungary\",\"capital\":\"Budapest\",\"population\":9823000,\"area\":93028.0},{\"name\":\"Ireland\",\"capital\":\"Dublin\",\"population\":6378000,\"area\":70273.0},{\"name\":\"Isle of Man\",\"capital\":\"Douglas\",\"population\":84497,\"area\":572.0},{\"name\":\"Italy\",\"capital\":\"Rome\",\"population\":60665551,\"area\":301336.0},{\"name\":\"Latvia\",\"capital\":\"Riga\",\"population\":1961600,\"area\":64559.0},{\"name\":\"Lithuania\",\"capital\":\"Vilnius\",\"population\":2872294,\"area\":65300.0},{\"name\":\"Luxembourg\",\"capital\":\"Luxembourg\",\"population\":576200,\"area\":2586.0},{\"name\":\"Malta\",\"capital\":\"Valletta\",\"population\":425384,\"area\":316.0},{\"name\":\"Netherlands\",\"capital\":\"Amsterdam\",\"population\":17019800,\"area\":41850.0},{\"name\":\"Poland\",\"capital\":\"Warsaw\",\"population\":38437239,\"area\":312679.0},{\"name\":\"Portugal\",\"capital\":\"Lisbon\",\"population\":10374822,\"area\":92090.0},{\"name\":\"Romania\",\"capital\":\"Bucharest\",\"population\":19861408,\"area\":238391.0},{\"name\":\"Slovakia\",\"capital\":\"Bratislava\",\"population\":5426252,\"area\":49037.0},{\"name\":\"Slovenia\",\"capital\":\"Ljubljana\",\"population\":2064188,\"area\":20273.0},{\"name\":\"Spain\",\"capital\":\"Madrid\",\"population\":46438422,\"area\":505992.0},{\"name\":\"Sweden\",\"capital\":\"Stockholm\",\"population\":9894888,\"area\":450295.0},{\"name\":\"United Kingdom of Great Britain and Northern Ireland\",\"capital\":\"London\",\"population\":65110000,\"area\":242900.0}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsParameterWhitespaceOnly_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "2eebfca3-31d5-400d-bb14-896b32abdc60",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "%20%20%20"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "100",
+                        "Date": "Mon, 18 Aug 2025 11:54:25 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "nonExistentRegionalBloc_FU",
+            "success": true,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "3b309b2a-49e3-4d12-a31e-d70a67eb08e2",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "name;capital;population;area"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "XYZ",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "36",
+                        "Date": "Mon, 18 Aug 2025 11:54:26 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "{\"status\":404,\"message\":\"Not Found\"}"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "emptyFieldsParameter_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "7cf8489e-4089-4789-8568-6da862ba6fcc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": ""
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Transfer-Encoding": "chunked",
+                        "Date": "Mon, 18 Aug 2025 11:54:27 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{\"name\":\"land Islands\",\"topLevelDomain\":[\".ax\"],\"alpha2Code\":\"AX\",\"alpha3Code\":\"ALA\",\"callingCodes\":[\"358\"],\"capital\":\"Mariehamn\",\"altSpellings\":[\"AX\",\"Aaland\",\"Aland\",\"Ahvenanmaa\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":28875,\"latlng\":[60.116667,19.9],\"demonym\":\"landish\",\"area\":1580.0,\"gini\":null,\"timezones\":[\"UTC+02:00\"],\"borders\":[],\"nativeName\":\"land\",\"numericCode\":\"248\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"sv\",\"iso639_2\":\"swe\",\"name\":\"Swedish\",\"nativeName\":\"svenska\"}],\"translations\":{\"de\":\"land\",\"es\":\"Alandia\",\"fr\":\"land\",\"ja\":\"\",\"it\":\"Isole Aland\",\"br\":\"Ilhas de Aland\",\"pt\":\"Ilhas de Aland\",\"nl\":\"landeilanden\",\"hr\":\"landski otoci\",\"fa\":\" \"},\"flag\":\"https://restcountries.eu/data/ala.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"\"},{\"name\":\"Austria\",\"topLevelDomain\":[\".at\"],\"alpha2Code\":\"AT\",\"alpha3Code\":\"AUT\",\"callingCodes\":[\"43\"],\"capital\":\"Vienna\",\"altSpellings\":[\"AT\",\"sterreich\",\"Osterreich\",\"Oesterreich\"],\"region\":\"Europe\",\"subregion\":\"Western Europe\",\"population\":8725931,\"latlng\":[47.33333333,13.33333333],\"demonym\":\"Austrian\",\"area\":83871.0,\"gini\":26.0,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"CZE\",\"DEU\",\"HUN\",\"ITA\",\"LIE\",\"SVK\",\"SVN\",\"CHE\"],\"nativeName\":\"sterreich\",\"numericCode\":\"040\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"}],\"translations\":{\"de\":\"sterreich\",\"es\":\"Austria\",\"fr\":\"Autriche\",\"ja\":\"\",\"it\":\"Austria\",\"br\":\"ustria\",\"pt\":\"ustria\",\"nl\":\"Oostenrijk\",\"hr\":\"Austrija\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/aut.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"AUT\"},{\"name\":\"Belgium\",\"topLevelDomain\":[\".be\"],\"alpha2Code\":\"BE\",\"alpha3Code\":\"BEL\",\"callingCodes\":[\"32\"],\"capital\":\"Brussels\",\"altSpellings\":[\"BE\",\"Belgi\",\"Belgie\",\"Belgien\",\"Belgique\",\"Kingdom of Belgium\",\"Koninkrijk Belgi\",\"Royaume de Belgique\",\"Knigreich Belgien\"],\"region\":\"Europe\",\"subregion\":\"Western Europe\",\"population\":11319511,\"latlng\":[50.83333333,4.0],\"demonym\":\"Belgian\",\"area\":30528.0,\"gini\":33.0,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"FRA\",\"DEU\",\"LUX\",\"NLD\"],\"nativeName\":\"Belgi\",\"numericCode\":\"056\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"nl\",\"iso639_2\":\"nld\",\"name\":\"Dutch\",\"nativeName\":\"Nederlands\"},{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"},{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"}],\"translations\":{\"de\":\"Belgien\",\"es\":\"Blgica\",\"fr\":\"Belgique\",\"ja\":\"\",\"it\":\"Belgio\",\"br\":\"Blgica\",\"pt\":\"Blgica\",\"nl\":\"Belgi\",\"hr\":\"Belgija\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/bel.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"BEL\"},{\"name\":\"Bulgaria\",\"topLevelDomain\":[\".bg\"],\"alpha2Code\":\"BG\",\"alpha3Code\":\"BGR\",\"callingCodes\":[\"359\"],\"capital\":\"Sofia\",\"altSpellings\":[\"BG\",\"Republic of Bulgaria\",\" \"],\"region\":\"Europe\",\"subregion\":\"Eastern Europe\",\"population\":7153784,\"latlng\":[43.0,25.0],\"demonym\":\"Bulgarian\",\"area\":110879.0,\"gini\":28.2,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"GRC\",\"MKD\",\"ROU\",\"SRB\",\"TUR\"],\"nativeName\":\"\",\"numericCode\":\"100\",\"currencies\":[{\"code\":\"BGN\",\"name\":\"Bulgarian lev\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"bg\",\"iso639_2\":\"bul\",\"name\":\"Bulgarian\",\"nativeName\":\" \"}],\"translations\":{\"de\":\"Bulgarien\",\"es\":\"Bulgaria\",\"fr\":\"Bulgarie\",\"ja\":\"\",\"it\":\"Bulgaria\",\"br\":\"Bulgria\",\"pt\":\"Bulgria\",\"nl\":\"Bulgarije\",\"hr\":\"Bugarska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/bgr.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"BUL\"},{\"name\":\"Croatia\",\"topLevelDomain\":[\".hr\"],\"alpha2Code\":\"HR\",\"alpha3Code\":\"HRV\",\"callingCodes\":[\"385\"],\"capital\":\"Zagreb\",\"altSpellings\":[\"HR\",\"Hrvatska\",\"Republic of Croatia\",\"Republika Hrvatska\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":4190669,\"latlng\":[45.16666666,15.5],\"demonym\":\"Croatian\",\"area\":56594.0,\"gini\":33.7,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"BIH\",\"HUN\",\"MNE\",\"SRB\",\"SVN\"],\"nativeName\":\"Hrvatska\",\"numericCode\":\"191\",\"currencies\":[{\"code\":\"HRK\",\"name\":\"Croatian kuna\",\"symbol\":\"kn\"}],\"languages\":[{\"iso639_1\":\"hr\",\"iso639_2\":\"hrv\",\"name\":\"Croatian\",\"nativeName\":\"hrvatski jezik\"}],\"translations\":{\"de\":\"Kroatien\",\"es\":\"Croacia\",\"fr\":\"Croatie\",\"ja\":\"\",\"it\":\"Croazia\",\"br\":\"Crocia\",\"pt\":\"Crocia\",\"nl\":\"Kroati\",\"hr\":\"Hrvatska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/hrv.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"CRO\"},{\"name\":\"Cyprus\",\"topLevelDomain\":[\".cy\"],\"alpha2Code\":\"CY\",\"alpha3Code\":\"CYP\",\"callingCodes\":[\"357\"],\"capital\":\"Nicosia\",\"altSpellings\":[\"CY\",\"Kpros\",\"Kbrs\",\"Republic of Cyprus\",\" \",\"Kbrs Cumhuriyeti\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":847000,\"latlng\":[35.0,33.0],\"demonym\":\"Cypriot\",\"area\":9251.0,\"gini\":null,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"GBR\"],\"nativeName\":\"\",\"numericCode\":\"196\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"el\",\"iso639_2\":\"ell\",\"name\":\"Greek (modern)\",\"nativeName\":\"\"},{\"iso639_1\":\"tr\",\"iso639_2\":\"tur\",\"name\":\"Turkish\",\"nativeName\":\"Trke\"},{\"iso639_1\":\"hy\",\"iso639_2\":\"hye\",\"name\":\"Armenian\",\"nativeName\":\"\"}],\"translations\":{\"de\":\"Zypern\",\"es\":\"Chipre\",\"fr\":\"Chypre\",\"ja\":\"\",\"it\":\"Cipro\",\"br\":\"Chipre\",\"pt\":\"Chipre\",\"nl\":\"Cyprus\",\"hr\":\"Cipar\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/cyp.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"CYP\"},{\"name\":\"Czech Republic\",\"topLevelDomain\":[\".cz\"],\"alpha2Code\":\"CZ\",\"alpha3Code\":\"CZE\",\"callingCodes\":[\"420\"],\"capital\":\"Prague\",\"altSpellings\":[\"CZ\",\"esk republika\",\"esko\"],\"region\":\"Europe\",\"subregion\":\"Eastern Europe\",\"population\":10558524,\"latlng\":[49.75,15.5],\"demonym\":\"Czech\",\"area\":78865.0,\"gini\":26.0,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"AUT\",\"DEU\",\"POL\",\"SVK\"],\"nativeName\":\"esk republika\",\"numericCode\":\"203\",\"currencies\":[{\"code\":\"CZK\",\"name\":\"Czech koruna\",\"symbol\":\"K\"}],\"languages\":[{\"iso639_1\":\"cs\",\"iso639_2\":\"ces\",\"name\":\"Czech\",\"nativeName\":\"etina\"},{\"iso639_1\":\"sk\",\"iso639_2\":\"slk\",\"name\":\"Slovak\",\"nativeName\":\"slovenina\"}],\"translations\":{\"de\":\"Tschechische Republik\",\"es\":\"Repblica Checa\",\"fr\":\"Rpublique tchque\",\"ja\":\"\",\"it\":\"Repubblica Ceca\",\"br\":\"Repblica Tcheca\",\"pt\":\"Repblica Checa\",\"nl\":\"Tsjechi\",\"hr\":\"eka\",\"fa\":\" \"},\"flag\":\"https://restcountries.eu/data/cze.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"CZE\"},{\"name\":\"Denmark\",\"topLevelDomain\":[\".dk\"],\"alpha2Code\":\"DK\",\"alpha3Code\":\"DNK\",\"callingCodes\":[\"45\"],\"capital\":\"Copenhagen\",\"altSpellings\":[\"DK\",\"Danmark\",\"Kingdom of Denmark\",\"Kongeriget Danmark\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":5717014,\"latlng\":[56.0,10.0],\"demonym\":\"Danish\",\"area\":43094.0,\"gini\":24.0,\"timezones\":[\"UTC-04:00\",\"UTC-03:00\",\"UTC-01:00\",\"UTC\",\"UTC+01:00\"],\"borders\":[\"DEU\"],\"nativeName\":\"Danmark\",\"numericCode\":\"208\",\"currencies\":[{\"code\":\"DKK\",\"name\":\"Danish krone\",\"symbol\":\"kr\"}],\"languages\":[{\"iso639_1\":\"da\",\"iso639_2\":\"dan\",\"name\":\"Danish\",\"nativeName\":\"dansk\"}],\"translations\":{\"de\":\"Dnemark\",\"es\":\"Dinamarca\",\"fr\":\"Danemark\",\"ja\":\"\",\"it\":\"Danimarca\",\"br\":\"Dinamarca\",\"pt\":\"Dinamarca\",\"nl\":\"Denemarken\",\"hr\":\"Danska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/dnk.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"DEN\"},{\"name\":\"Estonia\",\"topLevelDomain\":[\".ee\"],\"alpha2Code\":\"EE\",\"alpha3Code\":\"EST\",\"callingCodes\":[\"372\"],\"capital\":\"Tallinn\",\"altSpellings\":[\"EE\",\"Eesti\",\"Republic of Estonia\",\"Eesti Vabariik\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":1315944,\"latlng\":[59.0,26.0],\"demonym\":\"Estonian\",\"area\":45227.0,\"gini\":36.0,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"LVA\",\"RUS\"],\"nativeName\":\"Eesti\",\"numericCode\":\"233\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"et\",\"iso639_2\":\"est\",\"name\":\"Estonian\",\"nativeName\":\"eesti\"}],\"translations\":{\"de\":\"Estland\",\"es\":\"Estonia\",\"fr\":\"Estonie\",\"ja\":\"\",\"it\":\"Estonia\",\"br\":\"Estnia\",\"pt\":\"Estnia\",\"nl\":\"Estland\",\"hr\":\"Estonija\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/est.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"EST\"},{\"name\":\"Faroe Islands\",\"topLevelDomain\":[\".fo\"],\"alpha2Code\":\"FO\",\"alpha3Code\":\"FRO\",\"callingCodes\":[\"298\"],\"capital\":\"Trshavn\",\"altSpellings\":[\"FO\",\"Froyar\",\"Frerne\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":49376,\"latlng\":[62.0,-7.0],\"demonym\":\"Faroese\",\"area\":1393.0,\"gini\":null,\"timezones\":[\"UTC+00:00\"],\"borders\":[],\"nativeName\":\"Froyar\",\"numericCode\":\"234\",\"currencies\":[{\"code\":\"DKK\",\"name\":\"Danish krone\",\"symbol\":\"kr\"},{\"code\":\"(none)\",\"name\":\"Faroese krna\",\"symbol\":\"kr\"}],\"languages\":[{\"iso639_1\":\"fo\",\"iso639_2\":\"fao\",\"name\":\"Faroese\",\"nativeName\":\"froyskt\"}],\"translations\":{\"de\":\"Frer-Inseln\",\"es\":\"Islas Faroe\",\"fr\":\"les Fro\",\"ja\":\"\",\"it\":\"Isole Far Oer\",\"br\":\"Ilhas Faro\",\"pt\":\"Ilhas Faro\",\"nl\":\"Faerer\",\"hr\":\"Farski Otoci\",\"fa\":\" \"},\"flag\":\"https://restcountries.eu/data/fro.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"\"},{\"name\":\"Finland\",\"topLevelDomain\":[\".fi\"],\"alpha2Code\":\"FI\",\"alpha3Code\":\"FIN\",\"callingCodes\":[\"358\"],\"capital\":\"Helsinki\",\"altSpellings\":[\"FI\",\"Suomi\",\"Republic of Finland\",\"Suomen tasavalta\",\"Republiken Finland\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":5491817,\"latlng\":[64.0,26.0],\"demonym\":\"Finnish\",\"area\":338424.0,\"gini\":26.9,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"NOR\",\"SWE\",\"RUS\"],\"nativeName\":\"Suomi\",\"numericCode\":\"246\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"fi\",\"iso639_2\":\"fin\",\"name\":\"Finnish\",\"nativeName\":\"suomi\"},{\"iso639_1\":\"sv\",\"iso639_2\":\"swe\",\"name\":\"Swedish\",\"nativeName\":\"svenska\"}],\"translations\":{\"de\":\"Finnland\",\"es\":\"Finlandia\",\"fr\":\"Finlande\",\"ja\":\"\",\"it\":\"Finlandia\",\"br\":\"Finlndia\",\"pt\":\"Finlndia\",\"nl\":\"Finland\",\"hr\":\"Finska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/fin.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"FIN\"},{\"name\":\"France\",\"topLevelDomain\":[\".fr\"],\"alpha2Code\":\"FR\",\"alpha3Code\":\"FRA\",\"callingCodes\":[\"33\"],\"capital\":\"Paris\",\"altSpellings\":[\"FR\",\"French Republic\",\"Rpublique franaise\"],\"region\":\"Europe\",\"subregion\":\"Western Europe\",\"population\":66710000,\"latlng\":[46.0,2.0],\"demonym\":\"French\",\"area\":640679.0,\"gini\":32.7,\"timezones\":[\"UTC-10:00\",\"UTC-09:30\",\"UTC-09:00\",\"UTC-08:00\",\"UTC-04:00\",\"UTC-03:00\",\"UTC+01:00\",\"UTC+03:00\",\"UTC+04:00\",\"UTC+05:00\",\"UTC+11:00\",\"UTC+12:00\"],\"borders\":[\"AND\",\"BEL\",\"DEU\",\"ITA\",\"LUX\",\"MCO\",\"ESP\",\"CHE\"],\"nativeName\":\"France\",\"numericCode\":\"250\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"}],\"translations\":{\"de\":\"Frankreich\",\"es\":\"Francia\",\"fr\":\"France\",\"ja\":\"\",\"it\":\"Francia\",\"br\":\"Frana\",\"pt\":\"Frana\",\"nl\":\"Frankrijk\",\"hr\":\"Francuska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/fra.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"FRA\"},{\"name\":\"French Guiana\",\"topLevelDomain\":[\".gf\"],\"alpha2Code\":\"GF\",\"alpha3Code\":\"GUF\",\"callingCodes\":[\"594\"],\"capital\":\"Cayenne\",\"altSpellings\":[\"GF\",\"Guiana\",\"Guyane\"],\"region\":\"Americas\",\"subregion\":\"South America\",\"population\":254541,\"latlng\":[4.0,-53.0],\"demonym\":\"\",\"area\":null,\"gini\":null,\"timezones\":[\"UTC-03:00\"],\"borders\":[\"BRA\",\"SUR\"],\"nativeName\":\"Guyane franaise\",\"numericCode\":\"254\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"}],\"translations\":{\"de\":\"Franzsisch Guyana\",\"es\":\"Guayana Francesa\",\"fr\":\"Guayane\",\"ja\":\"\",\"it\":\"Guyana francese\",\"br\":\"Guiana Francesa\",\"pt\":\"Guiana Francesa\",\"nl\":\"Frans-Guyana\",\"hr\":\"Francuska Gvajana\",\"fa\":\" \"},\"flag\":\"https://restcountries.eu/data/guf.svg\",\"regionalBlocs\":[{\"acronym\":\"USAN\",\"name\":\"Union of South American Nations\",\"otherAcronyms\":[\"UNASUR\",\"UNASUL\",\"UZAN\"],\"otherNames\":[\"Unin de Naciones Suramericanas\",\"Unio de Naes Sul-Americanas\",\"Unie van Zuid-Amerikaanse Naties\",\"South American Union\"]},{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"\"},{\"name\":\"Germany\",\"topLevelDomain\":[\".de\"],\"alpha2Code\":\"DE\",\"alpha3Code\":\"DEU\",\"callingCodes\":[\"49\"],\"capital\":\"Berlin\",\"altSpellings\":[\"DE\",\"Federal Republic of Germany\",\"Bundesrepublik Deutschland\"],\"region\":\"Europe\",\"subregion\":\"Western Europe\",\"population\":81770900,\"latlng\":[51.0,9.0],\"demonym\":\"German\",\"area\":357114.0,\"gini\":28.3,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"AUT\",\"BEL\",\"CZE\",\"DNK\",\"FRA\",\"LUX\",\"NLD\",\"POL\",\"CHE\"],\"nativeName\":\"Deutschland\",\"numericCode\":\"276\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"}],\"translations\":{\"de\":\"Deutschland\",\"es\":\"Alemania\",\"fr\":\"Allemagne\",\"ja\":\"\",\"it\":\"Germania\",\"br\":\"Alemanha\",\"pt\":\"Alemanha\",\"nl\":\"Duitsland\",\"hr\":\"Njemaka\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/deu.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"GER\"},{\"name\":\"Gibraltar\",\"topLevelDomain\":[\".gi\"],\"alpha2Code\":\"GI\",\"alpha3Code\":\"GIB\",\"callingCodes\":[\"350\"],\"capital\":\"Gibraltar\",\"altSpellings\":[\"GI\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":33140,\"latlng\":[36.13333333,-5.35],\"demonym\":\"Gibraltar\",\"area\":6.0,\"gini\":null,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"ESP\"],\"nativeName\":\"Gibraltar\",\"numericCode\":\"292\",\"currencies\":[{\"code\":\"GIP\",\"name\":\"Gibraltar pound\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"translations\":{\"de\":\"Gibraltar\",\"es\":\"Gibraltar\",\"fr\":\"Gibraltar\",\"ja\":\"\",\"it\":\"Gibilterra\",\"br\":\"Gibraltar\",\"pt\":\"Gibraltar\",\"nl\":\"Gibraltar\",\"hr\":\"Gibraltar\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/gib.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"\"},{\"name\":\"Greece\",\"topLevelDomain\":[\".gr\"],\"alpha2Code\":\"GR\",\"alpha3Code\":\"GRC\",\"callingCodes\":[\"30\"],\"capital\":\"Athens\",\"altSpellings\":[\"GR\",\"Ellda\",\"Hellenic Republic\",\" \"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":10858018,\"latlng\":[39.0,22.0],\"demonym\":\"Greek\",\"area\":131990.0,\"gini\":34.3,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"ALB\",\"BGR\",\"TUR\",\"MKD\"],\"nativeName\":\"\",\"numericCode\":\"300\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"el\",\"iso639_2\":\"ell\",\"name\":\"Greek (modern)\",\"nativeName\":\"\"}],\"translations\":{\"de\":\"Griechenland\",\"es\":\"Grecia\",\"fr\":\"Grce\",\"ja\":\"\",\"it\":\"Grecia\",\"br\":\"Grcia\",\"pt\":\"Grcia\",\"nl\":\"Griekenland\",\"hr\":\"Grka\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/grc.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"GRE\"},{\"name\":\"Hungary\",\"topLevelDomain\":[\".hu\"],\"alpha2Code\":\"HU\",\"alpha3Code\":\"HUN\",\"callingCodes\":[\"36\"],\"capital\":\"Budapest\",\"altSpellings\":[\"HU\"],\"region\":\"Europe\",\"subregion\":\"Eastern Europe\",\"population\":9823000,\"latlng\":[47.0,20.0],\"demonym\":\"Hungarian\",\"area\":93028.0,\"gini\":31.2,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"AUT\",\"HRV\",\"ROU\",\"SRB\",\"SVK\",\"SVN\",\"UKR\"],\"nativeName\":\"Magyarorszg\",\"numericCode\":\"348\",\"currencies\":[{\"code\":\"HUF\",\"name\":\"Hungarian forint\",\"symbol\":\"Ft\"}],\"languages\":[{\"iso639_1\":\"hu\",\"iso639_2\":\"hun\",\"name\":\"Hungarian\",\"nativeName\":\"magyar\"}],\"translations\":{\"de\":\"Ungarn\",\"es\":\"Hungra\",\"fr\":\"Hongrie\",\"ja\":\"\",\"it\":\"Ungheria\",\"br\":\"Hungria\",\"pt\":\"Hungria\",\"nl\":\"Hongarije\",\"hr\":\"Maarska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/hun.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"HUN\"},{\"name\":\"Ireland\",\"topLevelDomain\":[\".ie\"],\"alpha2Code\":\"IE\",\"alpha3Code\":\"IRL\",\"callingCodes\":[\"353\"],\"capital\":\"Dublin\",\"altSpellings\":[\"IE\",\"ire\",\"Republic of Ireland\",\"Poblacht na hireann\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":6378000,\"latlng\":[53.0,-8.0],\"demonym\":\"Irish\",\"area\":70273.0,\"gini\":34.3,\"timezones\":[\"UTC\"],\"borders\":[\"GBR\"],\"nativeName\":\"ire\",\"numericCode\":\"372\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"ga\",\"iso639_2\":\"gle\",\"name\":\"Irish\",\"nativeName\":\"Gaeilge\"},{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"translations\":{\"de\":\"Irland\",\"es\":\"Irlanda\",\"fr\":\"Irlande\",\"ja\":\"\",\"it\":\"Irlanda\",\"br\":\"Irlanda\",\"pt\":\"Irlanda\",\"nl\":\"Ierland\",\"hr\":\"Irska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/irl.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"IRL\"},{\"name\":\"Isle of Man\",\"topLevelDomain\":[\".im\"],\"alpha2Code\":\"IM\",\"alpha3Code\":\"IMN\",\"callingCodes\":[\"44\"],\"capital\":\"Douglas\",\"altSpellings\":[\"IM\",\"Ellan Vannin\",\"Mann\",\"Mannin\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":84497,\"latlng\":[54.25,-4.5],\"demonym\":\"Manx\",\"area\":572.0,\"gini\":null,\"timezones\":[\"UTC+00:00\"],\"borders\":[],\"nativeName\":\"Isle of Man\",\"numericCode\":\"833\",\"currencies\":[{\"code\":\"GBP\",\"name\":\"British pound\",\"symbol\":\"\"},{\"code\":\"IMP[G]\",\"name\":\"Manx pound\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"},{\"iso639_1\":\"gv\",\"iso639_2\":\"glv\",\"name\":\"Manx\",\"nativeName\":\"Gaelg\"}],\"translations\":{\"de\":\"Insel Man\",\"es\":\"Isla de Man\",\"fr\":\"le de Man\",\"ja\":\"\",\"it\":\"Isola di Man\",\"br\":\"Ilha de Man\",\"pt\":\"Ilha de Man\",\"nl\":\"Isle of Man\",\"hr\":\"Otok Man\",\"fa\":\" \"},\"flag\":\"https://restcountries.eu/data/imn.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"\"},{\"name\":\"Italy\",\"topLevelDomain\":[\".it\"],\"alpha2Code\":\"IT\",\"alpha3Code\":\"ITA\",\"callingCodes\":[\"39\"],\"capital\":\"Rome\",\"altSpellings\":[\"IT\",\"Italian Republic\",\"Repubblica italiana\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":60665551,\"latlng\":[42.83333333,12.83333333],\"demonym\":\"Italian\",\"area\":301336.0,\"gini\":36.0,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"AUT\",\"FRA\",\"SMR\",\"SVN\",\"CHE\",\"VAT\"],\"nativeName\":\"Italia\",\"numericCode\":\"380\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"it\",\"iso639_2\":\"ita\",\"name\":\"Italian\",\"nativeName\":\"Italiano\"}],\"translations\":{\"de\":\"Italien\",\"es\":\"Italia\",\"fr\":\"Italie\",\"ja\":\"\",\"it\":\"Italia\",\"br\":\"Itlia\",\"pt\":\"Itlia\",\"nl\":\"Itali\",\"hr\":\"Italija\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/ita.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"ITA\"},{\"name\":\"Latvia\",\"topLevelDomain\":[\".lv\"],\"alpha2Code\":\"LV\",\"alpha3Code\":\"LVA\",\"callingCodes\":[\"371\"],\"capital\":\"Riga\",\"altSpellings\":[\"LV\",\"Republic of Latvia\",\"Latvijas Republika\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":1961600,\"latlng\":[57.0,25.0],\"demonym\":\"Latvian\",\"area\":64559.0,\"gini\":36.6,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"BLR\",\"EST\",\"LTU\",\"RUS\"],\"nativeName\":\"Latvija\",\"numericCode\":\"428\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"lv\",\"iso639_2\":\"lav\",\"name\":\"Latvian\",\"nativeName\":\"latvieu valoda\"}],\"translations\":{\"de\":\"Lettland\",\"es\":\"Letonia\",\"fr\":\"Lettonie\",\"ja\":\"\",\"it\":\"Lettonia\",\"br\":\"Letnia\",\"pt\":\"Letnia\",\"nl\":\"Letland\",\"hr\":\"Latvija\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/lva.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"LAT\"},{\"name\":\"Lithuania\",\"topLevelDomain\":[\".lt\"],\"alpha2Code\":\"LT\",\"alpha3Code\":\"LTU\",\"callingCodes\":[\"370\"],\"capital\":\"Vilnius\",\"altSpellings\":[\"LT\",\"Republic of Lithuania\",\"Lietuvos Respublika\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":2872294,\"latlng\":[56.0,24.0],\"demonym\":\"Lithuanian\",\"area\":65300.0,\"gini\":37.6,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"BLR\",\"LVA\",\"POL\",\"RUS\"],\"nativeName\":\"Lietuva\",\"numericCode\":\"440\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"lt\",\"iso639_2\":\"lit\",\"name\":\"Lithuanian\",\"nativeName\":\"lietuvi kalba\"}],\"translations\":{\"de\":\"Litauen\",\"es\":\"Lituania\",\"fr\":\"Lituanie\",\"ja\":\"\",\"it\":\"Lituania\",\"br\":\"Litunia\",\"pt\":\"Litunia\",\"nl\":\"Litouwen\",\"hr\":\"Litva\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/ltu.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"LTU\"},{\"name\":\"Luxembourg\",\"topLevelDomain\":[\".lu\"],\"alpha2Code\":\"LU\",\"alpha3Code\":\"LUX\",\"callingCodes\":[\"352\"],\"capital\":\"Luxembourg\",\"altSpellings\":[\"LU\",\"Grand Duchy of Luxembourg\",\"Grand-Duch de Luxembourg\",\"Groherzogtum Luxemburg\",\"Groussherzogtum Ltzebuerg\"],\"region\":\"Europe\",\"subregion\":\"Western Europe\",\"population\":576200,\"latlng\":[49.75,6.16666666],\"demonym\":\"Luxembourger\",\"area\":2586.0,\"gini\":30.8,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"BEL\",\"FRA\",\"DEU\"],\"nativeName\":\"Luxembourg\",\"numericCode\":\"442\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"},{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"},{\"iso639_1\":\"lb\",\"iso639_2\":\"ltz\",\"name\":\"Luxembourgish\",\"nativeName\":\"Ltzebuergesch\"}],\"translations\":{\"de\":\"Luxemburg\",\"es\":\"Luxemburgo\",\"fr\":\"Luxembourg\",\"ja\":\"\",\"it\":\"Lussemburgo\",\"br\":\"Luxemburgo\",\"pt\":\"Luxemburgo\",\"nl\":\"Luxemburg\",\"hr\":\"Luksemburg\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/lux.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"LUX\"},{\"name\":\"Malta\",\"topLevelDomain\":[\".mt\"],\"alpha2Code\":\"MT\",\"alpha3Code\":\"MLT\",\"callingCodes\":[\"356\"],\"capital\":\"Valletta\",\"altSpellings\":[\"MT\",\"Republic of Malta\",\"Repubblika ta' Malta\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":425384,\"latlng\":[35.83333333,14.58333333],\"demonym\":\"Maltese\",\"area\":316.0,\"gini\":null,\"timezones\":[\"UTC+01:00\"],\"borders\":[],\"nativeName\":\"Malta\",\"numericCode\":\"470\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"mt\",\"iso639_2\":\"mlt\",\"name\":\"Maltese\",\"nativeName\":\"Malti\"},{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"translations\":{\"de\":\"Malta\",\"es\":\"Malta\",\"fr\":\"Malte\",\"ja\":\"\",\"it\":\"Malta\",\"br\":\"Malta\",\"pt\":\"Malta\",\"nl\":\"Malta\",\"hr\":\"Malta\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/mlt.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"MLT\"},{\"name\":\"Netherlands\",\"topLevelDomain\":[\".nl\"],\"alpha2Code\":\"NL\",\"alpha3Code\":\"NLD\",\"callingCodes\":[\"31\"],\"capital\":\"Amsterdam\",\"altSpellings\":[\"NL\",\"Holland\",\"Nederland\"],\"region\":\"Europe\",\"subregion\":\"Western Europe\",\"population\":17019800,\"latlng\":[52.5,5.75],\"demonym\":\"Dutch\",\"area\":41850.0,\"gini\":30.9,\"timezones\":[\"UTC-04:00\",\"UTC+01:00\"],\"borders\":[\"BEL\",\"DEU\"],\"nativeName\":\"Nederland\",\"numericCode\":\"528\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"nl\",\"iso639_2\":\"nld\",\"name\":\"Dutch\",\"nativeName\":\"Nederlands\"}],\"translations\":{\"de\":\"Niederlande\",\"es\":\"Pases Bajos\",\"fr\":\"Pays-Bas\",\"ja\":\"\",\"it\":\"Paesi Bassi\",\"br\":\"Holanda\",\"pt\":\"Pases Baixos\",\"nl\":\"Nederland\",\"hr\":\"Nizozemska\",\"fa\":\" \"},\"flag\":\"https://restcountries.eu/data/nld.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"NED\"},{\"name\":\"Poland\",\"topLevelDomain\":[\".pl\"],\"alpha2Code\":\"PL\",\"alpha3Code\":\"POL\",\"callingCodes\":[\"48\"],\"capital\":\"Warsaw\",\"altSpellings\":[\"PL\",\"Republic of Poland\",\"Rzeczpospolita Polska\"],\"region\":\"Europe\",\"subregion\":\"Eastern Europe\",\"population\":38437239,\"latlng\":[52.0,20.0],\"demonym\":\"Polish\",\"area\":312679.0,\"gini\":34.1,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"BLR\",\"CZE\",\"DEU\",\"LTU\",\"RUS\",\"SVK\",\"UKR\"],\"nativeName\":\"Polska\",\"numericCode\":\"616\",\"currencies\":[{\"code\":\"PLN\",\"name\":\"Polish zoty\",\"symbol\":\"z\"}],\"languages\":[{\"iso639_1\":\"pl\",\"iso639_2\":\"pol\",\"name\":\"Polish\",\"nativeName\":\"jzyk polski\"}],\"translations\":{\"de\":\"Polen\",\"es\":\"Polonia\",\"fr\":\"Pologne\",\"ja\":\"\",\"it\":\"Polonia\",\"br\":\"Polnia\",\"pt\":\"Polnia\",\"nl\":\"Polen\",\"hr\":\"Poljska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/pol.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"POL\"},{\"name\":\"Portugal\",\"topLevelDomain\":[\".pt\"],\"alpha2Code\":\"PT\",\"alpha3Code\":\"PRT\",\"callingCodes\":[\"351\"],\"capital\":\"Lisbon\",\"altSpellings\":[\"PT\",\"Portuguesa\",\"Portuguese Republic\",\"Repblica Portuguesa\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":10374822,\"latlng\":[39.5,-8.0],\"demonym\":\"Portuguese\",\"area\":92090.0,\"gini\":38.5,\"timezones\":[\"UTC-01:00\",\"UTC\"],\"borders\":[\"ESP\"],\"nativeName\":\"Portugal\",\"numericCode\":\"620\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"pt\",\"iso639_2\":\"por\",\"name\":\"Portuguese\",\"nativeName\":\"Portugus\"}],\"translations\":{\"de\":\"Portugal\",\"es\":\"Portugal\",\"fr\":\"Portugal\",\"ja\":\"\",\"it\":\"Portogallo\",\"br\":\"Portugal\",\"pt\":\"Portugal\",\"nl\":\"Portugal\",\"hr\":\"Portugal\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/prt.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"POR\"},{\"name\":\"Romania\",\"topLevelDomain\":[\".ro\"],\"alpha2Code\":\"RO\",\"alpha3Code\":\"ROU\",\"callingCodes\":[\"40\"],\"capital\":\"Bucharest\",\"altSpellings\":[\"RO\",\"Rumania\",\"Roumania\",\"Romnia\"],\"region\":\"Europe\",\"subregion\":\"Eastern Europe\",\"population\":19861408,\"latlng\":[46.0,25.0],\"demonym\":\"Romanian\",\"area\":238391.0,\"gini\":30.0,\"timezones\":[\"UTC+02:00\"],\"borders\":[\"BGR\",\"HUN\",\"MDA\",\"SRB\",\"UKR\"],\"nativeName\":\"Romnia\",\"numericCode\":\"642\",\"currencies\":[{\"code\":\"RON\",\"name\":\"Romanian leu\",\"symbol\":\"lei\"}],\"languages\":[{\"iso639_1\":\"ro\",\"iso639_2\":\"ron\",\"name\":\"Romanian\",\"nativeName\":\"Romn\"}],\"translations\":{\"de\":\"Rumnien\",\"es\":\"Rumania\",\"fr\":\"Roumanie\",\"ja\":\"\",\"it\":\"Romania\",\"br\":\"Romnia\",\"pt\":\"Romnia\",\"nl\":\"Roemeni\",\"hr\":\"Rumunjska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/rou.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"ROU\"},{\"name\":\"Slovakia\",\"topLevelDomain\":[\".sk\"],\"alpha2Code\":\"SK\",\"alpha3Code\":\"SVK\",\"callingCodes\":[\"421\"],\"capital\":\"Bratislava\",\"altSpellings\":[\"SK\",\"Slovak Republic\",\"Slovensk republika\"],\"region\":\"Europe\",\"subregion\":\"Eastern Europe\",\"population\":5426252,\"latlng\":[48.66666666,19.5],\"demonym\":\"Slovak\",\"area\":49037.0,\"gini\":26.0,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"AUT\",\"CZE\",\"HUN\",\"POL\",\"UKR\"],\"nativeName\":\"Slovensko\",\"numericCode\":\"703\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"sk\",\"iso639_2\":\"slk\",\"name\":\"Slovak\",\"nativeName\":\"slovenina\"}],\"translations\":{\"de\":\"Slowakei\",\"es\":\"Repblica Eslovaca\",\"fr\":\"Slovaquie\",\"ja\":\"\",\"it\":\"Slovacchia\",\"br\":\"Eslovquia\",\"pt\":\"Eslovquia\",\"nl\":\"Slowakije\",\"hr\":\"Slovaka\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/svk.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"SVK\"},{\"name\":\"Slovenia\",\"topLevelDomain\":[\".si\"],\"alpha2Code\":\"SI\",\"alpha3Code\":\"SVN\",\"callingCodes\":[\"386\"],\"capital\":\"Ljubljana\",\"altSpellings\":[\"SI\",\"Republic of Slovenia\",\"Republika Slovenija\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":2064188,\"latlng\":[46.11666666,14.81666666],\"demonym\":\"Slovene\",\"area\":20273.0,\"gini\":31.2,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"AUT\",\"HRV\",\"ITA\",\"HUN\"],\"nativeName\":\"Slovenija\",\"numericCode\":\"705\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"sl\",\"iso639_2\":\"slv\",\"name\":\"Slovene\",\"nativeName\":\"slovenski jezik\"}],\"translations\":{\"de\":\"Slowenien\",\"es\":\"Eslovenia\",\"fr\":\"Slovnie\",\"ja\":\"\",\"it\":\"Slovenia\",\"br\":\"Eslovnia\",\"pt\":\"Eslovnia\",\"nl\":\"Sloveni\",\"hr\":\"Slovenija\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/svn.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"SLO\"},{\"name\":\"Spain\",\"topLevelDomain\":[\".es\"],\"alpha2Code\":\"ES\",\"alpha3Code\":\"ESP\",\"callingCodes\":[\"34\"],\"capital\":\"Madrid\",\"altSpellings\":[\"ES\",\"Kingdom of Spain\",\"Reino de Espaa\"],\"region\":\"Europe\",\"subregion\":\"Southern Europe\",\"population\":46438422,\"latlng\":[40.0,-4.0],\"demonym\":\"Spanish\",\"area\":505992.0,\"gini\":34.7,\"timezones\":[\"UTC\",\"UTC+01:00\"],\"borders\":[\"AND\",\"FRA\",\"GIB\",\"PRT\",\"MAR\"],\"nativeName\":\"Espaa\",\"numericCode\":\"724\",\"currencies\":[{\"code\":\"EUR\",\"name\":\"Euro\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"es\",\"iso639_2\":\"spa\",\"name\":\"Spanish\",\"nativeName\":\"Espaol\"}],\"translations\":{\"de\":\"Spanien\",\"es\":\"Espaa\",\"fr\":\"Espagne\",\"ja\":\"\",\"it\":\"Spagna\",\"br\":\"Espanha\",\"pt\":\"Espanha\",\"nl\":\"Spanje\",\"hr\":\"panjolska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/esp.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"ESP\"},{\"name\":\"Sweden\",\"topLevelDomain\":[\".se\"],\"alpha2Code\":\"SE\",\"alpha3Code\":\"SWE\",\"callingCodes\":[\"46\"],\"capital\":\"Stockholm\",\"altSpellings\":[\"SE\",\"Kingdom of Sweden\",\"Konungariket Sverige\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":9894888,\"latlng\":[62.0,15.0],\"demonym\":\"Swedish\",\"area\":450295.0,\"gini\":25.0,\"timezones\":[\"UTC+01:00\"],\"borders\":[\"FIN\",\"NOR\"],\"nativeName\":\"Sverige\",\"numericCode\":\"752\",\"currencies\":[{\"code\":\"SEK\",\"name\":\"Swedish krona\",\"symbol\":\"kr\"}],\"languages\":[{\"iso639_1\":\"sv\",\"iso639_2\":\"swe\",\"name\":\"Swedish\",\"nativeName\":\"svenska\"}],\"translations\":{\"de\":\"Schweden\",\"es\":\"Suecia\",\"fr\":\"Sude\",\"ja\":\"\",\"it\":\"Svezia\",\"br\":\"Sucia\",\"pt\":\"Sucia\",\"nl\":\"Zweden\",\"hr\":\"vedska\",\"fa\":\"\"},\"flag\":\"https://restcountries.eu/data/swe.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"SWE\"},{\"name\":\"United Kingdom of Great Britain and Northern Ireland\",\"topLevelDomain\":[\".uk\"],\"alpha2Code\":\"GB\",\"alpha3Code\":\"GBR\",\"callingCodes\":[\"44\"],\"capital\":\"London\",\"altSpellings\":[\"GB\",\"UK\",\"Great Britain\"],\"region\":\"Europe\",\"subregion\":\"Northern Europe\",\"population\":65110000,\"latlng\":[54.0,-2.0],\"demonym\":\"British\",\"area\":242900.0,\"gini\":34.0,\"timezones\":[\"UTC-08:00\",\"UTC-05:00\",\"UTC-04:00\",\"UTC-03:00\",\"UTC-02:00\",\"UTC\",\"UTC+01:00\",\"UTC+02:00\",\"UTC+06:00\"],\"borders\":[\"IRL\"],\"nativeName\":\"United Kingdom\",\"numericCode\":\"826\",\"currencies\":[{\"code\":\"GBP\",\"name\":\"British pound\",\"symbol\":\"\"}],\"languages\":[{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"translations\":{\"de\":\"Vereinigtes Knigreich\",\"es\":\"Reino Unido\",\"fr\":\"Royaume-Uni\",\"ja\":\"\",\"it\":\"Regno Unito\",\"br\":\"Reino Unido\",\"pt\":\"Reino Unido\",\"nl\":\"Verenigd Koninkrijk\",\"hr\":\"Ujedinjeno Kraljevstvo\",\"fa\":\"    \"},\"flag\":\"https://restcountries.eu/data/gbr.svg\",\"regionalBlocs\":[{\"acronym\":\"EU\",\"name\":\"European Union\",\"otherAcronyms\":[],\"otherNames\":[]}],\"cioc\":\"GBR\"}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "mutuallyExclusiveFieldsForRegionalBloc_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "c1b0b75c-9cf5-43c8-8f7a-bb034ab4693f",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "name;capital;population;area;currency;languages"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "6431",
+                        "Date": "Mon, 18 Aug 2025 11:54:29 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{\"languages\":[{\"iso639_1\":\"sv\",\"iso639_2\":\"swe\",\"name\":\"Swedish\",\"nativeName\":\"svenska\"}],\"name\":\"land Islands\",\"capital\":\"Mariehamn\",\"population\":28875,\"area\":1580.0},{\"languages\":[{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"}],\"name\":\"Austria\",\"capital\":\"Vienna\",\"population\":8725931,\"area\":83871.0},{\"languages\":[{\"iso639_1\":\"nl\",\"iso639_2\":\"nld\",\"name\":\"Dutch\",\"nativeName\":\"Nederlands\"},{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"},{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"}],\"name\":\"Belgium\",\"capital\":\"Brussels\",\"population\":11319511,\"area\":30528.0},{\"languages\":[{\"iso639_1\":\"bg\",\"iso639_2\":\"bul\",\"name\":\"Bulgarian\",\"nativeName\":\" \"}],\"name\":\"Bulgaria\",\"capital\":\"Sofia\",\"population\":7153784,\"area\":110879.0},{\"languages\":[{\"iso639_1\":\"hr\",\"iso639_2\":\"hrv\",\"name\":\"Croatian\",\"nativeName\":\"hrvatski jezik\"}],\"name\":\"Croatia\",\"capital\":\"Zagreb\",\"population\":4190669,\"area\":56594.0},{\"languages\":[{\"iso639_1\":\"el\",\"iso639_2\":\"ell\",\"name\":\"Greek (modern)\",\"nativeName\":\"\"},{\"iso639_1\":\"tr\",\"iso639_2\":\"tur\",\"name\":\"Turkish\",\"nativeName\":\"Trke\"},{\"iso639_1\":\"hy\",\"iso639_2\":\"hye\",\"name\":\"Armenian\",\"nativeName\":\"\"}],\"name\":\"Cyprus\",\"capital\":\"Nicosia\",\"population\":847000,\"area\":9251.0},{\"languages\":[{\"iso639_1\":\"cs\",\"iso639_2\":\"ces\",\"name\":\"Czech\",\"nativeName\":\"etina\"},{\"iso639_1\":\"sk\",\"iso639_2\":\"slk\",\"name\":\"Slovak\",\"nativeName\":\"slovenina\"}],\"name\":\"Czech Republic\",\"capital\":\"Prague\",\"population\":10558524,\"area\":78865.0},{\"languages\":[{\"iso639_1\":\"da\",\"iso639_2\":\"dan\",\"name\":\"Danish\",\"nativeName\":\"dansk\"}],\"name\":\"Denmark\",\"capital\":\"Copenhagen\",\"population\":5717014,\"area\":43094.0},{\"languages\":[{\"iso639_1\":\"et\",\"iso639_2\":\"est\",\"name\":\"Estonian\",\"nativeName\":\"eesti\"}],\"name\":\"Estonia\",\"capital\":\"Tallinn\",\"population\":1315944,\"area\":45227.0},{\"languages\":[{\"iso639_1\":\"fo\",\"iso639_2\":\"fao\",\"name\":\"Faroese\",\"nativeName\":\"froyskt\"}],\"name\":\"Faroe Islands\",\"capital\":\"Trshavn\",\"population\":49376,\"area\":1393.0},{\"languages\":[{\"iso639_1\":\"fi\",\"iso639_2\":\"fin\",\"name\":\"Finnish\",\"nativeName\":\"suomi\"},{\"iso639_1\":\"sv\",\"iso639_2\":\"swe\",\"name\":\"Swedish\",\"nativeName\":\"svenska\"}],\"name\":\"Finland\",\"capital\":\"Helsinki\",\"population\":5491817,\"area\":338424.0},{\"languages\":[{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"}],\"name\":\"France\",\"capital\":\"Paris\",\"population\":66710000,\"area\":640679.0},{\"languages\":[{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"}],\"name\":\"French Guiana\",\"capital\":\"Cayenne\",\"population\":254541},{\"languages\":[{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"}],\"name\":\"Germany\",\"capital\":\"Berlin\",\"population\":81770900,\"area\":357114.0},{\"languages\":[{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"name\":\"Gibraltar\",\"capital\":\"Gibraltar\",\"population\":33140,\"area\":6.0},{\"languages\":[{\"iso639_1\":\"el\",\"iso639_2\":\"ell\",\"name\":\"Greek (modern)\",\"nativeName\":\"\"}],\"name\":\"Greece\",\"capital\":\"Athens\",\"population\":10858018,\"area\":131990.0},{\"languages\":[{\"iso639_1\":\"hu\",\"iso639_2\":\"hun\",\"name\":\"Hungarian\",\"nativeName\":\"magyar\"}],\"name\":\"Hungary\",\"capital\":\"Budapest\",\"population\":9823000,\"area\":93028.0},{\"languages\":[{\"iso639_1\":\"ga\",\"iso639_2\":\"gle\",\"name\":\"Irish\",\"nativeName\":\"Gaeilge\"},{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"name\":\"Ireland\",\"capital\":\"Dublin\",\"population\":6378000,\"area\":70273.0},{\"languages\":[{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"},{\"iso639_1\":\"gv\",\"iso639_2\":\"glv\",\"name\":\"Manx\",\"nativeName\":\"Gaelg\"}],\"name\":\"Isle of Man\",\"capital\":\"Douglas\",\"population\":84497,\"area\":572.0},{\"languages\":[{\"iso639_1\":\"it\",\"iso639_2\":\"ita\",\"name\":\"Italian\",\"nativeName\":\"Italiano\"}],\"name\":\"Italy\",\"capital\":\"Rome\",\"population\":60665551,\"area\":301336.0},{\"languages\":[{\"iso639_1\":\"lv\",\"iso639_2\":\"lav\",\"name\":\"Latvian\",\"nativeName\":\"latvieu valoda\"}],\"name\":\"Latvia\",\"capital\":\"Riga\",\"population\":1961600,\"area\":64559.0},{\"languages\":[{\"iso639_1\":\"lt\",\"iso639_2\":\"lit\",\"name\":\"Lithuanian\",\"nativeName\":\"lietuvi kalba\"}],\"name\":\"Lithuania\",\"capital\":\"Vilnius\",\"population\":2872294,\"area\":65300.0},{\"languages\":[{\"iso639_1\":\"fr\",\"iso639_2\":\"fra\",\"name\":\"French\",\"nativeName\":\"franais\"},{\"iso639_1\":\"de\",\"iso639_2\":\"deu\",\"name\":\"German\",\"nativeName\":\"Deutsch\"},{\"iso639_1\":\"lb\",\"iso639_2\":\"ltz\",\"name\":\"Luxembourgish\",\"nativeName\":\"Ltzebuergesch\"}],\"name\":\"Luxembourg\",\"capital\":\"Luxembourg\",\"population\":576200,\"area\":2586.0},{\"languages\":[{\"iso639_1\":\"mt\",\"iso639_2\":\"mlt\",\"name\":\"Maltese\",\"nativeName\":\"Malti\"},{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"name\":\"Malta\",\"capital\":\"Valletta\",\"population\":425384,\"area\":316.0},{\"languages\":[{\"iso639_1\":\"nl\",\"iso639_2\":\"nld\",\"name\":\"Dutch\",\"nativeName\":\"Nederlands\"}],\"name\":\"Netherlands\",\"capital\":\"Amsterdam\",\"population\":17019800,\"area\":41850.0},{\"languages\":[{\"iso639_1\":\"pl\",\"iso639_2\":\"pol\",\"name\":\"Polish\",\"nativeName\":\"jzyk polski\"}],\"name\":\"Poland\",\"capital\":\"Warsaw\",\"population\":38437239,\"area\":312679.0},{\"languages\":[{\"iso639_1\":\"pt\",\"iso639_2\":\"por\",\"name\":\"Portuguese\",\"nativeName\":\"Portugus\"}],\"name\":\"Portugal\",\"capital\":\"Lisbon\",\"population\":10374822,\"area\":92090.0},{\"languages\":[{\"iso639_1\":\"ro\",\"iso639_2\":\"ron\",\"name\":\"Romanian\",\"nativeName\":\"Romn\"}],\"name\":\"Romania\",\"capital\":\"Bucharest\",\"population\":19861408,\"area\":238391.0},{\"languages\":[{\"iso639_1\":\"sk\",\"iso639_2\":\"slk\",\"name\":\"Slovak\",\"nativeName\":\"slovenina\"}],\"name\":\"Slovakia\",\"capital\":\"Bratislava\",\"population\":5426252,\"area\":49037.0},{\"languages\":[{\"iso639_1\":\"sl\",\"iso639_2\":\"slv\",\"name\":\"Slovene\",\"nativeName\":\"slovenski jezik\"}],\"name\":\"Slovenia\",\"capital\":\"Ljubljana\",\"population\":2064188,\"area\":20273.0},{\"languages\":[{\"iso639_1\":\"es\",\"iso639_2\":\"spa\",\"name\":\"Spanish\",\"nativeName\":\"Espaol\"}],\"name\":\"Spain\",\"capital\":\"Madrid\",\"population\":46438422,\"area\":505992.0},{\"languages\":[{\"iso639_1\":\"sv\",\"iso639_2\":\"swe\",\"name\":\"Swedish\",\"nativeName\":\"svenska\"}],\"name\":\"Sweden\",\"capital\":\"Stockholm\",\"population\":9894888,\"area\":450295.0},{\"languages\":[{\"iso639_1\":\"en\",\"iso639_2\":\"eng\",\"name\":\"English\",\"nativeName\":\"English\"}],\"name\":\"United Kingdom of Great Britain and Northern Ireland\",\"capital\":\"London\",\"population\":65110000,\"area\":242900.0}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "deprecatedRegionalBloc_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "ee8c7ff8-c4c8-4a3a-97d1-225dcb052612",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "name;capital;population;area"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EFTA",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "302",
+                        "Date": "Mon, 18 Aug 2025 11:54:30 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{\"name\":\"Iceland\",\"capital\":\"Reykjavk\",\"population\":334300,\"area\":103000.0},{\"name\":\"Liechtenstein\",\"capital\":\"Vaduz\",\"population\":37623,\"area\":160.0},{\"name\":\"Norway\",\"capital\":\"Oslo\",\"population\":5223256,\"area\":323802.0},{\"name\":\"Switzerland\",\"capital\":\"Bern\",\"population\":8341600,\"area\":41284.0}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "unsupportedFieldForRegionalBloc_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "0e32d778-3f1d-4097-affb-2a0e584635ef",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "gdpPerCapita"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "100",
+                        "Date": "Mon, 18 Aug 2025 11:54:31 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "invalidFieldsForRegionalBloc_FU",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "9adfef7a-09b5-4af9-aace-9576bd4d0ff9",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "currency"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "100",
+                        "Date": "Mon, 18 Aug 2025 11:54:32 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]"
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "missingRegionalblocPathParameter_ST",
+            "success": true,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "914843c7-212a-48c1-b3b8-d483d0bb66b6",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ""
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "name;capital;population;area"
+                                }
+                            ],
+                            "variable": []
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": true,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": null
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Length": "0",
+                        "Date": "Mon, 18 Aug 2025 11:54:33 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": ""
+                }
+            ],
+            "has_server_error": false
+        },
+        {
+            "test_case_name": "fieldsWithInvalidCharacters_ST",
+            "success": false,
+            "requests": [
+                {
+                    "name": "v2Regionalbloc",
+                    "id": "96e33057-0dfc-4507-afcd-4ab4270274bc",
+                    "data": {
+                        "url": {
+                            "path": [
+                                "v2",
+                                "regionalbloc",
+                                ":regionalbloc"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [
+                                {
+                                    "key": "fields",
+                                    "value": "name,capital,population,area$"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "type": "any",
+                                    "value": "EU",
+                                    "key": "regionalbloc"
+                                }
+                            ]
+                        },
+                        "header": [],
+                        "method": "GET",
+                        "body": {
+                            "mode": "",
+                            "raw": "",
+                            "options": {}
+                        }
+                    },
+                    "success": false,
+                    "assertions": [
+                        {
+                            "assertion": "Response status code is 4xx",
+                            "error": {
+                                "name": "AssertionError",
+                                "index": 0,
+                                "test": "Response status code is 4xx",
+                                "message": "expected 200 to be within 400..499",
+                                "stack": "AssertionError: expected 200 to be within 400..499\n   at Object.eval sandbox-script.js:1:1)"
+                            }
+                        }
+                    ],
+                    "is_server_error": false,
+                    "response_headers": {
+                        "Content-Type": "application/json;charset=utf-8",
+                        "Content-Length": "100",
+                        "Date": "Mon, 18 Aug 2025 11:54:34 GMT",
+                        "Keep-Alive": "timeout=60",
+                        "Connection": "keep-alive"
+                    },
+                    "response_body": "[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]"
+                }
+            ],
+            "has_server_error": false
+        }
+    ],
+    "success": false,
+    "timestamp": "2025-08-18T11:54:34.755959",
+    "statistics": {
+        "total_test_cases": 10,
+        "passed_test_cases": 3,
+        "failed_test_cases": 7,
+        "test_cases_with_server_errors": 0,
+        "total_requests": 10,
+        "success_rate": 30.0,
+        "avg_requests_per_case": 1.0
+    }
+}

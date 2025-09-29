@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenomeNexusAnnotation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Genome Nexus Web App</a> &gt; <a href="index.source.html" class="el_package">org.cbioportal.genome_nexus</a> &gt; <span class="el_source">GenomeNexusAnnotation.java</span></div><h1>GenomeNexusAnnotation.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (c) 2015 Memorial Sloan-Kettering Cancer Center.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS
+ * FOR A PARTICULAR PURPOSE. The software and documentation provided hereunder
+ * is on an &quot;as is&quot; basis, and Memorial Sloan-Kettering Cancer Center has no
+ * obligations to provide maintenance, support, updates, enhancements or
+ * modifications. In no event shall Memorial Sloan-Kettering Cancer Center be
+ * liable to any party for direct, indirect, special, incidental or
+ * consequential damages, including lost profits, arising out of the use of this
+ * software and its documentation, even if Memorial Sloan-Kettering Cancer
+ * Center has been advised of the possibility of such damage.
+ */
+
+/*
+ * This file is part of cBioPortal Genome Nexus.
+ *
+ * cBioPortal is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+
+package org.cbioportal.genome_nexus;
+
+import org.cbioportal.genome_nexus.web.config.ApiObjectMapper;
+import org.cbioportal.genome_nexus.web.config.InternalApi;
+import org.cbioportal.genome_nexus.web.config.PublicApi;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+/**
+ * @author Benjamin Gross
+ */
+@Controller
+@SpringBootApplication(scanBasePackages = &quot;org.cbioportal.genome_nexus&quot;) // shorthand for @Configuration, @EnableAutoConfiguration, @ComponentScan
+@EnableCaching
+@EnableSwagger2 // enable swagger2 documentation
+<span class="fc" id="L69">public class GenomeNexusAnnotation extends SpringBootServletInitializer implements ErrorController</span>
+{
+    public static void main(String[] args)
+    {
+<span class="fc" id="L73">        SpringApplication.run(GenomeNexusAnnotation.class, args);</span>
+<span class="fc" id="L74">    }</span>
+
+    @Bean
+    public HandlerExceptionResolver sentryExceptionResolver() {
+<span class="fc" id="L78">        return new io.sentry.spring.SentryExceptionResolver();</span>
+    }
+
+    @Bean
+    public Docket publicApi() {
+        // default swagger definition file location: &lt;root&gt;/v2/api-docs?group=variant_annotation
+        // default swagger UI location: &lt;root&gt;/swagger-ui.html
+<span class="fc" id="L85">        return new Docket(DocumentationType.SWAGGER_2)</span>
+<span class="fc" id="L86">            .select()</span>
+<span class="fc" id="L87">            .apis(RequestHandlerSelectors.withClassAnnotation(PublicApi.class))</span>
+<span class="fc" id="L88">            .build()</span>
+<span class="fc" id="L89">            .useDefaultResponseMessages(false)</span>
+<span class="fc" id="L90">            .protocols(new HashSet&lt;&gt;(Arrays.asList(&quot;http&quot;, &quot;https&quot;)))</span>
+<span class="fc" id="L91">            .apiInfo(apiInfo());</span>
+    }
+
+    @Bean
+    public Docket internalApi() {
+<span class="fc" id="L96">        return new Docket(DocumentationType.SWAGGER_2).groupName(&quot;internal&quot;)</span>
+<span class="fc" id="L97">            .select()</span>
+<span class="fc" id="L98">            .apis(RequestHandlerSelectors.withClassAnnotation(InternalApi.class))</span>
+<span class="fc" id="L99">            .build()</span>
+<span class="fc" id="L100">            .useDefaultResponseMessages(false)</span>
+<span class="fc" id="L101">            .protocols(new HashSet&lt;&gt;(Arrays.asList(&quot;http&quot;, &quot;https&quot;)))</span>
+<span class="fc" id="L102">            .apiInfo(apiInfo());</span>
+    }
+
+    @Bean
+    public MappingJackson2HttpMessageConverter messageConverter() {
+<span class="fc" id="L107">        return new MappingJackson2HttpMessageConverter(new ApiObjectMapper());</span>
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+<span class="fc" id="L112">        return new RestTemplate();</span>
+    }
+
+    private ApiInfo apiInfo() {
+<span class="fc" id="L116">        return new ApiInfoBuilder()</span>
+<span class="fc" id="L117">            .title(&quot;Genome Nexus API&quot;)</span>
+<span class="fc" id="L118">            .description(&quot;This page shows how to use HTTP requests to &quot; +</span>
+                    &quot;access the Genome Nexus API. There are more high level &quot; +
+                    &quot;clients available in Python, R, JavaScript, TypeScript &quot; +
+                    &quot;and various other languages as well as a command line &quot; +
+                    &quot;client to annotate MAF and VCF. See &quot; +
+                    &quot;https://docs.genomenexus.org/api.\n\nAside from &quot; +
+                    &quot;programmatic clients there are web based tools to annotate &quot; +
+                    &quot;variants, see https://docs.genomenexus.org/tools.\n\n &quot; +
+                    &quot;We currently only provide long-term support for the &quot; +
+                    &quot;'/annotation' endpoint. The other endpoints might &quot; +
+                    &quot;change.&quot;)
+            //.termsOfServiceUrl(&quot;http://terms-of-service-url&quot;)
+<span class="fc" id="L130">            .license(&quot;MIT License&quot;)</span>
+<span class="fc" id="L131">            .licenseUrl(&quot;https://github.com/genome-nexus/genome-nexus/blob/master/LICENSE&quot;)</span>
+<span class="fc" id="L132">            .version(&quot;2.0&quot;)</span>
+<span class="fc" id="L133">            .build();</span>
+    }
+
+    private static final String PATH = &quot;/error&quot;;
+
+    @RequestMapping(value = PATH)
+    @ResponseStatus(HttpStatus.OK)
+    public String error() {
+<span class="fc" id="L141">        return &quot;forward:/&quot;;</span>
+    }
+
+    @Override
+    public String getErrorPath() {
+<span class="nc" id="L146">        return PATH;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

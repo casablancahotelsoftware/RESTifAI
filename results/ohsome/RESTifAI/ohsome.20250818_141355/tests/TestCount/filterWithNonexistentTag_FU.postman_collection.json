@@ -1,0 +1,87 @@
+{
+    "info": {
+        "name": "filterWithNonexistentTag_FU",
+        "description": "Set the `filter` parameter to a filter that references a non-existent tag key, e.g., 'type:way and nonexistenttag=value', which is logically invalid as the tag does not exist in the data model.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "count",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count?bboxes=8.67,49.39,8.71,49.42&filter=type%3Away%20and%20nonexistenttag%3Dvalue&format=json&showMetadata=false&time=2014-01-01/2017-01",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "8.67,49.39,8.71,49.42"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%3Away%20and%20nonexistenttag%3Dvalue"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "false"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2014-01-01/2017-01"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('count.request.query_params.bboxes', '8.67,49.39,8.71,49.42');",
+                            "pm.collectionVariables.set('count.request.query_params.filter', 'type%3Away%20and%20nonexistenttag%3Dvalue');",
+                            "pm.collectionVariables.set('count.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('count.request.query_params.showMetadata', 'false');",
+                            "pm.collectionVariables.set('count.request.query_params.time', '2014-01-01/2017-01');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "info": {
+        "name": "outOfBoundsBboxes_FU",
+        "description": "Set the `bboxes` parameter to coordinates that define an area outside the supported geographic extent or invalid geographic region, e.g., coordinates in the middle of the ocean or outside valid lat/lon ranges, to test rejection of out-of-bounds spatial queries.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "countGroupByBoundaryGroupByTag",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": null,
+                "cookies": [],
+                "url": {
+                    "raw": "{{baseUrl}}/elements/count/groupBy/boundary/groupBy/tag?bboxes=-200.0000,95.0000,-190.0000,96.0000|150.0000,-100.0000,151.0000,-99.0000&filter=type%20%3D%20way%20and%20geometry%20%3D%20Polygon%20and%20building%20%3D%20%2A&format=json&groupByKey=highway&groupByValues=primary,residential&showMetadata=true&time=2024-06-01T00:00:00Z&timeout=30",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "elements",
+                        "count",
+                        "groupBy",
+                        "boundary",
+                        "groupBy",
+                        "tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "bboxes",
+                            "value": "-200.0000,95.0000,-190.0000,96.0000|150.0000,-100.0000,151.0000,-99.0000"
+                        },
+                        {
+                            "key": "filter",
+                            "value": "type%20%3D%20way%20and%20geometry%20%3D%20Polygon%20and%20building%20%3D%20%2A"
+                        },
+                        {
+                            "key": "format",
+                            "value": "json"
+                        },
+                        {
+                            "key": "groupByKey",
+                            "value": "highway"
+                        },
+                        {
+                            "key": "groupByValues",
+                            "value": "primary,residential"
+                        },
+                        {
+                            "key": "showMetadata",
+                            "value": "true"
+                        },
+                        {
+                            "key": "time",
+                            "value": "2024-06-01T00:00:00Z"
+                        },
+                        {
+                            "key": "timeout",
+                            "value": "30"
+                        }
+                    ]
+                }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Response status code is 4xx', function () {",
+                            "    pm.expect(pm.response.code || pm.response.status).to.be.within(400, 499);",
+                            "});"
+                        ]
+                    }
+                },
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.bboxes', '-200.0000,95.0000,-190.0000,96.0000|150.0000,-100.0000,151.0000,-99.0000');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.filter', 'type%20%3D%20way%20and%20geometry%20%3D%20Polygon%20and%20building%20%3D%20%2A');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.format', 'json');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.groupByKey', 'highway');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.groupByValues', 'primary,residential');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.showMetadata', 'true');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.time', '2024-06-01T00:00:00Z');",
+                            "pm.collectionVariables.set('countGroupByBoundaryGroupByTag.request.query_params.timeout', '30');"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "pm.environment.set('baseUrl', 'https://api.ohsome.org/v1');"
+                ]
+            }
+        }
+    ]
+}
