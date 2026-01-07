@@ -176,3 +176,20 @@ During the execution of LogiAgent, occasional 500 errors were encountered. These
 This work was supported by and done within the scope of the ITEA4
 GENIUS project, which was national funded by FFG with grant
 921454.
+
+## Cite this paper 
+
+@ARTICLE{Kogler2025-gx,
+  title         = "{RESTifAI}: {LLM-Based} Workflow for Reusable {REST} {API}
+                   Testing",
+  author        = "Kogler, Leon and Ehrhart, Maximilian and Dornauer, Benedikt
+                   and Enoiu, Eduard Paul",
+  month         =  dec,
+  year          =  2025,
+  copyright     = "http://creativecommons.org/licenses/by/4.0/",
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.SE",
+  eprint        = "2512.08706"
+}
+
+The paper was accepted for ICSE 2025 - DOI follows. 
