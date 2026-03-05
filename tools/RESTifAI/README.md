@@ -37,32 +37,7 @@ These scripts should ensure, for example, that the database is set to a known st
 
 If the service is initialized with pre-provisioned data, you can provide the tool with information about this data via the user input arguments to use this information for happy path generation. 
 
-## Docker Usage (CLI only)
-
-### Building the Docker Container
-
-```bash
-# Build the Docker image
-docker compose build
-```
-
-### Running with Docker Compose
-
-```bash
-# Start the container
-docker compose up -d
-
-# Run test generation
-docker compose exec restifai uv run python ./src/cli_scripts/generate_tests.py --help
-
-# View logs
-docker compose logs restifai
-
-# Stop the container
-docker compose down
-```
-
-## Without docker (CLI/GUI)
+## Without docker (Recommended for using GUI)
 
 ### Prerequisites
 - **Python 3.11+**
@@ -110,6 +85,31 @@ python3 ./src/cli_scripts/generate_tests.py --help
 python3 ./src/cli_scripts/generate_tests.py -s specifications/openapi.json -u http://localhost:8080
 # Or with optional environment setup script and optional user input
 python3 ./src/cli_scripts/generate_tests.py -s specifications/openapi.json -u http://localhost:8080 -e env_init_scripts/env_init.sh -i "custom user input used for happy path generation"
+```
+
+## Docker Usage (CLI only / Not recommended)
+
+### Building the Docker Container
+
+```bash
+# Build the Docker image
+docker compose build
+```
+
+### Running with Docker Compose
+
+```bash
+# Start the container
+docker compose up -d
+
+# Run test generation
+docker compose exec restifai uv run python ./src/cli_scripts/generate_tests.py --help
+
+# View logs
+docker compose logs restifai
+
+# Stop the container
+docker compose down
 ```
 
 ### MCP Server
