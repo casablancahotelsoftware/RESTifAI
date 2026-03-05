@@ -18,6 +18,5 @@ RUN uv sync
 RUN mkdir -p /app/output && chmod 777 /app/output
 ENV PYTHONPATH=/app
 ENV UV_PROJECT_ENVIRONMENT=/app/.venv
-ENTRYPOINT ["uv", "run", "python", "src/cli_scripts/generate_tests.py"]
-CMD []
+CMD ["sleep", "infinity"]
  
