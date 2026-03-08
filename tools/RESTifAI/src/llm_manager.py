@@ -126,7 +126,18 @@ class LLMManager:
             self.model.invoke("Is the LLM running?")
             return True
         except Exception as e:
-            print(f"LLM is not running: {e}")
+            # Print full config context to help diagnose 404 / auth errors
+            if isinstance(self.model, AzureChatOpenAI):
+                print(f"LLM is not running (Azure OpenAI):")
+                print(f"  Endpoint    : {os.getenv('AZURE_OPENAI_ENDPOINT', '<not set>')}")
+                print(f"  Deployment  : {os.getenv('AZURE_OPENAI_DEPLOYMENT', '<not set>')}")
+                print(f"  API version : {os.getenv('AZURE_OPENAI_API_VERSION', '<not set>')}")
+                print(f"  Key set     : {'yes' if os.getenv('AZURE_OPENAI_API_KEY') else 'NO'}")
+            else:
+                print(f"LLM is not running (OpenAI):")
+                print(f"  Model  : {os.getenv('OPENAI_MODEL_NAME', '<not set>')}")
+                print(f"  Key set: {'yes' if os.getenv('OPENAI_API_KEY') else 'NO'}")
+            print(f"  Error: {e}")
             return False
 
     @staticmethod
